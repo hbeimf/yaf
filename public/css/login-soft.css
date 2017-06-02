@@ -9,21 +9,21 @@ Login page
 
 .login .logo {
   width: 247px;
-  margin: 0 auto;   
+  margin: 0 auto;
   margin-top:60px;
   padding: 15px;
   text-align: center;
-}  
+}
 
 
 .login .content {
-  background: url(../image/bg-white-lock.png) repeat;
+  background: url(/image/bg-white-lock.png) repeat;
   width: 291px;
-  margin: 0 auto; 
+  margin: 0 auto;
   margin-bottom: 0px;
-  padding: 30px;  
-  padding-top: 20px;  
-  padding-bottom: 15px;  
+  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
 
 .login .content h3 {
@@ -54,7 +54,7 @@ Login page
   margin-bottom: 20px !important;
 }
 
-.login .content .input-icon .m-wrap {  
+.login .content .input-icon .m-wrap {
   margin: 0px !important;
 }
 
@@ -85,7 +85,7 @@ Login page
   border: 0;
   margin-bottom: 0;
   padding-bottom: 20px;
-}  
+}
 
 .login .content .register-form .form-actions {
   border: 0;
@@ -120,7 +120,7 @@ Login page
 .login .copyright {
   text-align: center;
   width: 270px;
-  margin: 0 auto; 
+  margin: 0 auto;
   padding: 10px 10px 0 10px;
   color: #eee;
   font-size: 12px;
@@ -135,7 +135,7 @@ Login page
   }
 
   .login .content {
-    padding: 30px; 
+    padding: 30px;
     width: 222px;
   }
 

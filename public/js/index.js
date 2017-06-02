@@ -126,7 +126,7 @@ var Index = function () {
                         center: '',
                         right: 'prev,next,today,month,agendaWeek,agendaDay'
                     };
-                }               
+                }
             }
 
             $('#calendar').fullCalendar('destroy'); // destroy the calendar
@@ -135,7 +135,7 @@ var Index = function () {
                 header: h,
                 editable: true,
                 events: [{
-                        title: 'All Day Event',                        
+                        title: 'All Day Event',
                         start: new Date(y, m, 1),
                         backgroundColor: App.getLayoutColorCode('yellow')
                     }, {
@@ -357,13 +357,13 @@ var Index = function () {
                         previousPoint = null;
                     }
                 });
-            }               
+            }
 
             if ($('#load_statistics').size() != 0) {
                  //server load
                 $('#load_statistics_loading').hide();
                 $('#load_statistics_content').show();
-        
+
                 var updateInterval = 30;
                 var plot_statistics = $.plot($("#load_statistics"), [getRandomData()], {
                 series: {
@@ -398,14 +398,14 @@ var Index = function () {
                     borderWidth: 0
                 }
                 });
-                
+
                 function statisticsUpdate() {
                 plot_statistics.setData([getRandomData()]);
                 plot_statistics.draw();
                 setTimeout(statisticsUpdate, updateInterval);
-                
+
                 }
-                
+
                 statisticsUpdate();
 
                 $('#load_statistics').bind("mouseleave", function () {
@@ -534,7 +534,7 @@ var Index = function () {
         },
 
         initMiniCharts: function () {
-             
+
             $('.easy-pie-chart .number.transactions').easyPieChart({
                 animate: 1000,
                 size: 75,
@@ -548,7 +548,7 @@ var Index = function () {
                 lineWidth: 3,
                 barColor: App.getLayoutColorCode('green')
             });
-             
+
             $('.easy-pie-chart .number.bounce').easyPieChart({
                 animate: 1000,
                 size: 75,
@@ -563,7 +563,7 @@ var Index = function () {
                     $('span', this).text(newValue);
                 });
             });
-               
+
             $("#sparkline_bar").sparkline([8,9,10,11,10,10,12,10,10,11,9,12,11,10,9,11,13,13,12], {
                 type: 'bar',
                 width: '100',
@@ -601,7 +601,7 @@ var Index = function () {
 
             var handleClick = function (e) {
                 e.preventDefault();
-                
+
                 var text = input.val();
                 if (text.length == 0) {
                     return;
@@ -720,7 +720,7 @@ var Index = function () {
                     // (string | mandatory) the text inside the notification
                     text: 'Metronic is a brand new Responsive Admin Dashboard Template you have always been looking for!',
                     // (string | optional) the image to display on the left
-                    image: './assets/img/avatar1.jpg',
+                    image: '/image/avatar1.jpg',
                     // (bool | optional) if you want it to fade out on its own or just sit there
                     sticky: true,
                     // (int | optional) the time you want it to be alive for before fading out
@@ -745,7 +745,7 @@ var Index = function () {
                     // (string | mandatory) the text inside the notification
                     text: 'Metronic comes with a huge collection of reusable and easy customizable UI components and plugins. Buy Metronic today!',
                     // (string | optional) the image to display on the left
-                    image: './assets/img/avatar1.jpg',
+                    image: '/image/avatar1.jpg',
                     // (bool | optional) if you want it to fade out on its own or just sit there
                     sticky: true,
                     // (int | optional) the time you want it to be alive for before fading out
@@ -781,7 +781,7 @@ var Index = function () {
                     // (string | mandatory) the text inside the notification
                     text: 'Metronic allows you to easily customize the theme colors and layout settings.',
                     // (string | optional) the image to display on the left
-                    image1: './assets/img/avatar1.png',
+                    image1: '/image/avatar1.png',
                     // (bool | optional) if you want it to fade out on its own or just sit there
                     sticky: true,
                     // (int | optional) the time you want it to be alive for before fading out
@@ -816,7 +816,7 @@ var Index = function () {
                     // (string | mandatory) the text inside the notification
                     text: 'You have 3 new notifications.',
                     // (string | optional) the image to display on the left
-                    image1: './assets/img/image1.jpg',
+                    image1: '/image/image1.jpg',
                     // (bool | optional) if you want it to fade out on its own or just sit there
                     sticky: true,
                     // (int | optional) the time you want it to be alive for before fading out
@@ -859,7 +859,7 @@ var Index = function () {
                     // (string | mandatory) the text inside the notification
                     text: 'You have 2 new messages in your inbox.',
                     // (string | optional) the image to display on the left
-                    image1: './assets/img/avatar1.jpg',
+                    image1: '/image/avatar1.jpg',
                     // (bool | optional) if you want it to fade out on its own or just sit there
                     sticky: true,
                     // (int | optional) the time you want it to be alive for before fading out
