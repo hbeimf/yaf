@@ -1,2 +1,3 @@
 *.log
 public/resource/*.html
+cache/compile_dir/*

@@ -7,6 +7,7 @@ class View
     private $_smarty = null;
     private function __construct()
     {
+        Smarty::muteExpectedErrors();
         $this->_smarty = new Smarty();
 
         $root_dir = rtrim($_SERVER['DOCUMENT_ROOT'], 'public');
@@ -14,6 +15,8 @@ class View
         // echo $root_dir;exit;
 
         $this->_smarty->template_dir = $root_dir . "application/views/";
+
+        // echo $root_dir . "application/views/";exit;
         //$this->_smarty->compile_dir = $root_dir . "/Application/library/Smarty/compile_dir/";
 
         $this->_smarty->compile_dir = $root_dir . "cache/compile_dir/";
