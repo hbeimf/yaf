@@ -127,3 +127,25 @@ try {
 改造来源
 
 https://github.com/molaifeng/yaf_eloquent
+
+
+
+http://yaf.demo.com/info.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
