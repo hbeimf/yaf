@@ -11,7 +11,9 @@ class IndexController extends AbstractController
         // $this->getView()->assign("content", "Hello World");
         // $this->getView()->display('index/index.html');
 
-        $this->getView()->display('demo/index.html');
+        // $this->getView()->display('demo/index.html');
+        $data = [];
+        $this->smarty->display('index/index.tpl', $data);
     }
 
 }

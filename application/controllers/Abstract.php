@@ -15,9 +15,12 @@ abstract class AbstractController extends Yaf_Controller_Abstract
         // header("Content-Type:text/html;charset=utf-8");
         // session_start();
 
-        // echo "hello world!";exit;
-        // todo
+        $this->_init_request_and_smarty();
+    }
 
+    protected function _init_request_and_smarty(){
+        $this->request = Yaf_Dispatcher::getInstance()->getRequest();
+        $this->smarty = View::getInstance();
     }
 
     /**
