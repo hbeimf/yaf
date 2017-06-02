@@ -12,7 +12,7 @@ class DemoController extends AbstractController
     // http://yaf.demo.com/demo/index
     public function indexAction()
     {
-        $this->getView()->assign("content", "Hello World");
+        // $this->getView()->assign("content", "Hello World");
         $this->getView()->display('demo/index.html');
     }
 
