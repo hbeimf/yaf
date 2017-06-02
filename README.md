@@ -132,16 +132,44 @@ https://github.com/molaifeng/yaf_eloquent
 
 http://yaf.demo.com/info.php
 
+PHP Version 5.6.9
+yaf-2.3.4
 
 
 
+安装yaf扩展
+
+/usr/local/php/bin/phpize
+./configure --with-php-config=/usr/local/php/bin/php-config
+make && make install
+#完成安装
 
 
+/usr/local/php/lib/php/extensions/no-debug-non-zts-20131226/
+
+sudo vim /usr/local/php/etc/php.ini
+
+大概是这个行数
+
+ 734 extension_dir = "/usr/local/php/lib/php/extensions/no-debug-non-zts-20131226/"
+ 735 extension=memcache.so
+ 736 extension=phalcon.so
+ 737 extension=yaml.so
+ 738 extension=redis.so
+ 739 extension=amqp.so
+ 740 extension=swoole.so
+ 741 extension=zookeeper.so
+ 742 extension=yaf.so
+
+重启php网关
+sudo /etc/init.d/php-fpm restart
+
+安装完成
 
 
-
-
-
+http://yaf.demo.com/
+会看到
+hello world!
 
 
 
