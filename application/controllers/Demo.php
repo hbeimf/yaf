@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager as DB;
+// use User;
 
+// https://docs.golaravel.com/docs/5.0/eloquent/
+// orm online doc
 class DemoController extends AbstractController
 {
 
@@ -9,33 +12,56 @@ class DemoController extends AbstractController
     // http://yaf.demo.com/demo/index
     public function indexAction()
     {
-
-        $user = DB::table('users')->where('username', 'molaifeng1')->first();
-        var_dump($user);exit;
-
-
-
-
-
-
-
-//        $test = new UserModel();
-//        $data = $test->getInfo();
-//        print_r($data);
-//exit;
-//        $this->getView()->assign("content", "Hello World");
-        $this->getView()->display('layout/index.html');
+        $this->getView()->assign("content", "Hello World");
+        $this->getView()->display('index/index.html');
     }
 
-    // http://yaf.demo.com/demo/test
-    public function testAction() {
-        var_dump("test action");exit;
+
+    // http://yaf.demo.com/demo/insert
+    public function insertAction() {
+
+        $name = 'xiaomin'.time();
+        $email = 'xiaomin@foxmail.com'.time();
+
+        DB::table('users')->insert([
+           array('username' => $name,
+            'email' => $email,
+            'created_at'=>date("Y-m-d H:i:s", time()),
+            'updated_at'=>date("Y-m-d H:i:s", time()))
+        ]);
+
+        var_dump('insert');
+        exit;
     }
 
+    // http://yaf.demo.com/demo/delete
+    public function deleteAction() {
+        if ($user = User::find(2)) {
+            var_dump($user->delete());
+        } else {
+            echo "xx <br /> ";
+        }
+
+
+        $affectedRows = User::where('id', '<=', 4)->delete();
+        var_dump($affectedRows);
+        exit;
+    }
+
+    // http://yaf.demo.com/demo/update
+    public function updateAction(){
+        $user = User::find(6);
+
+        $user->email = 'john@foo.com';
+
+        var_dump($user->save());
+
+        exit;
+    }
 
     // http://yaf.demo.com/demo/select
     public function selectAction(){
-        $user = DB::table('users')->where('username', 'molaifeng1')->first();
+        $user = DB::table('users')->where('username', 'xxx')->first();
         p($user);
 
 
@@ -56,7 +82,7 @@ class DemoController extends AbstractController
         p($users);
 
         $admin = DB::table('users')
-               ->whereIdAndEmail(1, 'molaifeng1@foxmail.com')
+               ->whereIdAndEmail(1, 'xxx@foxmail.com')
                ->first();
         p($admin);
 
@@ -64,7 +90,7 @@ class DemoController extends AbstractController
            DB::beginTransaction();
            $users = DB::table('users')
                        ->select('username as name', 'email')
-                       ->where('username', 'molaifeng1')
+                       ->where('username', 'xxx')
                        ->orwhere('username', 'overtrue')
                        ->get();
            DB::commit();
@@ -76,21 +102,53 @@ class DemoController extends AbstractController
         exit;
     }
 
-    // http://yaf.demo.com/demo/insert
-    public function insertAction() {
+    // http://www.cnblogs.com/brudeke/p/4227711.html
+    // http://yaf.demo.com/demo/page
+    // SELECT
+    //  users.sNmame,
+    //  users.iCreateTime,
+    //  users_ext.iAge,
+    //  users_ext.sSex
+    // FROM
+    //  users
+    // LEFT JOIN users_ext ON users.iAutoId = users_ext.iUserID
+    // WHERE
+    //   users.iStatus = 1
+    // AND users_ext.sSex = 0
+    // ORDER BY
+    //   users.iCreateTime
+    // LIMIT 0,1
+    public function pageAction() {
+         // $select = 'users.sNmame,users.iCreateTime,users_ext.iAge,users_ext.sSex';
+         // $resData = User::selectRaw($select)
+         //            ->leftJoin('users_ext','users.iAutoId','=','users_ext.iUserID')
+         //            ->where('users.iStatus','=',1)
+         //            ->where('users_ext.sSex','=',0)
+         //            ->skip(0)
+         //            ->limit(1)
+         //            ->get();
+         // var_dump($resData->toArray());
 
-            $name = 'xiaomin'.time();
-            $email = 'xiaomin@foxmail.com'.time();
+        $page = 5;
+        $pageSize = 3;
 
-            DB::table('users')->insert([
-               array('username' => $name,
-                'email' => $email,
-                'created_at'=>date("Y-m-d H:i:s", time()),
-                'updated_at'=>date("Y-m-d H:i:s", time()))
-            ]);
+        $skip = ($page - 1) * $pageSize;
 
-            var_dump('insert');
-        exit;
+        $select = 'id,username, email';
+         $resData = User::selectRaw($select)
+                    // ->leftJoin('users_ext','users.iAutoId','=','users_ext.iUserID')
+                    // ->where('users.iStatus','=',1)
+                    // ->where('users_ext.sSex','=',0)
+                    ->skip($skip)
+                    ->limit($pageSize)
+                    ->get();
+
+         p($resData->toArray());
+
+
+         exit();
     }
+
+
 
 }

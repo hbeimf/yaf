@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Capsule\Manager as DB;
 
-class UserEloquentModel extends EloquentModel
+class User extends EloquentModel
 {
     protected $table = 'users';
 }

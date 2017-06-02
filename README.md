@@ -168,14 +168,11 @@ sudo /etc/init.d/php-fpm restart
 
 
 http://yaf.demo.com/
-会看到
-hello world!
 
 
 
-数据库orm在线文档
 
-https://docs.golaravel.com/docs/5.0/eloquent/
+
 
 
 
