@@ -1,6 +1,6 @@
 <?php
 
-include 'Smarty/libs/Smarty.class.php';
+include APP_PATH.'/application/library/Smarty/libs/Smarty.class.php';
 
 class View
 {
@@ -11,12 +11,14 @@ class View
 
         $root_dir = rtrim($_SERVER['DOCUMENT_ROOT'], '/');
 
-        $this->_smarty->template_dir = $root_dir . "/application/views/";
+        // echo $root_dir;exit;
+
+        $this->_smarty->template_dir = $root_dir . "/../application/views/";
         //$this->_smarty->compile_dir = $root_dir . "/Application/library/Smarty/compile_dir/";
 
-        $this->_smarty->compile_dir = $root_dir . "/cache/compile_dir/";
-        $this->_smarty->cache_dir = $root_dir . "/application/library/Smarty/cache_dir/";
-        $this->_smarty->plugins_dir = $root_dir . "/application/viewPlugins/";
+        $this->_smarty->compile_dir = $root_dir . "/../cache/compile_dir/";
+        $this->_smarty->cache_dir = $root_dir . "/../application/library/Smarty/cache_dir/";
+        $this->_smarty->plugins_dir = $root_dir . "/../application/viewPlugins/";
 
         $this->_smarty->left_delimiter = '{{';
         $this->_smarty->right_delimiter = '}}';

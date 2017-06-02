@@ -19,7 +19,11 @@ abstract class AbstractController extends Yaf_Controller_Abstract
     }
 
     protected function _init_request_and_smarty(){
+
         $this->request = Yaf_Dispatcher::getInstance()->getRequest();
+        // var_dump('ssffll');exit;
+
+
         $this->smarty = View::getInstance();
     }
 
