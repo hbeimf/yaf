@@ -60,7 +60,10 @@ class DemoController extends AbstractController
     }
 
     // http://yaf.demo.com/demo/select
+    // http://d.laravel-china.org/docs/5.1/database#%E8%BF%90%E8%A1%8C%E5%8E%9F%E5%A7%8B-SQL-%E6%9F%A5%E6%89%BE
     public function selectAction(){
+        DB::connection()->enableQueryLog();
+
         $user = DB::table('users')->where('username', 'xxx')->first();
         p($user);
 
@@ -99,6 +102,11 @@ class DemoController extends AbstractController
            echo $e->getMessage();
         }
 
+
+        $users = DB::select('select id,username,email from users where id <= ? and id >= ? ', [10, 5]);
+        p($users);
+
+        p(DB::getQueryLog());
         exit;
     }
 
@@ -146,6 +154,31 @@ class DemoController extends AbstractController
          p($resData->toArray());
 
 
+         exit();
+    }
+
+
+    // http://yaf.demo.com/demo/showsql
+    public function showsqlAction() {
+        DB::connection()->enableQueryLog();
+
+        $page = 5;
+        $pageSize = 3;
+
+        $skip = ($page - 1) * $pageSize;
+
+        $select = 'id,username, email';
+         $resData = User::selectRaw($select)
+                    // ->leftJoin('users_ext','users.iAutoId','=','users_ext.iUserID')
+                    // ->where('users.iStatus','=',1)
+                    // ->where('users_ext.sSex','=',0)
+                    ->skip($skip)
+                    ->limit($pageSize)
+                    ->get();
+
+         p($resData->toArray());
+
+         p(DB::getQueryLog());
          exit();
     }
 
