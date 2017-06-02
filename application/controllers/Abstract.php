@@ -9,7 +9,6 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 	 * 登录、权限判断、初始化
 	 */
 	public function init() {
-
 		// header("Content-Type:text/html;charset=utf-8");
 		// session_start();
 
@@ -17,13 +16,8 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 	}
 
 	protected function _init_request_and_smarty() {
-
-		// $this->request = Yaf_Dispatcher::getInstance()->getRequest();
-		// var_dump('ssffll');exit;
-
+		$this->request = Yaf_Dispatcher::getInstance()->getRequest();
 		$this->smarty = View::getInstance();
-
-		// var_dump('ss');exit;
 	}
 
 	/**
