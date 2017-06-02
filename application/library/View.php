@@ -9,16 +9,16 @@ class View
     {
         $this->_smarty = new Smarty();
 
-        $root_dir = rtrim($_SERVER['DOCUMENT_ROOT'], '/');
+        $root_dir = rtrim($_SERVER['DOCUMENT_ROOT'], 'public');
 
         // echo $root_dir;exit;
 
-        $this->_smarty->template_dir = $root_dir . "/../application/views/";
+        $this->_smarty->template_dir = $root_dir . "application/views/";
         //$this->_smarty->compile_dir = $root_dir . "/Application/library/Smarty/compile_dir/";
 
-        $this->_smarty->compile_dir = $root_dir . "/../cache/compile_dir/";
-        $this->_smarty->cache_dir = $root_dir . "/../application/library/Smarty/cache_dir/";
-        $this->_smarty->plugins_dir = $root_dir . "/../application/viewPlugins/";
+        $this->_smarty->compile_dir = $root_dir . "cache/compile_dir/";
+        $this->_smarty->cache_dir = $root_dir . "application/library/Smarty/cache_dir/";
+        $this->_smarty->plugins_dir = $root_dir . "application/viewPlugins/";
 
         $this->_smarty->left_delimiter = '{{';
         $this->_smarty->right_delimiter = '}}';
