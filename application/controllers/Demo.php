@@ -13,7 +13,7 @@ class DemoController extends AbstractController
     public function indexAction()
     {
         $this->getView()->assign("content", "Hello World");
-        $this->getView()->display('index/index.html');
+        $this->getView()->display('demo/index.html');
     }
 
 

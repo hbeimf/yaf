@@ -104,7 +104,7 @@ Search Page
 .portfolio-btn span {
   color:#fff;
   font-size:22px;
-  font-weight:200;  
+  font-weight:200;
 }
 
 /*portfolio info*/
@@ -148,7 +148,7 @@ Search Page
   padding: 6px 20px;
   text-transform: uppercase;
 }
-  
+
 /*search classic*/
 .search-classic {
   margin-bottom:30px;
@@ -199,7 +199,7 @@ Search Page
 }
 
 .booking-search .search-clearfix .control-group,
-.booking-search .search-clearfix .input-append, 
+.booking-search .search-clearfix .input-append,
 .booking-search .search-clearfix .input-prepend {
   margin-bottom: 0;
 }
@@ -219,7 +219,7 @@ Search Page
   color: #fff;
   padding: 15px;
   position: absolute;
-  background: url(../image/bg-opacity.png);
+  background: url(/resource/media/image/bg-opacity.png);
 }
 
 .booking-offer .booking-offer-in em {
@@ -248,7 +248,7 @@ Search Page
   padding: 15px;
   display: block;
   overflow: hidden;
-  background: #78ccf8;  
+  background: #78ccf8;
 }
 
 .booking-app a:hover {
@@ -331,7 +331,7 @@ Search Page
   padding: 5px 0;
   text-align: left;
   position: absolute;
-  background: url(../image/bg-opacity.png);  
+  background: url(/resource/media/image/bg-opacity.png);
 }
 
 .search-images li a:hover span {
