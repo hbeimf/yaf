@@ -174,8 +174,53 @@ class DemoController extends AbstractController {
 	}
 
 	public function listAction() {
-		$data = [];
+		$params = [
+			'name' => $this->request->getQuery('name'),
+			'email' => $this->request->getQuery('email'),
+			'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
+			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
+
+		];
+
+		// p($params);
+		// $page = 1;
+		// $pageSize = 3;
+
+		$skip = ($params['page'] - 1) * $params['page_size'];
+
+		$select = 'id, username as name, email, created_at';
+		$users = Table_User::selectRaw($select)
+			->skip($skip)
+			->limit($params['page_size'])
+			->get();
+
+		$count = Table_User::count();
+
+		$totalPage = ceil($count / $params['page_size']);
+
+		$data = [
+			'js' => 'demo',
+			'rand' => time(),
+			'users' => $users->toArray(), // 当前页记录
+			'count' => $count, // 记录条数
+			'page' => $params['page'], // 当前页
+			'totalPage' => $totalPage, // 总页数
+		];
 		$this->smarty->display('demo/list.tpl', $data);
+	}
+
+	public function addAction() {
+		// $p = $this->request->getPost('name');
+		// var_dump($p);
+
+		$data = [];
+		$this->getView()->display('demo/add.tpl');
+
+	}
+
+	public function modAction() {
+		$data = [];
+		$this->getView()->display('demo/mod.tpl');
 	}
 
 }

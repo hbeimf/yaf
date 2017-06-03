@@ -7,9 +7,9 @@ try {
 	$app = new Yaf_Application(APP_PATH . "/conf/application.ini");
 	Yaf_Dispatcher::getInstance()->autoRender(false);
 
-	$include_path = PATH_SEPARATOR . "." . APP_PATH . "/application/library";
+	// $include_path = PATH_SEPARATOR . "." . APP_PATH . "/application/models/";
 	// $include_path .= PATH_SEPARATOR."./application/modules";
-	set_include_path($include_path);
+	// set_include_path($include_path);
 
 	// var_dump('ss');exit;
 	$app->bootstrap()->run();
