@@ -210,8 +210,11 @@ class DemoController extends AbstractController {
 	}
 
 	public function addAction() {
-		// $p = $this->request->getPost('name');
-		// var_dump($p);
+
+		if ($this->request->isPost()) {
+
+			print_r($_POST);exit;
+		}
 
 		$data = [];
 		$this->getView()->display('demo/add.tpl');

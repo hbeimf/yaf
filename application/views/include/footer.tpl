@@ -40,6 +40,8 @@
 	<!-- BEGIN PAGE LEVEL SCRIPTS -->
 	<script src="/js/app.js"></script>
 	<script src="/js/table-managed.js"></script>
+	<script src="/js/jquery.form.js"></script>
+
 
 
 

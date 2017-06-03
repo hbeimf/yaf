@@ -9,73 +9,56 @@
 <!-- /.modal -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="show_demo">
-    <div class="modal-dialog" style=" width: auto;">
-        <div class="modal-content">
-        </div>
-    </div>
-</div>
-<!-- /.modal -->
 
+<!-- Button to trigger modal -->
 
-<!-- Modal -->
-<div class="modal fade" id="global_modal_100">
-    <div class="modal-dialog" style=" width: auto;">
-    	<form name="role" class="form-horizontal form-row-seperated validator-popover form-ajax" action="/demo/addxx" method='post'>
+<!-- <a href="#myModal1" role="button" class="btn btn-primary" data-toggle="modal">Modal Dialog</a>
 
-	        <div class="modal-content">
-	            <div class="modal-header">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-	                 <h4 class="modal-title">新增</h4>
+<a href="#myModal2" role="button" class="btn btn-danger" data-toggle="modal">Alert</a>
 
-	            </div>
-	            <div class="modal-body"></div>
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	                <button type="button" class="btn btn-primary">保存</button>
-	            </div>
-	        </div>
-	    </form>
-    </div>
-</div>
-<!-- /.modal -->
+<a href="#myModal3" role="button" class="btn btn-warning" data-toggle="modal">Confirm</a> -->
 
 <!-- Modal -->
-<div class="modal fade" id="global_modal_101">
-    <div class="modal-dialog" style=" width: auto;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                 <h4 class="modal-title">新增</h4>
 
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存</button>
-            </div>
-        </div>
+<!-- <div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel1">Modal Header</h3>
+    </div>
+    <div class="modal-body">
+        <p>Body goes here...</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn yellow">Save</button>
+    </div>
+</div> -->
+
+<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel2">Alert Header</h3>
+    </div>
+    <div class="modal-body">
+        <p>Body goes here...</p>
+    </div>
+    <div class="modal-footer">
+        <button data-dismiss="modal" class="btn green">OK</button>
     </div>
 </div>
-<!-- /.modal -->
 
-
-<!-- Modal -->
-<div class="modal fade" id="global_modal_200" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                 <h4 class="modal-title">系统提示</h4>
-
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <!-- <button type="button" class="btn btn-primary">保存</button> -->
-            </div>
-        </div>
+<div id="myModal3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 id="myModalLabel3">Confirm Header</h3>
+    </div>
+    <div class="modal-body">
+        <p>Body goes here...</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button data-dismiss="modal" class="btn blue">Confirm</button>
     </div>
 </div>
-<!-- /.modal -->
+
+

@@ -1,4 +1,4 @@
-<form name="role" class="form-horizontal form-row-seperated validator-popover form-ajax" action="/demo/add" method='post'>
+<form name="ff" id="ff" class="form-horizontal form-row-seperated validator-popover form-ajax" action="/demo/add" method='post'>
 
 	<div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
