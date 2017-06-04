@@ -2,24 +2,8 @@
 
 
 require([
-	// '/js_src/config.js',
-	'jquery',
-    'jquery-migrate',
-    'jquery-ui',
-    'bootstrap',
-    'jquery.slimscroll',
-    'jquery.blockui',
-    'jquery.cookie',
-    'jquery.uniform',
-    'select2',
-    'jquery.dataTables',
-    'DT_bootstrap',
-    'app',
-    'table-managed',
-    'jquery.form',
-    'functions'
-
-],function($){  
+	'base'
+],function(){  
     
     
     $(function () {
