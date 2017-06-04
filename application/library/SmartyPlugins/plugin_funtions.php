@@ -30,11 +30,11 @@ function page($params) {
 	$html = '<ul>';
 
 	if ($current_page <= 1) {
-		$html .= '	<li class="prev disabled"><a href="javascript:;">← <span class="hidden-480">Prev</span></a></li>';
+		$html .= '	<li class="prev disabled"><a href="javascript:;">← <span class="hidden-480">上一页</span></a></li>';
 	} else {
 		$querys['page'] = $current_page - 1;
 		$url = $pure_url . '?' . http_build_query($querys);
-		$html .= '	<li class="prev"><a href="' . $url . '">← <span class="hidden-480">Prev</span></a></li>';
+		$html .= '	<li class="prev"><a href="' . $url . '">← <span class="hidden-480">上一页</span></a></li>';
 	}
 
 	// $html .= '	<li class="active"><a href="#">1</a></li>';
@@ -65,11 +65,11 @@ function page($params) {
 	}
 
 	if ($current_page >= $total_page) {
-		$html .= '	<li class="next disabled"><a href="javascript:;"><span class="hidden-480">Next</span> → </a></li>';
+		$html .= '	<li class="next disabled"><a href="javascript:;"><span class="hidden-480">下一页</span> → </a></li>';
 	} else {
 		$querys['page'] = $current_page + 1;
 		$url = $pure_url . '?' . http_build_query($querys);
-		$html .= '	<li class="next"><a href="' . $url . '"><span class="hidden-480">Next</span> → </a></li>';
+		$html .= '	<li class="next"><a href="' . $url . '"><span class="hidden-480">下一页</span> → </a></li>';
 	}
 
 	$html .= '</ul>';

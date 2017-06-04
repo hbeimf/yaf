@@ -226,4 +226,14 @@ class DemoController extends AbstractController {
 		$this->getView()->display('demo/mod.tpl');
 	}
 
+	// https://docs.golaravel.com/docs/5.0/database/
+	public function dbsAction() {
+		$user = DB::table('users')->first();
+		p($user);
+
+		$users = DB::connection('demo')->select("select * from sys_user limit 3");
+		p($users);
+
+	}
+
 }

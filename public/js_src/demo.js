@@ -1,34 +1,68 @@
-$(function () {
+//动态异步加载js  
 
 
-	console.log('demo');
+require([
+	// '/js_src/config.js',
+	'jquery',
+    'jquery-migrate',
+    'jquery-ui',
+    'bootstrap',
+    'jquery.slimscroll',
+    'jquery.blockui',
+    'jquery.cookie',
+    'jquery.uniform',
+    'select2',
+    'jquery.dataTables',
+    'DT_bootstrap',
+    'app',
+    'table-managed',
+    'jquery.form',
+    'functions'
 
-	var $add = $('#add');
-	var $alert = $('#myModal2');
-	var $confirm = $('#myModal3');
+],function($){  
+    
+    
+    $(function () {
+    	App.init();
+		TableManaged.init();
+
+		console.log('demo');
+
+		var $add = $('#add');
+		var $alert = $('#myModal2');
+		var $confirm = $('#myModal3');
 
 
-	$add.on('shown.bs.modal', function (e) {
-		$(this).find('#btn_add').click(function () {
-			$("#ff").ajaxSubmit({
-		        url:'/demo/add/',  //访问这个方法用来得到图片名称
-		        type: "post",
-		        success: function (data) {
-		        	// console.log(data);
-		        	// $alert.modal({backdrop:false, keyboard:false});
-		        	var msg = 'test msg';
-		        	$confirm.find('p').html(msg);
-		        	$confirm.modal({backdrop:false, keyboard:false});
-		        }
+		$add.on('shown.bs.modal', function (e) {
+			$(this).find('#btn_add').click(function () {
+				$("#ff").ajaxSubmit({
+			        url:'/demo/add/',  //访问这个方法用来得到图片名称
+			        type: "post",
+			        success: function (data) {
+			        	// console.log(data);
+			        	// $alert.modal({backdrop:false, keyboard:false});
+			        	var msg = 'test msg xx';
+			        	// $confirm.find('p').html(msg);
+			        	// $confirm.modal({backdrop:false, keyboard:false});
+
+			        	alert_message($alert, msg)
+			        }
+				});
+
 			});
-
 		});
+
+	    $add.on("hidden.bs.modal",function(){
+	    	$add.unbind('shown.bs.modal');
+	    });
+
+
+		
 	});
-
-    $add.on("hidden.bs.modal",function(){
-    	$add.unbind('shown.bs.modal');
-    });
+}); 
 
 
-	
-});
+
+
+
+

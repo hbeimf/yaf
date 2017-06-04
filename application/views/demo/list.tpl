@@ -11,16 +11,13 @@
 	<!-- END SIDEBAR -->
 	<!-- BEGIN PAGE -->
 	<div class="page-content">
-
 		<!-- BEGIN PAGE CONTAINER-->        
 		<div class="container-fluid">
 			<!-- BEGIN PAGE HEADER-->
 			{{include file="include/page_header.tpl"}}
 			<!-- END PAGE HEADER-->
-
 			<!-- BEGIN PAGE CONTENT-->
 			<div class="row-fluid">
-
 				<div class="span12">
 
 					<!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -31,15 +28,6 @@
 									新增 <i class="icon-plus"></i>
 									</a>
 								</div>
-
-								
-								<!-- <div class="btn-group pull-left">
-									<a data-toggle="modal" data-target="#show_demo" href="/demo/mod/" class="btn red" >
-									模态框 
-									</a>
-
-								</div> -->
-								
 							</div>
 							<!-- 搜索开始 -->
 							<div class="row-fluid">
@@ -50,7 +38,7 @@
 												<option value="5" selected="selected">5</option>
 												<option value="15">15</option>
 												<option value="20">20</option>
-												<option value="-1">All</option>
+												<!-- <option value="-1">All</option> -->
 											</select> 
 											&nbsp;&nbsp;
 										</label>
@@ -64,6 +52,7 @@
 							</div>
 							<!-- 搜索结束  -->
 
+							<!-- 表开始 -->
 							<table class="table table-striped table-bordered table-hover" id="sample_1">
 								<thead>
 									<tr>
@@ -90,6 +79,7 @@
 							<!-- 分页开始 -->
 							{{include file="include/page_list.tpl"}}
 							<!-- 分页结束 -->
+							<!-- 表结束  -->
 
 						</div>
 					<!-- END EXAMPLE TABLE PORTLET-->

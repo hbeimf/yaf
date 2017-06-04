@@ -33,11 +33,11 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 	public function _initDatabaseEloquent() {
 		$capsule = new Capsule;
 
-		// 创建默认链接
+		// 创建默认链接 test 库
 		$capsule->addConnection(Yaf_Application::app()->getConfig()->database->toArray());
 
-		// biz业务链接
-		// $capsule->addConnection(Yaf_Application::app()->getConfig()->biz->toArray(), 'biz');
+		// demo 库
+		$capsule->addConnection(Yaf_Application::app()->getConfig()->demo->toArray(), 'demo');
 
 		// 设置全局静态可访问
 		$capsule->setAsGlobal();
