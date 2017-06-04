@@ -31,30 +31,30 @@ var UITree = function () {
 
             //This is a quick example of capturing the select event on tree leaves, not branches
             $("#tree_1").on("nodeselect.tree.data-api", "[data-role=leaf]", function (e) {
-                var output = "";
+                // var output = "";
 
-                output += "Node nodeselect event fired:\n";
-                output += "Node Type: leaf\n";
-                output += "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n";
-                output += "Parentage: " + e.node.parentage.join("/");
+                // output += "Node nodeselect event fired:\n";
+                // output += "Node Type: leaf\n";
+                // output += "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n";
+                // output += "Parentage: " + e.node.parentage.join("/");
 
-                alert(output);
+                // alert(output);
             });
 
             //This is a quick example of capturing the select event on tree branches, not leaves
             $("#tree_1").on("nodeselect.tree.data-api", "[role=branch]", function (e) {
-                var output = "Node nodeselect event fired:\n"; + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
+                // var output = "Node nodeselect event fired:\n"; + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
 
-                alert(output);
+                // alert(output);
             });
 
             //Listening for the 'openbranch' event. Look for e.node, which is the actual node the user opens
 
             $("#tree_1").on("openbranch.tree", "[data-toggle=branch]", function (e) {
 
-                var output = "Node openbranch event fired:\n" + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
+                // var output = "Node openbranch event fired:\n" + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
 
-                alert(output);
+                // alert(output);
             });
 
 
@@ -62,9 +62,9 @@ var UITree = function () {
 
             $("#tree_1").on("closebranch.tree", "[data-toggle=branch]", function (e) {
 
-                var output = "Node closebranch event fired:\n" + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
+                // var output = "Node closebranch event fired:\n" + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
 
-                alert(output);
+                // alert(output);
             });
         }
 

@@ -22,7 +22,7 @@
 
 !function ($) {
 
-  "use strict"; // jshint ;_;
+  // "use strict"; // jshint ;_;
 
   var loading = "<img src='assets/plugins/bootstrap-tree/bootstrap-tree/img/ajax-loader.gif' class='indicator' /> Loading ...";
 

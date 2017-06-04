@@ -46,6 +46,10 @@
 
 	<link rel="stylesheet" href="/css/DT_bootstrap.css" />
 
+
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tree.css" />
+
+
 	<!-- END PAGE LEVEL STYLES -->
 
 	<link rel="shortcut icon" href="/image/favicon.ico" />
@@ -531,3 +535,25 @@
 	</div>
 
 	<!-- END HEADER -->
+
+	<!-- BEGIN CONTAINER -->
+	<div class="page-container row-fluid">
+		<!-- BEGIN SIDEBAR -->
+		<div class="page-sidebar nav-collapse collapse">
+			<!-- BEGIN SIDEBAR MENU -->
+	        {{include file="include/menu1.tpl"}}
+	        <!-- END SIDEBAR MENU -->
+		</div>
+		<!-- END SIDEBAR -->
+		<!-- BEGIN PAGE -->
+		<div class="page-content">
+			<!-- BEGIN PAGE CONTAINER-->        
+			<div class="container-fluid">
+				<!-- BEGIN PAGE HEADER-->
+				{{include file="include/page_header.tpl"}}
+				<!-- END PAGE HEADER-->
+
+
+
+
+

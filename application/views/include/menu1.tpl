@@ -33,8 +33,8 @@
         </a>
         <ul class="sub-menu">
             <li class="active">
-                <a href="/demo/list/">
-                分页列表</a>
+                <a href="/system/index/">
+                导航管理</a>
             </li>
             <li >
                 <a href="table_responsive.html">

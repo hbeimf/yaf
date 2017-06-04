@@ -16,7 +16,9 @@ require.config({
         'app':'/js/app',
         'table-managed':'/js/table-managed',
         'jquery.form':'/js/jquery.form',
-        'functions': '/js_src/functions'
+        'functions': '/js_src/functions',
+        'bootstrap-tree': '/js/bootstrap-tree',
+        'ui-tree': '/js/ui-tree'
     },
     shim: {
         // jQuery
@@ -28,7 +30,9 @@ require.config({
         'bootstrap': ['jquery'],
         'select2': ['jquery'],
         'DT_bootstrap': ['jquery', 'bootstrap'],
-        'functions': ['jquery']
+        'functions': ['jquery'],
+        'bootstrap-tree': ['jquery', 'bootstrap'],
+        'ui-tree': ['jquery', 'bootstrap'],
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
 });  

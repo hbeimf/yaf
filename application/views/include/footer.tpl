@@ -1,4 +1,9 @@
-{{include file="include/modal.tpl"}}
+			</div>
+			<!-- END PAGE CONTAINER-->
+		</div>
+		<!-- END PAGE -->
+	</div>
+	<!-- END CONTAINER -->
 
 	<!-- BEGIN FOOTER -->
 	<div class="footer">
@@ -12,6 +17,8 @@
 		</div>
 	</div>
 
+	{{include file="include/modal.tpl"}}
+	
 	<script src="/js/require.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	    require({
