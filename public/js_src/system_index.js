@@ -26,17 +26,6 @@ require([
     
     $(function () {
     	App.init();
-
-    	// $('#tree_1_collapse').click(function () {
-     //        $('.tree-toggle', $('#tree_1 > li > ul')).addClass("closed");
-     //        $('.branch', $('#tree_1 > li > ul')).removeClass("in");
-     //    });
-
-     //    $('#tree_1_expand').click(function () {
-     //        $('.tree-toggle', $('#tree_1 > li > ul')).removeClass("closed");
-     //        $('.branch', $('#tree_1 > li > ul')).addClass("in");
-     //    });
-
 		UITree.init();
 
 
