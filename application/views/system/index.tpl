@@ -7,7 +7,7 @@
 			<div class="portlet-title">
 				<div class="caption"><i class="icon-comments"></i>Inline Tree</div>
 				<div class="actions">
-					<a data-toggle="modal" data-target="#add" href="/demo/add/" id="add_menu" class="btn red">增加</a>
+					<a data-toggle="modal" data-target="#mod_1000" href="/demo/add/" id="add_menu" class="btn red">增加</a>
 					<a href="javascript:;" id="tree_1_collapse" class="btn green">收起</a>
 					<a href="javascript:;" id="tree_1_expand" class="btn yellow">展开</a>
 				</div>
@@ -25,9 +25,12 @@
 								Projects
 								</a>
 								<ul class="branch">
-									<li><a data-toggle="modal" data-target="#add" href="/demo/add/" data-role="leaf"><i class="icon-glass"></i> Internal</a></li>
-									<li><a data-toggle="modal" data-target="#add" href="/demo/add/" data-role="leaf"><i class="icon-group"></i> Client Base</a></li>
-									<li><a data-toggle="modal" data-target="#add" href="/demo/add/" data-role="leaf"><i class="icon-retweet"></i> Product Base</a></li>
+									<li><a data-toggle="modal" data-target="#mod_800" href="/demo/add/" data-role="leaf"><i class="icon-glass"></i> Internal</a></li>
+									<li><a data-toggle="modal" data-target="#mod_900" href="/demo/add/" data-role="leaf"><i class="icon-group"></i> Client Base</a></li>
+									<li><a data-toggle="modal" data-target="#mod_1000" href="/demo/add/" data-role="leaf"><i class="icon-retweet"></i> Product Base</a></li>
+									<li><a data-toggle="modal" data-target="#mod_1100" href="/demo/add/" data-role="leaf"><i class="icon-retweet"></i> Product Base</a></li>
+									<li><a data-toggle="modal" data-target="#mod_1200" href="/demo/add/" data-role="leaf"><i class="icon-retweet"></i> Product Base</a></li>
+								
 								</ul>
 							</li>
 							
