@@ -1,48 +1,5 @@
 {{include file="include/header.tpl"}}
 
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
-
-    <!-- BEGIN CONTAINER -->
-
-    <div class="page-container">
-
-        <!-- BEGIN SIDEBAR -->
-
-        <div class="page-sidebar nav-collapse collapse">
-
-            <!-- BEGIN SIDEBAR MENU -->
-            {{include file="include/menu.tpl"}}
-            <!-- END SIDEBAR MENU -->
-
-        </div>
-
-        <!-- END SIDEBAR -->
-
-        <!-- BEGIN PAGE -->
-
-        <div class="page-content">
-
-            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-            <div id="portlet-config" class="modal hide">
-
-                <div class="modal-header">
-
-                    <button data-dismiss="modal" class="close" type="button"></button>
-
-                    <h3>Widget Settings</h3>
-
-                </div>
-
-                <div class="modal-body">
-
-                    Widget settings form goes here
-
-                </div>
-
-            </div>
-
-            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
             <!-- BEGIN PAGE CONTAINER-->
 

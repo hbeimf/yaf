@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2017-06-02 22:26:45
+<?php /* Smarty version Smarty-3.1.8, created on 2017-06-05 16:10:48
          compiled from "/web/yaf/application/views/index/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1537775633593137f72c55a1-57778128%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0f2fa21ba47e3fb128ca86da055914572e14cde0' => 
     array (
       0 => '/web/yaf/application/views/index/index.tpl',
-      1 => 1496413601,
+      1 => 1496650245,
       2 => 'file',
     ),
   ),
@@ -22,50 +22,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_593137f72f6d61_68295959')) {function content_593137f72f6d61_68295959($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("include/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 
-    <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >网页模板</a></div>
-
-    <!-- BEGIN CONTAINER -->
-
-    <div class="page-container">
-
-        <!-- BEGIN SIDEBAR -->
-
-        <div class="page-sidebar nav-collapse collapse">
-
-            <!-- BEGIN SIDEBAR MENU -->
-            <?php echo $_smarty_tpl->getSubTemplate ("include/menu.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
-            <!-- END SIDEBAR MENU -->
-
-        </div>
-
-        <!-- END SIDEBAR -->
-
-        <!-- BEGIN PAGE -->
-
-        <div class="page-content">
-
-            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-
-            <div id="portlet-config" class="modal hide">
-
-                <div class="modal-header">
-
-                    <button data-dismiss="modal" class="close" type="button"></button>
-
-                    <h3>Widget Settings</h3>
-
-                </div>
-
-                <div class="modal-body">
-
-                    Widget settings form goes here
-
-                </div>
-
-            </div>
-
-            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 
             <!-- BEGIN PAGE CONTAINER-->
 
