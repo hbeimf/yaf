@@ -41,6 +41,7 @@ CREATE TABLE `system_role` (
 
 
 
+mysqldump -uroot -p test > /web/yaf/doc/test.sql
 
 
 

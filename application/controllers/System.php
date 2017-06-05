@@ -11,8 +11,9 @@ class SystemController extends AbstractController {
 	// 默认Action
 	// http://yaf.demo.com/demo/index
 	public function indexAction() {
-		// $this->getView()->assign("content", "Hello World");
-		// $this->getView()->display('system/index.tpl');
+		$menu = DB::select('select * from system_menu');
+		// $this->parse_menu($menu);
+
 		$data = [
 			'js' => 'system_index',
 			'rand' => time(),
@@ -20,9 +21,29 @@ class SystemController extends AbstractController {
 			// 'count' => $count, // 记录条数
 			// 'page' => $params['page'], // 当前页
 			// 'totalPage' => $totalPage, // 总页数
+			'menu' => $this->parse_menu($menu),
 		];
 		$this->smarty->display('system/index.tpl', $data);
 	}
+
+	private function parse_menu($menu) {
+		$list = [];
+		foreach ($menu as $m) {
+			$m['child'] = [];
+			if ($m['parent_id'] == 0) {
+				foreach ($menu as $mm) {
+					if ($m['id'] == $mm['parent_id']) {
+						$m['child'][] = $mm;
+					}
+				}
+				$list[] = $m;
+			}
+		}
+		return $list;
+	}
+
+
+
 
 	// http://yaf.demo.com/demo/insert
 	public function insertAction() {
