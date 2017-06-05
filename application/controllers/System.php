@@ -12,34 +12,131 @@ class SystemController extends AbstractController {
 	// http://yaf.demo.com/demo/index
 	public function indexAction() {
 		$menu = DB::select('select * from system_menu');
-		// $this->parse_menu($menu);
-
 		$data = [
 			'js' => 'system_index',
 			'rand' => time(),
-			// 'users' => $users->toArray(), // 当前页记录
-			// 'count' => $count, // 记录条数
-			// 'page' => $params['page'], // 当前页
-			// 'totalPage' => $totalPage, // 总页数
 			'menu' => $this->parse_menu($menu),
 		];
 		$this->smarty->display('system/index.tpl', $data);
 	}
 
-	private function parse_menu($menu) {
-		$list = [];
-		foreach ($menu as $m) {
-			$m['child'] = [];
-			if ($m['parent_id'] == 0) {
-				foreach ($menu as $mm) {
-					if ($m['id'] == $mm['parent_id']) {
-						$m['child'][] = $mm;
-					}
-				}
-				$list[] = $m;
-			}
-		}
-		return $list;
+
+	public function accountAction() {
+		$params = [
+			'name' => $this->request->getQuery('name'),
+			'email' => $this->request->getQuery('email'),
+			'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
+			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
+
+		];
+
+		// p($params);
+		// $page = 1;
+		// $pageSize = 3;
+
+		$skip = ($params['page'] - 1) * $params['page_size'];
+
+		$select = 'id, username as name, email, created_at';
+		$users = Table_User::selectRaw($select)
+			->skip($skip)
+			->limit($params['page_size'])
+			->get();
+
+		$count = Table_User::count();
+
+		$totalPage = ceil($count / $params['page_size']);
+
+		$data = [
+			'js' => 'demo',
+			'rand' => time(),
+			'users' => $users->toArray(), // 当前页记录
+			'count' => $count, // 记录条数
+			'page' => $params['page'], // 当前页
+			'totalPage' => $totalPage, // 总页数
+		];
+		$this->smarty->display('demo/list.tpl', $data);
+	}
+
+	public function roleAction() {
+		$params = [
+			'name' => $this->request->getQuery('name'),
+			'email' => $this->request->getQuery('email'),
+			'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
+			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
+
+		];
+
+		// p($params);
+		// $page = 1;
+		// $pageSize = 3;
+
+		$skip = ($params['page'] - 1) * $params['page_size'];
+
+		$select = 'id, username as name, email, created_at';
+		$users = Table_User::selectRaw($select)
+			->skip($skip)
+			->limit($params['page_size'])
+			->get();
+
+		$count = Table_User::count();
+
+		$totalPage = ceil($count / $params['page_size']);
+
+		$data = [
+			'js' => 'demo',
+			'rand' => time(),
+			'users' => $users->toArray(), // 当前页记录
+			'count' => $count, // 记录条数
+			'page' => $params['page'], // 当前页
+			'totalPage' => $totalPage, // 总页数
+		];
+		$this->smarty->display('demo/list.tpl', $data);
+	}
+
+
+	public function menuAction() {
+		$menu = [
+			[
+				'id' => 1,
+				'menu_name' => '系统管理',
+				'parent_id' => 0,
+				'link' => '',
+				'icon' => '',
+				'status' => 1,
+				'note' => ''
+			],
+			[
+				'id' => 2,
+				'menu_name' => '导航管理',
+				'parent_id' => 1,
+				'link' => '/system/index/',
+				'icon' => '',
+				'status' => 1,
+				'note' => '',
+			],
+			[
+				'id' => 3,
+				'menu_name' => '账号管理',
+				'parent_id' => 1,
+				'link' => '/system/account/',
+				'icon' => '',
+				'status' => 1,
+				'note' => '',
+			],
+			[
+				'id' => 4,
+				'menu_name' => '权限管理',
+				'parent_id' => 1,
+				'link' => '/system/role/',
+				'icon' => 'icon',
+				'status' => 1,
+				'note' => '',
+			],
+		];
+
+		DB::table('system_menu')->insert($menu);
+
+		p($menu);
 	}
 
 

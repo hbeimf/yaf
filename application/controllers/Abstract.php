@@ -13,6 +13,25 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		// session_start();
 
 		$this->_init_request_and_smarty();
+
+		$r = Table_System_Menu::all()->toArray();
+		$this->smarty->assign('system_menu', $this->parse_menu($r));
+	}
+
+	protected function parse_menu($menu) {
+		$list = [];
+		foreach ($menu as $m) {
+			$m['child'] = [];
+			if ($m['parent_id'] == 0) {
+				foreach ($menu as $mm) {
+					if ($m['id'] == $mm['parent_id']) {
+						$m['child'][] = $mm;
+					}
+				}
+				$list[] = $m;
+			}
+		}
+		return $list;
 	}
 
 	protected function _init_request_and_smarty() {
