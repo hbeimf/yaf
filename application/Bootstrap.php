@@ -37,7 +37,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 		$capsule->addConnection(Yaf_Application::app()->getConfig()->database->toArray());
 
 		// demo 库
-		$capsule->addConnection(Yaf_Application::app()->getConfig()->demo->toArray(), 'demo');
+		// $capsule->addConnection(Yaf_Application::app()->getConfig()->demo->toArray(), 'demo');
 
 		// 设置全局静态可访问
 		$capsule->setAsGlobal();

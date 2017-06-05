@@ -1,11 +1,4 @@
 <?php
-// function smarty_function_page($params, $template) {
-// 	$father_res_id = isset($params['id']) ? $params['id'] : '';
-// 	$the_right = isset($params['the_right']) ? $params['the_right'] : '';
-// 	$superadmin = isset($params['superadmin']) ? $params['superadmin'] : 'superadmin';
-
-// 	return 'page fun';
-// }
 
 // 分页函数
 function page($params) {
@@ -37,9 +30,6 @@ function page($params) {
 		$html .= '	<li class="prev"><a href="' . $url . '">← <span class="hidden-480">上一页</span></a></li>';
 	}
 
-	// $html .= '	<li class="active"><a href="#">1</a></li>';
-	// $html .= '	<li><a href="#">2</a></li>';
-	// $html .= '	<li><a href="#">3</a></li>';
 	$show_size = 10;
 
 	$for_num = ($total_page <= $show_size) ? $total_page : 10;

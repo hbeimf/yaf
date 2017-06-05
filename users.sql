@@ -32,4 +32,4 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'molaifeng1', 'molaifeng1@foxmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `users` VALUES ('1', 'xiaomin', 'xiaomin@foxmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
