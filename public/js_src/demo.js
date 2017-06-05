@@ -1,13 +1,12 @@
-//动态异步加载js  
+//动态异步加载js
 
 
 require([
 	'base'
-],function(){  
-    
-    
+],function(){
+
+
     $(function () {
-    	App.init();
 		TableManaged.init();
 
 		console.log('demo');
@@ -41,9 +40,9 @@ require([
 	    });
 
 
-		
+
 	});
-}); 
+});
 
 
 
