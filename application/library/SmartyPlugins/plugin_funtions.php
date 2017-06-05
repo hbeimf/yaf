@@ -52,6 +52,10 @@ function page($params) {
 		$start = $total_page - $show_size + 1;
 	}
 
+	if ($start <= 0) {
+		$start = 1;
+	}
+
 	for ($i = 0; $i < $for_num; $i++) {
 		$the_page = $i + $start;
 		$querys['page'] = $the_page;
