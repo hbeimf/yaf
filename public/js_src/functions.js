@@ -1,6 +1,3 @@
-function test(){
-    console.log('test function...');
-}
 
 
 function alert_only(msg) {
