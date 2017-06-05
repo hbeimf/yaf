@@ -1,7 +1,7 @@
-// //全局配置  
-require.config({  
-    // baseUrl:'/js_src',  
-    paths:{  
+// //全局配置
+require.config({
+    // baseUrl:'/js_src',
+    paths:{
         'jquery':'/js/jquery-1.10.1.min',
         'jquery-migrate':'/js/jquery-migrate-1.2.1.min',
         'jquery-ui':'/js/jquery-ui-1.10.1.custom.min',
@@ -18,7 +18,8 @@ require.config({
         'jquery.form':'/js/jquery.form',
         'bootstrap-tree': '/js/bootstrap-tree',
         'ui-tree': '/js/ui-tree',
-        'base': '/js_src/base'
+        'base': '/js_src/base',
+        'functions' : '/js_src/functions'
     },
     shim: {
         // jQuery
@@ -32,12 +33,13 @@ require.config({
         'DT_bootstrap': ['jquery', 'bootstrap'],
         'bootstrap-tree': ['jquery', 'bootstrap'],
         'ui-tree': ['jquery', 'bootstrap'],
-        'base': ['jquery', 'jquery-migrate', 'jquery-ui', 'bootstrap', 'jquery.slimscroll', 'jquery.blockui', 
+        'base': ['jquery', 'jquery-migrate', 'jquery-ui', 'bootstrap', 'jquery.slimscroll', 'jquery.blockui',
                     'jquery.cookie', 'jquery.uniform', 'select2', 'jquery.dataTables', 'DT_bootstrap',
-                    'app', 'table-managed', 'jquery.form', 'bootstrap-tree', 'ui-tree'],
+                    'app', 'table-managed', 'jquery.form', 'bootstrap-tree', 'ui-tree', 'functions'],
+        'functions':['app', 'jquery']
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
-});  
+});
 
 
 

@@ -245,4 +245,40 @@ class SystemController extends AbstractController {
 
 	}
 
+
+
+    // =====================================
+	public function addMenuAction() {
+		if ($this->request->isPost()) {
+			$data = [
+				'menu_name' => $this->request->getPost('menu_name'),
+				'parent_id' => $this->request->getPost('parent_id'),
+				'link' => $this->request->getPost('link'),
+				'icon' => $this->request->getPost('icon'),
+				'status' => $this->request->getPost('status'),
+				'note' => $this->request->getPost('note'),
+
+			];
+
+			DB::table('system_menu')->insert([$data]);
+
+			$reply = [
+				'flg' => true,
+				'msg' => '增加成功',
+			];
+
+			// $reply = [
+			// 	'flg' => false,
+			// 	'msg' => '增加xx',
+			// ];
+
+
+			echo json_encode($reply); exit;
+		}
+
+		$data = [];
+		$this->getView()->display('system/addMenu.tpl');
+
+	}
+
 }

@@ -1,50 +1,39 @@
-//动态异步加载js  
+//动态异步加载js
 
 
 require([
  	'base'
-],function(){  
-    
-    
+],function(){
+
+
     $(function () {
-    	App.init();
 		UITree.init();
 
+		var $mod_800 = $('#mod_800');
 
-		// console.log('demo');
+		$mod_800.on('shown.bs.modal', function (e) {
+			$(this).find('#btn_add').click(function () {
+				// $(this).find("#ff").ajaxSubmit({
+				$("#ff").ajaxSubmit({
 
-		// var $add = $('#add');
-		// var $alert = $('#myModal2');
-		// var $confirm = $('#myModal3');
+			        url:'/system/addMenu/',  //访问这个方法用来得到图片名称
+			        type: "post",
+			        success: function (data) {
+			        	var json = $.parseJSON(data);
+			        	if (json.flg) {
+			        		alert_refresh(json.msg);
+			        	} else {
+			        		alert_only(json.msg);
+			        	}
+			        }
+				});
 
-
-		// $add.on('shown.bs.modal', function (e) {
-		// 	$(this).find('#btn_add').click(function () {
-		// 		$("#ff").ajaxSubmit({
-		// 	        url:'/demo/add/',  //访问这个方法用来得到图片名称
-		// 	        type: "post",
-		// 	        success: function (data) {
-		// 	        	// console.log(data);
-		// 	        	// $alert.modal({backdrop:false, keyboard:false});
-		// 	        	var msg = 'test msg xx';
-		// 	        	// $confirm.find('p').html(msg);
-		// 	        	// $confirm.modal({backdrop:false, keyboard:false});
-
-		// 	        	alert_message($alert, msg)
-		// 	        }
-		// 		});
-
-		// 	});
-		// });
-
-	 //    $add.on("hidden.bs.modal",function(){
-	 //    	$add.unbind('shown.bs.modal');
-	 //    });
+			});
+		});
 
 
-		
 	});
-}); 
+});
 
 
 
