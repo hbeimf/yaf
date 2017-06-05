@@ -16,7 +16,7 @@
         </form>
     </li>
 
-    <li class="start">
+    <li class="start {{if $current_menu['id'] == 0}}active{{/if}}">
         <a href="/">
             <i class="icon-home"></i>
             <span class="title">控制台</span>
@@ -25,7 +25,7 @@
     </li>
 
     {{foreach from=$system_menu item=m}}
-        <li class="active ">
+        <li class="{{if $current_menu['parent_id'] == $m['id']}}active{{/if}}">
             <a href="javascript:;">
                 <i class="icon-th"></i>
                 <span class="title">{{$m['menu_name']}}</span>
@@ -34,7 +34,7 @@
             </a>
             <ul class="sub-menu">
                 {{foreach from=$m['child'] item=mm}}
-                    <li class="active">
+                    <li class="{{if $current_menu['id'] == $mm['id']}}active{{/if}}">
                         <a href="{{$mm['link']}}">{{$mm['menu_name']}}</a>
                     </li>
                 {{/foreach}}

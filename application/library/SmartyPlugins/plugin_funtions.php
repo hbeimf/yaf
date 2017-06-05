@@ -1,5 +1,13 @@
 <?php
 
+
+
+
+function is_active($params) {
+	return 'active';
+}
+
+
 // 分页函数
 function page($params) {
 	$current_page = isset($params['current_page']) ? $params['current_page'] : 1;

@@ -14,8 +14,28 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 
 		$this->_init_request_and_smarty();
 
-		$r = Table_System_Menu::all()->toArray();
-		$this->smarty->assign('system_menu', $this->parse_menu($r));
+		$menu = Table_System_Menu::all()->toArray();
+		$this->smarty->assign('system_menu', $this->parse_menu($menu));
+		$this->smarty->assign('current_menu', $this->current_menu($menu));
+	}
+
+	protected function current_menu($menu) {
+		$controller_name = strtolower($this->request->getControllerName());
+		$action_name = strtolower($this->request->getActionName());
+
+
+		foreach ($menu as $m) {
+			$arr = explode("/",  trim($m['link'], '/'));
+
+			$ctrl = isset($arr[0]) ? strtolower($arr[0]) : 'index';
+			$action = isset($arr[1]) ? strtolower($arr[1]) : 'index';
+
+			if ($ctrl == $controller_name && $action == $action_name) {
+				return $m;
+			}
+		}
+
+		return ['id'=>0, 'parent_id'=>0];
 	}
 
 	protected function parse_menu($menu) {
