@@ -128,7 +128,7 @@ class SystemController extends AbstractController {
 				'menu_name' => '权限管理',
 				'parent_id' => 1,
 				'link' => '/system/role/',
-				'icon' => 'icon',
+				'icon' => '',
 				'status' => 1,
 				'note' => '',
 			],
