@@ -2,7 +2,9 @@
 
 
 require([
- 	'base'
+ 	'base',
+ 	'bootstrap-tree',
+ 	'ui-tree'
 ],function(){
 
 

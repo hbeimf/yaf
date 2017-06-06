@@ -8,6 +8,7 @@ require([
 
     $(function () {
 		TableManaged.init();
+		// FormComponents.init();
 
 		console.log('demo');
 

@@ -94,14 +94,24 @@ class SystemController extends AbstractController {
 		$totalPage = ceil($count / $params['page_size']);
 
 		$data = [
-			'js' => 'demo',
+			'js' => 'system_role',
 			'rand' => time(),
 			'users' => $users->toArray(), // 当前页记录
 			'count' => $count, // 记录条数
 			'page' => $params['page'], // 当前页
 			'totalPage' => $totalPage, // 总页数
 		];
-		$this->smarty->display('demo/list.tpl', $data);
+		$this->smarty->display('system/role.tpl', $data);
+	}
+
+	public function addRoleAction() {
+		if ($this->request->isPost()) {
+
+			print_r($_POST);exit;
+		}
+
+		$data = [];
+		$this->getView()->display('system/addRole.tpl');
 	}
 
 

@@ -23,34 +23,62 @@
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
 
 	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
 	<link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
-
 	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-
 	<link href="/css/style-metro.css" rel="stylesheet" type="text/css"/>
-
 	<link href="/css/style.css" rel="stylesheet" type="text/css"/>
-
 	<link href="/css/style-responsive.css" rel="stylesheet" type="text/css"/>
-
 	<link href="/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-
 	<link href="/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-
 	<!-- END GLOBAL MANDATORY STYLES -->
 
 	<!-- BEGIN PAGE LEVEL STYLES -->
-
 	<link rel="stylesheet" type="text/css" href="/css/select2_metro.css" />
-
 	<link rel="stylesheet" href="/css/DT_bootstrap.css" />
-
-
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tree.css" />
+	<!-- END PAGE LEVEL STYLES -->
 
+	<!-- BEGIN PAGE LEVEL STYLES -->
+
+	<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap-fileupload.css" />
+	<link rel="stylesheet" type="text/css" href="/css/jquery.gritter.css" />
+	<link rel="stylesheet" type="text/css" href="/css/chosen.css" />
+	<link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
+	<link rel="stylesheet" type="text/css" href="/css/clockface.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css" />
+	<link rel="stylesheet" type="text/css" href="/css/datepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/css/timepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/css/colorpicker.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle-buttons.css" />
+	<link rel="stylesheet" type="text/css" href="/css/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="/css/datetimepicker.css" /> -->
+	<link rel="stylesheet" type="text/css" href="/css/multi-select-metro.css" />
+	<!-- <link href="/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/> -->
 
 	<!-- END PAGE LEVEL STYLES -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<link rel="shortcut icon" href="/image/favicon.ico" />
 
@@ -88,15 +116,15 @@
 
 				<img src="/image/menu-toggler.png" alt="" />
 
-				</a>          
+				</a>
 
-				<!-- END RESPONSIVE MENU TOGGLER -->            
+				<!-- END RESPONSIVE MENU TOGGLER -->
 
-				<!-- BEGIN TOP NAVIGATION MENU -->              
+				<!-- BEGIN TOP NAVIGATION MENU -->
 
 				<ul class="nav pull-right">
 
-					<!-- BEGIN NOTIFICATION DROPDOWN -->   
+					<!-- BEGIN NOTIFICATION DROPDOWN -->
 
 					<li class="dropdown" id="header_notification_bar">
 
@@ -122,7 +150,7 @@
 
 								<span class="label label-success"><i class="icon-plus"></i></span>
 
-								New user registered. 
+								New user registered.
 
 								<span class="time">Just now</span>
 
@@ -136,7 +164,7 @@
 
 								<span class="label label-important"><i class="icon-bolt"></i></span>
 
-								Server #12 overloaded. 
+								Server #12 overloaded.
 
 								<span class="time">15 mins</span>
 
@@ -178,7 +206,7 @@
 
 								<span class="label label-important"><i class="icon-bolt"></i></span>
 
-								Database overloaded 68%. 
+								Database overloaded 68%.
 
 								<span class="time">2 hrs</span>
 
@@ -252,7 +280,7 @@
 
 								auctor nibh...
 
-								</span>  
+								</span>
 
 								</a>
 
@@ -278,7 +306,7 @@
 
 								auctor nibh...
 
-								</span>  
+								</span>
 
 								</a>
 
@@ -304,7 +332,7 @@
 
 								auctor nibh...
 
-								</span>  
+								</span>
 
 								</a>
 
@@ -524,7 +552,7 @@
 
 				</ul>
 
-				<!-- END TOP NAVIGATION MENU --> 
+				<!-- END TOP NAVIGATION MENU -->
 
 			</div>
 
@@ -547,7 +575,7 @@
 		<!-- END SIDEBAR -->
 		<!-- BEGIN PAGE -->
 		<div class="page-content">
-			<!-- BEGIN PAGE CONTAINER-->        
+			<!-- BEGIN PAGE CONTAINER-->
 			<div class="container-fluid">
 				<!-- BEGIN PAGE HEADER-->
 				{{include file="include/page_header.tpl"}}
