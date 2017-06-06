@@ -22,40 +22,79 @@
 
 	<!-- BEGIN GLOBAL MANDATORY STYLES -->
 
-	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<!-- <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/style-metro.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/style.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/style-responsive.css" rel="stylesheet" type="text/css"/>
 	<link href="/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-	<link href="/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+	<link href="/css/uniform.default.css" rel="stylesheet" type="text/css"/> -->
 	<!-- END GLOBAL MANDATORY STYLES -->
 
 	<!-- BEGIN PAGE LEVEL STYLES -->
-	<link rel="stylesheet" type="text/css" href="/css/select2_metro.css" />
-	<link rel="stylesheet" href="/css/DT_bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tree.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="/css/select2_metro.css" /> -->
+
 	<!-- END PAGE LEVEL STYLES -->
+
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/css/style-metro.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/css/style.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/css/style-responsive.css" rel="stylesheet" type="text/css"/>
+
+	<link href="/css/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+
+	<link href="/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+
+	<!-- END GLOBAL MANDATORY STYLES -->
 
 	<!-- BEGIN PAGE LEVEL STYLES -->
 
-	<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap-fileupload.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-fileupload.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/jquery.gritter.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/chosen.css" />
+
+	<link rel="stylesheet" type="text/css" href="/css/select2_metro.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/clockface.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/datepicker.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/timepicker.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/colorpicker.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle-buttons.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/daterangepicker.css" />
-	<link rel="stylesheet" type="text/css" href="/css/datetimepicker.css" /> -->
+
+	<link rel="stylesheet" type="text/css" href="/css/datetimepicker.css" />
+
 	<link rel="stylesheet" type="text/css" href="/css/multi-select-metro.css" />
+
 	<!-- <link href="/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/> -->
 
 	<!-- END PAGE LEVEL STYLES -->
+
+
+	<link rel="stylesheet" href="/css/DT_bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-tree.css" />
 
 
 
