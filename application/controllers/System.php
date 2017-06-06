@@ -54,7 +54,18 @@ class SystemController extends AbstractController {
 			'page' => $params['page'], // 当前页
 			'totalPage' => $totalPage, // 总页数
 		];
-		$this->smarty->display('demo/list.tpl', $data);
+		$this->smarty->display('system/account.tpl', $data);
+	}
+
+
+	public function addAccountAction() {
+		if ($this->request->isPost()) {
+
+			print_r($_POST);exit;
+		}
+
+		$data = [];
+		$this->getView()->display('system/addAccount.tpl');
 	}
 
 	public function roleAction() {
