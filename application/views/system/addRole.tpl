@@ -4,703 +4,345 @@
          <h4 class="modal-title">新增角色</h4>
     </div>
     <div class="modal-body">
-       <!-- BEGIN PAGE CONTENT-->
 
-                <div class="row-fluid">
+<!-- BEGIN FORM-->
 
-                    <div class="span12">
+<!--                                             <form action="#" class="form-horizontal form-bordered form-label-stripped">
+ -->
+<div class="control-group">
 
-                        <!-- BEGIN SAMPLE FORM PORTLET-->
+    <label class="control-label">First Name</label>
 
-                        <div class="portlet box blue">
+    <div class="controls">
 
-                            <div class="portlet-title">
+        <input type="text" placeholder="small" class="m-wrap span6" />
 
-                                <div class="caption"><i class="icon-reorder"></i>Sample Form</div>
+        <span class="help-inline">This is inline help</span>
 
-                                <div class="tools">
+    </div>
 
-                                    <a href="javascript:;" class="collapse"></a>
+</div>
 
-                                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+<div class="control-group">
 
-                                    <a href="javascript:;" class="reload"></a>
+    <label class="control-label">Last Name</label>
 
-                                    <a href="javascript:;" class="remove"></a>
+    <div class="controls">
 
-                                </div>
+        <input type="text" placeholder="medium" class="m-wrap span6" />
 
-                            </div>
+        <span class="help-inline">This is inline help</span>
 
-                            <div class="portlet-body form">
+    </div>
 
-                                <!-- BEGIN FORM-->
+</div>
 
-                                <form action="#" class="form-horizontal">
+<div class="control-group">
 
-                                    <div class="control-group">
+    <label class="control-label">Gender</label>
 
-                                        <label class="control-label">Input</label>
+    <div class="controls">
 
-                                        <div class="controls">
+        <select  class="m-wrap span6">
 
-                                            <input type="text" class="span6 m-wrap" />
+            <option value="">Male</option>
 
-                                            <span class="help-inline">Some hint here</span>
+            <option value="">Female</option>
 
-                                        </div>
+        </select>
 
-                                    </div>
+        <span class="help-block">Select your gender.</span>
 
-                                    <div class="control-group">
+    </div>
 
-                                        <label class="control-label">Disabled Input</label>
+</div>
 
-                                        <div class="controls">
+<div class="control-group">
 
-                                            <input class="span6 m-wrap" type="text" placeholder="Disabled input here..." disabled />
+    <label class="control-label" >Date of Birth</label>
 
-                                            <span class="help-inline">Some hint here</span>
+    <div class="controls">
 
-                                        </div>
+        <input type="text" class="m-wrap span6"  placeholder="dd/mm/yyyy">
 
-                                    </div>
+    </div>
 
-                                    <div class="control-group">
+</div>
 
-                                        <label class="control-label">Readonly Input</label>
+<div class="control-group">
 
-                                        <div class="controls">
+    <label class="control-label" >Category</label>
 
-                                            <input class="span6 m-wrap" type="text" placeholder="Readonly input here..." disabled />
+    <div class="controls">
 
-                                            <span class="help-inline">Some hint here</span>
+        <div class="select2-wrapper">
 
-                                        </div>
+            <select class="span6 select2_category">
 
-                                    </div>
+                <option value=""></option>
 
-                                    <div class="control-group">
+                <option value="Category 1">Category 1</option>
 
-                                        <label class="control-label">Input with Popover</label>
+                <option value="Category 2">Category 2</option>
 
-                                        <div class="controls">
+                <option value="Category 3">Category 5</option>
 
-                                            <input type="text" class="span6 m-wrap popovers" data-trigger="hover" data-content="Popover body goes here. Popover body goes here." data-original-title="Popover header" />
+                <option value="Category 4">Category 4</option>
 
-                                        </div>
+            </select>
 
-                                    </div>
+        </div>
 
-                                    <div class="control-group">
+    </div>
 
-                                        <label class="control-label">Input with Tooltip</label>
+</div>
 
-                                        <div class="controls">
+<div class="control-group">
 
-                                            <input type="text" class="span6 m-wrap tooltips" data-trigger="hover" data-original-title="Tooltip text goes here. Tooltip text goes here." />
+    <label class="control-label">Multi-Value Select</label>
 
-                                        </div>
+    <div class="controls">
 
-                                    </div>
+        <div class="select2-wrapper">
 
-                                    <div class="control-group">
+            <select class="span6 select2_sample1" multiple>
 
-                                        <label class="control-label">Auto Complete</label>
+                <option value=""></option>
 
-                                        <div class="controls">
+                <optgroup label="NFC EAST">
 
-                                            <input type="text" class="span6 m-wrap" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]" />
+                    <option>Dallas Cowboys</option>
 
-                                            <p class="help-block">Start typing to auto complete!. E.g: California</p>
+                    <option>New York Giants</option>
 
-                                        </div>
+                    <option>Philadelphia Eagles</option>
 
-                                    </div>
+                    <option>Washington Redskins</option>
 
-                                    <div class="control-group">
+                </optgroup>
 
-                                        <label class="control-label">Email Address Input</label>
+                <optgroup label="NFC NORTH">
 
-                                        <div class="controls">
+                    <option>Chicago Bears</option>
 
-                                            <div class="input-prepend"><span class="add-on">@</span><input class="m-wrap " type="text" placeholder="Email Address" />
+                    <option>Detroit Lions</option>
 
-                                            </div>
+                    <option>Green Bay Packers</option>
 
-                                        </div>
+                    <option>Minnesota Vikings</option>
 
-                                    </div>
+                </optgroup>
 
-                                    <div class="control-group">
+                <optgroup label="NFC SOUTH">
 
-                                        <label class="control-label">Email Address Input</label>
+                    <option>Atlanta Falcons</option>
 
-                                        <div class="controls">
+                    <option>Carolina Panthers</option>
 
-                                            <div class="input-icon left">
+                    <option>New Orleans Saints</option>
 
-                                                <i class="icon-envelope"></i>
+                    <option>Tampa Bay Buccaneers</option>
 
-                                                <input class="m-wrap " type="text" placeholder="Email Address" />
+                </optgroup>
 
-                                            </div>
+                <optgroup label="NFC WEST">
 
-                                        </div>
+                    <option>Arizona Cardinals</option>
 
-                                    </div>
+                    <option>St. Louis Rams</option>
 
-                                    <div class="control-group">
+                    <option>San Francisco 49ers</option>
 
-                                        <label class="control-label">Currency Input</label>
+                    <option>Seattle Seahawks</option>
 
-                                        <div class="controls">
+                </optgroup>
 
-                                            <div class="input-prepend input-append">
+                <optgroup label="AFC EAST">
 
-                                                <span class="add-on">$</span><input class="m-wrap " type="text" /><span class="add-on">.00</span>
+                    <option>Buffalo Bills</option>
 
-                                            </div>
+                    <option>Miami Dolphins</option>
 
-                                        </div>
+                    <option>New England Patriots</option>
 
-                                    </div>
+                    <option>New York Jets</option>
 
-                                    <div class="control-group">
+                </optgroup>
 
-                                        <label class="control-label">Default Dropdown</label>
+                <optgroup label="AFC NORTH">
 
-                                        <div class="controls">
+                    <option>Baltimore Ravens</option>
 
-                                            <select class="span6 m-wrap" data-placeholder="Choose a Category" tabindex="1">
+                    <option>Cincinnati Bengals</option>
 
-                                                <option value="">Select...</option>
+                    <option>Cleveland Browns</option>
 
-                                                <option value="Category 1">Category 1</option>
+                    <option>Pittsburgh Steelers</option>
 
-                                                <option value="Category 2">Category 2</option>
+                </optgroup>
 
-                                                <option value="Category 3">Category 5</option>
+                <optgroup label="AFC SOUTH">
 
-                                                <option value="Category 4">Category 4</option>
+                    <option>Houston Texans</option>
 
-                                            </select>
+                    <option>Indianapolis Colts</option>
 
-                                        </div>
+                    <option>Jacksonville Jaguars</option>
 
-                                    </div>
+                    <option>Tennessee Titans</option>
 
-                                    <div class="control-group">
+                </optgroup>
 
-                                        <label class="control-label">Default Dropdown(Multiple)</label>
+                <optgroup label="AFC WEST">
 
-                                        <div class="controls">
+                    <option>Denver Broncos</option>
 
-                                            <select class="span6 m-wrap" multiple="multiple" data-placeholder="Choose a Category" tabindex="1">
+                    <option>Kansas City Chiefs</option>
 
-                                                <option value="Category 1">Category 1</option>
+                    <option>Oakland Raiders</option>
 
-                                                <option value="Category 2">Category 2</option>
+                    <option>San Diego Chargers</option>
 
-                                                <option value="Category 3">Category 5</option>
+                </optgroup>
 
-                                                <option value="Category 4">Category 4</option>
+            </select>
 
-                                                <option value="Category 3">Category 6</option>
+        </div>
 
-                                                <option value="Category 4">Category 7</option>
+    </div>
 
-                                                <option value="Category 3">Category 8</option>
+</div>
 
-                                                <option value="Category 4">Category 9</option>
+<div class="control-group">
 
-                                            </select>
+    <label class="control-label">Loading Data</label>
 
-                                        </div>
+    <div class="controls">
 
-                                    </div>
+        <div class="select2-wrapper">
 
-                                    <div class="control-group">
+            <input type="hidden" class="span6 select2_sample2">
 
-                                        <label class="control-label">Custom Dropdown</label>
+        </div>
 
-                                        <div class="controls">
+    </div>
 
-                                            <select class="span6 chosen" data-placeholder="Choose a Category" tabindex="1">
+</div>
 
-                                                <option value=""></option>
+<div class="control-group">
 
-                                                <option value="Category 1">Category 1</option>
+    <label class="control-label">Tags Support List</label>
 
-                                                <option value="Category 2">Category 2</option>
+    <div class="controls">
 
-                                                <option value="Category 3">Category 5</option>
+        <div class="select2-wrapper">
 
-                                                <option value="Category 4">Category 4</option>
+            <input type="hidden" class="span6 select2_sample3" value="red, blue">
 
-                                            </select>
+        </div>
 
-                                        </div>
+    </div>
 
-                                    </div>
+</div>
 
-                                    <div class="control-group">
+<div class="control-group">
 
-                                        <label class="control-label">Grouped Custom Dropdown</label>
+    <label class="control-label" >Membership</label>
 
-                                        <div class="controls">
+    <div class="controls">
 
-                                            <select data-placeholder="Your Favorite Football Team" class="chosen span6" tabindex="-1" id="selS0V">
+        <label class="radio">
 
-                                                <option value=""></option>
+        <input type="radio" name="optionsRadios2" value="option1" />
 
-                                                <optgroup label="NFC EAST">
+        Free
 
-                                                    <option>Dallas Cowboys</option>
+        </label>
 
-                                                    <option>New York Giants</option>
+        <label class="radio">
 
-                                                    <option>Philadelphia Eagles</option>
+        <input type="radio" name="optionsRadios2" value="option2" checked />
 
-                                                    <option>Washington Redskins</option>
+        Professional
 
-                                                </optgroup>
+        </label>
 
-                                                <optgroup label="NFC NORTH">
+    </div>
 
-                                                    <option>Chicago Bears</option>
+</div>
 
-                                                    <option>Detroit Lions</option>
+<div class="control-group">
 
-                                                    <option>Green Bay Packers</option>
+    <label class="control-label" >Street</label>
 
-                                                    <option>Minnesota Vikings</option>
+    <div class="controls">
 
-                                                </optgroup>
+        <input type="text" class="m-wrap span6" >
 
-                                                <optgroup label="NFC SOUTH">
+    </div>
 
-                                                    <option>Atlanta Falcons</option>
+</div>
 
-                                                    <option>Carolina Panthers</option>
+<div class="control-group">
 
-                                                    <option>New Orleans Saints</option>
+    <label class="control-label" >City</label>
 
-                                                    <option>Tampa Bay Buccaneers</option>
+    <div class="controls">
 
-                                                </optgroup>
+        <input type="text"  class="m-wrap span6">
 
-                                                <optgroup label="NFC WEST">
+    </div>
 
-                                                    <option>Arizona Cardinals</option>
+</div>
 
-                                                    <option>St. Louis Rams</option>
+<div class="control-group">
 
-                                                    <option>San Francisco 49ers</option>
+    <label class="control-label" >State</label>
 
-                                                    <option>Seattle Seahawks</option>
+    <div class="controls">
 
-                                                </optgroup>
+        <input type="text"  class="m-wrap span6">
 
-                                                <optgroup label="AFC EAST">
+    </div>
 
-                                                    <option>Buffalo Bills</option>
+</div>
 
-                                                    <option>Miami Dolphins</option>
+<div class="control-group">
 
-                                                    <option>New England Patriots</option>
+    <label class="control-label" >Post Code</label>
 
-                                                    <option>New York Jets</option>
+    <div class="controls">
 
-                                                </optgroup>
+        <input type="text" class="m-wrap span6">
 
-                                                <optgroup label="AFC NORTH">
+    </div>
 
-                                                    <option>Baltimore Ravens</option>
+</div>
 
-                                                    <option>Cincinnati Bengals</option>
+<div class="control-group last">
 
-                                                    <option>Cleveland Browns</option>
+    <label class="control-label" >Country</label>
 
-                                                    <option>Pittsburgh Steelers</option>
+    <div class="controls">
 
-                                                </optgroup>
+        <select  class="m-wrap span6"></select>
 
-                                                <optgroup label="AFC SOUTH">
+    </div>
 
-                                                    <option>Houston Texans</option>
+</div>
 
-                                                    <option>Indianapolis Colts</option>
+<div class="form-actions">
 
-                                                    <option>Jacksonville Jaguars</option>
+    <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
 
-                                                    <option>Tennessee Titans</option>
+    <button type="button" class="btn">Cancel</button>
 
-                                                </optgroup>
+</div>
 
-                                                <optgroup label="AFC WEST">
+                                            <!-- </form> -->
 
-                                                    <option>Denver Broncos</option>
+                                            <!-- END FORM-->
 
-                                                    <option>Kansas City Chiefs</option>
-
-                                                    <option>Oakland Raiders</option>
-
-                                                    <option>San Diego Chargers</option>
-
-                                                </optgroup>
-
-                                            </select>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Custom Dropdown Multiple Select</label>
-
-                                        <div class="controls">
-
-                                            <select data-placeholder="Your Favorite Football Teams" class="chosen span6" multiple="multiple" tabindex="6">
-
-                                                <option value=""></option>
-
-                                                <optgroup label="NFC EAST">
-
-                                                    <option>Dallas Cowboys</option>
-
-                                                    <option>New York Giants</option>
-
-                                                    <option>Philadelphia Eagles</option>
-
-                                                    <option>Washington Redskins</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="NFC NORTH">
-
-                                                    <option selected>Chicago Bears</option>
-
-                                                    <option>Detroit Lions</option>
-
-                                                    <option>Green Bay Packers</option>
-
-                                                    <option>Minnesota Vikings</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="NFC SOUTH">
-
-                                                    <option>Atlanta Falcons</option>
-
-                                                    <option selected>Carolina Panthers</option>
-
-                                                    <option>New Orleans Saints</option>
-
-                                                    <option>Tampa Bay Buccaneers</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="NFC WEST">
-
-                                                    <option>Arizona Cardinals</option>
-
-                                                    <option>St. Louis Rams</option>
-
-                                                    <option>San Francisco 49ers</option>
-
-                                                    <option>Seattle Seahawks</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="AFC EAST">
-
-                                                    <option>Buffalo Bills</option>
-
-                                                    <option>Miami Dolphins</option>
-
-                                                    <option>New England Patriots</option>
-
-                                                    <option>New York Jets</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="AFC NORTH">
-
-                                                    <option>Baltimore Ravens</option>
-
-                                                    <option>Cincinnati Bengals</option>
-
-                                                    <option>Cleveland Browns</option>
-
-                                                    <option>Pittsburgh Steelers</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="AFC SOUTH">
-
-                                                    <option>Houston Texans</option>
-
-                                                    <option>Indianapolis Colts</option>
-
-                                                    <option>Jacksonville Jaguars</option>
-
-                                                    <option>Tennessee Titans</option>
-
-                                                </optgroup>
-
-                                                <optgroup label="AFC WEST">
-
-                                                    <option>Denver Broncos</option>
-
-                                                    <option>Kansas City Chiefs</option>
-
-                                                    <option>Oakland Raiders</option>
-
-                                                    <option>San Diego Chargers</option>
-
-                                                </optgroup>
-
-                                            </select>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Custom Dropdown Diselect</label>
-
-                                        <div class="controls">
-
-                                            <select data-placeholder="Your Favorite Type of Bear" class="chosen-with-diselect span6" tabindex="-1" id="selCSI">
-
-                                                <option value=""></option>
-
-                                                <option>American Black Bear</option>
-
-                                                <option>Asiatic Black Bear</option>
-
-                                                <option>Brown Bear</option>
-
-                                                <option>Giant Panda</option>
-
-                                                <option selected="">Sloth Bear</option>
-
-                                                <option>Sun Bear</option>
-
-                                                <option>Polar Bear</option>
-
-                                                <option>Spectacled Bear</option>
-
-                                            </select>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Radio Buttons</label>
-
-                                        <div class="controls">
-
-                                            <label class="radio">
-
-                                            <input type="radio" name="optionsRadios1" value="option1" />
-
-                                            Option 1
-
-                                            </label>
-
-                                            <label class="radio">
-
-                                            <input type="radio" name="optionsRadios1" value="option2" checked />
-
-                                            Option 2
-
-                                            </label>
-
-                                            <label class="radio">
-
-                                            <input type="radio" name="optionsRadios1" value="option2" />
-
-                                            Option 3
-
-                                            </label>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Radio Buttons</label>
-
-                                        <div class="controls">
-
-                                            <label class="radio line">
-
-                                            <input type="radio" name="optionsRadios2" value="option1" />
-
-                                            Option 1
-
-                                            </label>
-
-                                            <label class="radio line">
-
-                                            <input type="radio" name="optionsRadios2" value="option2" checked />
-
-                                            Option 2
-
-                                            </label>
-
-                                            <label class="radio line">
-
-                                            <input type="radio" name="optionsRadios2" value="option2" />
-
-                                            Option 3
-
-                                            </label>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Checkbox</label>
-
-                                        <div class="controls">
-
-                                            <label class="checkbox">
-
-                                            <input type="checkbox" value="" /> Checkbox 1
-
-                                            </label>
-
-                                            <label class="checkbox">
-
-                                            <input type="checkbox" value="" /> Checkbox 2
-
-                                            </label>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Checkbox</label>
-
-                                        <div class="controls">
-
-                                            <label class="checkbox line">
-
-                                            <input type="checkbox" value="" /> Checkbox 1
-
-                                            </label>
-
-                                            <label class="checkbox line">
-
-                                            <input type="checkbox" value="" /> Checkbox 2
-
-                                            </label>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Checkbox Group</label>
-
-                                        <div class="controls">
-
-                                            <div class="row-fluid">
-
-                                                <div class="span3">
-
-                                                    <label class="checkbox line">
-
-                                                    <input type="checkbox" value="" /> Checkbox 1
-
-                                                    </label>
-
-                                                    <label class="checkbox line">
-
-                                                    <input type="checkbox" value="" /> Checkbox 2
-
-                                                    </label>
-
-                                                    <label class="checkbox line">
-
-                                                    <input type="checkbox" value="" /> Checkbox 3
-
-                                                    </label>
-
-                                                </div>
-
-                                                <div class="span3">
-
-                                                    <label class="checkbox line">
-
-                                                    <input type="checkbox" value="" /> Checkbox 4
-
-                                                    </label>
-
-                                                    <label class="checkbox line">
-
-                                                    <input type="checkbox" value="" /> Checkbox 5
-
-                                                    </label>
-
-                                                    <label class="checkbox line">
-
-                                                    <input type="checkbox" value="" /> Checkbox 6
-
-                                                    </label>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="control-group">
-
-                                        <label class="control-label">Textarea</label>
-
-                                        <div class="controls">
-
-                                            <textarea class="span6 m-wrap" rows="3"></textarea>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-actions">
-
-                                        <button type="submit" class="btn blue">Submit</button>
-
-                                        <button type="button" class="btn">Cancel</button>
-
-                                    </div>
-
-                                </form>
-
-                                <!-- END FORM-->
-
-                            </div>
-
-                        </div>
-
-                        <!-- END SAMPLE FORM PORTLET-->
-                        </div>
-                        </div>
 
     </div>
     <div class="modal-footer">

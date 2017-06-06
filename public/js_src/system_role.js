@@ -1,9 +1,12 @@
 //动态异步加载js
 
-
+// http://blog.csdn.net/u013991154/article/details/54346745
+// http://www.cnblogs.com/skybreak/p/6137035.html
+// http://blog.csdn.net/webdev_l/article/details/70859986
 require([
-    'base',
-    'jquery.multi-select'
+    'base'
+    // 'form-samples'
+    // 'jquery.multi-select'
     // 'bootstrap-datepicker',
     // 'bootstrap-datetimepicker',
     // 'form-components'
@@ -29,17 +32,82 @@ require([
 
 
     $(function () {
-        TableManaged.init();
-        // FormComponents.init();
+        // TableManaged.init();
+        // FormSamples.init();
+
+        // $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+        // $.fn.modal.Constructor.prototype.enforceFocus = function() {};
+        $.fn.modal.Constructor.prototype.enforceFocus = function () {};
 
         console.log('add role');
 
-        var $add = $('#mod_1000');
+        var $add = $('#mod_1200');
         // var $alert = $('#myModal2');
         // var $confirm = $('#myModal3');
 
+//         <style>
+// .select2-container--open{
+//         z-index:9999999
+// }
+// </style>
+
+        // $('.select2-container--open').attr('z-index', 9999999);
 
         $add.on('shown.bs.modal', function (e) {
+            $.fn.modal.Constructor.prototype.enforceFocus = function () {};
+
+            console.log('fff');
+
+            // use select2 dropdown instead of chosen as select2 works fine with bootstrap on responsive layouts.
+            $(this).find('.select2_category').select2({
+                placeholder: "Select an option",
+                allowClear: true
+            });
+
+            $(this).find('.select2_sample1').select2({
+                placeholder: "Select a State",
+                allowClear: true
+            });
+
+
+            //  $(this).find('.select2_sample1').select2({
+            //     placeholder: "--请选择--",
+            //     dropdownParent: $(this),
+            //     allowClear: true
+            // });
+
+            $(this).find(".select2_sample2").select2({
+                placeholder: "Type to select an option",
+                allowClear: true,
+                minimumInputLength: 1,
+                query: function (query) {
+                    var data = {
+                        results: []
+                    }, i, j, s;
+                    for (i = 1; i < 5; i++) {
+                        s = "";
+                        for (j = 0; j < i; j++) {
+                            s = s + query.term;
+                        }
+                        data.results.push({
+                            id: query.term + i,
+                            text: s
+                        });
+                    }
+                    query.callback(data);
+                }
+            });
+
+            $(this).find(".select2_sample3").select2({
+                tags: ["red", "green", "blue", "yellow", "pink"]
+            });
+
+
+
+
+
+            // FormSamples.init();
+
             // FormComponents.init();
 
             // $('#ss').multiSelect();

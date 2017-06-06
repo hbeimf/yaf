@@ -43,7 +43,7 @@
 
 
 
-<div id="myModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+<div id="myModal2" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
         <h3 id="myModalLabel2">Alert Header</h3>
@@ -56,7 +56,7 @@
     </div>
 </div>
 
-<div id="myModal22" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel22" aria-hidden="true">
+<div id="myModal22" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel22" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
         <h3 id="myModalLabel22">Alert Header</h3>
@@ -71,7 +71,7 @@
 
 
 
-<div id="myModal3" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+<div id="myModal3" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
         <h3 id="myModalLabel3">Confirm Header</h3>
