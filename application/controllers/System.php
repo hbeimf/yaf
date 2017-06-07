@@ -396,7 +396,6 @@ class SystemController extends AbstractController {
 				'icon' => $this->request->getPost('icon'),
 				'status' => $this->request->getPost('status'),
 				'note' => $this->request->getPost('note'),
-
 			];
 
 			DB::table('system_menu')->insert([$data]);
@@ -415,9 +414,7 @@ class SystemController extends AbstractController {
 			echo json_encode($reply); exit;
 		}
 
-		$data = [];
-		$this->getView()->display('system/addMenu.tpl');
-
+		$this->smarty->display('system/addMenu.tpl');
 	}
 
 }

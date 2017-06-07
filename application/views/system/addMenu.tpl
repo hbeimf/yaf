@@ -1,133 +1,83 @@
-<form name="ff" id="ff" class="form-horizontal " action="/system/addRole" method='post'>
+<form name="ff" id="ff" class="form-horizontal " action="/system/addMenu" method='post'>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
          <h4 class="modal-title">新增导航</h4>
     </div>
     <div class="modal-body">
 
-<!-- BEGIN FORM-->
-<div class="control-group">
+        <!-- BEGIN FORM-->
+        <div class="control-group">
+            <label class="control-label">导航名称</label>
+            <div class="controls">
+                <input name="menu_name" type="text" placeholder="请输入导航名称..." class="m-wrap span4" />
+                <!-- <span class="help-inline">This is inline help</span> -->
+            </div>
+        </div>
 
-    <label class="control-label">导航名称</label>
-
-    <div class="controls">
-
-        <input type="text" placeholder="small" class="m-wrap span4" />
-
-        <span class="help-inline">This is inline help</span>
-
-    </div>
-
-</div>
-
-<div class="control-group">
-    <label class="control-label">上级导航</label>
-    <div class="controls">
-        <!-- <div class="select2-wrapper">  multiple -->
-            <select class="span6 m-wrap select2_sample1 select2" placeholder="请选择导航...">
-                <!-- <option value="0">请选择导航...</option> -->
-                <optgroup label="NFC EAST">
-                    <option>Dallas Cowboys</option>
-                    <option>New York Giants</option>
-                    <option>Philadelphia Eagles</option>
-                    <option>Washington Redskins</option>
-                </optgroup>
-                <optgroup label="NFC NORTH">
-                    <option>Chicago Bears</option>
-                    <option>Detroit Lions</option>
-                    <option>Green Bay Packers</option>
-                    <option>Minnesota Vikings</option>
-                </optgroup>
-                <optgroup label="NFC SOUTH">
-                    <option>Atlanta Falcons</option>
-                    <option>Carolina Panthers</option>
-                    <option>New Orleans Saints</option>
-                    <option>Tampa Bay Buccaneers</option>
-                </optgroup>
-                <optgroup label="NFC WEST">
-                    <option>Arizona Cardinals</option>
-                    <option>St. Louis Rams</option>
-                    <option>San Francisco 49ers</option>
-                    <option>Seattle Seahawks</option>
-                </optgroup>
-                <optgroup label="AFC EAST">
-                    <option>Buffalo Bills</option>
-                    <option>Miami Dolphins</option>
-                    <option>New England Patriots</option>
-                    <option>New York Jets</option>
-                </optgroup>
-                <optgroup label="AFC NORTH">
-                    <option>Baltimore Ravens</option>
-                    <option>Cincinnati Bengals</option>
-                    <option>Cleveland Browns</option>
-                    <option>Pittsburgh Steelers</option>
-                </optgroup>
-                <optgroup label="AFC SOUTH">
-                    <option>Houston Texans</option>
-                    <option>Indianapolis Colts</option>
-                    <option>Jacksonville Jaguars</option>
-                    <option>Tennessee Titans</option>
-                </optgroup>
-                <optgroup label="AFC WEST">
-                    <option>Denver Broncos</option>
-                    <option>Kansas City Chiefs</option>
-                    <option>Oakland Raiders</option>
-                    <option>San Diego Chargers</option>
-                </optgroup>
-            </select>
-        <!-- </div> -->
-    </div>
-</div>
+        <div class="control-group">
+            <label class="control-label">上级导航</label>
+            <div class="controls">
+                <select name="parent_id" class="span6 select2" placeholder="请选择导航...">
+                    <option value="0">顶级导航</option>
+                    {{foreach from=$system_menu item=m}}
+                        <option value="{{$m['id']}}">{{$m['menu_name']}}</option>
+                    {{/foreach}}
+                </select>
+            </div>
+        </div>
 
 
-<div class="control-group">
-    <label class="control-label">链接</label>
-    <div class="controls">
-        <input name="note" type="text" placeholder="url" class="m-wrap span6" />
-        <span class="help-inline"></span>
-    </div>
+        <div class="control-group">
+            <label class="control-label">链接</label>
+            <div class="controls">
+                <input name="link" type="text" placeholder="请输入链接..." class="m-wrap span6" />
+                <span class="help-inline"></span>
+            </div>
 
-</div>
+        </div>
 
-<div class="control-group">
-    <label class="control-label" >图标</label>
-    <div class="controls">
-        <select class="span6 select2_category select2" data-placeholder="Choose a Category" tabindex="1">
-            <option value=""></option>
-            <option value="Category 1">Category 1</option>
-            <option value="Category 2">Category 2</option>
-            <option value="Category 3">Category 5</option>
-            <option value="Category 4">Category 4</option>
-        </select>
-    </div>
-</div>
+        <div class="control-group">
+            <label class="control-label" >图标</label>
+            <div class="controls">
+                <!-- <select name="icon" class="span6 select2" data-placeholder="请选择图标..." tabindex="1">
+                    <option value=""></option>
+                    <option value="icon-plus"><img class="icon-plus" /></option>
+                    <option value="icon-plus"><i class="icon-plus">yy</i></option>
 
-<div class="control-group">
-    <label class="control-label" >是否启用</label>
-    <div class="controls">
-        <label class="radio">
-        <input type="radio" name="status" value="1" />
-        启用
-        </label>
-        <label class="radio">
-        <input type="radio" name="status" value="2" checked />
-        禁用
-        </label>
-    </div>
-</div>
+                    <option value="Category 2">Category 2</option>
+                    <option value="Category 3">Category 5</option>
+                    <option value="Category 4">Category 4</option>
+                </select> -->
 
-<div class="control-group">
-    <label class="control-label">备注</label>
-    <div class="controls">
-        <input name="note" type="text" placeholder="note" class="m-wrap span6" />
-        <span class="help-inline"></span>
-    </div>
+                <input name="icon" type="text" placeholder="请输入图标..." value="icon-plus" class="m-wrap span6" />
+                <span class="help-inline"></span>
+            </div>
+        </div>
 
-</div>
+        <div class="control-group">
+            <label class="control-label" >是否启用</label>
+            <div class="controls">
+                <label class="radio">
+                <input type="radio" name="status" value="1" checked />
+                启用
+                </label>
+                <label class="radio">
+                <input type="radio" name="status" value="2" />
+                禁用
+                </label>
+            </div>
+        </div>
 
+        <div class="control-group">
+            <label class="control-label">备注</label>
+            <div class="controls">
+                <input name="note" type="text" placeholder="请输入备注..." class="m-wrap span6" />
+                <span class="help-inline"></span>
+            </div>
 
+        </div>
 
-<!-- END FORM-->
+        <!-- END FORM-->
 
 
     </div>
