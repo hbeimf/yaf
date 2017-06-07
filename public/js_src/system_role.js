@@ -1,11 +1,8 @@
 //动态异步加载js
 
-// http://blog.csdn.net/u013991154/article/details/54346745
-// http://www.cnblogs.com/skybreak/p/6137035.html
-// http://blog.csdn.net/webdev_l/article/details/70859986
+
 // http://www.bootcdn.cn/bootstrap/
-
-
+// http://www.cnblogs.com/skybreak/p/6137035.html
 
 require([
     'base'

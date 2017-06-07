@@ -940,8 +940,6 @@ if (typeof jQuery === 'undefined') {
     this.scrollbarWidth      = 0
     this.ignoreBackdropClick = false
 
-    $.fn.modal.Constructor.prototype.enforceFocus = function() {};
-
     if (this.options.remote) {
       this.$element
         .find('.modal-content')

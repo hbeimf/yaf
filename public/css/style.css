@@ -2264,6 +2264,7 @@ form legend,
   margin: 0 !important;
   margin-top: 8px !important;
   margin-right: 15px !important;
+  margin-left: 30px !important;
 }
 
 .controls > .radio.line,

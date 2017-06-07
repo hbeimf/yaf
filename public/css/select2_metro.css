@@ -10,6 +10,7 @@ to hide search box
 }
 
 .select2-container {
+    z-index: 16000 !important;
     position: relative;
     display: inline-block;
     /* inline-block for ie7 */
@@ -114,10 +115,11 @@ to hide search box
 }
 
 .select2-drop-mask {
+    z-index: 15990 !important;
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 9991;
+    /*z-index: 9991;*/
     background-color: #fff;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* works in IE 8 */
@@ -139,7 +141,8 @@ to hide search box
 }
 
 .select2-drop.select2-drop-active {
-    z-index: 1000000;
+    /*z-index: 1000000;*/
+    z-index: 15995 !important;
     border: 1px solid #999999;
     border-top: 0;
 }
