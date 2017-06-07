@@ -11,9 +11,11 @@ require([
     $(function () {
 		UITree.init();
 
-		var $mod_800 = $('#mod_800');
+		var $addMenu = $('#mod_900');
 
-		$mod_800.on('shown.bs.modal', function (e) {
+		$addMenu.on('shown.bs.modal', function (e) {
+			$(this).find('.select2').select2();
+
 			$(this).find('#btn_add').click(function () {
 				// $(this).find("#ff").ajaxSubmit({
 				$("#ff").ajaxSubmit({

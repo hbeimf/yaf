@@ -7,7 +7,7 @@
 			<div class="portlet-title">
 				<div class="caption"><i class="icon-comments"></i>导航</div>
 				<div class="actions">
-					<a data-toggle="modal" data-target="#mod_800" href="/system/addMenu/" id="add_menu" class="btn red">增加</a>
+					<a data-toggle="modal" data-target="#mod_900" href="/system/addMenu/" id="add_menu" class="btn red">增加</a>
 					<a href="javascript:;" id="tree_1_collapse" class="btn green">收起</a>
 					<a href="javascript:;" id="tree_1_expand" class="btn yellow">展开</a>
 				</div>
