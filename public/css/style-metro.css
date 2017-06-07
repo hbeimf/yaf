@@ -523,6 +523,7 @@ input[class*="span"].m-wrap
   float: none;
   height: 34px !important;
   margin-left: 0;
+  margin-left: 30px;
 }
 
 select[class*="span"].m-wrap,

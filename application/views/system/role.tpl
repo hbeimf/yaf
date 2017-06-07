@@ -18,7 +18,7 @@
                 <div class="row-fluid">
                     <form>
                         <div id="sample_1_length" class="dataTables_length">
-                            <label>records per page
+                            <label>每页显示:
                                 <select size="1" name="page_size" aria-controls="sample_1" class="m-wrap small">
                                     <option value="5" selected="selected">5</option>
                                     <option value="15">15</option>
@@ -41,7 +41,7 @@
                 <table class="table table-striped table-bordered table-hover" id="sample_1">
                     <thead>
                         <tr>
-                            <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+                            <!-- <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th> -->
                             <th class="hidden-480">姓名</th>
                             <th class="hidden-480">邮箱</th>
                             <th class="hidden-480">创建时间</th>
@@ -51,7 +51,7 @@
                     <tbody>
                         {{foreach from=$users item=r}}
                         <tr class="odd gradeX">
-                            <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td>
+                            <!-- <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td> -->
                             <td>{{$r['name']}}</td>
                             <td>{{$r['email']}}</td>
                             <td>{{$r['created_at']}}</td>

@@ -420,6 +420,7 @@ disabled look for disabled choices in the results dropdown
 }
 
 .select2-container-multi .select2-choices {
+    /*margin-left: -30px;*/
     min-height: 26px;
 }
 
