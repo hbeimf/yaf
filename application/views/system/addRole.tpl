@@ -1,4 +1,4 @@
-<form name="ff" id="ff" class="form-horizontal " action="/system/addRole" method='post'>
+<form name="ff" id="ff" class="form-horizontal ajax_form" action="/system/addRole" method='post'>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
          <h4 class="modal-title">新增角色</h4>

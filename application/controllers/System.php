@@ -107,7 +107,12 @@ class SystemController extends AbstractController {
 	public function addRoleAction() {
 		if ($this->request->isPost()) {
 
-			print_r($_POST);exit;
+			$reply = [
+				'code' => 200,
+				'msg' => '增加成功',
+			];
+
+			echo json_encode($reply); exit;
 		}
 
 		$data = [];
@@ -410,5 +415,15 @@ class SystemController extends AbstractController {
 
 		$this->smarty->display('system/addMenu.tpl');
 	}
+
+
+	// public function addRoleAction() {
+	// 	$reply = [
+	// 		'code' => 200,
+	// 		'msg' => '增加成功',
+	// 	];
+
+	// 	echo json_encode($reply); exit;
+	// }
 
 }

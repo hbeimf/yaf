@@ -46,20 +46,20 @@
 <div id="myModal2" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h3 id="myModalLabel2">Alert Header</h3>
+        <h3 id="myModalLabel2">系统提示</h3>
     </div>
     <div class="modal-body">
         <p>Body goes here...</p>
     </div>
     <div class="modal-footer">
-        <button data-dismiss="modal" class="btn green">OK</button>
+        <button data-dismiss="modal" class="btn red">OK</button>
     </div>
 </div>
 
 <div id="myModal22" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel22" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h3 id="myModalLabel22">Alert Header</h3>
+        <h3 id="myModalLabel22">系统提示</h3>
     </div>
     <div class="modal-body">
         <p>Body goes here...</p>
@@ -70,7 +70,7 @@
 </div>
 
 
-
+<!--
 <div id="myModal3" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
@@ -86,3 +86,4 @@
 </div>
 
 
+ -->
