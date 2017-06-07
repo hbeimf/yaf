@@ -7,13 +7,13 @@
     </li>
 
     <li>
-        <form class="sidebar-search">
+        <!-- <form class="sidebar-search">
             <div class="input-box">
                 <a href="javascript:;" class="remove"></a>
                 <input type="text" placeholder="Search..." />
                 <input type="button" class="submit" value=" " />
             </div>
-        </form>
+        </form> -->
     </li>
 
     <li class="start {{if $current_menu['id'] == 0}}active{{/if}}">
