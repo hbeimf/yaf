@@ -1,4 +1,4 @@
-<form name="ff" id="ff" class="form-horizontal " action="/system/addAccount" method='post'>
+<form name="ff" id="ff" class="form-horizontal " action="/system/addRole" method='post'>
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
          <h4 class="modal-title">新增角色</h4>
@@ -24,8 +24,8 @@
     <label class="control-label">访问导航权限</label>
     <div class="controls">
         <!-- <div class="select2-wrapper"> -->
-            <select class="span6 m-wrap select2_sample1 select2" multiple>
-                <option value=""></option>
+            <select class="span6 m-wrap select2_sample1 select2" multiple placeholder="请选择导航...">
+                <!-- <option value="0">请选择导航...</option> -->
                 <optgroup label="NFC EAST">
                     <option>Dallas Cowboys</option>
                     <option>New York Giants</option>
