@@ -29,7 +29,7 @@
 										<ul class="branch">
 											{{foreach from=$m['child'] item=mm}}
 											<li>
-												<a data-toggle="modal" data-target="#mod_800" href="{{$mm['link']}}" data-role="leaf">
+												<a data-toggle="modal" data-target="#mod_900" href="{{$mm['link']}}" data-role="leaf">
 													<i class="{{$mm['icon']}}"></i> {{$mm['menu_name']}}
 												</a>
 											</li>

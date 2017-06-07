@@ -37,11 +37,11 @@
         </div>
 
         <div class="control-group">
-            <label class="control-label" >图标</label>
+            <label class="control-label" >图标 <i class="icon-arrow-down"></i></label>
             <div class="controls">
                 <!-- <select name="icon" class="span6 select2" data-placeholder="请选择图标..." tabindex="1">
                     <option value=""></option>
-                    <option value="icon-plus"><img class="icon-plus" /></option>
+                    <option value="icon-plus">collapse-top</option>
                     <option value="icon-plus"><i class="icon-plus">yy</i></option>
 
                     <option value="Category 2">Category 2</option>
@@ -51,6 +51,7 @@
 
                 <input name="icon" type="text" placeholder="请输入图标..." value="icon-plus" class="m-wrap span6" />
                 <span class="help-inline"></span>
+
             </div>
         </div>
 
