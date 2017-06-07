@@ -27,7 +27,7 @@ require([
 
             // $(this).find('.select2_sample1').select2();
 
-            $(this).find('.select2').select2();
+            // $(this).find('.select2').select2();
 
 
             // $(this).find(".select2_sample3").select2({

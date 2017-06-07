@@ -405,12 +405,6 @@ class SystemController extends AbstractController {
 				'msg' => '增加成功',
 			];
 
-			// $reply = [
-			// 	'flg' => false,
-			// 	'msg' => '增加xx',
-			// ];
-
-
 			echo json_encode($reply); exit;
 		}
 
