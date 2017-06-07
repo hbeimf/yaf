@@ -139,6 +139,7 @@ to hide search box
 }
 
 .select2-drop.select2-drop-active {
+    z-index: 1000000;
     border: 1px solid #999999;
     border-top: 0;
 }

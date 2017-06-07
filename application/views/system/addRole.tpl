@@ -9,7 +9,7 @@
 
 <!--                                             <form action="#" class="form-horizontal form-bordered form-label-stripped">
  -->
-<div class="control-group">
+<!-- <div class="control-group">
 
     <label class="control-label">First Name</label>
 
@@ -35,7 +35,7 @@
 
     </div>
 
-</div>
+</div> -->
 
 <div class="control-group">
 
@@ -52,18 +52,6 @@
         </select>
 
         <span class="help-block">Select your gender.</span>
-
-    </div>
-
-</div>
-
-<div class="control-group">
-
-    <label class="control-label" >Date of Birth</label>
-
-    <div class="controls">
-
-        <input type="text" class="m-wrap span6"  placeholder="dd/mm/yyyy">
 
     </div>
 
@@ -213,7 +201,7 @@
 
 </div>
 
-<div class="control-group">
+<!-- <div class="control-group">
 
     <label class="control-label">Loading Data</label>
 
@@ -227,7 +215,7 @@
 
     </div>
 
-</div>
+</div> -->
 
 <div class="control-group">
 
@@ -271,73 +259,15 @@
 
 </div>
 
-<div class="control-group">
 
-    <label class="control-label" >Street</label>
-
-    <div class="controls">
-
-        <input type="text" class="m-wrap span6" >
-
-    </div>
-
-</div>
-
-<div class="control-group">
-
-    <label class="control-label" >City</label>
-
-    <div class="controls">
-
-        <input type="text"  class="m-wrap span6">
-
-    </div>
-
-</div>
-
-<div class="control-group">
-
-    <label class="control-label" >State</label>
-
-    <div class="controls">
-
-        <input type="text"  class="m-wrap span6">
-
-    </div>
-
-</div>
-
-<div class="control-group">
-
-    <label class="control-label" >Post Code</label>
-
-    <div class="controls">
-
-        <input type="text" class="m-wrap span6">
-
-    </div>
-
-</div>
-
-<div class="control-group last">
-
-    <label class="control-label" >Country</label>
-
-    <div class="controls">
-
-        <select  class="m-wrap span6"></select>
-
-    </div>
-
-</div>
-
+<!--
 <div class="form-actions">
 
     <button type="submit" class="btn blue"><i class="icon-ok"></i> Save</button>
 
     <button type="button" class="btn">Cancel</button>
 
-</div>
+</div> -->
 
                                             <!-- </form> -->
 
