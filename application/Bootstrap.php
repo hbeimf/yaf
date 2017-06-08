@@ -45,7 +45,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 		// 启动Eloquent
 		$capsule->bootEloquent();
 
-		// define('DT', 'dt');
+		// 开启sql查询记录　
 		$capsule::connection()->enableQueryLog();
 
 	}

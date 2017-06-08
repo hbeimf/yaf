@@ -3,6 +3,7 @@
 use Illuminate\Database\Capsule\Manager as DB;
 
 
+// sql 查询记录
 function queryLog($params) {
 	$queryLog = DB::getQueryLog();
 	p($queryLog);

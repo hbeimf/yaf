@@ -11,12 +11,7 @@ class View {
 
 		$root_dir = rtrim($_SERVER['DOCUMENT_ROOT'], 'public');
 
-		// echo $root_dir;exit;
-
 		$this->_smarty->template_dir = $root_dir . "application/views/";
-
-		// echo $root_dir . "application/views/";exit;
-		//$this->_smarty->compile_dir = $root_dir . "/Application/library/Smarty/compile_dir/";
 
 		$this->_smarty->compile_dir = $root_dir . "cache/compile_dir/";
 		$this->_smarty->cache_dir = $root_dir . "application/library/Smarty/cache_dir/";
