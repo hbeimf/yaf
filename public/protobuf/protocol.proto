@@ -1,0 +1,29 @@
+//package awesomepackage;
+syntax = "proto2";
+
+//
+// Example from https://developers.google.com/protocol-buffers/
+//
+message Base {
+  required int32 id = 2;
+  optional bytes data = 0;
+}
+
+message People {
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+}
+
+
+message ChatMsg {
+  required string msg = 1;
+}
+
+message Msg {
+  required string msg = 1;
+}
+
+
+
+
