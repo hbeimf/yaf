@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Demo Chat</title>
+    <link href="/static/bootstrap.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="/static/moment.js"></script>
+    <script src="/static/jquery-1.7.2.min.js"></script>
+    <script src="/static/protobuf.min.js"></script>
+    <script src="/static/chat.js"></script>
+</head>
+<body>
+    <br/>
+    <div id="console" class="well">
+    </div>
+    <form class="well form-inline" onsubmit="return false;">
+       <input id="msg_string" class="input-xlarge" type="text" placeholder="Type something..." value="666..." />
+       <button type="button" onClick="sendMsg()" class="btn">Send String</button>
+
+
+       <button type="button" onClick="ConnectServer()" class="btn">Connect Server</button>
+       <button type="button" onClick="DisconnectServer()" class="btn">Disconnect Server</button>
+
+       <button type="button" onClick="clearConsole()" class="btn">Clear Console</button>
+    </form>
+</body>
+</html>

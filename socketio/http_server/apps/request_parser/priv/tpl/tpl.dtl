@@ -1,0 +1,28 @@
+
+
+
+<!-- {{list}} -->
+
+{{time}} <br />
+{{p}} <br />
+{{yid}} <br />
+
+
+{% for l in list%}
+    {{l.y}}-{{l.start}}-{{l.end}}-{{l.num}} <br />
+{% endfor %}
+
+
+
+{% for cl in clist%}
+    {{cl.year}} <br />
+
+
+    {% for cll in cl.l%}
+        {{cll.y}}-{{cll.start}}-{{cll.end}}-{{cll.num}} <br />
+    {% endfor %}
+
+
+{% endfor %}
+
+

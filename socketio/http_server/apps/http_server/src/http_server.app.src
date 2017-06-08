@@ -1,0 +1,27 @@
+{application, http_server,
+ [{description, "An OTP application"},
+  {vsn, "0.1.2"},
+  {registered, []},
+  {mod, { http_server_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    cowboy,
+    mysql,
+    socketio,
+    %%redis,
+    request_parser,
+    workboy,
+    %%python,
+    go,
+    table,
+    lager,
+    erlydtl
+   ]},
+  {env,[]},
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.

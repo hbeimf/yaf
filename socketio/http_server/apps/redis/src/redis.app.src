@@ -1,0 +1,51 @@
+{application, redis,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, { redis_app, []}},
+  {applications,
+   [kernel,
+    stdlib,
+    poolboy,
+    eredis
+   ]},
+  %{env,[]},
+  {env, [
+        {global_or_local, local},
+        {pools, [
+                   {default, [
+                              {size, 5},
+                              {max_overflow, 20}
+                             ],
+                             []
+                   },
+                   {pool1, [
+                              {size, 5},
+                              {max_overflow, 20}
+                             ],
+                             [
+                              {host, "127.0.0.1"},
+                              {port, 6379}
+                             ]
+                   },
+                   {pool2, [
+                              {size, 5},
+                              {max_overflow, 20}
+                           ],
+                           [
+                              {host, "127.0.0.1"},
+                              {port, 6379},
+                              %{database, "user_db"},
+                              %{password, "abc"},
+                              {reconnect_sleep, 100}
+                            ]
+                    }
+                  ]}
+  ]},
+
+  {modules, []},
+
+  {maintainers, []},
+  {licenses, []},
+  {links, []}
+ ]}.

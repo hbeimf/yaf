@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Demo</title>
+    <link href="/static/bootstrap.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+    <script src="/static/moment.js"></script>
+    <script src="/static/jquery-1.7.2.min.js"></script>
+    <script src="/static/protobuf.min.js"></script>
+    <script src="/static/base64.js"></script>
+    <script src="/static/ws.js"></script>
+</head>
+<body>
+    <!-- <h1>Demo</h1> -->
+    <br/>
+    <div id="console" class="well">
+    </div>
+    <form class="well form-inline" onsubmit="return false;">
+        <!-- file upload  -->
+        <!-- http://www.bicky.me/blog/archive/uploading-files-with-ajax-based-on-base64-text-encoding/ -->
+        <input type="hidden" name="file_base64" id="file_base64">
+        <a href="javascript:;" class="file">upload image
+          <input type="file" id="fileup">
+        </a>
+
+       <button type="button" onClick="sendJson()" class="btn">Send Json</button>
+       <!-- <input id="msg_string" class="input-xlarge" type="text" placeholder="Type something..." value="string content ..." /> -->
+       <button type="button" onClick="sendString()" class="btn">Send String</button>
+       <button type="button" onClick="sendWork()" class="btn">一个耗时的任务demo</button>
+       <!-- <button type="button" onClick="fetchWeb()" class="btn">抓取网页demo</button> -->
+       <!-- <button type="button" onClick="protobufDemo()" class="btn">protobuf demo</button> -->
+       <button type="button" onClick="SendProtobufDemo()" class="btn">Send protobuf demo</button>
+       <!-- <button type="button" onClick="sendDisconnect()" class="btn">Disconnect</button> -->
+       <button type="button" onClick="clearConsole()" class="btn">Clear Console</button>
+
+    </form>
+</body>
+</html>
