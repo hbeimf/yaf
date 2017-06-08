@@ -26,7 +26,9 @@ require.config({
         'form-samples':'/js/form-samples',
         'protobuf':'/js/protobuf.min',
         'moment':'/js/moment',
-        'long':'/js/long'
+        'long':'/js/long',
+        'base64':'/js/base64',
+        'socket.io':'/js/socket.io'
     },
     shim: {
         // jQuery
@@ -45,7 +47,8 @@ require.config({
                     'app', 'table-managed', 'jquery.form', 'functions'],
         'functions':['app', 'jquery'],
         'form-samples':['jquery', 'bootstrap'],
-        'protobuf':['jquery', 'long']
+        'protobuf':['jquery', 'long'],
+        'socket.io':['jquery']
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
 });
