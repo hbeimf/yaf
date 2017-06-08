@@ -13,10 +13,10 @@
     request_parser,
     workboy,
     %%python,
-    go,
+    %%go,
     table,
-    lager,
-    erlydtl
+    lager
+    %%erlydtl
    ]},
   {env,[]},
   {modules, []},
