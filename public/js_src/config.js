@@ -23,7 +23,10 @@ require.config({
         'ui-tree': '/js/ui-tree',
         'functions' : '/js_src/functions',
         'base': '/js_src/base',
-        'form-samples':'/js/form-samples'
+        'form-samples':'/js/form-samples',
+        'protobuf':'/js/protobuf.min',
+        'moment':'/js/moment',
+        'long':'/js/long'
     },
     shim: {
         // jQuery
@@ -41,7 +44,8 @@ require.config({
                     'jquery.cookie', 'jquery.uniform', 'select2', 'jquery.dataTables', 'DT_bootstrap',
                     'app', 'table-managed', 'jquery.form', 'functions'],
         'functions':['app', 'jquery'],
-        'form-samples':['jquery', 'bootstrap']
+        'form-samples':['jquery', 'bootstrap'],
+        'protobuf':['jquery', 'long']
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
 });

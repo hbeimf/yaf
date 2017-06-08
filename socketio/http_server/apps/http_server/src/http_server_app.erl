@@ -20,7 +20,7 @@ start(_Type, _Args) ->
             {"/pb", cowboy_static, {priv_file, http_server, "index_pb.html"}},
             {"/static/[...]", cowboy_static, {priv_dir, http_server, "static"}},
             {"/public/[...]", cowboy_static, {priv_dir, http_server, "public"}}, %% 静态文件请求 js , css, images 等
-                    
+
             %% 动态请求
             {"/page/[...]", handler_page, []},
             {"/protocol.proto", handler_protobuff, []},
@@ -35,7 +35,7 @@ start(_Type, _Args) ->
         ]}
     ]),
     cowboy:start_http(socketio_http_listener, 100, [{host, "127.0.0.1"},
-                                                    {port, 8080}], [{env, [{dispatch, Dispatch}]}]),
+                                                    {port, 8088}], [{env, [{dispatch, Dispatch}]}]),
     % demo_mgr:start_link(),
     %  改点注释啥 的,做升级测试
     http_server_sup:start_link().

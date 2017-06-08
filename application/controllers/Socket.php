@@ -12,7 +12,7 @@ class SocketController extends AbstractController {
     // http://yaf.demo.com/demo/index
     public function indexAction() {
         $data = [
-            'js' => 'system_role',
+            'js' => 'socket_index',
         ];
 
 
