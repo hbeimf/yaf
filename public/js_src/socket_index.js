@@ -104,7 +104,7 @@ require([
 
     function handler(data){
         var timestamp = Date.parse(new Date());
-        protobuf.load("/protobuf/protocol.proto?t="+timestamp, function(err, root) {
+        protobuf.load("/protobuf/protocol.proto", function(err, root) {
             var base = decode(root, 'Base', data);
 
             console.log(base.id);
@@ -128,7 +128,7 @@ require([
 
     function DoSendWork(pid) {
         var timestamp = Date.parse(new Date());
-        protobuf.load("/protobuf/protocol.proto?t="+timestamp, function(err, root) {
+        protobuf.load("/protobuf/protocol.proto", function(err, root) {
 
             if (err){
                 throw err;
