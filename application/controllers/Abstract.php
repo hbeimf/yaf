@@ -17,6 +17,10 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		$menu = Table_System_Menu::all()->toArray();
 		$this->smarty->assign('system_menu', $this->parse_menu($menu));
 		$this->smarty->assign('current_menu', $this->current_menu($menu));
+
+		// 定义开发环境
+		$app_env = (isset($_SERVER['APP_ENV'])) ? $_SERVER['APP_ENV'] : '';
+		$this->smarty->assign('APP_ENV', $app_env);
 	}
 
 	protected function current_menu($menu) {
