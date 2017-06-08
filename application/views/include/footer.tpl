@@ -1,3 +1,22 @@
+			<!-- 打印sql 开始　-->
+			<div class="row-fluid">
+    			<div class="span12">
+    				<div class="portlet box green">
+						<div class="portlet-title">
+							<div class="caption"><i class="icon-comments"></i>SQL查询记录</div>
+							<div class="actions">
+							</div>
+						</div>
+
+						<div class="portlet-body fuelux">
+							{{queryLog}}
+						</div>
+					</div>
+    			</div>
+    		</div>
+    		<!-- 打印sql　结束　-->
+
+
 			</div>
 			<!-- END PAGE CONTAINER-->
 		</div>
@@ -8,7 +27,7 @@
 	<!-- BEGIN FOOTER -->
 	<div class="footer">
 		<div class="footer-inner">
-			2013 &copy; Metronic by keenthemes.Collect from 
+			2013 &copy; Metronic by keenthemes.Collect from
 		</div>
 		<div class="footer-tools">
 			<span class="go-top">
@@ -18,7 +37,7 @@
 	</div>
 
 	{{include file="include/modal.tpl"}}
-	
+
 	<script src="/js/require.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	    require({

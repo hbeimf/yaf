@@ -46,7 +46,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 		$capsule->bootEloquent();
 
 		// define('DT', 'dt');
-		// $capsule::connection('dt')->enableQueryLog();
+		$capsule::connection()->enableQueryLog();
 
 	}
 

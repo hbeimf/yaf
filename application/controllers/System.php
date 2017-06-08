@@ -101,7 +101,10 @@ class SystemController extends AbstractController {
 			'page' => $params['page'], // 当前页
 			'totalPage' => $totalPage, // 总页数
 		];
+
+
 		$this->smarty->display('system/role.tpl', $data);
+
 	}
 
 	public function addRoleAction() {

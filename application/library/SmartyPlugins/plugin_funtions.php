@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Database\Capsule\Manager as DB;
 
 
-
-function is_active($params) {
-	return 'active';
+function queryLog($params) {
+	$queryLog = DB::getQueryLog();
+	p($queryLog);
+	// return 'queryLog';
 }
 
 

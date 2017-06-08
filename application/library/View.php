@@ -26,8 +26,7 @@ class View {
 		$this->_smarty->right_delimiter = '}}';
 
 		$this->_smarty->registerPlugin("function", "page", "page");
-		$this->_smarty->registerPlugin("function", "is_active", "is_active");
-
+		$this->_smarty->registerPlugin("function", "queryLog", "queryLog");
 
 	}
 
