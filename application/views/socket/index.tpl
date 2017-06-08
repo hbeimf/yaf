@@ -7,7 +7,7 @@
 
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet-body">
-                <div id="console" class="well">
+                <div id="console" class="well" style="height:200px;overflow-y:auto;">
                 </div>
             </div>
         <!-- END EXAMPLE TABLE PORTLET-->

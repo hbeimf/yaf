@@ -169,24 +169,18 @@ require([
     }
 
 
-    // function clearConsole() {
-    //     $('#console').html('');
-    // }
-
-
-
-
-
-
 
     $(function () {
-
-        // console.log('socket');
 
         init();
 
         $('#request').click(function(){
             console.log('request');
+            SendWork(20000);
+        });
+
+        $('#clearConsole').click(function (){
+            $('#console').html('');
         });
 
     });

@@ -32,14 +32,15 @@ action(10001, _BinString, Status) ->
 
 action(20000, _BinString, Status) ->
     io:format("file: ~p =========== \nline:~p =========== ~n~n ~p ~n~n", [?FILE, ?LINE, "BinString"]),
-    Msg = protocol_pb:encode_msg(#'Msg'{msg="分析yid"}),
+    Msg = protocol_pb:encode_msg(#'Msg'{msg="分析开始!!"}),
     ReplyBin = protocol_pb:encode_msg(#'Base'{id=20000, data=Msg}),
 
     io:format("file: ~p =========== \nline:~p =========== ~n~n ~p ~n~n", [?FILE, ?LINE, ReplyBin]),
     % ReplyBin = protocol_pb:encode_msg(#'Base'{id=10001, data=BinString}),
 
-    Work = {find_yid, self()},
-    workboy:start(Work),
+    % Work = {find_yid, self()},
+    % workboy:start(Work),
+
 
     {reply_binary, Status, ReplyBin};
 
