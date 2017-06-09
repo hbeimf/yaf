@@ -1,9 +1,9 @@
 var Login = function () {
-    
+
     return {
         //main function to initiate the module
         init: function () {
-        	
+
            $('.login-form').validate({
 	            errorElement: 'label', //default input error message container
 	            errorClass: 'help-inline', // default input error message class
@@ -29,7 +29,7 @@ var Login = function () {
 	                }
 	            },
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+	            invalidHandler: function (event, validator) { //display error alert on form submit
 	                $('.alert-error', $('.login-form')).show();
 	            },
 
@@ -48,7 +48,20 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+	            	//登录验证
+	                // window.location.href = "/index/login";
+	                // console.log('login');
+	                $('#login-form').ajaxSubmit({
+                        url: '/index/login',
+                        type: "post",
+                        success: function (reply_json) {
+                            console.log(reply_json);
+                            var reply = $.parseJSON(reply_json);
+                            if (reply.code == 200) {
+                            	window.location.href = "/";
+                            }
+                        }
+                    });
 	            }
 	        });
 
@@ -79,7 +92,7 @@ var Login = function () {
 	                }
 	            },
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+	            invalidHandler: function (event, validator) { //display error alert on form submit
 
 	            },
 
@@ -98,14 +111,14 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+	                window.location.href = "/index/login";
 	            }
 	        });
 
 	        $('.forget-form input').keypress(function (e) {
 	            if (e.which == 13) {
 	                if ($('.forget-form').validate().form()) {
-	                    window.location.href = "index.html";
+	                    window.location.href = "/index/login";
 	                }
 	                return false;
 	            }
@@ -151,7 +164,7 @@ var Login = function () {
 	                }
 	            },
 
-	            invalidHandler: function (event, validator) { //display error alert on form submit   
+	            invalidHandler: function (event, validator) { //display error alert on form submit
 
 	            },
 
@@ -166,7 +179,7 @@ var Login = function () {
 	            },
 
 	            errorPlacement: function (error, element) {
-	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container                  
+	                if (element.attr("name") == "tnc") { // insert checkbox errors after the container
 	                    error.addClass('help-small no-left-padding').insertAfter($('#register_tnc_error'));
 	                } else {
 	                    error.addClass('help-small no-left-padding').insertAfter(element.closest('.input-icon'));
@@ -174,7 +187,7 @@ var Login = function () {
 	            },
 
 	            submitHandler: function (form) {
-	                window.location.href = "index.html";
+	                window.location.href = "/index/login";
 	            }
 	        });
 
