@@ -22,9 +22,8 @@
 						<ul class="branch in">
 							{{foreach from=$system_menu item=m}}
 								<li>
-									<!-- <a style="position:relative;left:20px;top:-30px;" data-toggle="modal" data-target="#mod_900" href="/system/addMenu/id/{{$m['id']}}">{{$m['menu_name']}}</a> -->
-									<a  href="" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" >
-										{{$m['menu_name']}} ++
+									<a href="" class="tree-toggle closed parent_menu" data-toggle="branch" data-value="Bootstrap_Tree" >
+										<span id="{{$m['id']}}">{{$m['menu_name']}} ++</span>
 									</a>
 										<ul class="branch">
 											{{foreach from=$m['child'] item=mm}}
