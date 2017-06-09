@@ -63,6 +63,28 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		$this->smarty = View::getInstance();
 	}
 
+
+
+
+	protected function ajax_error($msg = '') {
+		$reply = [
+			'code' => '500',
+			'msg' => $msg,
+		];
+
+		die(json_encode($reply));
+	}
+
+	protected function ajax_success($msg = '') {
+		$reply = [
+			'code' => '200',
+			'msg' => $msg,
+		];
+
+		die(json_encode($reply));
+	}
+
+
 	/**
 	 * 上传
 	 * @param $allowType

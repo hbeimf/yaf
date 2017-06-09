@@ -31,7 +31,7 @@ require([
                         url: action,
                         type: "post",
                         success: function (reply_json) {
-                            console.log(reply);
+                            console.log(reply_json);
                             var reply = $.parseJSON(reply_json);
                             if (reply.code == 200) {
                                 alert_refresh(reply.msg);

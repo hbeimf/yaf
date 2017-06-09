@@ -406,14 +406,18 @@ class SystemController extends AbstractController {
 				'note' => $this->request->getPost('note'),
 			];
 
+			if ($data['menu_name'] == '') {
+				return $this->ajax_error('名称不能为空');
+			}
+
+			if ($data['parent_id'] > 0 && $data['link'] == '') {
+				return $this->ajax_error('链接不能为空');
+			}
+
+
 			DB::table('system_menu')->insert([$data]);
 
-			$reply = [
-				'flg' => true,
-				'msg' => '增加成功',
-			];
-
-			echo json_encode($reply); exit;
+			return $this->ajax_success('添加成功！');
 		}
 
 		$this->smarty->display('system/addMenu.tpl');
