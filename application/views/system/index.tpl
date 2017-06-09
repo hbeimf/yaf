@@ -20,22 +20,21 @@
 						导航
 						</a>
 						<ul class="branch in">
-							{{foreach from=$menu item=m}}
+							{{foreach from=$system_menu item=m}}
 								<li>
-									<a href="" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" id="nut3">
-									{{$m['menu_name']}}
+									<!-- <a style="position:relative;left:20px;top:-30px;" data-toggle="modal" data-target="#mod_900" href="/system/addMenu/id/{{$m['id']}}">{{$m['menu_name']}}</a> -->
+									<a  href="" class="tree-toggle closed" data-toggle="branch" data-value="Bootstrap_Tree" >
+										{{$m['menu_name']}} ++
 									</a>
-
 										<ul class="branch">
 											{{foreach from=$m['child'] item=mm}}
 											<li>
-												<a data-toggle="modal" data-target="#mod_900" href="{{$mm['link']}}" data-role="leaf">
+												<a data-toggle="modal" data-target="#mod_900" href="/system/addMenu/id/{{$mm['id']}}" data-role="leaf">
 													<i class="{{$mm['icon']}}"></i> {{$mm['menu_name']}}
 												</a>
 											</li>
 											{{/foreach}}
 										</ul>
-
 								</li>
 							{{/foreach}}
 						</ul>

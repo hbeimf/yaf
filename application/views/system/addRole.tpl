@@ -24,56 +24,24 @@
     <label class="control-label">访问导航权限</label>
     <div class="controls">
         <!-- <div class="select2-wrapper"> -->
-            <select class="span6 m-wrap select2_sample1 select2" multiple placeholder="请选择导航...">
+            <select class="span6 m-wrap select2" multiple placeholder="请选择导航...">
                 <!-- <option value="0">请选择导航...</option> -->
-                <optgroup label="NFC EAST">
+                <!-- <optgroup label="NFC EAST">
                     <option>Dallas Cowboys</option>
                     <option>New York Giants</option>
                     <option>Philadelphia Eagles</option>
                     <option>Washington Redskins</option>
-                </optgroup>
-                <optgroup label="NFC NORTH">
-                    <option>Chicago Bears</option>
-                    <option>Detroit Lions</option>
-                    <option>Green Bay Packers</option>
-                    <option>Minnesota Vikings</option>
-                </optgroup>
-                <optgroup label="NFC SOUTH">
-                    <option>Atlanta Falcons</option>
-                    <option>Carolina Panthers</option>
-                    <option>New Orleans Saints</option>
-                    <option>Tampa Bay Buccaneers</option>
-                </optgroup>
-                <optgroup label="NFC WEST">
-                    <option>Arizona Cardinals</option>
-                    <option>St. Louis Rams</option>
-                    <option>San Francisco 49ers</option>
-                    <option>Seattle Seahawks</option>
-                </optgroup>
-                <optgroup label="AFC EAST">
-                    <option>Buffalo Bills</option>
-                    <option>Miami Dolphins</option>
-                    <option>New England Patriots</option>
-                    <option>New York Jets</option>
-                </optgroup>
-                <optgroup label="AFC NORTH">
-                    <option>Baltimore Ravens</option>
-                    <option>Cincinnati Bengals</option>
-                    <option>Cleveland Browns</option>
-                    <option>Pittsburgh Steelers</option>
-                </optgroup>
-                <optgroup label="AFC SOUTH">
-                    <option>Houston Texans</option>
-                    <option>Indianapolis Colts</option>
-                    <option>Jacksonville Jaguars</option>
-                    <option>Tennessee Titans</option>
-                </optgroup>
-                <optgroup label="AFC WEST">
-                    <option>Denver Broncos</option>
-                    <option>Kansas City Chiefs</option>
-                    <option>Oakland Raiders</option>
-                    <option>San Diego Chargers</option>
-                </optgroup>
+                </optgroup> -->
+
+                {{foreach from=$system_menu item=m}}
+                    <optgroup label="{{$m['menu_name']}}">
+                        {{foreach from=$m['child'] item=mm}}
+                            <option value="{{$mm['id']}}">{{$mm['menu_name']}}</option>
+                        {{/foreach}}
+                    </optgroup>
+                {{/foreach}}
+
+
             </select>
         <!-- </div> -->
     </div>

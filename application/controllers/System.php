@@ -11,11 +11,8 @@ class SystemController extends AbstractController {
 	// 默认Action
 	// http://yaf.demo.com/demo/index
 	public function indexAction() {
-		$menu = DB::select('select * from system_menu');
 		$data = [
 			'js' => 'system_index',
-			'rand' => time(),
-			'menu' => $this->parse_menu($menu),
 		];
 		$this->smarty->display('system/index.tpl', $data);
 	}
@@ -119,7 +116,7 @@ class SystemController extends AbstractController {
 		}
 
 		$data = [];
-		$this->getView()->display('system/addRole.tpl');
+		$this->smarty->display('system/addRole.tpl');
 	}
 
 
