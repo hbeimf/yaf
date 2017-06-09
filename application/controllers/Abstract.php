@@ -11,8 +11,14 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 	public function init() {
 		// header("Content-Type:text/html;charset=utf-8");
 		// session_start();
+		$this->request = Yaf_Dispatcher::getInstance()->getRequest();
+		$this->smarty = View::getInstance();
+		$this->_controller = strtolower($this->request->getControllerName());
+		$this->_action = strtolower($this->request->getActionName());
 
-		$this->_init_request_and_smarty();
+		if (! $this->is_login() && $this->_controller != 'index' && $this->_action != 'login') {
+			 $this->redirect("/index/login");
+		}
 
 		$menu = Table_System_Menu::all()->toArray();
 		$this->smarty->assign('system_menu', $this->parse_menu($menu));
@@ -21,11 +27,12 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		// 定义开发环境
 		$app_env = (isset($_SERVER['APP_ENV'])) ? $_SERVER['APP_ENV'] : '';
 		$this->smarty->assign('APP_ENV', $app_env);
+
+
 	}
 
 
 	protected function is_login() {
-
 		return true;
 	}
 
@@ -64,12 +71,6 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		}
 		return $list;
 	}
-
-	protected function _init_request_and_smarty() {
-		$this->request = Yaf_Dispatcher::getInstance()->getRequest();
-		$this->smarty = View::getInstance();
-	}
-
 
 
 
