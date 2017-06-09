@@ -107,12 +107,28 @@ class SystemController extends AbstractController {
 	public function addRoleAction() {
 		if ($this->request->isPost()) {
 
-			$reply = [
-				'code' => 200,
-				'msg' => '增加成功',
+			$data = [
+				'menu_name' => $this->request->getPost('menu_name'),
+				'parent_id' => $this->request->getPost('parent_id'),
+				'link' => $this->request->getPost('link'),
+				'icon' => $this->request->getPost('icon'),
+				'status' => $this->request->getPost('status'),
+				'note' => $this->request->getPost('note'),
 			];
 
-			echo json_encode($reply); exit;
+			if ($data['menu_name'] == '') {
+				return $this->ajax_error('名称不能为空');
+			}
+
+			if ($data['parent_id'] > 0 && $data['link'] == '') {
+				return $this->ajax_error('链接不能为空');
+			}
+
+
+			DB::table('system_menu')->insert([$data]);
+
+			return $this->ajax_success('添加成功！');
+
 		}
 
 		$data = [];

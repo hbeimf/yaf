@@ -12,7 +12,7 @@
 
     <div class="controls">
 
-        <input type="text" placeholder="small" class="m-wrap span6" />
+        <input name="role_name" type="text" placeholder="small" class="m-wrap span6" />
 
         <span class="help-inline">This is inline help</span>
 
@@ -23,16 +23,7 @@
 <div class="control-group">
     <label class="control-label">访问导航权限</label>
     <div class="controls">
-        <!-- <div class="select2-wrapper"> -->
             <select class="span6 m-wrap select2" multiple placeholder="请选择导航...">
-                <!-- <option value="0">请选择导航...</option> -->
-                <!-- <optgroup label="NFC EAST">
-                    <option>Dallas Cowboys</option>
-                    <option>New York Giants</option>
-                    <option>Philadelphia Eagles</option>
-                    <option>Washington Redskins</option>
-                </optgroup> -->
-
                 {{foreach from=$system_menu item=m}}
                     <optgroup label="{{$m['menu_name']}}">
                         {{foreach from=$m['child'] item=mm}}
@@ -40,10 +31,7 @@
                         {{/foreach}}
                     </optgroup>
                 {{/foreach}}
-
-
             </select>
-        <!-- </div> -->
     </div>
 </div>
 
