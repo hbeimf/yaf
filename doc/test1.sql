@@ -64,7 +64,7 @@ CREATE TABLE `system_menu` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `system_menu` (
 
 LOCK TABLES `system_menu` WRITE;
 /*!40000 ALTER TABLE `system_menu` DISABLE KEYS */;
-INSERT INTO `system_menu` VALUES (1,0,'系统管理','','',1,'',0,0),(2,1,'导航管理','/system/index/','',1,'',0,0),(3,1,'账号管理','/system/account/','',1,'',0,0),(4,1,'权限管理','/system/role/','icon',1,'',0,0),(5,0,'任务分析','','icon-plus',1,'xx',0,0),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,0),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,0);
+INSERT INTO `system_menu` VALUES (1,0,'系统管理123','','icon-plus',1,'xxxx',0,2017),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,0),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017),(5,0,'任务分析','','icon-plus',1,'xx',0,0),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,0),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017),(8,0,'test1111','','icon-plus',1,'',0,2017),(9,0,'test222','','icon-plus',1,'',0,2017),(10,0,'test333','','icon-plus',1,'',0,2017),(11,10,'bbb','/test/test','icon-plus',1,'',0,0),(12,0,'test123','','icon-plus',1,'',0,0),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017);
 /*!40000 ALTER TABLE `system_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,4 +142,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-08 16:45:34
+-- Dump completed on 2017-06-12 13:07:39
