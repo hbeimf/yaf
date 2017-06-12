@@ -25,13 +25,13 @@ class SystemController extends AbstractController {
 
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
-		$select = 'id, role_name as name,  menu_ids, created_at';
-		$users = Table_System_Role::selectRaw($select)
+		$select = 'id, account_name as name,  role_id, created_at';
+		$users = Table_System_Account::selectRaw($select)
 			->skip($skip)
 			->limit($params['page_size'])
 			->get();
 
-		$count = Table_System_Role::count();
+		$count = Table_System_Account::count();
 
 		$totalPage = ceil($count / $params['page_size']);
 
@@ -49,49 +49,48 @@ class SystemController extends AbstractController {
 
 	}
 
-
-
-	// public function addAccountAction() {
-	// 	if ($this->request->isPost()) {
-
-	// 		print_r($_POST);exit;
-	// 	}
-
-	// 	$data = [];
-	// 	$this->getView()->display('system/addAccount.tpl');
-	// }
-
-
-
-
 	public function addAccountAction() {
 		if ($this->request->isPost()) {
 
 			$data = [
-				'role_name' => $this->request->getPost('role_name'),
-				'menu_ids' => $this->request->getPost('menu_ids'),
+				'account_name' => $this->request->getPost('account_name'),
+				'passwd' => $this->request->getPost('passwd'),
+				'email' => $this->request->getPost('email'),
+				'phone' => $this->request->getPost('phone'),
+				'role_id' => $this->request->getPost('role_id'),
 				'status' => $this->request->getPost('status'),
 				'note' => $this->request->getPost('note'),
 			];
 
-			if ($data['role_name'] == '') {
-				return $this->ajax_error('角色名称不能为空');
+			if ($data['account_name'] == '') {
+				return $this->ajax_error('账号名称不能为空');
 			}
 
-			if (is_array($data['menu_ids']) && !empty($data['menu_ids']) ) {
-				$data['menu_ids'] = implode(',', $data['menu_ids']);
+			if ($data['passwd'] == '') {
+				return $this->ajax_error('密码不能为空');
+			}
+
+			if ($data['email'] == '') {
+				return $this->ajax_error('邮箱不能为空');
+			}
+
+			if ($data['phone'] == '') {
+				return $this->ajax_error('电话不能为空');
+			}
+
+			if (is_array($data['role_id']) && !empty($data['role_id']) ) {
+				$data['role_id'] = implode(',', $data['role_id']);
 			} else {
-				$data['menu_ids'] = '';
+				$data['role_id'] = '';
 			}
-
 
 			$id = $this->request->getPost('id');
 
 			if ($id == '') {
-				DB::table('system_role')->insert([$data]);
+				DB::table('system_account')->insert([$data]);
 				return $this->ajax_success('添加成功！');
 			} else {
-				Table_System_Role::where('id', $id)->update($data);
+				Table_System_Account::where('id', $id)->update($data);
 				return $this->ajax_success('更新成功！');
 			}
 		}
@@ -99,15 +98,20 @@ class SystemController extends AbstractController {
 		//初始化 modal
 		if (! is_null($this->request->getParam('id'))) {
 			$id = $this->request->getParam('id');
-			$role = DB::table('system_role')->where('id', $id)->first();
+			$account = DB::table('system_account')->where('id', $id)->first();
 
 			// p($role);exit;
-			$role['menu_ids'] = explode(',', $role['menu_ids']);
+			$account['role_id'] = explode(',', $account['role_id']);
 
-			$this->smarty->assign('role', $role);
+			$this->smarty->assign('account', $account);
 		}
 
-		$this->smarty->display('system/addAccount.tpl');
+		$roles = Table_System_Role::all();
+		$data = [
+			'roles' => $roles,
+		];
+
+		$this->smarty->display('system/addAccount.tpl', $data);
 	}
 
 

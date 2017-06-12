@@ -42,8 +42,8 @@
                     <thead>
                         <tr>
                             <!-- <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th> -->
-                            <th class="hidden-480">角色名称</th>
-                            <th class="hidden-480">导航</th>
+                            <th class="hidden-480">账号名称</th>
+                            <th class="hidden-480">角色</th>
                             <th class="hidden-480">创建时间</th>
                             <th class="hidden-480">编辑</th>
 
@@ -55,7 +55,7 @@
                         <tr class="odd gradeX">
                             <!-- <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td> -->
                             <td>{{$r['name']}}</td>
-                            <td>{{$r['menu_ids']}}</td>
+                            <td>{{$r['role_id']}}</td>
                             <td>{{$r['created_at']}}</td>
                             <td>
                                 <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/id/{{$r['id']}}/"
