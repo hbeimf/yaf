@@ -2,14 +2,10 @@
 
 use Illuminate\Database\Capsule\Manager as DB;
 
-// use User;
-
 // https://docs.golaravel.com/docs/5.0/eloquent/
 // orm online doc
 class SystemController extends AbstractController {
 
-	// 默认Action
-	// http://yaf.demo.com/demo/index
 	public function indexAction() {
 		$data = [
 			'js' => 'system_index',
@@ -26,10 +22,6 @@ class SystemController extends AbstractController {
 			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
 
 		];
-
-		// p($params);
-		// $page = 1;
-		// $pageSize = 3;
 
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
@@ -73,10 +65,6 @@ class SystemController extends AbstractController {
 			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
 
 		];
-
-		// p($params);
-		// $page = 1;
-		// $pageSize = 3;
 
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
@@ -183,6 +171,8 @@ class SystemController extends AbstractController {
 
     // =====================================
 	public function addMenuAction() {
+
+
 		if ($this->request->isPost()) {
 			$data = [
 				'menu_name' => $this->request->getPost('menu_name'),
@@ -207,17 +197,16 @@ class SystemController extends AbstractController {
 			return $this->ajax_success('添加成功！');
 		}
 
+		//初始化 modal
+		if (! is_null($this->request->getParam('id'))) {
+			$id = $this->request->getParam('id');
+			$menu = DB::table('system_menu')->where('id', $id)->first();
+			// p($menu);
+
+			$this->smarty->assign('menu', $menu);
+		}
+
 		$this->smarty->display('system/addMenu.tpl');
 	}
-
-
-	// public function addRoleAction() {
-	// 	$reply = [
-	// 		'code' => 200,
-	// 		'msg' => '增加成功',
-	// 	];
-
-	// 	echo json_encode($reply); exit;
-	// }
 
 }

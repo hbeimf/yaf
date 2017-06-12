@@ -6,8 +6,8 @@ require.config({
         'jquery':'/js/jquery-1.10.1.min',
         'jquery-migrate':'/js/jquery-migrate-1.2.1.min',
         'jquery-ui':'/js/jquery-ui-1.10.1.custom.min',
-        'bootstrap':'/js/bootstrap.min',
-        // 'bootstrap':'/js/bootstrap.3.3.7',
+        // 'bootstrap':'/js/bootstrap.min',
+        'bootstrap':'/js/bootstrap.3.3.7',
 
         'jquery.slimscroll':'/js/jquery.slimscroll.min',
         'jquery.blockui':'/js/jquery.blockui.min',

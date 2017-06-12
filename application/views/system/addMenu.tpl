@@ -1,4 +1,7 @@
 <form name="ff" id="ff" class="form-horizontal ajax_form" action="/system/addMenu" method='post'>
+    <input value="{{if isset($menu['id'])}}{{$menu['id']}}{{/if}}"
+        name="id" type="hidden" />
+
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
          <h4 class="modal-title">新增导航</h4>
@@ -9,7 +12,8 @@
         <div class="control-group">
             <label class="control-label">导航名称</label>
             <div class="controls">
-                <input name="menu_name" type="text" placeholder="请输入导航名称..." class="m-wrap span4" />
+                <input value="{{if isset($menu['menu_name'])}}{{$menu['menu_name']}}{{/if}}"
+                name="menu_name" type="text" placeholder="请输入导航名称..." class="m-wrap span4" />
                 <!-- <span class="help-inline">This is inline help</span> -->
             </div>
         </div>
@@ -20,7 +24,7 @@
                 <select name="parent_id" class="span6 select2" placeholder="请选择导航...">
                     <option value="0">顶级导航</option>
                     {{foreach from=$system_menu item=m}}
-                        <option value="{{$m['id']}}">{{$m['menu_name']}}</option>
+                        <option {{if isset($menu['parent_id']) && $menu['parent_id']==$m['id']}}selected{{/if}} value="{{$m['id']}}">{{$m['menu_name']}} </option>
                     {{/foreach}}
                 </select>
             </div>
@@ -30,7 +34,7 @@
         <div class="control-group">
             <label class="control-label">链接</label>
             <div class="controls">
-                <input name="link" type="text" placeholder="请输入链接..." class="m-wrap span6" />
+                <input value="{{if isset($menu['link'])}}{{$menu['link']}}{{/if}}" name="link" type="text" placeholder="请输入链接..." class="m-wrap span6" />
                 <span class="help-inline"></span>
             </div>
 
@@ -49,7 +53,8 @@
                     <option value="Category 4">Category 4</option>
                 </select> -->
 
-                <input name="icon" type="text" placeholder="请输入图标..." value="icon-plus" class="m-wrap span6" />
+                <input value="{{if isset($menu['icon'])}}{{$menu['icon']}}{{else}}icon-plus{{/if}}"
+                    name="icon" type="text" placeholder="请输入图标..." class="m-wrap span6" />
                 <span class="help-inline"></span>
 
             </div>
@@ -59,11 +64,11 @@
             <label class="control-label" >是否启用</label>
             <div class="controls">
                 <label class="radio">
-                <input type="radio" name="status" value="1" checked />
+                <input {{if isset($menu['status']) && $menu['status']=='1'}}checked{{/if}} type="radio" name="status" value="1" />
                 启用
                 </label>
                 <label class="radio">
-                <input type="radio" name="status" value="2" />
+                <input {{if isset($menu['status']) && $menu['status']=='2'}}checked{{/if}} type="radio" name="status" value="2" />
                 禁用
                 </label>
             </div>
@@ -72,7 +77,9 @@
         <div class="control-group">
             <label class="control-label">备注</label>
             <div class="controls">
-                <input name="note" type="text" placeholder="请输入备注..." class="m-wrap span6" />
+                <input
+                    value="{{if isset($menu['note'])}}{{$menu['note']}}{{/if}}"
+                 name="note" type="text" placeholder="请输入备注..." class="m-wrap span6" />
                 <span class="help-inline"></span>
             </div>
 
