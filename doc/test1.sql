@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `system_account`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `system_account` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增ID',
-  `role_id` int(11) NOT NULL DEFAULT '0' COMMENT '角色id',
+  `role_id` varchar(300) NOT NULL DEFAULT '' COMMENT '角色',
   `account_name` varchar(100) NOT NULL DEFAULT '' COMMENT '登录账号',
   `passwd` varchar(100) NOT NULL DEFAULT '' COMMENT '密码',
   `email` varchar(50) NOT NULL DEFAULT '' COMMENT 'email',
@@ -34,7 +34,7 @@ CREATE TABLE `system_account` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `system_account` (
 
 LOCK TABLES `system_account` WRITE;
 /*!40000 ALTER TABLE `system_account` DISABLE KEYS */;
+INSERT INTO `system_account` VALUES (1,'1,3','admin','123456','123456@qq.com','13812341234',1,'xxx',0,2017);
 /*!40000 ALTER TABLE `system_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,7 +74,7 @@ CREATE TABLE `system_menu` (
 
 LOCK TABLES `system_menu` WRITE;
 /*!40000 ALTER TABLE `system_menu` DISABLE KEYS */;
-INSERT INTO `system_menu` VALUES (1,0,'系统管理123','','icon-plus',1,'xxxx',0,2017),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,0),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017),(5,0,'任务分析','','icon-plus',1,'xx',0,0),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,0),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017),(8,0,'test1111','','icon-plus',1,'',0,2017),(9,0,'test222','','icon-plus',1,'',0,2017),(10,0,'test333','','icon-plus',1,'',0,2017),(11,10,'bbb','/test/test','icon-plus',1,'',0,0),(12,0,'test123','','icon-plus',1,'',0,0),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017);
+INSERT INTO `system_menu` VALUES (1,0,'系统管理','','icon-plus',1,'xxxx',0,2017),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,0),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017),(5,0,'任务分析','','icon-plus',1,'xx',0,0),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,0),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017),(8,0,'test1111','','icon-plus',1,'',0,2017),(9,0,'test222','','icon-plus',1,'',0,2017),(10,0,'test333','','icon-plus',1,'',0,2017),(11,10,'bbb','/test/test','icon-plus',1,'',0,0),(12,0,'test123','','icon-plus',1,'',0,0),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017);
 /*!40000 ALTER TABLE `system_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +94,7 @@ CREATE TABLE `system_role` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +103,7 @@ CREATE TABLE `system_role` (
 
 LOCK TABLES `system_role` WRITE;
 /*!40000 ALTER TABLE `system_role` DISABLE KEYS */;
+INSERT INTO `system_role` VALUES (1,'ffffff','3,4',1,'nnnnnnnnnnn',0,0),(2,'xxxx123','2,3,4',1,'xxx123',0,2017),(3,'ffdd','4',1,'ss',0,0);
 /*!40000 ALTER TABLE `system_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-12 13:07:39
+-- Dump completed on 2017-06-12 16:55:42
