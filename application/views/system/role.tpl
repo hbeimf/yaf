@@ -58,11 +58,15 @@
                             <td>{{$r['menu_ids']}}</td>
                             <td>{{$r['created_at']}}</td>
                             <td>
-                                <a data-toggle="modal" data-target="#mod_1200" href="/system/addRole/id/{{$r['id']}}/" class="btn grey">
+                                <a data-toggle="modal" data-target="#mod_1200" href="/system/addRole/id/{{$r['id']}}/"
+                                    class="btn grey">
                                     <i class="fa fa-pencil"></i>编辑
                                 </a>
 
-                                <a class="btn red ajax-delete"><i class="fa fa-pencil"></i>删除</a>
+                                <a data-link="/system/delRole/id/{{$r['id']}}/"
+                                    class="btn red ajax-delete">
+                                    <i class="fa fa-pencil"></i>删除
+                                </a>
                             </td>
 
                         </tr>

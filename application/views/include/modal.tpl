@@ -70,20 +70,18 @@
 </div>
 
 
-<!--
+
 <div id="myModal3" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-        <h3 id="myModalLabel3">Confirm Header</h3>
+        <h3 id="myModalLabel3">系统确认提示</h3>
     </div>
     <div class="modal-body">
         <p>Body goes here...</p>
     </div>
     <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        <button data-dismiss="modal" class="btn blue">Confirm</button>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button id="btn_sure" data-dismiss="modal" class="btn blue">确认</button>
     </div>
 </div>
 
-
- -->

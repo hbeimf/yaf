@@ -7,11 +7,31 @@ require([
     $(function () {
         App.init();
 
+        var $confirm = $('#myModal3');
+        var $ajax_delete = $('.ajax-delete');
         var $alert_refresh = $('#myModal22');
 
         // 提示信息modal关闭后reload 当前页面
         $alert_refresh.on("hidden.bs.modal",function(){
             window.location.reload();
+        });
+
+        $ajax_delete.click(function(){
+            var link = $(this).data('link');
+            var $obj_modal = $('#myModal2');
+            $confirm.find('p').html('确认要删除吗?');
+            $confirm.modal({backdrop:false, keyboard:false});
+
+            $confirm.find('#btn_sure').click(function(){
+                console.log(link);
+                //删除数据
+
+            });
+
+            $confirm.on("hidden.bs.modal",function(){
+                //防止执行两次
+                $(this).find('#btn_sure').unbind('click');
+            });
         });
 
         var mod_array = [$('#mod_800'), $('#mod_900'), $('#mod_1000'), $('#mod_1100'), $('#mod_1200')];
