@@ -23,7 +23,7 @@
 <div class="control-group">
     <label class="control-label">访问导航权限</label>
     <div class="controls">
-            <select class="span6 m-wrap select2" multiple placeholder="请选择导航...">
+            <select name="menu_ids[]" class="span6 m-wrap select2" multiple placeholder="请选择导航...">
                 {{foreach from=$system_menu item=m}}
                     <optgroup label="{{$m['menu_name']}}">
                         {{foreach from=$m['child'] item=mm}}
