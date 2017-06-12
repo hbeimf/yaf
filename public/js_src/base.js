@@ -25,6 +25,15 @@ require([
             $confirm.find('#btn_sure').click(function(){
                 console.log(link);
                 //删除数据
+                $.get(link, function(reply_json){
+                    console.log(reply_json);
+                    var reply = $.parseJSON(reply_json);
+                    if (reply.code == 200) {
+                        alert_refresh(reply.msg);
+                    } else {
+                        alert_only(reply.msg)
+                    }
+                });
 
             });
 
