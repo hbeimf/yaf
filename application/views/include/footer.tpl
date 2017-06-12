@@ -47,7 +47,7 @@
 	        config:{}
 	    });
 	    require(["config"], function () {
-	    	require(["{{$js}}"]);
+	    	require(["{{if isset($js)}}{{$js}}{{else}}default_empty{{/if}}"]);
 	    });
 	</script>
 

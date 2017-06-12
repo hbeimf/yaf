@@ -9,7 +9,7 @@
             <div class="portlet-body">
                 <div class="clearfix">
                     <div class="btn-group pull-right">
-                        <a data-toggle="modal" data-target="#mod_1000" href="/system/addAccount/" class="btn green" >
+                        <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/" class="btn green" >
                         新增 <i class="icon-plus"></i>
                         </a>
                     </div>
@@ -18,7 +18,7 @@
                 <div class="row-fluid">
                     <form>
                         <div id="sample_1_length" class="dataTables_length">
-                            <label>records per page
+                            <label>每页显示:
                                 <select size="1" name="page_size" aria-controls="sample_1" class="m-wrap small">
                                     <option value="5" selected="selected">5</option>
                                     <option value="15">15</option>
@@ -41,20 +41,34 @@
                 <table class="table table-striped table-bordered table-hover" id="sample_1">
                     <thead>
                         <tr>
-                            <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
-                            <th class="hidden-480">姓名</th>
-                            <th class="hidden-480">邮箱</th>
+                            <!-- <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th> -->
+                            <th class="hidden-480">角色名称</th>
+                            <th class="hidden-480">导航</th>
                             <th class="hidden-480">创建时间</th>
+                            <th class="hidden-480">编辑</th>
+
 
                         </tr>
                     </thead>
                     <tbody>
                         {{foreach from=$users item=r}}
                         <tr class="odd gradeX">
-                            <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td>
+                            <!-- <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td> -->
                             <td>{{$r['name']}}</td>
-                            <td>{{$r['email']}}</td>
+                            <td>{{$r['menu_ids']}}</td>
                             <td>{{$r['created_at']}}</td>
+                            <td>
+                                <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/id/{{$r['id']}}/"
+                                    class="btn grey">
+                                    <i class="fa fa-pencil"></i>编辑
+                                </a>
+
+                                <a data-link="/system/delRole/id/{{$r['id']}}/"
+                                    class="btn red ajax-delete">
+                                    <i class="fa fa-pencil"></i>删除
+                                </a>
+                            </td>
+
                         </tr>
                         {{/foreach}}
 
