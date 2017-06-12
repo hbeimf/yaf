@@ -47,7 +47,7 @@ require([
 
             mod_array[i].on("hidden.bs.modal",function(){
                 // 解决隐藏modal后再次打开，重复注册事件bug
-                $(this).unbind('shown.bs.modal');
+                //$(this).unbind('shown.bs.modal');
 
                 //缓存问题解决，跟bootstrap版本有关系　，
                 $(this).removeData("bs.modal");

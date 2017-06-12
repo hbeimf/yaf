@@ -171,8 +171,6 @@ class SystemController extends AbstractController {
 
     // =====================================
 	public function addMenuAction() {
-
-
 		if ($this->request->isPost()) {
 			$data = [
 				'menu_name' => $this->request->getPost('menu_name'),
@@ -191,10 +189,16 @@ class SystemController extends AbstractController {
 				return $this->ajax_error('链接不能为空');
 			}
 
+			$id = $this->request->getPost('id');
 
-			DB::table('system_menu')->insert([$data]);
+			if ($id == '') {
+				DB::table('system_menu')->insert([$data]);
+				return $this->ajax_success('添加成功！');
+			} else {
+				Table_System_Menu::where('id', $id)->update($data);
+				return $this->ajax_success('更新成功！');
+			}
 
-			return $this->ajax_success('添加成功！');
 		}
 
 		//初始化 modal
