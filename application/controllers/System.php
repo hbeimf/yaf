@@ -112,12 +112,29 @@ class SystemController extends AbstractController {
 				$data['menu_ids'] = '';
 			}
 
-			DB::table('system_role')->insert([$data]);
 
-			return $this->ajax_success('添加成功！');
+			$id = $this->request->getPost('id');
+
+			if ($id == '') {
+				DB::table('system_role')->insert([$data]);
+				return $this->ajax_success('添加成功！');
+			} else {
+				Table_System_Role::where('id', $id)->update($data);
+				return $this->ajax_success('更新成功！');
+			}
 		}
 
-		$data = [];
+		//初始化 modal
+		if (! is_null($this->request->getParam('id'))) {
+			$id = $this->request->getParam('id');
+			$role = DB::table('system_role')->where('id', $id)->first();
+
+			// p($role);exit;
+			$role['menu_ids'] = explode(',', $role['menu_ids']);
+
+			$this->smarty->assign('role', $role);
+		}
+
 		$this->smarty->display('system/addRole.tpl');
 	}
 

@@ -42,9 +42,11 @@
                     <thead>
                         <tr>
                             <!-- <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th> -->
-                            <th class="hidden-480">姓名</th>
+                            <th class="hidden-480">角色名称</th>
                             <th class="hidden-480">导航</th>
                             <th class="hidden-480">创建时间</th>
+                            <th class="hidden-480">编辑</th>
+
 
                         </tr>
                     </thead>
@@ -55,6 +57,14 @@
                             <td>{{$r['name']}}</td>
                             <td>{{$r['menu_ids']}}</td>
                             <td>{{$r['created_at']}}</td>
+                            <td>
+                                <a data-toggle="modal" data-target="#mod_1200" href="/system/addRole/id/{{$r['id']}}/" class="btn grey">
+                                    <i class="fa fa-pencil"></i>编辑
+                                </a>
+
+                                <a class="btn red ajax-delete"><i class="fa fa-pencil"></i>删除</a>
+                            </td>
+
                         </tr>
                         {{/foreach}}
 

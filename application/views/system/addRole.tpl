@@ -1,4 +1,5 @@
 <form name="ff" id="ff" class="form-horizontal ajax_form" action="/system/addRole" method='post'>
+    <input type="hidden" name="id" value="{{if isset($role['id'])}}{{$role['id']}}{{/if}}" />
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
          <h4 class="modal-title">新增角色</h4>
@@ -12,7 +13,8 @@
 
     <div class="controls">
 
-        <input name="role_name" type="text" placeholder="small" class="m-wrap span6" />
+        <input value="{{if isset($role['role_name'])}}{{$role['role_name']}}{{/if}}"
+            name="role_name" type="text" placeholder="small" class="m-wrap span6" />
 
         <span class="help-inline">This is inline help</span>
 
@@ -27,7 +29,9 @@
                 {{foreach from=$system_menu item=m}}
                     <optgroup label="{{$m['menu_name']}}">
                         {{foreach from=$m['child'] item=mm}}
-                            <option value="{{$mm['id']}}">{{$mm['menu_name']}}</option>
+                            <option
+                                {{if isset($role['menu_ids']) && in_array($mm['id'], $role['menu_ids'])}}selected{{/if}}
+                            value="{{$mm['id']}}">{{$mm['menu_name']}}</option>
                         {{/foreach}}
                     </optgroup>
                 {{/foreach}}
@@ -40,11 +44,13 @@
     <label class="control-label" >是否启用</label>
     <div class="controls">
         <label class="radio">
-        <input type="radio" name="status" value="1" />
+        <input {{if isset($role['status']) && $role['status']=='1'}}checked{{/if}}
+        type="radio" name="status" value="1" />
         启用
         </label>
         <label class="radio">
-        <input type="radio" name="status" value="2" checked />
+        <input {{if isset($role['status']) && $role['status']=='2'}}checked{{/if}}
+            type="radio" name="status" value="2" />
         禁用
         </label>
     </div>
@@ -53,7 +59,8 @@
 <div class="control-group">
     <label class="control-label">备注</label>
     <div class="controls">
-        <input name="note" type="text" placeholder="note" class="m-wrap span6" />
+        <input value="{{if isset($role['note'])}}{{$role['note']}}{{/if}}"
+             name="note" type="text" placeholder="note" class="m-wrap span6" />
         <span class="help-inline"></span>
     </div>
 
