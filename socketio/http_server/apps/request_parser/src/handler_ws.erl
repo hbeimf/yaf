@@ -45,7 +45,7 @@ websocket_handle(Data, Req, State) ->
 
 websocket_info({broadcast, Bin}, Req, State) ->
     {reply, {binary, to_binary(Bin)}, Req, State};
-websocket_info({from_workboy, Msg}, Req, State) ->
+websocket_info({from_doit, Msg}, Req, State) ->
     io:format("file: ~p =========== \nline:~p =========== ~n~n ~p ~n~n", [?FILE, ?LINE, Msg]),
     {reply, {text, Msg}, Req, State};
 websocket_info({timeout, _Ref, Msg}, Req, State) ->
