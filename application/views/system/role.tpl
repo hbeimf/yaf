@@ -54,7 +54,7 @@
                         <tr class="odd gradeX">
                             <!-- <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td> -->
                             <td>{{$r['name']}}</td>
-                            <td>{{$r['menu_ids']}}</td>
+                            <td>{{menu_name the_menu=$r['menu_ids'] all_menu=$system_menu}}</td>
                             <td>{{$r['created_at']}}</td>
                             <td>{{if $r['status']=='1'}}启用{{else}}<font color="red">禁用</font>{{/if}}</td>
                             <td>

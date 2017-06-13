@@ -151,7 +151,7 @@ class SystemController extends AbstractController {
 			'totalPage' => $totalPage, // 总页数
 		];
 
-
+		$this->smarty->getSmarty()->registerPlugin("function", "menu_name", "menu_name");
 		$this->smarty->display('system/role.tpl', $data);
 
 	}

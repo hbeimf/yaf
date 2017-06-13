@@ -133,5 +133,36 @@ function role_name($param) {
 	}
 }
 
+function menu_name($p) {
+	if (trim($p['the_menu']) != '') {
+		$the_menu = explode(',', $p['the_menu']);
+		$all_menu = $p['all_menu'];
+
+		$tmp_menu = [];
+		foreach ($all_menu as $key => $value) {
+			if (!empty($value['child'])) {
+				foreach ($value['child'] as $child) {
+					if (in_array($child['id'], $the_menu)) {
+						$tmp_menu[$key] = $value;
+					}
+				}
+			}
+		}
+
+		foreach ($tmp_menu as $key => $value) {
+			echo $value['menu_name'].'<br />';
+			foreach ($value['child'] as $child) {
+				if (in_array($child['id'], $the_menu)) {
+					echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$child['menu_name']. '<br />';
+				}
+			}
+		}
+
+	}
+
+	// p($p);
+
+	// echo 'menu name';
+}
 
 // 视图函数结束　
