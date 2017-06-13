@@ -34,9 +34,11 @@
             </a>
             <ul class="sub-menu">
                 {{foreach from=$m['child'] item=mm}}
-                    <li class="{{if $current_menu['id'] == $mm['id']}}active{{/if}}">
-                        <a href="{{$mm['link']}}">{{$mm['menu_name']}}</a>
-                    </li>
+                    {{if $mm['type']=='1'}}
+                        <li class="{{if $current_menu['id'] == $mm['id']}}active{{/if}}">
+                            <a href="/{{$mm['controller']}}/{{$mm['action']}}">{{$mm['menu_name']}}</a>
+                        </li>
+                    {{/if}}
                 {{/foreach}}
             </ul>
         </li>

@@ -29,7 +29,8 @@
 											{{foreach from=$m['child'] item=mm}}
 											<li>
 												<a data-toggle="modal" data-target="#mod_900" href="/system/addMenu/id/{{$mm['id']}}" data-role="leaf">
-													<i class="{{$mm['icon']}}"></i> {{$mm['menu_name']}}
+													<i class="icon-plus"></i>{{$mm['menu_name']}}
+													[{{if $mm['type']=='1'}}导航{{else}}功能{{/if}}]
 												</a>
 											</li>
 											{{/foreach}}

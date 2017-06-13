@@ -31,16 +31,6 @@
             </div>
         </div>
 
-
-        <div class="control-group">
-            <label class="control-label">链接</label>
-            <div class="controls">
-                <input value="{{if isset($menu['link'])}}{{$menu['link']}}{{/if}}"
-                name="link" type="text" placeholder="请输入链接..." class="m-wrap span6" />
-                <span class="help-inline"></span>
-            </div>
-        </div>
-
         <div class="control-group">
             <label class="control-label">Controller</label>
             <div class="controls">
@@ -55,29 +45,9 @@
             <label class="control-label">Action</label>
             <div class="controls">
                 <input value="{{if isset($menu['action'])}}{{$menu['action']}}{{/if}}"
-                    name="action" type="text"
+                    name="actions" type="text"
                     placeholder="请输入 Action..." class="m-wrap span6" />
                 <span class="help-inline"></span>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" >图标 <i class="icon-arrow-down"></i></label>
-            <div class="controls">
-                <!-- <select name="icon" class="span6 select2" data-placeholder="请选择图标..." tabindex="1">
-                    <option value=""></option>
-                    <option value="icon-plus">collapse-top</option>
-                    <option value="icon-plus"><i class="icon-plus">yy</i></option>
-
-                    <option value="Category 2">Category 2</option>
-                    <option value="Category 3">Category 5</option>
-                    <option value="Category 4">Category 4</option>
-                </select> -->
-
-                <input value="{{if isset($menu['icon'])}}{{$menu['icon']}}{{else}}icon-plus{{/if}}"
-                    name="icon" type="text" placeholder="请输入图标..." class="m-wrap span6" />
-                <span class="help-inline"></span>
-
             </div>
         </div>
 
@@ -107,9 +77,8 @@
                 导航
                 </label>
                 <label class="radio">
-                <input {{if isset($menu['type']) && $menu['type']=='2'}}checked{{/if}}
-                    {{if not isset($menu['type'])}}checked{{/if}}
-                type="radio" name="type" value="2" />
+                <input {{if isset($menu['type']) && $menu['type']=='2'}}checked{{/if}} {{if not isset($menu['type'])}}checked{{/if}}
+                    type="radio" name="type" value="2" />
                 功能
                 </label>
             </div>

@@ -177,10 +177,12 @@ function menu_name($p) {
 		}
 
 		foreach ($tmp_menu as $key => $value) {
+
 			echo $value['menu_name'].'<br />';
 			foreach ($value['child'] as $child) {
 				if (in_array($child['id'], $the_menu)) {
-					echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$child['menu_name']. '<br />';
+					$type = ($child['type'] == 1) ? '[导航]' : '[<font color="red">功能</font>]';
+					echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$child['menu_name'].$type. '<br />';
 				}
 			}
 		}

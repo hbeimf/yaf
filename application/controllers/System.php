@@ -262,18 +262,34 @@ class SystemController extends AbstractController {
 			$data = [
 				'menu_name' => $this->request->getPost('menu_name'),
 				'parent_id' => $this->request->getPost('parent_id'),
-				'link' => $this->request->getPost('link'),
-				'icon' => $this->request->getPost('icon'),
+				// 'link' => $this->request->getPost('link'),
+				// 'icon' => $this->request->getPost('icon'),
 				'status' => $this->request->getPost('status'),
 				'note' => $this->request->getPost('note'),
+				'controller' => $this->request->getPost('controller'),
+				'action' => $this->request->getPost('actions'),
+				'type' => $this->request->getPost('type'),
+
 			];
 
 			if ($data['menu_name'] == '') {
 				return $this->ajax_error('名称不能为空');
 			}
 
-			if ($data['parent_id'] > 0 && $data['link'] == '') {
-				return $this->ajax_error('链接不能为空');
+			// if ($data['parent_id'] > 0 && $data['link'] == '') {
+			// 	return $this->ajax_error('链接不能为空');
+			// }
+
+			if ($data['parent_id'] > 0) {
+
+				if ($data['controller'] == '') {
+					return $this->ajax_error('Controller 不能为空');
+				}
+
+				if ($data['action'] == '') {
+					return $this->ajax_error('Action 不能为空');
+				}
+
 			}
 
 			$id = $this->request->getPost('id');
