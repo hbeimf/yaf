@@ -34,7 +34,7 @@ CREATE TABLE `system_account` (
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `system_account` (
 
 LOCK TABLES `system_account` WRITE;
 /*!40000 ALTER TABLE `system_account` DISABLE KEYS */;
-INSERT INTO `system_account` VALUES (1,'1,3','admin','123456','123456@qq.com','13812341234',1,'xxx',0,2017);
+INSERT INTO `system_account` VALUES (1,'1,3','admin','123456','123456@qq.com','13812341234',1,'xxx',0,2017),(2,'1,2,3','admin1','123456','513413@qq.com','123412341235',1,'xxx',0,2017);
 /*!40000 ALTER TABLE `system_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `system_role` (
 
 LOCK TABLES `system_role` WRITE;
 /*!40000 ALTER TABLE `system_role` DISABLE KEYS */;
-INSERT INTO `system_role` VALUES (1,'ffffff','3,4',1,'nnnnnnnnnnn',0,0),(2,'xxxx123','2,3,4',1,'xxx123',0,2017),(3,'ffdd','4',1,'ss',0,0);
+INSERT INTO `system_role` VALUES (1,'管理员','3,4',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017);
 /*!40000 ALTER TABLE `system_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-12 16:55:42
+-- Dump completed on 2017-06-13 10:08:54

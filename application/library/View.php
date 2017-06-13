@@ -25,6 +25,10 @@ class View {
 
 	}
 
+	public function getSmarty() {
+		return $this->_smarty;
+	}
+
 	public function assign($key, $val) {
 		$this->_smarty->assign($key, $val);
 	}

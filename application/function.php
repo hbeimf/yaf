@@ -117,3 +117,21 @@ function sendmail($email, $title, $content) {
 	}
 
 }
+
+// 视图函数开始
+
+// 返回角色名称
+function role_name($param) {
+	if (trim($param['the_role']) != '') {
+		$the_role = explode(",", $param['the_role']);
+		$all_role = $param['all_role'];
+		foreach ($all_role as $key => $value) {
+			if ( in_array($value['id'], $the_role)) {
+				echo $value['role_name'].'<br />';
+			}
+		}
+	}
+}
+
+
+// 视图函数结束　

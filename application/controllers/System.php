@@ -32,7 +32,6 @@ class SystemController extends AbstractController {
 			->get();
 
 		$count = Table_System_Account::count();
-
 		$totalPage = ceil($count / $params['page_size']);
 
 		$data = [
@@ -44,7 +43,9 @@ class SystemController extends AbstractController {
 			'totalPage' => $totalPage, // 总页数
 		];
 
+		$data['roles'] = Table_System_Role::all()->toArray();
 
+		$this->smarty->getSmarty()->registerPlugin("function", "role_name", "role_name");
 		$this->smarty->display('system/account.tpl', $data);
 
 	}
