@@ -30,7 +30,7 @@
 											<li>
 												<a data-toggle="modal" data-target="#mod_900" href="/system/addMenu/id/{{$mm['id']}}" data-role="leaf">
 													<i class="icon-plus"></i>{{$mm['menu_name']}}
-													[{{if $mm['type']=='1'}}导航{{else}}功能{{/if}}]
+													[{{if $mm['type']=='1'}}导航{{else}}<font color=red>功能</font>{{/if}}]
 												</a>
 											</li>
 											{{/foreach}}

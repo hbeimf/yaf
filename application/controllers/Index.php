@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Database\Capsule\Manager as DB;
+
 class IndexController extends AbstractController {
 
 	// 默认Action
@@ -17,16 +19,30 @@ class IndexController extends AbstractController {
             ];
 
             // check here
+            $account = DB::table('system_account')
+                ->where('account_name', $data['username'])
+                ->where('passwd', md5(trim($data['password'])))
+                ->first();
 
 
-            $_SESSION["username"] = $data['username'];
-            $_SESSION['passwd'] = md5($data['password']);
+            if (!is_null($account)) {
+                $_SESSION["username"] = $data['username'];
+                $_SESSION['passwd'] = md5($data['password']);
 
-            return $this->ajax_success('登录成功！');
+                return $this->ajax_success('登录成功！');
+            }
 
+            return $this->ajax_error('登录失败！');
         }
 
         $this->smarty->display('index/login.tpl');
+    }
+
+    public function logoutAction(){
+        unset($_SESSION['username']);
+        unset($_SESSION['passwd']);
+
+        $this->redirect("/index/login");
     }
 
 }
