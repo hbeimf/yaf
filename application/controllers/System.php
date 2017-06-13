@@ -3,7 +3,6 @@
 use Illuminate\Database\Capsule\Manager as DB;
 
 // https://docs.golaravel.com/docs/5.0/eloquent/
-// orm online doc
 class SystemController extends AbstractController {
 
 	public function indexAction() {

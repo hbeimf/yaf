@@ -18,6 +18,10 @@ class IndexController extends AbstractController {
 
             // check here
 
+
+            $_SESSION["username"] = $data['username'];
+            $_SESSION['passwd'] = md5($data['password']);
+
             return $this->ajax_success('登录成功！');
 
         }

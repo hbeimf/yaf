@@ -10,7 +10,7 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 	 */
 	public function init() {
 		// header("Content-Type:text/html;charset=utf-8");
-		// session_start();
+		session_start();
 		$this->request = Yaf_Dispatcher::getInstance()->getRequest();
 		$this->smarty = View::getInstance();
 		$this->_controller = strtolower($this->request->getControllerName());
@@ -33,7 +33,10 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 
 
 	protected function is_login() {
-		return true;
+		if (isset($_SESSION["username"]) && isset($_SESSION['passwd'])) {
+			return true;
+		}
+		return false;
 	}
 
 
