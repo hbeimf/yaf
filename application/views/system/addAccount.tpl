@@ -19,9 +19,9 @@
 <div class="control-group">
     <label class="control-label">密码</label>
     <div class="controls">
-        <input value="{{if isset($account['passwd'])}}{{$account['passwd']}}{{/if}}"
+        <input value=""
             name="passwd" type="password" placeholder="small" class="m-wrap span6" />
-        <span class="help-inline">This is inline help</span>
+        <span class="help-inline">修改时不填为不修改</span>
     </div>
 </div>
 

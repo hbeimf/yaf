@@ -43,7 +43,7 @@ CREATE TABLE `system_account` (
 
 LOCK TABLES `system_account` WRITE;
 /*!40000 ALTER TABLE `system_account` DISABLE KEYS */;
-INSERT INTO `system_account` VALUES (1,'1,3','admin','123456','123456@qq.com','13812341234',1,'xxx',0,2017),(2,'1,2,3','admin1','123456','513413@qq.com','123412341235',1,'xxx',0,2017);
+INSERT INTO `system_account` VALUES (1,'1,3','admin','e10adc3949ba59abbe56e057f20f883e','123456@qq.com','13812341234',1,'xxx',0,2017),(2,'1,2,3','admin1','e10adc3949ba59abbe56e057f20f883e','513413@qq.com','123412341235',1,'xxx',0,2017);
 /*!40000 ALTER TABLE `system_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +144,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-13 10:08:54
+-- Dump completed on 2017-06-13 10:22:21

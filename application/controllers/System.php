@@ -67,10 +67,6 @@ class SystemController extends AbstractController {
 				return $this->ajax_error('账号名称不能为空');
 			}
 
-			if ($data['passwd'] == '') {
-				return $this->ajax_error('密码不能为空');
-			}
-
 			if ($data['email'] == '') {
 				return $this->ajax_error('邮箱不能为空');
 			}
@@ -88,9 +84,19 @@ class SystemController extends AbstractController {
 			$id = $this->request->getPost('id');
 
 			if ($id == '') {
+				if ($data['passwd'] == '') {
+					return $this->ajax_error('密码不能为空');
+				}
+				$data['passwd'] = md5(trim($data['passwd']));
+
 				DB::table('system_account')->insert([$data]);
 				return $this->ajax_success('添加成功！');
 			} else {
+				if (trim($data['passwd']) == '') {
+					unset($data['passwd']);
+				} else {
+					$data['passwd'] = md5(trim($data['passwd']));
+				}
 				Table_System_Account::where('id', $id)->update($data);
 				return $this->ajax_success('更新成功！');
 			}
