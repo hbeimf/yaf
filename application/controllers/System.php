@@ -25,7 +25,7 @@ class SystemController extends AbstractController {
 
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
-		$select = 'id, account_name as name,  role_id, created_at';
+		$select = 'id, account_name as name, role_id, status, created_at';
 		$users = Table_System_Account::selectRaw($select)
 			->skip($skip)
 			->limit($params['page_size'])
@@ -36,7 +36,7 @@ class SystemController extends AbstractController {
 		$totalPage = ceil($count / $params['page_size']);
 
 		$data = [
-			'js' => 'system_role',
+			// 'js' => 'system_role',
 			'rand' => time(),
 			'users' => $users->toArray(), // 当前页记录
 			'count' => $count, // 记录条数
@@ -126,7 +126,7 @@ class SystemController extends AbstractController {
 
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
-		$select = 'id, role_name as name,  menu_ids, created_at';
+		$select = 'id, role_name as name, menu_ids, status, created_at';
 		$users = Table_System_Role::selectRaw($select)
 			->skip($skip)
 			->limit($params['page_size'])

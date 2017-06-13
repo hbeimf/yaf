@@ -45,9 +45,8 @@
                             <th class="hidden-480">角色名称</th>
                             <th class="hidden-480">导航</th>
                             <th class="hidden-480">创建时间</th>
+                            <th class="hidden-480">状态</th>
                             <th class="hidden-480">编辑</th>
-
-
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +56,7 @@
                             <td>{{$r['name']}}</td>
                             <td>{{$r['menu_ids']}}</td>
                             <td>{{$r['created_at']}}</td>
+                            <td>{{if $r['status']=='1'}}启用{{else}}<font color="red">禁用</font>{{/if}}</td>
                             <td>
                                 <a data-toggle="modal" data-target="#mod_1200" href="/system/addRole/id/{{$r['id']}}/"
                                     class="btn grey">
