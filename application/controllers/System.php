@@ -45,6 +45,8 @@ class SystemController extends AbstractController {
 		$data['roles'] = Table_System_Role::all()->toArray();
 
 		$this->smarty->getSmarty()->registerPlugin("function", "role_name", "role_name");
+		$this->smarty->getSmarty()->registerPlugin("function", "acount_menu", "acount_menu");
+
 		$this->smarty->display('system/account.tpl', $data);
 
 	}

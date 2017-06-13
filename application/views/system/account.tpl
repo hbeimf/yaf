@@ -45,6 +45,8 @@
                             <th class="hidden-480">账号名称</th>
                             <th class="hidden-480">角色</th>
                             <th class="hidden-480">状态</th>
+                            <th class="hidden-480">导航</th>
+
                             <th class="hidden-480">创建时间</th>
 
                             <th class="hidden-480">编辑</th>
@@ -59,6 +61,7 @@
                             <td>{{$r['name']}}</td>
                             <td>{{role_name the_role=$r['role_id'] all_role=$roles}}</td>
                             <td>{{if $r['status']=='1'}}启用{{else}}<font color="red">禁用</font>{{/if}}</td>
+                            <td>{{acount_menu the_role=$r['role_id'] all_role=$roles all_menu=$system_menu}}</td>
                             <td>{{$r['created_at']}}</td>
                             <td>
                                 <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/id/{{$r['id']}}/"

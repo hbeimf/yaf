@@ -118,7 +118,35 @@ function sendmail($email, $title, $content) {
 
 }
 
-// 视图函数开始
+// 视图函数开始 ==========================================================
+
+function acount_menu($param){
+	if (trim($param['the_role']) != '') {
+		$group = [];
+
+		$the_role = explode(",", $param['the_role']);
+		$all_role = $param['all_role'];
+		foreach ($all_role as $key => $value) {
+			if ( in_array($value['id'], $the_role)) {
+				// $group[] = $value['menu_ids'];
+				$tmp = explode(',', $value['menu_ids']);
+				foreach ($tmp as $t) {
+					$group[$t] = $t;
+				}
+			}
+		}
+
+		$the_menu = implode(",", $group);
+
+		$p = [
+			'the_menu' => $the_menu,
+			'all_menu' => $param['all_menu'],
+		];
+		menu_name($p);
+	}
+}
+
+
 
 // 返回角色名称
 function role_name($param) {
@@ -159,10 +187,6 @@ function menu_name($p) {
 		}
 
 	}
-
-	// p($p);
-
-	// echo 'menu name';
 }
 
-// 视图函数结束　
+// 视图函数结束　 ==========================================================
