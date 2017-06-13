@@ -128,7 +128,6 @@ function acount_menu($param){
 		$all_role = $param['all_role'];
 		foreach ($all_role as $key => $value) {
 			if ( in_array($value['id'], $the_role)) {
-				// $group[] = $value['menu_ids'];
 				$tmp = explode(',', $value['menu_ids']);
 				foreach ($tmp as $t) {
 					$group[$t] = $t;

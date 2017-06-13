@@ -43,7 +43,7 @@ CREATE TABLE `system_account` (
 
 LOCK TABLES `system_account` WRITE;
 /*!40000 ALTER TABLE `system_account` DISABLE KEYS */;
-INSERT INTO `system_account` VALUES (1,'1,3','admin','e10adc3949ba59abbe56e057f20f883e','123456@qq.com','13812341234',1,'xxx',0,2017),(2,'1,2,3','admin1','e10adc3949ba59abbe56e057f20f883e','513413@qq.com','123412341235',1,'xxx',0,2017);
+INSERT INTO `system_account` VALUES (1,'1,3','admin','e10adc3949ba59abbe56e057f20f883e','123456@qq.com','13812341234',2,'xxx',0,2017),(2,'1,2,3','admin1','e10adc3949ba59abbe56e057f20f883e','513413@qq.com','123412341235',1,'xxx',0,2017);
 /*!40000 ALTER TABLE `system_account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,6 +64,9 @@ CREATE TABLE `system_menu` (
   `note` varchar(200) NOT NULL DEFAULT '' COMMENT '备注信息',
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
+  `type` tinyint(1) NOT NULL DEFAULT '2' COMMENT '类别[1:导航, 2:功能]',
+  `controller` varchar(100) NOT NULL DEFAULT '' COMMENT '控制器',
+  `action` varchar(100) NOT NULL DEFAULT '' COMMENT '方法',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,7 +77,7 @@ CREATE TABLE `system_menu` (
 
 LOCK TABLES `system_menu` WRITE;
 /*!40000 ALTER TABLE `system_menu` DISABLE KEYS */;
-INSERT INTO `system_menu` VALUES (1,0,'系统管理','','icon-plus',1,'xxxx',0,2017),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,0),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017),(5,0,'任务分析','','icon-plus',1,'xx',0,0),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,0),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017),(8,0,'test1111','','icon-plus',1,'',0,2017),(9,0,'test222','','icon-plus',1,'',0,2017),(10,0,'test333','','icon-plus',1,'',0,2017),(11,10,'bbb','/test/test','icon-plus',1,'',0,0),(12,0,'test123','','icon-plus',1,'',0,0),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017);
+INSERT INTO `system_menu` VALUES (1,0,'系统管理','','icon-plus',1,'xxxx',0,2017,2,'',''),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017,2,'',''),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,0,2,'',''),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017,2,'',''),(5,0,'任务分析','','icon-plus',1,'xx',0,0,2,'',''),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,0,2,'',''),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017,2,'',''),(8,0,'test1111','','icon-plus',1,'',0,2017,2,'',''),(9,0,'test222','','icon-plus',1,'',0,2017,2,'',''),(10,0,'test333','','icon-plus',1,'',0,2017,2,'',''),(11,10,'bbb','/test/test','icon-plus',1,'',0,0,2,'',''),(12,0,'test123','','icon-plus',1,'',0,0,2,'',''),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017,2,'','');
 /*!40000 ALTER TABLE `system_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +106,7 @@ CREATE TABLE `system_role` (
 
 LOCK TABLES `system_role` WRITE;
 /*!40000 ALTER TABLE `system_role` DISABLE KEYS */;
-INSERT INTO `system_role` VALUES (1,'管理员','3,4',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017);
+INSERT INTO `system_role` VALUES (1,'管理员','3,4',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4,11,13',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017);
 /*!40000 ALTER TABLE `system_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,4 +147,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-13 10:22:21
+-- Dump completed on 2017-06-13 14:06:55
