@@ -48,7 +48,7 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		$reply =  [
 			'id'=>0,
 			'parent_id'=>0,
-			'menu_name'=>'',
+			'menu_name'=>'控制台',
 			'parent_menu_name'=> ''
 		];
 

@@ -55,11 +55,15 @@
 			<li>
 				<i class="icon-home"></i>
 				<a href="/">控制台</a>
-				<i class="icon-angle-right"></i>
+				{{if $current_menu['parent_menu_name'] != ''}}
+					<i class="icon-angle-right"></i>
+				{{/if}}
 			</li>
 			<li>
 				<a href="javascript:;">{{$current_menu['parent_menu_name']}}</a>
+				{{if $current_menu['menu_name'] != ''}}
 				<i class="icon-angle-right"></i>
+				{{/if}}
 			</li>
 			<li><a href="javascript:;">{{$current_menu['menu_name']}}</a></li>
 		</ul>
