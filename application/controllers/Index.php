@@ -43,25 +43,26 @@ class IndexController extends AbstractController {
         $roles = explode(',', trim($account['role_id']));
         $all_role = Table_System_Role::all()->toArray();
 
-        $tmp = [];
+        $menu = [];
         foreach ($all_role as $key => $value) {
             if (in_array($value['id'], $roles)) {
-                $tmp[] = $value;
-            }
-        }
-
-        $reply = [];
-        foreach ($tmp as $key => $value) {
-            $reply[$value['id']] = $value['id'];
-            if (trim($value['menu_ids']) != '') {
-                $ids = explode(',', $value['menu_ids']);
-                foreach ($ids as $id) {
-                    $reply[$id] = $id;
+                if (trim($value['menu_ids']) != '') {
+                    $ids = explode(',', $value['menu_ids']);
+                    foreach ($ids as $id) {
+                        $menu[$id] = $id;
+                    }
                 }
             }
         }
 
-        return $reply;
+        $all_menu = Table_System_Menu::all()->toArray();
+        foreach ($all_menu as $key => $value) {
+            if (in_array($value['id'], $menu)) {
+                $menu[$value['parent_id']] = $value['parent_id'];
+            }
+        }
+
+        return $menu;
     }
 
     public function logoutAction(){
