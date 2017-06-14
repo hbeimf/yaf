@@ -28,6 +28,10 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		$app_env = (isset($_SERVER['APP_ENV'])) ? $_SERVER['APP_ENV'] : '';
 		$this->smarty->assign('APP_ENV', $app_env);
 
+		$nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : 'no name';
+		$this->smarty->assign('nickname', $nickname);
+		$right = isset($_SESSION['right']) ? $_SESSION['right'] : [];
+		$this->smarty->assign('menu_right', $right);
 
 	}
 

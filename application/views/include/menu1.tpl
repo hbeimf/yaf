@@ -25,23 +25,25 @@
     </li>
 
     {{foreach from=$system_menu item=m}}
-        <li class="{{if $current_menu['parent_id'] == $m['id']}}active{{/if}}">
-            <a href="javascript:;">
-                <i class="icon-th"></i>
-                <span class="title">{{$m['menu_name']}}</span>
-                <span class="selected"></span>
-                <span class="arrow open"></span>
-            </a>
-            <ul class="sub-menu">
-                {{foreach from=$m['child'] item=mm}}
-                    {{if $mm['type']=='1'}}
-                        <li class="{{if $current_menu['id'] == $mm['id']}}active{{/if}}">
-                            <a href="/{{$mm['controller']}}/{{$mm['action']}}">{{$mm['menu_name']}}</a>
-                        </li>
-                    {{/if}}
-                {{/foreach}}
-            </ul>
-        </li>
+        {{if in_array($m['id'], $menu_right)}}
+            <li class="{{if $current_menu['parent_id'] == $m['id']}}active{{/if}}">
+                <a href="javascript:;">
+                    <i class="icon-th"></i>
+                    <span class="title">{{$m['menu_name']}}</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    {{foreach from=$m['child'] item=mm}}
+                        {{if $mm['type']=='1' && in_array($mm['id'], $menu_right)}}
+                            <li class="{{if $current_menu['id'] == $mm['id']}}active{{/if}}">
+                                <a href="/{{$mm['controller']}}/{{$mm['action']}}">{{$mm['menu_name']}}</a>
+                            </li>
+                        {{/if}}
+                    {{/foreach}}
+                </ul>
+            </li>
+        {{/if}}
     {{/foreach}}
 
 </ul>

@@ -8,6 +8,15 @@
 
 <!-- BEGIN FORM-->
 <div class="control-group">
+    <label class="control-label">昵称</label>
+    <div class="controls">
+        <input value="{{if isset($account['nickname'])}}{{$account['nickname']}}{{/if}}"
+            name="nickname" type="text" placeholder="请输入昵称..." class="m-wrap span6" />
+        <!-- <span class="help-inline">This is inline help</span> -->
+    </div>
+</div>
+
+<div class="control-group">
     <label class="control-label">账号</label>
     <div class="controls">
         <input value="{{if isset($account['account_name'])}}{{$account['account_name']}}{{/if}}"

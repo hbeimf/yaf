@@ -55,6 +55,7 @@ class SystemController extends AbstractController {
 		if ($this->request->isPost()) {
 
 			$data = [
+				'nickname' => $this->request->getPost('nickname'),
 				'account_name' => $this->request->getPost('account_name'),
 				'passwd' => $this->request->getPost('passwd'),
 				'email' => $this->request->getPost('email'),
@@ -63,6 +64,10 @@ class SystemController extends AbstractController {
 				'status' => $this->request->getPost('status'),
 				'note' => $this->request->getPost('note'),
 			];
+
+			if ($data['nickname'] == '') {
+				return $this->ajax_error('昵称不能为空');
+			}
 
 			if ($data['account_name'] == '') {
 				return $this->ajax_error('账号名称不能为空');

@@ -56,15 +56,15 @@
 					<li class="dropdown user">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<!-- <img alt="" src="/image/avatar1_small.jpg" /> -->
-						<span class="username">Name HERE</span>
+						<span class="username">{{$nickname}}</span>
 						<i class="icon-angle-down"></i>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- <li><a href="extra_profile.html"><i class="icon-user"></i> My Profile</a></li>
 							<li><a href="page_calendar.html"><i class="icon-calendar"></i> My Calendar</a></li>
 							<li><a href="inbox.html"><i class="icon-envelope"></i> My Inbox(3)</a></li> -->
-							<li><a href="/system/changePassword/"><i class="icon-tasks"></i>修改密码</a></li>
-							<li class="divider"></li>
+							<!-- <li><a href="/system/changePassword/"><i class="icon-tasks"></i>修改密码</a></li> -->
+							<!-- <li class="divider"></li> -->
 							<!-- <li><a href="extra_lock.html"><i class="icon-lock"></i> Lock Screen</a></li> -->
 							<li><a href="/index/logout/"><i class="icon-key"></i>退出</a></li>
 						</ul>
