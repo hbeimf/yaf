@@ -69,10 +69,9 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		}
 
 		if ($reply['parent_id'] > 0) {
-			foreach ($menu as $key => $value) {
-				if ($value['id'] = $reply['parent_id']) {
-					$reply['parent_menu_name'] = $value['menu_name'];
-					break;
+			foreach ($menu as $v) {
+				if ($v['id'] == $reply['parent_id']) {
+					$reply['parent_menu_name'] = $v['menu_name'];
 				}
 			}
 		}
