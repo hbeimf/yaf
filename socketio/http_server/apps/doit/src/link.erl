@@ -57,7 +57,9 @@ td(Tr) ->
 
             case length(Matches) of
                 7 ->
-                    % io:format("~p~n", [erlang:length(Matches)]),
+                    io:format("~p~n", [erlang:length(Matches)]),
+
+                    io:format("~ts~n", [Tr]),
 
                     % io:format("~ts~n", [lists:nth(1, Matches)]),
                     % io:format("~ts~n", [lists:nth(2, Matches)]),
@@ -66,6 +68,15 @@ td(Tr) ->
                     % io:format("~ts~n", [lists:nth(5, Matches)]),
                     % io:format("~ts~n", [lists:nth(6, Matches)]),
                     % io:format("~ts~n", [lists:nth(7, Matches)]),
+
+                    lists:foreach(fun(M) ->
+                        % [H|_] = M,
+                         io:format("--------------------- ~n"),
+                        io:format("~ts~n", [lists:nth(1, M)]),
+                        ok
+                    end, Matches),
+
+
                     ok;
                 _ ->
                     io:format("~ts~n", [Tr]),
@@ -84,6 +95,17 @@ td(Tr) ->
 
 
     ok.
+
+
+strip_test() ->
+    Html = <<"<td><div align=\"center\">3.780</div></td>">>,
+    strip_tags(Html).
+
+strip_tags(Html) ->
+    R = re:replace(Html, "<(.*)>", "", [dotall, {return, binary}, ungreedy]),
+    io:format("~ts~n~n", [R]),
+    ok.
+
 
 run2() ->
     % Dir = "/web/yaf/doc/demo.html",
