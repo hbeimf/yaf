@@ -72,7 +72,7 @@ td(Tr) ->
                     lists:foreach(fun(M) ->
                         % [H|_] = M,
                          io:format("--------------------- ~n"),
-                        io:format("~ts~n", [lists:nth(1, M)]),
+                        io:format("~ts~n", [strip_tags(lists:nth(1, M))]),
                         ok
                     end, Matches),
 
@@ -97,14 +97,25 @@ td(Tr) ->
     ok.
 
 
-strip_test() ->
-    Html = <<"<td><div align=\"center\">3.780</div></td>">>,
-    strip_tags(Html).
+% strip_test() ->
+%     Html = <<"<td><div align=\"center\">3.780</div></td>">>,
+%     strip_tags(Html).
 
 strip_tags(Html) ->
-    R = re:replace(Html, "<(.*)>", "", [dotall, {return, binary}, ungreedy]),
-    io:format("~ts~n~n", [R]),
-    ok.
+    remove_html_tag(Html).
+
+% http://blog.csdn.net/cuick2013/article/details/38894461
+remove_html_tag(Data) ->
+    remove_html_tag(Data, 0).
+
+remove_html_tag(Data, Offset) ->
+    case re:run(Data, "<.*?>", [dotall, {capture, first, index}, {offset, Offset}]) of
+    nomatch ->
+        Data;
+    {match, [{Index, _Len}]}->
+        %% 注意: Offset = Index, 以为长度为Len的数据已经被替换成[]
+        remove_html_tag(re:replace(Data, "<.*?>", "", [dotall, {return, binary}]), Index)
+    end.
 
 
 run2() ->
