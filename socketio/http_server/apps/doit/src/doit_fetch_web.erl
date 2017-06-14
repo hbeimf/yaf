@@ -21,10 +21,10 @@
 % --------------------------------------------------------------------
 % External API
 % --------------------------------------------------------------------
--export([doit/0]).
+-export([doit/1]).
 
-doit() ->
-    gen_server:call(?MODULE, doit).
+doit(FromPid) ->
+    gen_server:cast(?MODULE, {doit, FromPid}).
 
 
 
@@ -74,9 +74,14 @@ init([]) ->
 %          {stop, Reason, State}            (terminate/2 is called)
 % --------------------------------------------------------------------
 
-handle_call(doit, _From, State) ->
-    io:format("doit  !! ============== ~n~n"),
-    {reply, [], State};
+% handle_call({doit, FromPid}, _From, State) ->
+%     io:format("doit  !! ============== ~n~n"),
+
+%     lists:foreach(fun(_I) ->
+%         FromPid ! {from_doit, <<"haha">>}
+%     end, lists:seq(1, 100)),
+
+%     {reply, [], State};
 handle_call(_Request, _From, State) ->
     Reply = ok,
     {reply, Reply, State}.
@@ -94,6 +99,15 @@ handle_call(_Request, _From, State) ->
 %     % io:format("message ~p!! ============== ~n~n", [GoMBox]),
 %     gen_server:cast(GoMBox, {Msg, self()}),
 %     {noreply, State};
+handle_cast({doit, FromPid}, State) ->
+    io:format("doit  !! ============== ~n~n"),
+
+    lists:foreach(fun(_I) ->
+        timer:sleep(10),
+        FromPid ! {from_doit, <<"haha">>}
+    end, lists:seq(1, 1000)),
+
+    {noreply, State};
 handle_cast(_Msg, State) ->
     {noreply, State}.
 

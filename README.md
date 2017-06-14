@@ -135,6 +135,7 @@ http://yaf.demo.com/info.php
 PHP Version 5.6.9
 yaf-2.3.4
 
+swoole 1.8.5
 
 
 安装yaf扩展

@@ -41,7 +41,7 @@ action(20000, _BinString, Status) ->
     % Work = {find_yid, self()},
     % workboy:start(Work),
 
-    doit_server_tpl:doit(self()),
+    doit_fetch_web:doit(self()),
 
     {reply_binary, Status, ReplyBin};
 
