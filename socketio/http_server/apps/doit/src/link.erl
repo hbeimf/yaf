@@ -9,7 +9,7 @@
 
 run3() ->
     % Dir = "/web/yaf/doc/demo.html",
-    Dir1 = "/web/yaf/doc/demo1.html",
+    Dir1 = "/web/yaf/doc/demo.html",
 
     {ok, Html} = lib_fun:file_get_contents(Dir1),
 
