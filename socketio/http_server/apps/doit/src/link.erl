@@ -8,30 +8,116 @@
 % -export([years/0, today/0]).
 
 
+run2() ->
+    % Dir = "/web/yaf/doc/demo.html",
+    Dir1 = "/web/yaf/doc/demo1.html",
+
+    {ok, Html} = lib_fun:file_get_contents(Dir1),
+
+
+    {_, R} = re:run(Html, "<table id=\"FundHoldSharesTable\">(.*)</table>", [{capture, all, binary}, global, dotall]),
+
+    lists:foreach(fun(X) ->
+        io:format("=================================== ~n"),
+        % io:format("~n ~ts ~n", [X])
+        % io:format("~n ~p ~n", [X])
+        lists:foreach(fun(Y) ->
+            io:format("~n ~ts ~n", [Y]),
+            write_match(Y)
+        end, X)
+
+
+    end, lists:reverse(R)),
+
+    ok.
+
+
+
+run1() ->
+    % Dir = "/web/yaf/doc/demo.html",
+    Dir1 = "/web/yaf/doc/demo1.html",
+
+    {ok, Html} = lib_fun:file_get_contents(Dir1),
+
+
+    {_, R} = re:run(Html, "<tr>(.*)</tr>", [{capture, all, binary}, global, dotall]),
+
+    lists:foreach(fun(X) ->
+        io:format("=================================== ~n"),
+        io:format("~n ~ts ~n", [X])
+    end, lists:reverse(R)),
+
+    ok.
+
 
 
 run() ->
-    Dir = "/web/yaf/doc/demo.html",
+    % Dir = "/web/yaf/doc/demo.html",
     Dir1 = "/web/yaf/doc/demo1.html",
 
-    {ok, Page} = lib_fun:file_get_contents(Dir),
+    {ok, Html} = lib_fun:file_get_contents(Dir1),
 
     % R = re:run(Page, "<table id=\"FundHoldSharesTable\">(.*)</table>", [{capture, all, list}]),
-    Html = go:iconv(Page, 'gb2312', 'utf-8'),
+    % Html = go:iconv(Page, 'gb2312', 'utf-8'),
 
-    lib_fun:file_put_contents(Dir1, Html),
+    % lib_fun:file_put_contents(Dir1, Html),
 
     % Html.
 
     % R = re:run(Html, "<li>(.*)</li>", [{capture, all, list}]),
 
-    R = re:run(Html, "<tr(.*)tr>", [{capture, all, list}]),
+    % {ok,MP}=re:compile("<tr(.*)tr>",[multiline, dotall]),
+    % {ok,MP}=re:compile("<table id=\"FundHoldSharesTable\">(.*)</table>",[multiline]),
+    % {ok,MP}=re:compile("<td(.*)td>",[multiline]),
+    % {ok,MP}=re:compile("<table id=\"FundHoldSharesTable\">(.*)</table>",[multiline, dotall, ungreedy]),
+    % {ok,MP}=re:compile("<head>(.*)</head>",[multiline, dotall, ungreedy]),
 
-    % io:format("~n ~ts ~n", [R]),
 
-    R.
-    % Page.
+    % R = re:run(Html, "<title>(.*)</title>", [dotall, {capture, all, list}, global]),
+    {_, R} = re:run(Html, "<td>(.*)</td>", [{capture, all, binary}, global]),
+
+    lists:foreach(fun(X) ->
+        io:format("=================================== ~n"),
+        io:format("~n ~ts ~n", [X])
+    end, lists:reverse(R)),
+
+    % write_log(R),
+    % write_match(R),
+    % R.
+    % [H|_] = R,
+    % [H1|_] = H,
+
+    % % H1.
+    % write_log(H1),
     % ok.
+
+
+
+
+    % R = regexp:matches(Html, "<tr(.*)tr>"),
+    % R.
+
+    % io:format("~ts", [lib_fun:to_binary(R)]).
+    % Page.
+    ok.
+
+write_match(Match) ->
+    Dir1 = "/web/yaf/doc/list1.html",
+    lib_fun:file_put_contents(Dir1, Match).
+
+write_log(Report) ->
+  % Dir = root_dir() ++ "log/cache_"++ random() ++".html",
+  Dir = "/web/yaf/doc/list.html",
+  {ok, S} = file:open(Dir, write),
+  io:format(S, "~p~n", [Report]),
+  file:close(S),
+  % {ok, Str} = lib_fun:file_get_contents(Dir),
+  % log(Str),
+  % file:delete(Dir),
+  ok.
+
+
+
 
 set_demo_page() ->
     Dir = "/web/yaf/doc/demo.html",

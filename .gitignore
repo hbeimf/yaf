@@ -1,3 +1,4 @@
 *.log
 public/resource/*.html
+doc/*.html
 *tpl.php
