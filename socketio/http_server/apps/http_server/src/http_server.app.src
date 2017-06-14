@@ -13,7 +13,7 @@
     request_parser,
     workboy,
     %%python,
-    %%go,
+    go,
     table,
     lager,
     doit
