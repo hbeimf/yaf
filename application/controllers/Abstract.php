@@ -45,9 +45,12 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 
 
 	protected function current_menu($menu) {
-		$controller_name = strtolower($this->request->getControllerName());
-		$action_name = strtolower($this->request->getActionName());
-
+		$reply =  [
+			'id'=>0,
+			'parent_id'=>0,
+			'menu_name'=>'',
+			'parent_menu_name'=> ''
+		];
 
 		foreach ($menu as $m) {
 			$arr = explode("/",  trim($m['link'], '/'));
@@ -55,12 +58,26 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 			$ctrl = isset($arr[0]) ? strtolower($arr[0]) : 'index';
 			$action = isset($arr[1]) ? strtolower($arr[1]) : 'index';
 
-			if ($ctrl == $controller_name && $action == $action_name) {
-				return $m;
+			if ($ctrl == $this->_controller && $action == $this->_action) {
+				$reply = [
+					'id'=>$m['id'],
+					'parent_id'=>$m['parent_id'],
+					'menu_name'=>$m['menu_name'],
+					'parent_menu_name'=> ''
+				];
 			}
 		}
 
-		return ['id'=>0, 'parent_id'=>0];
+		if ($reply['parent_id'] > 0) {
+			foreach ($menu as $key => $value) {
+				if ($value['id'] = $reply['parent_id']) {
+					$reply['parent_menu_name'] = $value['menu_name'];
+					break;
+				}
+			}
+		}
+
+		return $reply;
 	}
 
 	protected function parse_menu($menu) {

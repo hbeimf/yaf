@@ -45,23 +45,23 @@
 			</div>
 		</div>
 
-		<!-- END BEGIN STYLE CUSTOMIZER -->  
+		<!-- END BEGIN STYLE CUSTOMIZER -->
 
 		<!-- BEGIN PAGE TITLE & BREADCRUMB-->
 		<h3 class="page-title">
-			列表示例 <!-- <small>managed table samples</small> -->
+			{{$current_menu['menu_name']}} <!-- <small>managed table samples</small> -->
 		</h3>
 		<ul class="breadcrumb">
 			<li>
 				<i class="icon-home"></i>
-				<a href="/">控制台</a> 
+				<a href="/">控制台</a>
 				<i class="icon-angle-right"></i>
 			</li>
 			<li>
-				<a href="/demo/list/">示例</a>
+				<a href="javascript:;">{{$current_menu['parent_menu_name']}}</a>
 				<i class="icon-angle-right"></i>
 			</li>
-			<li><a href="/demo/list/">分页列表</a></li>
+			<li><a href="javascript:;">{{$current_menu['menu_name']}}</a></li>
 		</ul>
 		<!-- END PAGE TITLE & BREADCRUMB-->
 	</div>
