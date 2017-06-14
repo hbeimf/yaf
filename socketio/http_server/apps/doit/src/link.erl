@@ -7,6 +7,83 @@
 -compile(export_all).
 % -export([years/0, today/0]).
 
+run3() ->
+    % Dir = "/web/yaf/doc/demo.html",
+    Dir1 = "/web/yaf/doc/demo1.html",
+
+    {ok, Html} = lib_fun:file_get_contents(Dir1),
+
+
+    case re:run(Html, "<table id=\"FundHoldSharesTable\">(.*)</table>",
+        [{capture, all, binary}, global, dotall, ungreedy]) of
+        {_, Matches} ->
+            lists:foreach(fun(Match) ->
+                % io:format("=================================== ~n"),
+                [Table|_] = Match,
+                % io:format("~n ~ts ~n", [M]),
+                % write_match(M),
+                tr(Table),
+                ok
+            end, lists:reverse(Matches));
+        _ ->
+            ok
+    end,
+    ok.
+
+
+tr(Table) ->
+    case re:run(Table, "<tr(.*)tr>",
+        [{capture, all, binary}, global, dotall, ungreedy]) of
+        {_, Matches} ->
+            lists:foreach(fun(Match) ->
+                io:format("=================================== ~n"),
+                [Tr|_] = Match,
+                % io:format("~n~n~n ~ts ~n", [Tr]),
+                td(Tr),
+                % write_match(M),
+                ok
+            end, lists:reverse(Matches));
+        _ ->
+            ok
+    end,
+
+    ok.
+
+
+td(Tr) ->
+    case re:run(Tr, "<td(.*)td>",
+        [{capture, all, binary}, global, dotall, ungreedy]) of
+        {_, Matches} ->
+
+            case length(Matches) of
+                7 ->
+                    % io:format("~p~n", [erlang:length(Matches)]),
+
+                    % io:format("~ts~n", [lists:nth(1, Matches)]),
+                    % io:format("~ts~n", [lists:nth(2, Matches)]),
+                    % io:format("~ts~n", [lists:nth(3, Matches)]),
+                    % io:format("~ts~n", [lists:nth(4, Matches)]),
+                    % io:format("~ts~n", [lists:nth(5, Matches)]),
+                    % io:format("~ts~n", [lists:nth(6, Matches)]),
+                    % io:format("~ts~n", [lists:nth(7, Matches)]),
+                    ok;
+                _ ->
+                    io:format("~ts~n", [Tr]),
+
+                    ok
+            end,
+
+
+
+            ok;
+
+        _ ->
+            ok
+    end,
+
+
+
+    ok.
 
 run2() ->
     % Dir = "/web/yaf/doc/demo.html",
