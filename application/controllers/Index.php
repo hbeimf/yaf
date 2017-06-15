@@ -29,6 +29,8 @@ class IndexController extends AbstractController {
                 $_SESSION["username"] = $data['username'];
                 $_SESSION['passwd'] = md5($data['password']);
                 $_SESSION['nickname'] = $account['nickname'];
+                $_SESSION['account_id'] = $account['id'];
+
 
                 return $this->ajax_success('登录成功！');
             }
@@ -39,37 +41,38 @@ class IndexController extends AbstractController {
         $this->smarty->display('index/login.tpl');
     }
 
-    private function right($account) {
-        $roles = explode(',', trim($account['role_id']));
-        $all_role = Table_System_Role::all()->toArray();
+    // private function right($account) {
+    //     $roles = explode(',', trim($account['role_id']));
+    //     $all_role = Table_System_Role::all()->toArray();
 
-        $menu = [];
-        foreach ($all_role as $key => $value) {
-            if (in_array($value['id'], $roles)) {
-                if (trim($value['menu_ids']) != '') {
-                    $ids = explode(',', $value['menu_ids']);
-                    foreach ($ids as $id) {
-                        $menu[$id] = $id;
-                    }
-                }
-            }
-        }
+    //     $menu = [];
+    //     foreach ($all_role as $key => $value) {
+    //         if (in_array($value['id'], $roles)) {
+    //             if (trim($value['menu_ids']) != '') {
+    //                 $ids = explode(',', $value['menu_ids']);
+    //                 foreach ($ids as $id) {
+    //                     $menu[$id] = $id;
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        $all_menu = Table_System_Menu::all()->toArray();
-        foreach ($all_menu as $key => $value) {
-            if (in_array($value['id'], $menu)) {
-                $menu[$value['parent_id']] = $value['parent_id'];
-            }
-        }
+    //     $all_menu = Table_System_Menu::all()->toArray();
+    //     foreach ($all_menu as $key => $value) {
+    //         if (in_array($value['id'], $menu)) {
+    //             $menu[$value['parent_id']] = $value['parent_id'];
+    //         }
+    //     }
 
-        return $menu;
-    }
+    //     return $menu;
+    // }
 
     public function logoutAction(){
         unset($_SESSION['username']);
         unset($_SESSION['passwd']);
         unset($_SESSION['nickname']);
         unset($_SESSION['right']);
+        unset($_SESSION['account_id']);
 
         $this->redirect("/index/login");
     }
