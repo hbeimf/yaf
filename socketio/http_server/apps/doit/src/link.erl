@@ -71,8 +71,8 @@ td(Tr) ->
 
                     lists:foreach(fun(M) ->
                         % [H|_] = M,
-                         io:format("--------------------- ~n"),
-                        io:format("~ts~n", [strip_tags(lists:nth(1, M))]),
+                        io:format("--------------------- ~n"),
+                        io:format("~p~n", [lib_fun:trim(lib_fun:to_str(strip_tags(lists:nth(1, M))))]),
                         ok
                     end, Matches),
 
