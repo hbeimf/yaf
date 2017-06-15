@@ -12,6 +12,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 			)
 		);
 
+		// 开启日志
 		register_shutdown_function(array($this, 'cleanup'));
 
 		Yaf_Loader::import(APP_PATH . "/vendor/autoload.php");
