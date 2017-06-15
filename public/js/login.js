@@ -78,6 +78,8 @@ var Login = function () {
                             var reply = $.parseJSON(reply_json);
                             if (reply.code == 200) {
                             	window.location.href = "/";
+                            }else {
+                            	$('.alert-error', $('.login-form')).show();
                             }
                         }
                     });
@@ -135,6 +137,8 @@ var Login = function () {
                             var reply = $.parseJSON(reply_json);
                             if (reply.code == 200) {
                             	window.location.href = "/";
+                            }else {
+                            	$('.alert-error', $('.login-form')).show();
                             }
                         }
                     });
