@@ -31,18 +31,23 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		$nickname = isset($_SESSION['nickname']) ? $_SESSION['nickname'] : 'no name';
 		$this->smarty->assign('nickname', $nickname);
 		$right = isset($_SESSION['right']) ? $_SESSION['right'] : [];
-		// $this->smarty->assign('menu_right', $right);
 
-		$this->smarty->assign('menu_right', $this->access_right($_SESSION['account_id'], $menu));
+		$this->smarty->assign('menu_right', $this->access_right($menu));
 
 	}
 
 
-	protected function access_right($account_id, $all_menu) {
-		$table = new Table_System_Account();
-		$row = $table->where('id', 2)->first()->toArray();
+	protected function access_right($all_menu) {
+		if (isset($_SESSION['account_id'])) {
+			$account_id = $_SESSION['account_id'];
 
-		return $this->right($row, $all_menu);
+			$table = new Table_System_Account();
+			$row = $table->where('id', $account_id)->first()->toArray();
+
+			return $this->right($row, $all_menu);
+		}
+
+		return [];
 	}
 
 	protected function right($account, $all_menu) {

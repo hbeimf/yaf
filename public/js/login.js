@@ -59,6 +59,8 @@ var Login = function () {
                             var reply = $.parseJSON(reply_json);
                             if (reply.code == 200) {
                             	window.location.href = "/";
+                            } else {
+                            	$('.alert-error', $('.login-form')).show();
                             }
                         }
                     });
@@ -66,11 +68,19 @@ var Login = function () {
 	        });
 
 	        $('.login-form input').keypress(function (e) {
+
 	            if (e.which == 13) {
-	                if ($('.login-form').validate().form()) {
-	                    window.location.href = "index.html";
-	                }
-	                return false;
+	                $('#login-form').ajaxSubmit({
+                        url: '/index/login',
+                        type: "post",
+                        success: function (reply_json) {
+                            console.log(reply_json);
+                            var reply = $.parseJSON(reply_json);
+                            if (reply.code == 200) {
+                            	window.location.href = "/";
+                            }
+                        }
+                    });
 	            }
 	        });
 
@@ -117,10 +127,18 @@ var Login = function () {
 
 	        $('.forget-form input').keypress(function (e) {
 	            if (e.which == 13) {
-	                if ($('.forget-form').validate().form()) {
-	                    window.location.href = "/index/login";
-	                }
-	                return false;
+	                $('#login-form').ajaxSubmit({
+                        url: '/index/login',
+                        type: "post",
+                        success: function (reply_json) {
+                            console.log(reply_json);
+                            var reply = $.parseJSON(reply_json);
+                            if (reply.code == 200) {
+                            	window.location.href = "/";
+                            }
+                        }
+                    });
+
 	            }
 	        });
 

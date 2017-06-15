@@ -80,7 +80,7 @@
 
                 <button class="close" data-dismiss="alert"></button>
 
-                <span>Enter any username and password.</span>
+                <span>请输入正确的账号密码.</span>
 
             </div>
 
@@ -126,7 +126,7 @@
 
                 <label class="checkbox">
 
-                <input type="checkbox" name="remember" value="1"/> Remember me
+                <!-- <input type="checkbox" name="remember" value="1"/> Remember me -->
 
                 </label>
 
