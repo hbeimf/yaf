@@ -40,10 +40,34 @@ func (this *StrController) Excute(message etf.Tuple) (*etf.Term) {
             replyString := str_replace(str, from, to)
             replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
             return &replyTerm
-        } else if string(act) == "trim" {
+        } else if string(act) == "trimspace" {
             str := message[2].(string)
 
             replyString := strings.TrimSpace(str)
+            replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
+            return &replyTerm
+
+        } else if string(act) == "trim" {
+            str := message[2].(string)
+            from := message[3].(string)
+
+            replyString := strings.Trim(str, from)
+            replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
+            return &replyTerm
+
+        } else if string(act) == "trimleft" {
+            str := message[2].(string)
+            from := message[3].(string)
+
+            replyString := strings.TrimLeft(str, from)
+            replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
+            return &replyTerm
+
+        } else if string(act) == "trimright" {
+            str := message[2].(string)
+            from := message[3].(string)
+
+            replyString := strings.TrimRight(str, from)
             replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
             return &replyTerm
 

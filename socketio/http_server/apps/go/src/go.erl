@@ -35,7 +35,22 @@ trim() ->
     Str = "\r\n\t\t\t\t\t\r\n\t\t\t2017-06-13\t\t\t\r\n\t\t\t\t\t\t",
     trim(Str).
 trim(Str) ->
-    Call = {str, trim, lib_fun:to_str(Str)},
+    Call = {str, trimspace, lib_fun:to_str(Str)},
+    {ok, NewString} = call(Call),
+    NewString.
+
+trim(Str, FindStr) ->
+    Call = {str, trim, lib_fun:to_str(Str), lib_fun:to_str(FindStr)},
+    {ok, NewString} = call(Call),
+    NewString.
+
+ltrim(Str, FindStr) ->
+    Call = {str, trimleft, lib_fun:to_str(Str), lib_fun:to_str(FindStr)},
+    {ok, NewString} = call(Call),
+    NewString.
+
+rtrim(Str, FindStr) ->
+    Call = {str, trimright, lib_fun:to_str(Str), lib_fun:to_str(FindStr)},
     {ok, NewString} = call(Call),
     NewString.
 
