@@ -37,7 +37,11 @@ init([]) ->
     FetchWeb = {doit_fetch_web, {doit_fetch_web, start_link, []},
                permanent, 5000, worker, [doit_fetch_web]},
 
-    Children = [Doit, FetchWeb],
+    Add = {doit_server_add, {doit_server_add, start_link, []},
+               permanent, 5000, worker, [doit_server_add]},
+
+
+    Children = [Doit, FetchWeb, Add],
 
     {ok, { {one_for_all, 10, 10}, Children} }.
 
