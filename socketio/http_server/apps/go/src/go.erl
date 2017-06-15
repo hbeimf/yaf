@@ -31,6 +31,13 @@ parse_list(List, Add) ->
     call(Call).
 
 
+trim() ->
+    Str = "\r\n\t\t\t\t\t\r\n\t\t\t2017-06-13\t\t\t\r\n\t\t\t\t\t\t",
+    trim(Str).
+trim(Str) ->
+    Call = {str, trim, lib_fun:to_str(Str)},
+    {ok, NewString} = call(Call),
+    NewString.
 
 str_replace() ->
     str_replace("hello world!!", "e", "XX").

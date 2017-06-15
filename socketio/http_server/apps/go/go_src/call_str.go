@@ -15,6 +15,7 @@ type StrController struct  {
 }
 
 
+// http://www.cnblogs.com/golove/p/3236300.html
 // http://www.cnblogs.com/golove/p/3270918.html
 // 正则表达式使用doc
 // 正则表达式demo
@@ -39,6 +40,13 @@ func (this *StrController) Excute(message etf.Tuple) (*etf.Term) {
             replyString := str_replace(str, from, to)
             replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
             return &replyTerm
+        } else if string(act) == "trim" {
+            str := message[2].(string)
+
+            replyString := strings.TrimSpace(str)
+            replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
+            return &replyTerm
+
         } else if string(act) == "parse_html" {
 
             html := byteString(message[2].([]byte))
