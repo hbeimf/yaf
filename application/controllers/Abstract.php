@@ -24,6 +24,8 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		$this->smarty->assign('system_menu', $this->parse_menu($menu));
 		$this->smarty->assign('current_menu', $this->current_menu($menu));
 
+		// var_dump($this->current_menu($menu));
+
 		// 定义开发环境
 		$app_env = (isset($_SERVER['APP_ENV'])) ? $_SERVER['APP_ENV'] : '';
 		$this->smarty->assign('APP_ENV', $app_env);
@@ -94,12 +96,10 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		];
 
 		foreach ($menu as $m) {
-			$arr = explode("/",  trim($m['link'], '/'));
+			$ctrl = strtolower($m['controller']);
+			$action = strtolower($m['action']);
 
-			$ctrl = isset($arr[0]) ? strtolower($arr[0]) : 'index';
-			$action = isset($arr[1]) ? strtolower($arr[1]) : 'index';
-
-			if ($ctrl == $this->_controller && $action == $this->_action) {
+			if ($ctrl == strtolower($this->_controller) && strtolower($action == $this->_action)) {
 				$reply = [
 					'id'=>$m['id'],
 					'parent_id'=>$m['parent_id'],
