@@ -29,6 +29,15 @@ class SocketController extends AbstractController {
     }
 
 
+    public function wsAction(){
+        $data = [
+            'js' => 'socket_ws',
+        ];
+
+
+        $this->smarty->display('socket/ws.tpl', $data);
+    }
+
 
 
 }
