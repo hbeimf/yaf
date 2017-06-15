@@ -137,6 +137,8 @@ yaf-2.3.4
 
 swoole 1.8.5
 
+go version go1.4 linux/amd64
+
 
 安装yaf扩展
 
