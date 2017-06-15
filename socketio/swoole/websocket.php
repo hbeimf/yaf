@@ -18,7 +18,7 @@ $ws->on('message', function ($ws, $frame) {
 
 
     for ($i=0; $i<100; $i++) {
-        sleep(1);
+        // sleep(1);
         $ws->push($frame->fd, $i." : server: {$frame->data}");
     }
     // $ws->push($frame->fd, "server: {$frame->data}");
