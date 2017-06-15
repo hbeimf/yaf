@@ -31,12 +31,15 @@ start_link() ->
 %     {ok, { {one_for_all, 0, 1}, []} }.
 
 init([]) ->
+    % 示例, 用来启动任务，比如每一天采集一次，
     Doit = {doit_server_tpl, {doit_server_tpl, start_link, []},
                permanent, 5000, worker, [doit_server_tpl]},
 
+    % 抓取页面　& 提取数据
     FetchWeb = {doit_fetch_web, {doit_fetch_web, start_link, []},
                permanent, 5000, worker, [doit_fetch_web]},
 
+    % 将数据持久化
     Add = {doit_server_add, {doit_server_add, start_link, []},
                permanent, 5000, worker, [doit_server_add]},
 
