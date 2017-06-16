@@ -371,21 +371,21 @@ hex(N) when N >= 10, N < 16 ->
     $a + (N-10).
 
 %% lib_sys
-log(Str) ->
-	Dir = root_dir() ++ "log/" ++ date_str("y-m-d") ++ "-log.txt",
-	Log = " \n =====================" ++ date_str() ++ "============================ \n " ++ Str,
-	append(Dir, Log).
+% log(Str) ->
+% 	Dir = root_dir() ++ "log/" ++ date_str("y-m-d") ++ "-log.txt",
+% 	Log = " \n =====================" ++ date_str() ++ "============================ \n " ++ Str,
+% 	append(Dir, Log).
 
 
 %% 写系统日志到文件中
-write_log(Report) ->
-  Dir = root_dir() ++ "log/cache_"++ random() ++".txt",
-  {ok, S} = file:open(Dir, write),
-  io:format(S, "~p~n", [Report]),
-  file:close(S),
-  {ok, Str} = file_get_contents(Dir),
-  log(Str),
-  file:delete(Dir),
-  ok.
+% write_log(Report) ->
+%   Dir = root_dir() ++ "log/cache_"++ random() ++".txt",
+%   {ok, S} = file:open(Dir, write),
+%   io:format(S, "~p~n", [Report]),
+%   file:close(S),
+%   {ok, Str} = file_get_contents(Dir),
+%   log(Str),
+%   file:delete(Dir),
+%   ok.
 
 
