@@ -169,6 +169,8 @@ func (gs *srv) HandleCast(message *etf.Term) {
                 case etf.Atom:
                     if string(act) == "ping" {
                         reply_msg := etf.Term(etf.Tuple{etf.Atom("pong"), etf.Pid(self_pid)})
+
+                        // 此处由go 节点 给 erlang 节点发送消息 *****************************
                         gs.Node.Send(from, reply_msg)
                     }
                 case etf.Tuple:
