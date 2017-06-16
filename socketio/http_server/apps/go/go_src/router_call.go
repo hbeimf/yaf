@@ -35,4 +35,11 @@ func getCall(key string) (ctrl ControllerCall) {
     return callRouters["default"].(ControllerCall)
 }
 
+func hasCallController(key string) bool {
+    if _, ok := callRouters[key]; ok {
+        return true
+    }
+    return false
+}
+
 

@@ -207,8 +207,14 @@ func (gs *srv) HandleCall(message *etf.Term, from *etf.Tuple) (reply *etf.Term) 
         if len(req) > 0 {
             // 调用 Call 控制器逻辑
             // 根据注册的key/value控制器选出回调，调用并回复 erlang 端
-            call := getCall(string(req[0].(etf.Atom)))
-            reply = call.Excute(req)
+            key := string(req[0].(etf.Atom))
+            if hasCallController(key) {
+                call := getCall(key)
+                reply = call.Excute(req)
+            } else {
+                replyTerm := etf.Term(etf.Atom("call_controller_not_define"))
+                reply = &replyTerm
+            }
         }
     case etf.Atom:
         if string(req) == "start_goroutine" {
