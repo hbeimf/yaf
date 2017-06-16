@@ -3,6 +3,29 @@
 % -include("config.hrl").
 
 
+http_get(Url) ->
+    case httpc:request(get, {Url, []},
+                        [{autoredirect, true},
+                         {timeout, 60000},
+                         {version, "HTTP/1.1"}],
+                        [{body_format, binary}]) of
+            {ok, {_,_, Body}}->
+                Body;
+            {error, _Reason} ->
+                <<"">>
+    end.
+
+% 用在rebar3发布的配置文件中
+apps() ->
+    Apps = application:which_applications(),
+
+    AppList = lists:foldl(fun({App, _, _}, ReleaseAppList) ->
+        [App|ReleaseAppList]
+    end, [], Apps),
+
+    io:format("~n~p~n~n", [AppList]),
+    ok.
+
 
 ceil(N) ->
     T = trunc(N),
@@ -10,23 +33,6 @@ ceil(N) ->
         true  -> T;
         false -> 1 + T
     end.
-
-get_body(TemplateName, DataList, Handler) ->
-    %TemplateDir = code:priv_dir(http_serv) ++ "/" ++ TemplateName,
-    %TemplateDir = http_serv_fun:priv_dir() ++ TemplateName,
-    case code:priv_dir(http_serv) of
-        {error,bad_name} ->
-            TemplateDir = go_lib:priv_dir() ++ TemplateName;
-        Dir ->
-            TemplateDir = Dir ++ "/" ++ TemplateName
-    end,
-    erlydtl:compile( TemplateDir, Handler, [
-        {out_dir, false},
-        {custom_filters_modules, [lib_filter]},
-        {custom_tags_modules, [lib_tags]}
-    ]),
-    {ok, List} = Handler:render(DataList),
-    iolist_to_binary(List).
 
 to_list(S) when is_integer(S) ->
     integer_to_list(S);
@@ -120,7 +126,6 @@ datetime_to_timestamp(DateTime) ->
 timestamp_to_datetime(Timestamp) ->
     calendar:gregorian_seconds_to_datetime(Timestamp +  calendar:datetime_to_gregorian_seconds({{1970,1,1},{0,0,0}})).
 
-
 %% 获取时间截
 time() ->
     DateTime = calendar:local_time(),
@@ -142,11 +147,11 @@ date_str() ->
     ++ " " ++ to_str(Hour) ++ ":" ++ to_str(Min) ++ ":" ++ to_str(Sec).
 
 %% 返回目录
-root_dir() ->
-    replace(os:cmd("pwd"), "\n", "/").
+% root_dir() ->
+%     replace(os:cmd("pwd"), "\n", "/").
 
-priv_dir() ->
-    replace(os:cmd("pwd"), "\n", "/priv/").
+% priv_dir() ->
+%     replace(os:cmd("pwd"), "\n", "/priv/").
 
 %% lib_lists
 %% pmap
@@ -248,18 +253,18 @@ split(N, List, LRes) ->
 %%-compile(export_all).
 %% http://sen228.blog.163.com/blog/static/1648623192012112113246157/
 
-replace(Str, SubStr, NewStr) ->
-    case string:str(Str, SubStr) of
-        Pos when Pos == 0 ->
-            Str;
-        Pos when Pos == 1 ->
-            Tail = string:substr(Str, string:len(SubStr) + 1),
-            string:concat(NewStr, replace(Tail, SubStr, NewStr));
-        Pos ->
-            Head = string:substr(Str, 1, Pos - 1),
-            Tail = string:substr(Str, Pos + string:len(SubStr)),
-            string:concat(string:concat(Head, NewStr), replace(Tail, SubStr, NewStr))
-    end.
+% replace(Str, SubStr, NewStr) ->
+%     case string:str(Str, SubStr) of
+%         Pos when Pos == 0 ->
+%             Str;
+%         Pos when Pos == 1 ->
+%             Tail = string:substr(Str, string:len(SubStr) + 1),
+%             string:concat(NewStr, replace(Tail, SubStr, NewStr));
+%         Pos ->
+%             Head = string:substr(Str, 1, Pos - 1),
+%             Tail = string:substr(Str, Pos + string:len(SubStr)),
+%             string:concat(string:concat(Head, NewStr), replace(Tail, SubStr, NewStr))
+%     end.
 
 explode(Str, SubStr) ->
     case string:len(Str) of
@@ -292,64 +297,64 @@ explode(Str, SubStr, List) ->
 implode(List, Str) ->
     string:join(List, Str).
 
-trim(Str) ->
-    string:strip(Str).
+% trim(Str) ->
+%     string:strip(Str).
 
-ltrim(Str) ->
-    string:strip(Str, left).
+% ltrim(Str) ->
+%     string:strip(Str, left).
 
-rtrim(Str) ->
-    string:strip(Str, right).
+% rtrim(Str) ->
+%     string:strip(Str, right).
 
-trim(Str, SubStr) ->
-    LStr = ltrim(Str, SubStr),
-    rtrim(LStr, SubStr).
+% trim(Str, SubStr) ->
+%     LStr = ltrim(Str, SubStr),
+%     rtrim(LStr, SubStr).
 
-rtrim(Str, SubStr) ->
-    NewStr = trim(Str),
-    NewSubStr = trim(SubStr),
-    LengthNewStr = string:len(NewStr),
-    case string:len(NewSubStr) of
-        LengthNewSubStr when LengthNewSubStr == 0 ->
-            NewStr;
-        LengthNewSubStr ->
-            case LengthNewStr - LengthNewSubStr of
-                Length when Length < 0 ->
-                    NewStr;
-                Length ->
-                    Head = string:substr(NewStr, Length + 1, LengthNewSubStr),
-                    case string:equal(Head, NewSubStr) of
-                        true ->
-                            Tail = string:substr(NewStr, 1, Length),
-                            rtrim(Tail, SubStr);
-                        false ->
-                            NewStr
-                    end
-            end
-    end.
+% rtrim(Str, SubStr) ->
+%     NewStr = trim(Str),
+%     NewSubStr = trim(SubStr),
+%     LengthNewStr = string:len(NewStr),
+%     case string:len(NewSubStr) of
+%         LengthNewSubStr when LengthNewSubStr == 0 ->
+%             NewStr;
+%         LengthNewSubStr ->
+%             case LengthNewStr - LengthNewSubStr of
+%                 Length when Length < 0 ->
+%                     NewStr;
+%                 Length ->
+%                     Head = string:substr(NewStr, Length + 1, LengthNewSubStr),
+%                     case string:equal(Head, NewSubStr) of
+%                         true ->
+%                             Tail = string:substr(NewStr, 1, Length),
+%                             rtrim(Tail, SubStr);
+%                         false ->
+%                             NewStr
+%                     end
+%             end
+%     end.
 
-ltrim(Str, SubStr) ->
-    NewStr = trim(Str),
-    NewSubStr = trim(SubStr),
-    LengthNewStr = string:len(NewStr),
-    case string:len(NewSubStr) of
-        LengthNewSubStr when LengthNewSubStr == 0 ->
-            NewStr;
-        LengthNewSubStr ->
-            case LengthNewStr - LengthNewSubStr of
-                Length when Length < 0 ->
-                    NewStr;
-                Length ->
-                    Head = string:substr(NewStr, 1, LengthNewSubStr),
-                    case string:equal(Head, NewSubStr) of
-                        true ->
-                            Tail = string:substr(NewStr, LengthNewSubStr+1, Length),
-                            ltrim(Tail, SubStr);
-                        false ->
-                            NewStr
-                    end
-            end
-    end.
+% ltrim(Str, SubStr) ->
+%     NewStr = trim(Str),
+%     NewSubStr = trim(SubStr),
+%     LengthNewStr = string:len(NewStr),
+%     case string:len(NewSubStr) of
+%         LengthNewSubStr when LengthNewSubStr == 0 ->
+%             NewStr;
+%         LengthNewSubStr ->
+%             case LengthNewStr - LengthNewSubStr of
+%                 Length when Length < 0 ->
+%                     NewStr;
+%                 Length ->
+%                     Head = string:substr(NewStr, 1, LengthNewSubStr),
+%                     case string:equal(Head, NewSubStr) of
+%                         true ->
+%                             Tail = string:substr(NewStr, LengthNewSubStr+1, Length),
+%                             ltrim(Tail, SubStr);
+%                         false ->
+%                             NewStr
+%                     end
+%             end
+%     end.
 
 md5(S, true) ->
     string:substr(md5(S), 9, 16).
@@ -389,3 +394,19 @@ hex(N) when N >= 10, N < 16 ->
 %   ok.
 
 
+% get_body(TemplateName, DataList, Handler) ->
+%     %TemplateDir = code:priv_dir(http_serv) ++ "/" ++ TemplateName,
+%     %TemplateDir = http_serv_fun:priv_dir() ++ TemplateName,
+%     case code:priv_dir(http_serv) of
+%         {error,bad_name} ->
+%             TemplateDir = go_lib:priv_dir() ++ TemplateName;
+%         Dir ->
+%             TemplateDir = Dir ++ "/" ++ TemplateName
+%     end,
+%     erlydtl:compile( TemplateDir, Handler, [
+%         {out_dir, false},
+%         {custom_filters_modules, [lib_filter]},
+%         {custom_tags_modules, [lib_tags]}
+%     ]),
+%     {ok, List} = Handler:render(DataList),
+%     iolist_to_binary(List).
