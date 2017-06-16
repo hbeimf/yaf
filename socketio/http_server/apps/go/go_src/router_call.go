@@ -19,6 +19,8 @@ func setCallRouter() {
     // erlang 调用示例:
     // gen_server:call(GoMBox, {str, str_replace, StrRes, FindStr, ReplaceTo}).
     addRouterCall("str", &StrController{})
+    addRouterCall("time", &TimeController{})
+
 
     addRouterCall("default", &DefaultController{})
 }

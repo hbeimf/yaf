@@ -10,13 +10,19 @@
 %% Call Api functions
 %% 同步消息发送
 %%====================================================================
-% info() ->
-%     go_name_server:info().
-parse_html() ->
-    Html = "html",
-    parse_html(Html).
-parse_html(Html) ->
-    Call = {str, parse_html, Html},
+
+% 返回时间截
+time() ->
+    Call = {time, time},
+    call(Call).
+
+strtotime() ->
+    Str = "2018-01-02",
+    strtotime(Str).
+strtotime(Str) ->
+    Call = {time, strtotime, go_lib:to_str(Str)},
+    % {ok, TimeStamp} = call(Call),
+    % TimeStamp.
     call(Call).
 
 info() ->
@@ -115,6 +121,14 @@ cut_str(ReplyList, Str, Len) ->
             cut_str([Head|ReplyList], Tail, Len)
     end.
 
+
+parse_html() ->
+    Html = "html",
+    parse_html(Html).
+parse_html(Html) ->
+    Call = {str, parse_html, Html},
+    call(Call).
+
 % str(Str) ->
 %     Call = {str, Str},
 %     call(Call).
@@ -122,7 +136,6 @@ cut_str(ReplyList, Str, Len) ->
 call(Call) ->
     GoMBox = go_name_server:get_gombox(),
     gen_server:call(GoMBox, Call).
-
 
 
 
