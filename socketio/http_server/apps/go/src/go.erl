@@ -29,7 +29,25 @@ parse_list(List) ->
 parse_list(List, Add) ->
     Call = {list, List, Add},
     call(Call).
+% ===================================================================
 
+
+
+contains() ->
+    Str = "hello world",
+    contains(Str, "wo").
+contains(Str, SubStr)->
+    Call = {str, contains, lib_fun:to_str(Str), lib_fun:to_str(SubStr)},
+    {ok, Bool} = call(Call),
+    Bool.
+
+has_prefix() ->
+    Str = "hello world!",
+    has_prefix(Str, "he").
+has_prefix(Str, Prefix) ->
+    Call = {str, has_prefix, lib_fun:to_str(Str), lib_fun:to_str(Prefix)},
+    {ok, Bool} = call(Call),
+    Bool.
 
 trim() ->
     Str = "\r\n\t\t\t\t\t\r\n\t\t\t2017-06-13\t\t\t\r\n\t\t\t\t\t\t",

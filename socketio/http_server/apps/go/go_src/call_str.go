@@ -47,6 +47,22 @@ func (this *StrController) Excute(message etf.Tuple) (*etf.Term) {
             replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), replyString})
             return &replyTerm
 
+        } else if string(act) == "contains" {
+            str := message[2].(string)
+            from := message[3].(string)
+
+            Bool := strings.Contains(str, from)
+            replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), Bool})
+            return &replyTerm
+
+        } else if string(act) == "has_prefix" {
+            str := message[2].(string)
+            from := message[3].(string)
+
+            Bool := strings.HasPrefix(str, from)
+            replyTerm := etf.Term(etf.Tuple{etf.Atom("ok"), Bool})
+            return &replyTerm
+
         } else if string(act) == "trim" {
             str := message[2].(string)
             from := message[3].(string)
