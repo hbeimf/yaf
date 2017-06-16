@@ -66,6 +66,8 @@ func Start() {
     setCallRouter()
     setCastRouter()
 
+    // 自己写的代码 就不用分析 了，
+    // 主要是学习大牛写的，阅读入口就是这里的两个函数
     // 启动节点
     startNode()
     // 启动第一个命名的协程
@@ -82,11 +84,14 @@ func startNode() {
 
     log.Println("node started")
 
+    // 这里是启动node的入口 =============================
     // Initialize new node with given name and cookie
     enode = node.NewNode(NodeName, Cookie)
 
     // Allow node be available on EpmdPort port
     err = enode.Publish(EpmdPort)
+    // end ==============================================
+
     if err != nil {
         log.Fatalf("Cannot publish: %s", err)
     }
@@ -102,12 +107,15 @@ func startGenServer(serverName string) {
     // Initialize new instance of srv structure which implements Process behaviour
     eSrv := new(srv)
 
+    // 启动一个 process ==========================================
     // Spawn process with one arguments
     enode.Spawn(eSrv, completeChan)
 
     // 给进程注册一个名称
     eSrv.Node.Register(etf.Atom(serverName), eSrv.Self)
     eSrv.serverName = serverName
+
+    // end =======================================================
 
     // 我主要是研究多语言集群相关的功能 ，所以这段rpc直接注释
     // RPC
