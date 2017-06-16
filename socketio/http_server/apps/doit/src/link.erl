@@ -53,24 +53,30 @@ td(Tr) ->
                         Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
                         [Field|Res]
                     end, [], Matches),
-
-                    io:format("--------------------- ~n"),
-                    io:format("~p~n", [Fields]),
+                    print(Fields),
                     ok;
                 _ ->
                     Fields = lists:foldl(fun(M, Res) ->
                         Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
                         [Field|Res]
                     end, [], Matches),
-
-                    io:format("+++++++++++++++++++++++++++ ~n"),
-                    io:format("~p~n", [Fields]),
-
+                    print(Fields),
                     ok
             end;
         _ ->
             ok
     end.
+
+print(List) ->
+    Last = lists:last(List),
+    case go:contains(Last, "-") of
+        true ->
+            io:format("~p~n", [List]),
+            ok;
+        _ ->
+            ok
+    end.
+
 
 % strip_test() ->
 %     Html = <<"<td><div align=\"center\">3.780</div></td>">>,
