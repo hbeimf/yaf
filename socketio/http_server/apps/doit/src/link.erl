@@ -47,22 +47,12 @@ td(Tr) ->
     case re:run(Tr, "<td(.*)td>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
-            case length(Matches) of
-                7 ->
-                    Fields = lists:foldl(fun(M, Res) ->
-                        Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
-                        [Field|Res]
-                    end, [], Matches),
-                    print(Fields),
-                    ok;
-                _ ->
-                    Fields = lists:foldl(fun(M, Res) ->
-                        Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
-                        [Field|Res]
-                    end, [], Matches),
-                    print(Fields),
-                    ok
-            end;
+            Fields = lists:foldl(fun(M, Res) ->
+                Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
+                [Field|Res]
+            end, [], Matches),
+            print(Fields),
+            ok;
         _ ->
             ok
     end.
