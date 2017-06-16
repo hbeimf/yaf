@@ -32,29 +32,29 @@ add_yid(List) ->
 	% Sql = "INSERT INTO gp_high(code, high_yid) VALUES ",
 	Sql = "INSERT INTO gp_high(code, high_yid, openPrice, closePrice, highPrice, lowerPrice, time, str_time, year_num) VALUES ",
 
-	Sql1 = lists:foldl(fun({Code, Data}, ReplySql) -> 
-		{YId, OpenPrice, ClosePrice, HighPrice, LowerPrice, Time, StrTime, YearsNum} = Data, 
+	Sql1 = lists:foldl(fun({Code, Data}, ReplySql) ->
+		{YId, OpenPrice, ClosePrice, HighPrice, LowerPrice, Time, StrTime, YearsNum} = Data,
 
-		% ReplySql ++ "('"++lib_fun:to_str(Code)++"', "++lib_fun:to_str(Yid)++"),"
-		ReplySql ++ "('"++lib_fun:to_str(Code)++"', "++lib_fun:to_str(YId)++", "
-			++lib_fun:to_str(OpenPrice)++", "++lib_fun:to_str(ClosePrice)++", "
-			++lib_fun:to_str(HighPrice)++", "++lib_fun:to_str(LowerPrice)++", "
-			++lib_fun:to_str(Time)++", '"++lib_fun:to_str(StrTime)++"', "
-			++lib_fun:to_str(YearsNum)++"),"
+		% ReplySql ++ "('"++go_lib:to_str(Code)++"', "++go_lib:to_str(Yid)++"),"
+		ReplySql ++ "('"++go_lib:to_str(Code)++"', "++go_lib:to_str(YId)++", "
+			++go_lib:to_str(OpenPrice)++", "++go_lib:to_str(ClosePrice)++", "
+			++go_lib:to_str(HighPrice)++", "++go_lib:to_str(LowerPrice)++", "
+			++go_lib:to_str(Time)++", '"++go_lib:to_str(StrTime)++"', "
+			++go_lib:to_str(YearsNum)++"),"
 
 	end, Sql, List),
 
-	Sql2 = lib_fun:rtrim(Sql1, ","),
+	Sql2 = go_lib:rtrim(Sql1, ","),
 
 	truncate_yid(),
 	io:format("~p~n", [Sql2]),
-	lib_fun:query_sql(Sql2),
+	go_lib:query_sql(Sql2),
 	ok.
 
 truncate_yid() ->
 	Sql = "truncate gp_high",
 	% Sql = "DELETE FROM gp_high",
-	lib_fun:query_sql(Sql).
+	go_lib:query_sql(Sql).
 
 code_detail(Code) ->
 	{_Sum, List} = models_fun:get_sum_list(Code),
@@ -72,16 +72,16 @@ code_detail(Code) ->
 	{_, Time} = lists:keyfind(<<"time">>, 1, L),
 	{_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
 
-	{find_current_yid(List), OpenPrice, ClosePrice, HighPrice, LowerPrice, Time, StrTime, YearsNum}.	
+	{find_current_yid(List), OpenPrice, ClosePrice, HighPrice, LowerPrice, Time, StrTime, YearsNum}.
 
 
 find_years([]) ->
 	0;
 find_years(List) ->
-	Years = lists:foldl(fun({Time, _, _}, ReplyList) -> 
-		{{Year, _, _}, _} = lib_fun:timestamp_to_datetime(Time),
+	Years = lists:foldl(fun({Time, _, _}, ReplyList) ->
+		{{Year, _, _}, _} = go_lib:timestamp_to_datetime(Time),
 		case lists:member(Year, ReplyList) of
-			true -> 
+			true ->
 				ReplyList;
 			_ ->
 				[Year|ReplyList]
@@ -110,7 +110,7 @@ find_current_yid(List) when length(List) > 2 ->
 	{_Time, _StrTime, ClosePrice} = get_last_pos(List),
 	CutList = models_fun:cut_list(List),
 
-	[R|_] = lists:foldl(fun({Id, StartPrice, EndPrice}, ReplyList) -> 
+	[R|_] = lists:foldl(fun({Id, StartPrice, EndPrice}, ReplyList) ->
 		case StartPrice =< ClosePrice andalso ClosePrice =< EndPrice of
 			true ->
 				[Id|ReplyList];

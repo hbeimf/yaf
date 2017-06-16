@@ -30,7 +30,7 @@ update(Pool, TableName, List, Where) ->
 
 update_sql(TableName, List, Where) ->
     SetList = lists:map(fun({Key, Val}) ->
-                lists:concat(["`", lib_fun:to_str(Key), "` = '", go:str_replace(lib_fun:to_str(Val), "'", "\\'"), "'"])
+                lists:concat(["`", go_lib:to_str(Key), "` = '", go:str_replace(go_lib:to_str(Val), "'", "\\'"), "'"])
     end, List),
     Set = string:join(SetList, ", "),
     lists:concat(["UPDATE `", TableName, "`", " SET ", Set, " WHERE ", Where]).
@@ -46,11 +46,11 @@ insert_sql(TableName, List) ->
     {FieldList, DataList} = lists:unzip(List),
 
     FilterFieldList = lists:map(fun(Key) ->
-        lib_fun:to_str(Key)
+        go_lib:to_str(Key)
     end, FieldList),
     FieldStr = string:join(FilterFieldList, "`, `"),
     DataList1 = lists:map(fun(F) ->
-        FF = go:str_replace(lib_fun:to_str(F), "'", "\\'"),
+        FF = go:str_replace(go_lib:to_str(F), "'", "\\'"),
         lists:concat(["'", FF, "'"])
     end, DataList),
     DataStr = string:join(DataList1, ", "),
@@ -60,11 +60,11 @@ query_sql(Sql) ->
     query_sql(default, Sql).
 
 % query_sql(Pool, Sql) ->
-%     emysql:execute(Pool, lib_fun:to_binary(Sql)).
+%     emysql:execute(Pool, go_lib:to_binary(Sql)).
 
 query_sql(Pool, Sql) ->
     try
-        emysql:execute(Pool, lib_fun:to_binary(Sql))
+        emysql:execute(Pool, go_lib:to_binary(Sql))
     catch
          Class:Reason ->
             lager:error(
@@ -72,7 +72,7 @@ query_sql(Pool, Sql) ->
                 [lager:pr_stacktrace(erlang:get_stacktrace(), {Class, Reason})]),
 
             init_emysql(),
-            emysql:execute(Pool, lib_fun:to_binary(Sql))
+            emysql:execute(Pool, go_lib:to_binary(Sql))
     end.
 
 % init_emysql() ->

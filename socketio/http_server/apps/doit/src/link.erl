@@ -11,7 +11,7 @@ run3() ->
     % Dir = "/web/yaf/doc/demo.html",
     Dir1 = "/web/yaf/doc/demo1.html",
 
-    {ok, Html} = lib_fun:file_get_contents(Dir1),
+    {ok, Html} = go_lib:file_get_contents(Dir1),
     table(Html).
 
 
@@ -48,7 +48,7 @@ td(Tr) ->
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
             Fields = lists:foldl(fun(M, Res) ->
-                Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
+                Field = go:trim(go_lib:to_str(strip_tags(lists:nth(1, M)))),
                 [Field|Res]
             end, [], Matches),
             print(Fields),
@@ -93,7 +93,7 @@ run2() ->
     % Dir = "/web/yaf/doc/demo.html",
     Dir1 = "/web/yaf/doc/demo1.html",
 
-    {ok, Html} = lib_fun:file_get_contents(Dir1),
+    {ok, Html} = go_lib:file_get_contents(Dir1),
 
 
     {_, R} = re:run(Html, "<table id=\"FundHoldSharesTable\">(.*)</table>", [{capture, all, binary}, global, dotall]),
@@ -118,7 +118,7 @@ run1() ->
     % Dir = "/web/yaf/doc/demo.html",
     Dir1 = "/web/yaf/doc/demo1.html",
 
-    {ok, Html} = lib_fun:file_get_contents(Dir1),
+    {ok, Html} = go_lib:file_get_contents(Dir1),
 
 
     {_, R} = re:run(Html, "<tr>(.*)</tr>", [{capture, all, binary}, global, dotall]),
@@ -136,12 +136,12 @@ run() ->
     % Dir = "/web/yaf/doc/demo.html",
     Dir1 = "/web/yaf/doc/demo1.html",
 
-    {ok, Html} = lib_fun:file_get_contents(Dir1),
+    {ok, Html} = go_lib:file_get_contents(Dir1),
 
     % R = re:run(Page, "<table id=\"FundHoldSharesTable\">(.*)</table>", [{capture, all, list}]),
     % Html = go:iconv(Page, 'gb2312', 'utf-8'),
 
-    % lib_fun:file_put_contents(Dir1, Html),
+    % go_lib:file_put_contents(Dir1, Html),
 
     % Html.
 
@@ -178,13 +178,13 @@ run() ->
     % R = regexp:matches(Html, "<tr(.*)tr>"),
     % R.
 
-    % io:format("~ts", [lib_fun:to_binary(R)]).
+    % io:format("~ts", [go_lib:to_binary(R)]).
     % Page.
     ok.
 
 write_match(Match) ->
     Dir1 = "/web/yaf/doc/list1.html",
-    lib_fun:file_put_contents(Dir1, Match).
+    go_lib:file_put_contents(Dir1, Match).
 
 write_log(Report) ->
   % Dir = root_dir() ++ "log/cache_"++ random() ++".html",
@@ -192,7 +192,7 @@ write_log(Report) ->
   {ok, S} = file:open(Dir, write),
   io:format(S, "~p~n", [Report]),
   file:close(S),
-  % {ok, Str} = lib_fun:file_get_contents(Dir),
+  % {ok, Str} = go_lib:file_get_contents(Dir),
   % log(Str),
   % file:delete(Dir),
   ok.
@@ -206,13 +206,13 @@ set_demo_page() ->
     {Year, Jd} = today(),
     Code = "002154",
 
-    Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++lib_fun:to_str(Code)++".phtml?year="++lib_fun:to_str(Year)++"&jidu="++lib_fun:to_str(Jd),
+    Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++go_lib:to_str(Code)++".phtml?year="++go_lib:to_str(Year)++"&jidu="++go_lib:to_str(Jd),
     io:format("~n~p~n~n", [Link]),
 
     Page = http_get(Link),
 
 
-    lib_fun:file_put_contents(Dir, Page).
+    go_lib:file_put_contents(Dir, Page).
 
 http_get(Url) ->
     case httpc:request(get, {Url, []},
@@ -243,11 +243,11 @@ year(Year) ->
     end, [], get_quarter_list(Year)).
 
 this_year() ->
-    {{ThisYear, _ThisMonth, _},_} = lib_fun:timestamp_to_datetime(lib_fun:time()),
+    {{ThisYear, _ThisMonth, _},_} = go_lib:timestamp_to_datetime(go_lib:time()),
     ThisYear.
 
 this_month() ->
-    {{_, ThisMonth, _},_} = lib_fun:timestamp_to_datetime(lib_fun:time()),
+    {{_, ThisMonth, _},_} = go_lib:timestamp_to_datetime(go_lib:time()),
     ThisMonth.
 
 get_quarter_list(Year) ->

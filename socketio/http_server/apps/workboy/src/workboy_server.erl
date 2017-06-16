@@ -67,8 +67,8 @@ handle_call(_Request, _From, State) ->
 
 % delete_page() ->
 %     {Year, Jidu} = spider:today(),
-%     Key = lib_fun:to_str(Year) ++ ":" ++ lib_fun:to_str(Jidu),
-%     Sql = "delete from sina_web_page where info_key like '%"++ lib_fun:to_str(Key) ++"'",
+%     Key = go_lib:to_str(Year) ++ ":" ++ go_lib:to_str(Jidu),
+%     Sql = "delete from sina_web_page where info_key like '%"++ go_lib:to_str(Key) ++"'",
 
 %     io:format("~p~n~n", [Sql]),
 %     mysql:query_sql(Sql).
@@ -79,7 +79,7 @@ insert_page(InfoKey, Link) ->
     Html = go:http_get(Link),
     Html1 = go:iconv(Html, 'gb2312', 'utf-8'),
 
-    lib_fun:file_put_contents("/web/1.html", Html1),
+    go_lib:file_put_contents("/web/1.html", Html1),
 
     Data = [
         {<<"info_key">>, InfoKey},
@@ -112,16 +112,16 @@ handle_cast({work, {init_data, _From}}, State) ->
         {_, Name} = lists:keyfind(<<"name">>, 1, Row),
         % io:format("")
 
-        StrCode = lib_fun:to_str(Code),
+        StrCode = go_lib:to_str(Code),
         Code1 = string:sub_string(StrCode, 3, length(StrCode)),
 
         lists:foreach(fun({Year, Jidu}) ->
-            InfoKey = lib_fun:to_str(Name) ++ ":" ++ lib_fun:to_str(Code) ++ ":" ++ lib_fun:to_str(Year) ++ ":" ++ lib_fun:to_str(Jidu),
+            InfoKey = go_lib:to_str(Name) ++ ":" ++ go_lib:to_str(Code) ++ ":" ++ go_lib:to_str(Year) ++ ":" ++ go_lib:to_str(Jidu),
 
-            Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++lib_fun:to_str(Code1)++".phtml?year="++lib_fun:to_str(Year)++"&jidu="++lib_fun:to_str(Jidu),
+            Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++go_lib:to_str(Code1)++".phtml?year="++go_lib:to_str(Year)++"&jidu="++go_lib:to_str(Jidu),
 
 
-            SqlKey = "SELECT id from sina_web_page where info_key = '"++lib_fun:to_str(InfoKey)++"' limit 1",
+            SqlKey = "SELECT id from sina_web_page where info_key = '"++go_lib:to_str(InfoKey)++"' limit 1",
             % $row = $this->_mysql->get($sql);
             Res = mysql:get_assoc(SqlKey),
 
@@ -143,7 +143,7 @@ handle_cast({work, {init_data, _From}}, State) ->
 
         end, Years)
 
-        % Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++lib_fun:to_str(Code)++".phtml?year={$year}&jidu={$jd}",
+        % Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++go_lib:to_str(Code)++".phtml?year={$year}&jidu={$jd}",
 
 
     end, Rows),
@@ -231,7 +231,7 @@ handle_cast({work, {show_result, From}}, State) ->
         io:format("msg:~p~n", [Msg]),
 
         Link = "/page/?a=detail&code="++to_str(Code),
-        L1 = [{<<"url">>, lib_fun:to_binary(Link)}|L],
+        L1 = [{<<"url">>, go_lib:to_binary(Link)}|L],
 
         Msg0 = jsx:encode(L1),
         Msg1 = unicode:characters_to_binary(Msg0),

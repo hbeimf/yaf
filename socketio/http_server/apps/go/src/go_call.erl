@@ -111,7 +111,7 @@ call_wrong() ->
 
 % ttt() ->
 %     Dir1 = code:lib_dir(go, priv) ++ "/utf-8.html",
-%     lib_fun:file_get_contents(Dir1),
+%     go_lib:file_get_contents(Dir1),
 
 %     io:format("~ts~n", [Utf8Name]).
 
@@ -126,7 +126,7 @@ tt() ->
 
     Dir = code:lib_dir(go, priv) ++ "/gb2312.html",
     % error_logger:info_msg("dir XXX  ~p~n", [Dir]),
-    % lib_fun:file_put_contents(Dir, Html),
+    % go_lib:file_put_contents(Dir, Html),
     file:write_file(Dir, Html),
 
     % Html1 = unicode:characters_to_binary(Html),
@@ -143,7 +143,7 @@ tt() ->
 
     Dir1 = code:lib_dir(go, priv) ++ "/utf-8.html",
     % error_logger:info_msg("dir XXX  ~p~n", [Dir]),
-    % lib_fun:file_put_contents(Dir, Html),
+    % go_lib:file_put_contents(Dir, Html),
     file:write_file(Dir1, Html2),
 
 

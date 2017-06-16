@@ -8,7 +8,7 @@
 % -export([years/0, today/0]).
 
 
-run() -> 
+run() ->
     Sql = "SELECT code,name FROM m_gp_list",
     mysql:get_assoc(Sql),
 
@@ -34,11 +34,11 @@ year(Year) ->
     end, [], get_quarter_list(Year)).
 
 this_year() ->
-    {{ThisYear, _ThisMonth, _},_} = lib_fun:timestamp_to_datetime(lib_fun:time()),
+    {{ThisYear, _ThisMonth, _},_} = go_lib:timestamp_to_datetime(go_lib:time()),
     ThisYear.
 
 this_month() ->
-    {{_, ThisMonth, _},_} = lib_fun:timestamp_to_datetime(lib_fun:time()),
+    {{_, ThisMonth, _},_} = go_lib:timestamp_to_datetime(go_lib:time()),
     ThisMonth.
 
 get_quarter_list(Year) ->

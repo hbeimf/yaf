@@ -16,7 +16,7 @@ get_body(TemplateName, DataList, Handler) ->
 	%TemplateDir = http_serv_fun:priv_dir() ++ TemplateName,
 	case code:priv_dir(http_serv) of
 		{error,bad_name} ->
-			TemplateDir = lib_fun:priv_dir() ++ TemplateName;
+			TemplateDir = go_lib:priv_dir() ++ TemplateName;
 		Dir ->
 			TemplateDir = Dir ++ "/" ++ TemplateName
 	end,

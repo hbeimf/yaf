@@ -19,7 +19,7 @@
 
 
 print_list(GroupList) ->
-	lists:foreach(fun(SubList) -> 
+	lists:foreach(fun(SubList) ->
 		io:format("~p~n~n", [SubList]),
 		ok
 	end, GroupList),
@@ -56,13 +56,13 @@ list_gap(Id, StartPrice, _NextPrice, EndPrice, ReplyList) ->
 list_gap_add() ->
 	0.02.
 
-to_float(L) -> 
+to_float(L) ->
 	list_to_float(hd(io_lib:format("~.2f",[L]))).
 
 get_sum_list(Code) ->
-	Sql = "select * from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "'",
-	List = lib_fun:get_assoc(Sql),
-	lists:foldl(fun(L, {SumPrice, ReplyList}) -> 
+	Sql = "select * from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
+	List = go_lib:get_assoc(Sql),
+	lists:foldl(fun(L, {SumPrice, ReplyList}) ->
 		{_, Time} = lists:keyfind(<<"time">>, 1, L),
 		{_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
 		{_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
@@ -72,9 +72,9 @@ get_sum_list(Code) ->
 
 
 get_wave_list(Code) ->
-	Sql = "select * from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "'",
-	List = lib_fun:get_assoc(Sql),
-	lists:foldl(fun(L, {SumPrice, ReplyList}) -> 
+	Sql = "select * from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
+	List = go_lib:get_assoc(Sql),
+	lists:foldl(fun(L, {SumPrice, ReplyList}) ->
 		{_, Time} = lists:keyfind(<<"time">>, 1, L),
 		{_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
 		{_, OpenPrice} = lists:keyfind(<<"openPrice">>, 1, L),
@@ -89,9 +89,9 @@ get_wave_list(Code) ->
 
 
 get_sum_list(Code, Num) ->
-	Sql = "select * from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "' order by id desc limit "++ lib_fun:to_str(Num),
-	List = lib_fun:get_assoc(Sql),
-	lists:foldl(fun(L, {SumPrice, ReplyList}) -> 
+	Sql = "select * from gp_history where code = '" ++ go_lib:to_str(Code) ++ "' order by id desc limit "++ go_lib:to_str(Num),
+	List = go_lib:get_assoc(Sql),
+	lists:foldl(fun(L, {SumPrice, ReplyList}) ->
 		{_, Time} = lists:keyfind(<<"time">>, 1, L),
 		{_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
 		{_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
@@ -101,13 +101,13 @@ get_sum_list(Code, Num) ->
 
 get_code()->
 	Sql = "select code,name from m_gp_list",
-	lib_fun:get_assoc(Sql).
-	
+	go_lib:get_assoc(Sql).
+
 
 
 get_code_today_list(Code) ->
-	Sql = "select openPrice,closePrice,highPrice,lowerPrice,time,str_time from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "' order by time desc limit 1",
-	[Reply] = lib_fun:get_assoc(Sql),
+	Sql = "select openPrice,closePrice,highPrice,lowerPrice,time,str_time from gp_history where code = '" ++ go_lib:to_str(Code) ++ "' order by time desc limit 1",
+	[Reply] = go_lib:get_assoc(Sql),
 	Reply.
 
 

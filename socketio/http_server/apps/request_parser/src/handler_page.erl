@@ -77,7 +77,7 @@ action(<<"detail">>, Req) ->
     PList = pre_data(List1),
     % io:format("~p~n", [PList]),
 
-    Data = [{<<"code">>, lib_fun:to_binary(Code)}|PList],
+    Data = [{<<"code">>, go_lib:to_binary(Code)}|PList],
 
     Data1 = [{<<"data">>, lists:reverse(L2)}|Data],
 
@@ -149,9 +149,9 @@ pre_list(List) ->
     end, [], List).
 
 % get_list_by_code(Code) ->
-%     Sql = "select time, closePrice from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "'",
+%     Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
 %     List = mysql:get_assoc(Sql),
-%     lists:foldl(fun(L, ReplyList) -> 
+%     lists:foldl(fun(L, ReplyList) ->
 %         {_, Time} = lists:keyfind(<<"time">>, 1, L),
 %         {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
 %         [{Time, ClosePrice}|ReplyList]
@@ -164,10 +164,10 @@ pre_list(List) ->
 %     end, [], List).
 
 get_list_by_code(Code) ->
-    Sql = "select time, closePrice from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "'",
+    Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
     List = mysql:get_assoc(Sql),
     List.
-    % lists:foldl(fun(L, ReplyList) -> 
+    % lists:foldl(fun(L, ReplyList) ->
     %     {_, Time} = lists:keyfind(<<"time">>, 1, L),
     %     {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
     %     [{Time, ClosePrice}|ReplyList]
@@ -182,16 +182,16 @@ get_list_by_code(Code) ->
 
 
 get_list_by_code_tolist(List) ->
-    % Sql = "select time, closePrice from gp_history where code = '" ++ lib_fun:to_str(Code) ++ "'",
+    % Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
     % List = mysql:get_assoc(Sql),
-    lists:foldl(fun(L, {ReplyList, ShowList}) -> 
+    lists:foldl(fun(L, {ReplyList, ShowList}) ->
         {_, Time} = lists:keyfind(<<"time">>, 1, L),
         {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
 
-        {{Y, M, D}, _} = lib_fun:timestamp_to_datetime(Time),
-        Date = lib_fun:to_str(Y)++"-"++lib_fun:to_str(M)++"-"++lib_fun:to_str(D),
+        {{Y, M, D}, _} = go_lib:timestamp_to_datetime(Time),
+        Date = go_lib:to_str(Y)++"-"++go_lib:to_str(M)++"-"++go_lib:to_str(D),
 
-        {[{Time, ClosePrice}|ReplyList], 
+        {[{Time, ClosePrice}|ReplyList],
             [[{<<"time">>, Date}, {<<"closePrice">>, ClosePrice}]|ShowList]
         }
 
@@ -207,7 +207,7 @@ get_list_by_code_tolist(List) ->
 
 
 get_name(Code) ->
-    Sql = "select * from m_gp_list where code = '"++lib_fun:to_str(Code)++"' limit 1",
+    Sql = "select * from m_gp_list where code = '"++go_lib:to_str(Code)++"' limit 1",
     [Row] = mysql:get_assoc(Sql),
     {_, Name} = lists:keyfind(<<"name">>, 1, Row),
     Name.

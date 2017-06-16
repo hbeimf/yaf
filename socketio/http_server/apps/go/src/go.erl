@@ -37,7 +37,7 @@ contains() ->
     Str = "hello world",
     contains(Str, "wo").
 contains(Str, SubStr)->
-    Call = {str, contains, lib_fun:to_str(Str), lib_fun:to_str(SubStr)},
+    Call = {str, contains, go_lib:to_str(Str), go_lib:to_str(SubStr)},
     {ok, Bool} = call(Call),
     Bool.
 
@@ -45,7 +45,7 @@ has_prefix() ->
     Str = "hello world!",
     has_prefix(Str, "he").
 has_prefix(Str, Prefix) ->
-    Call = {str, has_prefix, lib_fun:to_str(Str), lib_fun:to_str(Prefix)},
+    Call = {str, has_prefix, go_lib:to_str(Str), go_lib:to_str(Prefix)},
     {ok, Bool} = call(Call),
     Bool.
 
@@ -53,29 +53,29 @@ trim() ->
     Str = "\r\n\t\t\t\t\t\r\n\t\t\t2017-06-13\t\t\t\r\n\t\t\t\t\t\t",
     trim(Str).
 trim(Str) ->
-    Call = {str, trimspace, lib_fun:to_str(Str)},
+    Call = {str, trimspace, go_lib:to_str(Str)},
     {ok, NewString} = call(Call),
     NewString.
 
 trim(Str, FindStr) ->
-    Call = {str, trim, lib_fun:to_str(Str), lib_fun:to_str(FindStr)},
+    Call = {str, trim, go_lib:to_str(Str), go_lib:to_str(FindStr)},
     {ok, NewString} = call(Call),
     NewString.
 
 ltrim(Str, FindStr) ->
-    Call = {str, trimleft, lib_fun:to_str(Str), lib_fun:to_str(FindStr)},
+    Call = {str, trimleft, go_lib:to_str(Str), go_lib:to_str(FindStr)},
     {ok, NewString} = call(Call),
     NewString.
 
 rtrim(Str, FindStr) ->
-    Call = {str, trimright, lib_fun:to_str(Str), lib_fun:to_str(FindStr)},
+    Call = {str, trimright, go_lib:to_str(Str), go_lib:to_str(FindStr)},
     {ok, NewString} = call(Call),
     NewString.
 
 str_replace() ->
     str_replace("hello world!!", "e", "XX").
 str_replace(StrRes, FindStr, ReplaceTo) ->
-    Call = {str, str_replace, lib_fun:to_str(StrRes), FindStr, ReplaceTo},
+    Call = {str, str_replace, go_lib:to_str(StrRes), FindStr, ReplaceTo},
     {ok, NewString} = call(Call),
     NewString.
 
@@ -91,17 +91,17 @@ iconv(Str, From, To) ->
     end.
 
 short_string_iconv(Str, From, To) ->
-    Call = {iconv, lib_fun:to_binary(Str), From, To},
+    Call = {iconv, go_lib:to_binary(Str), From, To},
     {ok, ReplyStr} = call(Call),
     ReplyStr.
 
 long_string_iconv(String, From, To) ->
-    L = cut_str(lib_fun:to_str(String), 3000),
+    L = cut_str(go_lib:to_str(String), 3000),
     List = lists:foldl(fun(Str, Reply) ->
       R = short_string_iconv(Str, From, To),
       [R|Reply]
     end, [], L),
-    lib_fun:implode(List, "").
+    go_lib:implode(List, "").
 
 cut_str(Str, Len) ->
     cut_str([], Str, Len).
@@ -188,10 +188,10 @@ d() ->
     % Html1 = iconv(Html, 'gb2312', 'utf-8'),
     % Html1.
     Dir = code:priv_dir(go) ++ "/2.html",
-    {_, F} = lib_fun:file_get_contents(Dir),
-    parse_html(lib_fun:to_binary(F)),
+    {_, F} = go_lib:file_get_contents(Dir),
+    parse_html(go_lib:to_binary(F)),
 
-    % Str = lib_fun:to_str(F),
+    % Str = go_lib:to_str(F),
 
     % string:substr("Hello World",4,5).
 
@@ -203,7 +203,7 @@ d() ->
     % iconv(F, 'gb2312', 'utf-8'),
 
     ok.
-    % lib_fun:file_put_contents(Dir, Html).
+    % go_lib:file_put_contents(Dir, Html).
 
 
 % cut_str(Str, Size) ->
@@ -222,19 +222,19 @@ d() ->
 
 % d() ->
 %     Dir = code:priv_dir(go) ++ "/1.html",
-%     {_, H} = lib_fun:file_get_contents(Dir),
-%     % L = cut_str(lib_fun:to_str(H), 3000),
+%     {_, H} = go_lib:file_get_contents(Dir),
+%     % L = cut_str(go_lib:to_str(H), 3000),
 %     % List = lists:foldl(fun(Str, Reply) ->
 %     %   R = iconv(Str, 'gb2312', 'utf-8'),
 %     %   [R|Reply]
 %     % end, [], L),
-%     % Con = lib_fun:implode(List, ""),
+%     % Con = go_lib:implode(List, ""),
 
 %     Con = long_string_iconv(H, 'gb2312', 'utf-8'),
 %     Dir2 = code:priv_dir(go) ++ "/2.html",
-%     lib_fun:file_put_contents(Dir2, Con).
+%     go_lib:file_put_contents(Dir2, Con).
 
-    % parse_html(lib_fun:to_binary(H)).
+    % parse_html(go_lib:to_binary(H)).
 
 
 
