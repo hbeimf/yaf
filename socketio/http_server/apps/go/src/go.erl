@@ -21,8 +21,6 @@ strtotime() ->
     strtotime(Str).
 strtotime(Str) ->
     Call = {time, strtotime, go_lib:to_str(Str)},
-    % {ok, TimeStamp} = call(Call),
-    % TimeStamp.
     call(Call).
 
 info() ->
