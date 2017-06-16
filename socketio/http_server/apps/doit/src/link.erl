@@ -9,93 +9,68 @@
 
 run3() ->
     % Dir = "/web/yaf/doc/demo.html",
-    Dir1 = "/web/yaf/doc/demo.html",
+    Dir1 = "/web/yaf/doc/demo1.html",
 
     {ok, Html} = lib_fun:file_get_contents(Dir1),
+    table(Html).
 
 
+table(Html) ->
     case re:run(Html, "<table id=\"FundHoldSharesTable\">(.*)</table>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
             lists:foreach(fun(Match) ->
-                % io:format("=================================== ~n"),
                 [Table|_] = Match,
-                % io:format("~n ~ts ~n", [M]),
-                % write_match(M),
                 tr(Table),
                 ok
             end, lists:reverse(Matches));
         _ ->
             ok
-    end,
-    ok.
-
+    end.
 
 tr(Table) ->
     case re:run(Table, "<tr(.*)tr>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
-            lists:foreach(fun(Match) ->
-                io:format("=================================== ~n"),
+            lists:foldr(fun(Match, Res) ->
                 [Tr|_] = Match,
-                % io:format("~n~n~n ~ts ~n", [Tr]),
                 td(Tr),
-                % write_match(M),
-                ok
-            end, lists:reverse(Matches));
+                Res
+            end, [], Matches),
+            ok;
         _ ->
             ok
-    end,
-
-    ok.
+    end.
 
 
 td(Tr) ->
     case re:run(Tr, "<td(.*)td>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
-
             case length(Matches) of
                 7 ->
-                    io:format("~p~n", [erlang:length(Matches)]),
+                    Fields = lists:foldl(fun(M, Res) ->
+                        Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
+                        [Field|Res]
+                    end, [], Matches),
 
-                    io:format("~ts~n", [Tr]),
-
-                    % io:format("~ts~n", [lists:nth(1, Matches)]),
-                    % io:format("~ts~n", [lists:nth(2, Matches)]),
-                    % io:format("~ts~n", [lists:nth(3, Matches)]),
-                    % io:format("~ts~n", [lists:nth(4, Matches)]),
-                    % io:format("~ts~n", [lists:nth(5, Matches)]),
-                    % io:format("~ts~n", [lists:nth(6, Matches)]),
-                    % io:format("~ts~n", [lists:nth(7, Matches)]),
-
-                    lists:foreach(fun(M) ->
-                        % [H|_] = M,
-                        io:format("--------------------- ~n"),
-                        io:format("~p~n", [go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M))))]),
-                        ok
-                    end, Matches),
-
-
+                    io:format("--------------------- ~n"),
+                    io:format("~p~n", [Fields]),
                     ok;
                 _ ->
-                    io:format("~ts~n", [Tr]),
+                    Fields = lists:foldl(fun(M, Res) ->
+                        Field = go:trim(lib_fun:to_str(strip_tags(lists:nth(1, M)))),
+                        [Field|Res]
+                    end, [], Matches),
+
+                    io:format("+++++++++++++++++++++++++++ ~n"),
+                    io:format("~p~n", [Fields]),
 
                     ok
-            end,
-
-
-
-            ok;
-
+            end;
         _ ->
             ok
-    end,
-
-
-
-    ok.
-
+    end.
 
 % strip_test() ->
 %     Html = <<"<td><div align=\"center\">3.780</div></td>">>,
