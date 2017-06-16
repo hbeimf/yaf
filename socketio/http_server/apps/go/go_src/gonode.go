@@ -42,12 +42,18 @@ func init() {
     flag.BoolVar(&EnableRPC, "rpc", false, "enable RPC")
     flag.StringVar(&PidFile, "pid_file", "", "pid file path")
 
+    // 初始化三个变量
+    // 要对新产生的协程进行命名 gs_10000, gs_10001, gs_10002 依次累加， serverId 就是个全局计数器
     flag.IntVar(&serverId, "server_id", 10000, "新进程编号")
 
+    // 定义一个key/value list , 用来存放同步调用的控制器
     callRouters = make(map[string]interface{})
+    // 还是一个key/value list, 用来存放异步调用的控制器
+    // 根据key 先选出控制器，再处理返回，就是这么简单
     castRouters = make(map[string]interface{})
 }
 
+// 运行入口
 func main() {
     Start()
     return
@@ -58,7 +64,9 @@ func Start() {
     setCallRouter()
     setCastRouter()
 
+    // 启动节点
     startNode()
+    // 启动第一个命名的协程
     startGenServer(SrvName)
 
 }
@@ -99,6 +107,7 @@ func startGenServer(serverName string) {
     eSrv.Node.Register(etf.Atom(serverName), eSrv.Self)
     eSrv.serverName = serverName
 
+    // 我主要是研究多语言集群相关的功能 ，所以这段rpc直接注释
     // RPC
     // if EnableRPC {
     //     // Create closure
@@ -123,6 +132,7 @@ func startGenServer(serverName string) {
 
 // call back start ============================================================
 
+// 协程初始化回调
 // Init
 func (gs *srv) Init(args ...interface{}) {
     // log.Printf("Init: %#v", args)
@@ -132,6 +142,7 @@ func (gs *srv) Init(args ...interface{}) {
 }
 
 // HandleCast
+// 协程接收处理异步消息回调
 // Call `gen_server:cast({go_srv, gonode@localhost}, stop)` at Erlang node to stop this Go-node
 func (gs *srv) HandleCast(message *etf.Term) {
     log.Printf("HandleCast: %#v", *message)
@@ -158,6 +169,10 @@ func (gs *srv) HandleCast(message *etf.Term) {
         }
 
     case etf.Atom:
+        // 结束一个process
+        // erlang 调用 gen_server:cast(GoMBox, stop).
+        // 由我发现发送这个消息时并不会关掉process , 所以我把代码下到本地做了修改，
+        // 现在是可以关掉process 的版本，
         // If message is atom 'stop', we should say it to main process
         if string(req) == "stop" {
             if gs.serverName != SrvName {
@@ -170,6 +185,7 @@ func (gs *srv) HandleCast(message *etf.Term) {
     }
 }
 
+// 同步消息回调
 // HandleCall
 // Call `gen_server:call({go_srv, gonode@localhost}, Message)` at Erlang node
 func (gs *srv) HandleCall(message *etf.Term, from *etf.Tuple) (reply *etf.Term) {
@@ -183,7 +199,9 @@ func (gs *srv) HandleCall(message *etf.Term, from *etf.Tuple) (reply *etf.Term) 
         }
     case etf.Atom:
         if string(req) == "start_goroutine" {
-            // 启动一个新进程, 进程编号依次累加, 以gen_server,简称为前辍
+            // 启动一个新process, 进程编号依次累加, 类似gs_10000, gs_为前辍
+            // 给erlang 端返回  server_name:  [gs_serverId], 这样erlang 端 就可以
+            // 通过 gombox给这个process发送消息了，发送方式查看erlang go:call相关代码
             serverId += 1
             serverName := "gs_" + strconv.Itoa(serverId)
             log.Printf("new goroutine 创建新协程, server name: %#v", serverName)
@@ -232,18 +250,23 @@ func (gs *srv) HandleCall(message *etf.Term, from *etf.Tuple) (reply *etf.Term) 
     return
 }
 
+// 按erlang 定义，这是process接收内部消息时的回调，这个节点里好像没有用到，
 // HandleInfo
 func (gs *srv) HandleInfo(message *etf.Term) {
     log.Printf("HandleInfo: %#v", *message)
 }
 
+// process 结束时的回调
 // Terminate
 func (gs *srv) Terminate(reason interface{}) {
     log.Printf("Terminate: %#v", reason.(int))
 }
 
+
+
 // call back end ============================================================================
 
+// 其它函数暂不管
 func setup_logging() {
     // Enable logging only if setted -log option
     if LogFile != "" {
