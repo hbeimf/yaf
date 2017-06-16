@@ -54,6 +54,8 @@ func init() {
 }
 
 // 运行入口
+// 我想把 这个集群改造成全双工的集群，所以我开始写详细的注释
+// 方便自己分析
 func main() {
     Start()
     return
@@ -194,6 +196,7 @@ func (gs *srv) HandleCall(message *etf.Term, from *etf.Tuple) (reply *etf.Term) 
     case etf.Tuple:
         if len(req) > 0 {
             // 调用 Call 控制器逻辑
+            // 根据注册的key/value控制器选出回调，调用并回复 erlang 端
             call := getCall(string(req[0].(etf.Atom)))
             reply = call.Excute(req)
         }
@@ -216,6 +219,9 @@ func (gs *srv) HandleCall(message *etf.Term, from *etf.Tuple) (reply *etf.Term) 
 
         } else if string(req) == "info" {
             // 查看节点上启动了的进程信息
+            // erlang 通过go:info(). 查看
+            // 主要查看process 总数量， 注册的process的 serverName 列表等信息，
+            // 上次由于检查 stop process 是否生效调试，所以搞了个info查看功能 ，
             registered := gs.Node.Registered()
 
             // 协程总数量
