@@ -23,8 +23,8 @@
 % --------------------------------------------------------------------
 -export([doit/2]).
 
-doit(FromPid, DataTuple) ->
-    gen_server:cast(?MODULE, {doit, FromPid, DataTuple}).
+doit(Code, DataTuple) ->
+    gen_server:cast(?MODULE, {doit, Code, DataTuple}).
 
 
 
@@ -99,8 +99,8 @@ handle_call(_Request, _From, State) ->
 %     % io:format("message ~p!! ============== ~n~n", [GoMBox]),
 %     gen_server:cast(GoMBox, {Msg, self()}),
 %     {noreply, State};
-handle_cast({doit, FromPid, DataTuple}, State) ->
-    io:format("doit  !! ============== ~n~p~n~n", [{FromPid, DataTuple}]),
+handle_cast({doit, Code, DataTuple}, State) ->
+    io:format("doit  !! ============== ~n~p~n~n", [{Code, DataTuple}]),
 
     % lists:foreach(fun(_I) ->
     %     timer:sleep(10),

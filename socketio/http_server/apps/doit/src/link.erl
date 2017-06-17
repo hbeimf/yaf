@@ -17,8 +17,10 @@
 %   `flg` int(11) DEFAULT '0' COMMENT 'flg|1:已解析,0:未解析',
 %   PRIMARY KEY (`id`),
 %   KEY `IDX_tesinx_info_key` (`info_key`),
-%   KEY `IDX_flg` (`flg`)
-% ) ENGINE=InnoDB AUTO_INCREMENT=229872 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='新浪采集的页面｛k线数据原始页面｝'
+%   KEY `IDX_flg` (`flg`),
+%   KEY `IDX_url` (`url`)
+% ) ENGINE=InnoDB AUTO_INCREMENT=229872 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='新浪采集的页面｛k线数据原始页面｝' 
+
 
 % CREATE TABLE `m_gp_list` (
 %   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -47,35 +49,35 @@ run3() ->
     Dir1 = "/web/yaf/doc/demo1.html",
 
     {ok, Html} = go_lib:file_get_contents(Dir1),
-    table(Html).
+    table(<<"xx">>, Html).
 
-link(Link) ->
+link(Code, Link) ->
     io:format("+++++: ~p~n", [Link]),
     Html = go_lib:http_get(Link),
-    table(Html),
+    table(Code, Html),
     ok.
 
 
-table(Html) ->
+table(Code, Html) ->
     case re:run(Html, "<table id=\"FundHoldSharesTable\">(.*)</table>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
             lists:foreach(fun(Match) ->
                 [Table|_] = Match,
-                tr(Table),
+                tr(Code, Table),
                 ok
             end, lists:reverse(Matches));
         _ ->
             ok
     end.
 
-tr(Table) ->
+tr(Code, Table) ->
     case re:run(Table, "<tr(.*)tr>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
             lists:foldr(fun(Match, Res) ->
                 [Tr|_] = Match,
-                td(Tr),
+                td(Code, Tr),
                 Res
             end, [], Matches),
             ok;
@@ -84,7 +86,7 @@ tr(Table) ->
     end.
 
 
-td(Tr) ->
+td(Code, Tr) ->
     case re:run(Tr, "<td(.*)td>",
         [{capture, all, binary}, global, dotall, ungreedy]) of
         {_, Matches} ->
@@ -92,17 +94,19 @@ td(Tr) ->
                 Field = go:trim(go_lib:to_str(strip_tags(lists:nth(1, M)))),
                 [Field|Res]
             end, [], Matches),
-            print(Fields),
+            print(Code, Fields),
             ok;
         _ ->
             ok
     end.
 
-print(List) ->
+print(Code, List) ->
     Last = lists:last(List),
     case go:contains(Last, "-") of
         true ->
-            io:format("~p~n", [List]),
+            % io:format("~p~n", [List]),
+
+            doit_server_add:doit(Code, list_to_tuple(List)),
             ok;
         _ ->
             ok
