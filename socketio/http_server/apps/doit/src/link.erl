@@ -14,6 +14,12 @@ run3() ->
     {ok, Html} = go_lib:file_get_contents(Dir1),
     table(Html).
 
+link(Link) ->
+    io:format("+++++: ~p~n", [Link]),
+    Html = go_lib:http_get(Link),
+    table(Html),
+    ok.
+
 
 table(Html) ->
     case re:run(Html, "<table id=\"FundHoldSharesTable\">(.*)</table>",

@@ -102,10 +102,67 @@ handle_call(_Request, _From, State) ->
 handle_cast({doit, FromPid}, State) ->
     io:format("doit  !! ============== ~n~n"),
 
-    lists:foreach(fun(_I) ->
-        timer:sleep(10),
-        FromPid ! {from_doit, <<"haha">>}
-    end, lists:seq(1, 1000)),
+    % lists:foreach(fun(_I) ->
+    %     timer:sleep(10),
+    %     FromPid ! {from_doit, <<"haha">>}
+    % end, lists:seq(1, 1000)),
+
+
+    Sql = "SELECT code,name FROM m_gp_list limit 1",
+    Rows = mysql:get_assoc(Sql),
+    Years = link:years(),
+    {TheYear, TheJiDu} = link:today(),
+
+    lists:foreach(fun(Row)->
+        % timer:sleep(10),
+        {_, Code} = lists:keyfind(<<"code">>, 1, Row),
+        {_, Name} = lists:keyfind(<<"name">>, 1, Row),
+        % io:format("")
+
+        StrCode = go_lib:to_str(Code),
+        Code1 = string:sub_string(StrCode, 3, length(StrCode)),
+
+        lists:foreach(fun({Year, Jidu}) ->
+            InfoKey = go_lib:to_str(Name) ++ ":" ++ go_lib:to_str(Code) ++ ":" ++ go_lib:to_str(Year) ++ ":" ++ go_lib:to_str(Jidu),
+
+            Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++go_lib:to_str(Code1)++".phtml?year="++go_lib:to_str(Year)++"&jidu="++go_lib:to_str(Jidu),
+
+            % io:format("link: ~p~n", [Link]),
+
+            SqlKey = "SELECT id from sina_web_page where info_key = '"++go_lib:to_str(InfoKey)++"' limit 1",
+            % $row = $this->_mysql->get($sql);
+            Res = mysql:get_assoc(SqlKey),
+
+            case length(Res) =:= 0 of
+                true ->
+                    % io:format("~p~n", [{Link, Res}]);
+                    % insert_page(InfoKey, Link);
+                    link:link(Link);
+                _ ->
+                    case  Year =:= TheYear andalso Jidu =:= TheJiDu of
+                        true ->
+                            % io:format("++++++++++++++++++++++++++++++++++link: ~p~n", [Link]);
+                            % insert_page(InfoKey, Link);
+                            link:link(Link);
+                        _ ->
+                            ok
+                    end
+            end
+
+
+
+        end, Years)
+
+        % Link = "http://money.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/"++go_lib:to_str(Code)++".phtml?year={$year}&jidu={$jd}",
+
+
+    end, Rows),
+
+
+
+
+
+
 
     {noreply, State};
 handle_cast(_Msg, State) ->
@@ -144,4 +201,21 @@ code_change(_OldVsn, State, _Extra) ->
 
 
 % private functions
+
+% insert_page(InfoKey, Link) ->
+%     Html = go:http_get(Link),
+%     Html1 = go:iconv(Html, 'gb2312', 'utf-8'),
+
+%     % go_lib:file_put_contents("/web/1.html", Html1),
+
+%     Data = [
+%         {<<"info_key">>, InfoKey},
+%         {<<"url">>, Link},
+%         {<<"html_page">>, Html1}
+%     ],
+
+%     mysql:insert("sina_web_page", Data),
+
+%     io:format("~p~n", [Link]).
+
 
