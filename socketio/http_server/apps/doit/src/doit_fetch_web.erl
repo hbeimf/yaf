@@ -158,12 +158,6 @@ handle_cast({doit, FromPid}, State) ->
 
     end, Rows),
 
-
-
-
-
-
-
     {noreply, State};
 handle_cast(_Msg, State) ->
     {noreply, State}.

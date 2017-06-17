@@ -7,6 +7,41 @@
 -compile(export_all).
 % -export([years/0, today/0]).
 
+
+% CREATE TABLE `sina_web_page` (
+%   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+%   `info_key` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '股票名称:code:year:jd',
+%   `url` varchar(200) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '页面链接',
+%   `http_code` int(11) DEFAULT '0' COMMENT 'http code',
+%   `html_page` longtext COLLATE utf8_unicode_ci COMMENT 'html page',
+%   `flg` int(11) DEFAULT '0' COMMENT 'flg|1:已解析,0:未解析',
+%   PRIMARY KEY (`id`),
+%   KEY `IDX_tesinx_info_key` (`info_key`),
+%   KEY `IDX_flg` (`flg`)
+% ) ENGINE=InnoDB AUTO_INCREMENT=229872 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='新浪采集的页面｛k线数据原始页面｝'
+
+% CREATE TABLE `m_gp_list` (
+%   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+%   `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'code',
+%   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '名称',
+%   PRIMARY KEY (`id`)
+% ) ENGINE=InnoDB AUTO_INCREMENT=2855 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='股票列表'
+
+% CREATE TABLE `gp_history` (
+%   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+%   `openPrice` float(9,3) DEFAULT '0.000' COMMENT '开盘价',
+%   `closePrice` float(9,3) DEFAULT '0.000' COMMENT '收盘价',
+%   `highPrice` float(9,3) DEFAULT '0.000' COMMENT '当天最高价',
+%   `lowerPrice` float(9,3) DEFAULT '0.000' COMMENT '当天最低价',
+%   `time` int(11) DEFAULT '0' COMMENT '时间',
+%   `str_time` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'str_time',
+%   `code` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'code',
+%   PRIMARY KEY (`id`),
+%   KEY `IDX_code_time` (`code`,`str_time`)
+% ) ENGINE=InnoDB AUTO_INCREMENT=7178660 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='历年股票数据'
+
+
+
 run3() ->
     % Dir = "/web/yaf/doc/demo.html",
     Dir1 = "/web/yaf/doc/demo1.html",
