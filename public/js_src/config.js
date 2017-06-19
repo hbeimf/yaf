@@ -28,7 +28,8 @@ require.config({
         'moment':'/js/moment',
         'long':'/js/long',
         'base64':'/js/base64',
-        'socket.io':'/js/socket.io'
+        'socket.io':'/js/socket.io',
+        'echarts':'/js/echarts.min'
     },
     shim: {
         // jQuery
@@ -48,7 +49,8 @@ require.config({
         'functions':['app', 'jquery'],
         'form-samples':['jquery', 'bootstrap'],
         'protobuf':['jquery', 'long'],
-        'socket.io':['jquery']
+        'socket.io':['jquery'],
+        'echarts':['jquery']
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
 });
