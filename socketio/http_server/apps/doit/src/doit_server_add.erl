@@ -61,6 +61,7 @@ start_link() ->
 %          {stop, Reason}
 % --------------------------------------------------------------------
 init([]) ->
+    _TRef = erlang:send_after(1000, self(), update),
     {ok, []}.
 
 % --------------------------------------------------------------------
@@ -100,15 +101,8 @@ handle_call(_Request, _From, State) ->
 %     gen_server:cast(GoMBox, {Msg, self()}),
 %     {noreply, State};
 handle_cast({doit, Code, DataTuple}, State) ->
-    io:format("doit  !! ============== ~n~p~n~n", [{Code, DataTuple}]),
-
-    % lists:foreach(fun(_I) ->
-    %     timer:sleep(10),
-    %     FromPid ! {from_doit, <<"haha">>}
-    % end, lists:seq(1, 1000)),
-
-
-    {noreply, State};
+    % io:format("doit  !! ============== ~n~p~n~n", [{Code, DataTuple}]),
+    {noreply, [{Code, DataTuple}|State]};
 handle_cast(_Msg, State) ->
     {noreply, State}.
 
@@ -119,6 +113,22 @@ handle_cast(_Msg, State) ->
 %          {noreply, State, Timeout} |
 %          {stop, Reason, State}            (terminate/2 is called)
 % --------------------------------------------------------------------
+handle_info(update, State) ->
+    % io:format("update  ================== ~n~p~n", [State]),
+    % 每一秒钟将数据写入数据库，减轻关系数据库的压力
+    case length(State) > 0 of
+        true ->
+             % {<<"sh600000">>,
+             %    {"16080055","753400","21.250","21.350","21.690","21.600","2000-10-09"}}
+            io:format("~p~n", [State]),
+
+            ok;
+        _ ->
+            ok
+    end,
+
+    _TRef = erlang:send_after(1000, self(), update),
+    {noreply, State};
 handle_info(_Info, State) ->
     {noreply, State}.
 
