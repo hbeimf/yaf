@@ -38,10 +38,8 @@ action(20000, _BinString, Status) ->
     io:format("file: ~p =========== \nline:~p =========== ~n~n ~p ~n~n", [?FILE, ?LINE, ReplyBin]),
     % ReplyBin = protocol_pb:encode_msg(#'Base'{id=10001, data=BinString}),
 
-    % Work = {find_yid, self()},
-    % workboy:start(Work),
-
-    doit_fetch_web:doit(self()),
+    % 启动任务
+    % doit_fetch_web:doit(self()),
 
     {reply_binary, Status, ReplyBin};
 

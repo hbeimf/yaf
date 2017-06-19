@@ -43,8 +43,11 @@ init([]) ->
     Add = {doit_server_add, {doit_server_add, start_link, []},
                permanent, 5000, worker, [doit_server_add]},
 
+    % 计时器，自动化运行
+    Timer = {doit_server_clock, {doit_server_clock, start_link, []},
+               permanent, 5000, worker, [doit_server_clock]},
 
-    Children = [Doit, FetchWeb, Add],
+    Children = [Doit, FetchWeb, Add, Timer],
 
     {ok, { {one_for_all, 10, 10}, Children} }.
 
