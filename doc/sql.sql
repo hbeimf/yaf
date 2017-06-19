@@ -48,7 +48,7 @@ mysqldump -uroot -p test > /web/yaf/doc/test1.sql
 mysqldump -uroot -p gp m_gp_list > /web/yaf/doc/m_gp_list.sql
 
 
-
+mysqldump -uroot -p gp > /web/yaf/doc/gp.sql
 
 
 
