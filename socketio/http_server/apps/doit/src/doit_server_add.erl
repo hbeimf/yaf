@@ -109,26 +109,37 @@ handle_cast(_Msg, State) ->
 % --------------------------------------------------------------------
 % Function: handle_info/2
 % Description: Handling all non call/cast messages
-% Returns: {noreply, State}          |
-%          {noreply, State, Timeout} |
+% Returns: {noreply, State}           %          {noreply, State, Timeout} |
 %          {stop, Reason, State}            (terminate/2 is called)
 % --------------------------------------------------------------------
 handle_info(update, State) ->
     % io:format("update  ================== ~n~p~n", [State]),
+
+    % DROP INDEX IDX_code_time ON gp_history;
+    % CREATE UNIQUE INDEX IDX_code_time ON gp_history(code, str_time);
+
     % 每一秒钟将数据写入数据库，减轻关系数据库的压力
     case length(State) > 0 of
         true ->
-             % {<<"sh600000">>,
-             %    {"16080055","753400","21.250","21.350","21.690","21.600","2000-10-09"}}
-            io:format("~p~n", [State]),
-
+            Sql = "INSERT IGNORE INTO gp_history(openPrice, closePrice, highPrice, lowerPrice, time, str_time, code) VALUES ",
+            Sql1 = lists:foldl(fun({Code, Data}, ReplySql) ->
+                {_, _, LowerPrice, ClosePrice, HighPrice, OpenPrice, StrTime} = Data,
+                Time = go:strtotime(StrTime),
+                ReplySql ++ "("++go_lib:to_str(OpenPrice)++", "
+                    ++go_lib:to_str(ClosePrice)++", "++go_lib:to_str(HighPrice)++", "
+                    ++go_lib:to_str(LowerPrice)++", "++go_lib:to_str(Time)++", "
+                    ++"'" ++go_lib:to_str(StrTime)++"', '"++go_lib:to_str(Code)++"'),"
+            end, Sql, State),
+            Sql2 = go:rtrim(Sql1, ","),
+            io:format("~n=======================~n ~p~n~n", [Sql2]),
+            mysql:query_sql(Sql2),
             ok;
         _ ->
             ok
     end,
 
     _TRef = erlang:send_after(1000, self(), update),
-    {noreply, State};
+    {noreply, []};
 handle_info(_Info, State) ->
     {noreply, State}.
 
