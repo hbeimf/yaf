@@ -114,7 +114,7 @@ handle_cast({doit, FromPid}, State) ->
     % end, lists:seq(1, 1000)),
 
 
-    Sql = "SELECT code,name FROM m_gp_list limit 50",
+    Sql = "SELECT code,name FROM m_gp_list limit 1",
     Rows = mysql:get_assoc(Sql),
     Years = link:years(),
     {TheYear, TheJiDu} = link:today(),
@@ -146,6 +146,9 @@ handle_cast({doit, FromPid}, State) ->
                 true ->
                     % io:format("~p~n", [{Link, Res}]);
                     % insert_page(InfoKey, Link);
+                    Data = [{"url", Link}],
+                    mysql:insert("sina_web_page", Data),
+
                     link:link(Code, Link);
                 _ ->
                     case  Year =:= TheYear andalso Jidu =:= TheJiDu of

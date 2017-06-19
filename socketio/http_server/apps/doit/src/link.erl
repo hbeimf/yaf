@@ -54,6 +54,7 @@ run3() ->
 link(Code, Link) ->
     io:format("+++++: ~p~n", [Link]),
     Html = go_lib:http_get(Link),
+
     table(Code, Html),
     ok.
 
