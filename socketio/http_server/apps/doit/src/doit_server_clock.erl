@@ -120,8 +120,13 @@ handle_cast(_Msg, State) ->
 %          {stop, Reason, State}            (terminate/2 is called)
 % --------------------------------------------------------------------
 handle_info(update, State) ->
-    io:format("update  ================== ~n~p~n", [State]),
+    % io:format("update  ================== ~n~p~n", [State]),
+    % 计时器，任务自动运行
 
+    {{_Year, _Mon, _Day},{Hour, Min, Seconds}} = go_lib:timestamp_to_datetime(go_lib:time()),
+
+    % io:format("update  ================== ~n~p~n", [Date]),
+    run(Hour, Min, Seconds),
 
     _TRef = erlang:send_after(1000, self(), update),
     {noreply, []};
@@ -151,4 +156,14 @@ code_change(_OldVsn, State, _Extra) ->
 
 
 % private functions
+
+
+% 每天五点一分一秒开始运行一次
+run(5, 1, 1) ->
+    % 启动任务
+    doit_fetch_web:doit(self()),
+    ok;
+run(_, _, _) ->
+    ok.
+
 
