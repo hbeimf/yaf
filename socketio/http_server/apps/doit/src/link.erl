@@ -19,7 +19,7 @@
 %   KEY `IDX_tesinx_info_key` (`info_key`),
 %   KEY `IDX_flg` (`flg`),
 %   KEY `IDX_url` (`url`)
-% ) ENGINE=InnoDB AUTO_INCREMENT=229872 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='新浪采集的页面｛k线数据原始页面｝' 
+% ) ENGINE=InnoDB AUTO_INCREMENT=229872 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='新浪采集的页面｛k线数据原始页面｝'
 
 
 % CREATE TABLE `m_gp_list` (
