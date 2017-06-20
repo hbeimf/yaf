@@ -157,23 +157,9 @@ get_list_by_code(Code) ->
     Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
     List = mysql:get_assoc(Sql),
     get_list_by_code_tolist(List).
-    % lists:foldl(fun(L, ReplyList) ->
-    %     {_, Time} = lists:keyfind(<<"time">>, 1, L),
-    %     {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
-    %     [{Time, ClosePrice}|ReplyList]
-    %     % {_, OpenPrice} = lists:keyfind(<<"openPrice">>, 1, L),
-    %     % {_, HighPrice} = lists:keyfind(<<"highPrice">>, 1, L),
-    %     % {_, LowerPrice} = lists:keyfind(<<"lowerPrice">>, 1, L),
-    %     % {_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
-    %     % SumPrice1 = SumPrice + ClosePrice,
-    %     % {SumPrice1, [{Time, StrTime, OpenPrice, ClosePrice, HighPrice, LowerPrice}|ReplyList]}
-    % end, [], List).
-
 
 
 get_list_by_code_tolist(List) ->
-    % Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
-    % List = mysql:get_assoc(Sql),
     lists:foldl(fun(L, {ReplyList, ShowList}) ->
         {_, Time} = lists:keyfind(<<"time">>, 1, L),
         {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
@@ -185,10 +171,4 @@ get_list_by_code_tolist(List) ->
             [[{<<"time">>, Date}, {<<"closePrice">>, ClosePrice}]|ShowList]
         }
 
-        % {_, OpenPrice} = lists:keyfind(<<"openPrice">>, 1, L),
-        % {_, HighPrice} = lists:keyfind(<<"highPrice">>, 1, L),
-        % {_, LowerPrice} = lists:keyfind(<<"lowerPrice">>, 1, L),
-        % {_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
-        % SumPrice1 = SumPrice + ClosePrice,
-        % {SumPrice1, [{Time, StrTime, OpenPrice, ClosePrice, HighPrice, LowerPrice}|ReplyList]}
     end, {[], []}, List).
