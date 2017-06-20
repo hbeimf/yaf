@@ -27,7 +27,7 @@ function page($params) {
 		$p = explode('&', $urls['query']);
 		foreach ($p as $val) {
 			$kv = explode('=', $val);
-			$querys[$kv[0]] = isset($kv[1]) ? $kv[1] : '';
+			$querys[$kv[0]] = isset($kv[1]) ? urldecode($kv[1]) : '';
 		}
 	}
 

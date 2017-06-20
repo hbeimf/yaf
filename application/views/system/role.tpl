@@ -20,7 +20,7 @@
                         <div id="sample_1_length" class="dataTables_length">
                             <label>每页显示:
                                 <select size="1" name="page_size" aria-controls="sample_1" class="m-wrap small">
-                                    <option value="5" selected="selected">5</option>
+                                    <option value="2" selected="selected">2</option>
                                     <option value="15">15</option>
                                     <option value="20">20</option>
                                     <!-- <option value="-1">All</option> -->
@@ -28,7 +28,7 @@
                                 &nbsp;&nbsp;
                             </label>
                             <label>名称: <input name="name" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label>
-                            <label>邮箱: <input name="email" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label>
+                            <!-- <label>邮箱: <input name="email" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label> -->
 
 
                             <label><button id="btn_search" class="btn blue">查找 <!-- <i class="icon-plus"> --></i></button></label>

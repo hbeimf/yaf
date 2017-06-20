@@ -131,7 +131,7 @@ class SystemController extends AbstractController {
 	public function roleAction() {
 		$params = [
 			'name' => $this->request->getQuery('name'),
-			'email' => $this->request->getQuery('email'),
+			// 'email' => $this->request->getQuery('email'),
 			'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
 			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
 
@@ -140,12 +140,20 @@ class SystemController extends AbstractController {
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
 		$select = 'id, role_name as name, menu_ids, status, created_at';
-		$users = Table_System_Role::selectRaw($select)
-			->skip($skip)
-			->limit($params['page_size'])
-			->get();
 
-		$count = Table_System_Role::count();
+		$table_user = Table_System_Role::selectRaw($select)
+			->skip($skip)
+			->limit($params['page_size']);
+
+		if (trim($params['name']) != '') {
+			$name = urldecode($params['name']);
+			$table_user->where('role_name', 'like', "%{$name}%");
+
+
+		}
+
+		$users = $table_user->get();
+		$count = $table_user->count();
 
 		$totalPage = ceil($count / $params['page_size']);
 
