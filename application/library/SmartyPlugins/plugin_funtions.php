@@ -6,8 +6,11 @@ use Illuminate\Database\Capsule\Manager as DB;
 // sql 查询记录
 function queryLog($params) {
 	$queryLog = DB::getQueryLog();
-	p($queryLog);
+	// p($queryLog);
 	// return 'queryLog';
+	foreach ($queryLog as $log) {
+		echo $log['query']." -- bindings: ". json_encode($log['bindings']). " -- ". $log['time']." <br />";
+	}
 }
 
 
