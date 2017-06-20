@@ -47,7 +47,11 @@ init([]) ->
     Timer = {doit_server_clock, {doit_server_clock, start_link, []},
                permanent, 5000, worker, [doit_server_clock]},
 
-    Children = [Doit, FetchWeb, Add, Timer],
+    % 分析json结果
+    ParseData = {doit_server_parse_data, {doit_server_parse_data, start_link, []},
+               permanent, 5000, worker, [doit_server_parse_data]},
+
+    Children = [Doit, FetchWeb, Add, Timer, ParseData],
 
     {ok, { {one_for_all, 10, 10}, Children} }.
 

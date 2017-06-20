@@ -103,13 +103,14 @@ handle_cast(doit, State) ->
     io:format("doit  !! ============== ~n~n"),
 
     %% 此处将结果json缓存到数据库中，
-    Sql = "SELECT code,name FROM m_gp_list limit 3",
+    Sql = "SELECT code,name FROM m_gp_list limit 1",
     Rows = mysql:get_assoc(Sql),
     lists:foreach(fun(Row) ->
         {_, Code} = lists:keyfind(<<"code">>, 1, Row),
         List = get_list_by_code(Code),
 
-        io:format("list==================~n~p~n", [List])
+        Reply = go:parse_list(List),
+        io:format("list==================~n~p~n", [Reply])
 
 
     end, Rows),
@@ -160,15 +161,8 @@ get_list_by_code(Code) ->
 
 
 get_list_by_code_tolist(List) ->
-    lists:foldl(fun(L, {ReplyList, ShowList}) ->
+    lists:foldl(fun(L, ReplyList) ->
         {_, Time} = lists:keyfind(<<"time">>, 1, L),
         {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
-
-        {{Y, M, D}, _} = go_lib:timestamp_to_datetime(Time),
-        Date = go_lib:to_str(Y)++"-"++go_lib:to_str(M)++"-"++go_lib:to_str(D),
-
-        {[{Time, ClosePrice}|ReplyList],
-            [[{<<"time">>, Date}, {<<"closePrice">>, ClosePrice}]|ShowList]
-        }
-
-    end, {[], []}, List).
+        [{Time, ClosePrice}|ReplyList]
+    end, [], List).
