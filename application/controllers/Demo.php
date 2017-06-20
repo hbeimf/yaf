@@ -236,4 +236,22 @@ class DemoController extends AbstractController {
 
 	}
 
+
+	// public function downloadAction() {
+	// 	set_time_limit(0);
+ //        ini_set('memory_limit', '1024M');
+
+ //        header('Content-type: text/csv; charset=gbk');
+ //        header('Content-Disposition: attachment; filename=' . str_replace(' ', '_', $export->filename));
+ //        header('Content-Transfer-Encoding: chunked'); // changed to chunked
+ //        header('Content-Encoding: gbk');
+ //        header('Content-Transfer-Encoding: binary');
+ //        header('Expires: 0');
+ //        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+ //        header('Pragma: public');
+ //        header('Content-Length: ' . $export->size);
+ //        readfile($filepath);
+ //        exit;
+	// }
+
 }
