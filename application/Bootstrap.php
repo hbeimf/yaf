@@ -47,9 +47,9 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 		$capsule->bootEloquent();
 
 		// 开启sql查询记录　
-		// $capsule::connection()->enableQueryLog();
-
-		Capsule::enableQueryLog();
+		$capsule::connection()->enableQueryLog();
+		// 多个数据库链接 要开启多次， 打印日志也是分开打印的，要手动添加打印日志，
+		$capsule::connection('demo')->enableQueryLog();
 
 	}
 

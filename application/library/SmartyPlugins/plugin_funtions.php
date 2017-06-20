@@ -6,10 +6,20 @@ use Illuminate\Database\Capsule\Manager as DB;
 // sql 查询记录
 function queryLog($params) {
 	$queryLog = DB::getQueryLog();
-	// p($queryLog);
-	// return 'queryLog';
-	foreach ($queryLog as $log) {
-		echo $log['query']." -- bindings: ". json_encode($log['bindings'], JSON_UNESCAPED_UNICODE). " -- ". $log['time']." <br />";
+	print_query($queryLog);
+
+	$r = DB::connection('demo')->getQueryLog();
+	print_query($r);
+
+
+}
+
+
+function print_query($queryLog){
+	if (! empty($queryLog)) {
+		foreach ($queryLog as $log) {
+			echo $log['query']." -- bindings: ". json_encode($log['bindings'], JSON_UNESCAPED_UNICODE). " -- ". $log['time']." <br />";
+		}
 	}
 }
 
