@@ -162,7 +162,7 @@ class SystemController extends AbstractController {
 			'params' => $params,
 		];
 
-		// $list = Table_Gp_List::find(1)->toArray();
+		$list = Table_Gp_List::find(1)->toArray();
 		// p($list);
 
 		$this->smarty->getSmarty()->registerPlugin("function", "menu_name", "menu_name");

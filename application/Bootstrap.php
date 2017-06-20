@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Capsule\Manager as DB;
 
 class Bootstrap extends Yaf_Bootstrap_Abstract {
 
@@ -32,22 +32,24 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 	}
 
 	public function _initDatabaseEloquent() {
-		$capsule = new Capsule;
+		$db = new DB();
 
 		// 创建默认链接 test 库
-		$capsule->addConnection(Yaf_Application::app()->getConfig()->database->toArray());
+		$db->addConnection(Yaf_Application::app()->getConfig()->database->toArray());
 
 		// demo 库
-		$capsule->addConnection(Yaf_Application::app()->getConfig()->demo->toArray(), 'demo');
+		$db->addConnection(Yaf_Application::app()->getConfig()->demo->toArray(), 'demo');
 
 		// 设置全局静态可访问
-		$capsule->setAsGlobal();
+		$db->setAsGlobal();
 
 		// 启动Eloquent
-		$capsule->bootEloquent();
+		$db->bootEloquent();
 
 		// 开启sql查询记录　
-		$capsule::connection()->enableQueryLog();
+		// $db::connection()->enableQueryLog();
+
+		DB::enableQueryLog();
 
 	}
 
