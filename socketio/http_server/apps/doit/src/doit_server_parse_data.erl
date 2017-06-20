@@ -103,7 +103,16 @@ handle_cast(doit, State) ->
     io:format("doit  !! ============== ~n~n"),
 
     %% 此处将结果json缓存到数据库中，
+    Sql = "SELECT code,name FROM m_gp_list limit 3",
+    Rows = mysql:get_assoc(Sql),
+    lists:foreach(fun(Row) ->
+        {_, Code} = lists:keyfind(<<"code">>, 1, Row),
+        List = get_list_by_code(Code),
 
+        io:format("list==================~n~p~n", [List])
+
+
+    end, Rows),
 
 
     {noreply, State};
@@ -144,3 +153,42 @@ code_change(_OldVsn, State, _Extra) ->
 
 % private functions
 
+get_list_by_code(Code) ->
+    Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
+    List = mysql:get_assoc(Sql),
+    get_list_by_code_tolist(List).
+    % lists:foldl(fun(L, ReplyList) ->
+    %     {_, Time} = lists:keyfind(<<"time">>, 1, L),
+    %     {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
+    %     [{Time, ClosePrice}|ReplyList]
+    %     % {_, OpenPrice} = lists:keyfind(<<"openPrice">>, 1, L),
+    %     % {_, HighPrice} = lists:keyfind(<<"highPrice">>, 1, L),
+    %     % {_, LowerPrice} = lists:keyfind(<<"lowerPrice">>, 1, L),
+    %     % {_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
+    %     % SumPrice1 = SumPrice + ClosePrice,
+    %     % {SumPrice1, [{Time, StrTime, OpenPrice, ClosePrice, HighPrice, LowerPrice}|ReplyList]}
+    % end, [], List).
+
+
+
+get_list_by_code_tolist(List) ->
+    % Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
+    % List = mysql:get_assoc(Sql),
+    lists:foldl(fun(L, {ReplyList, ShowList}) ->
+        {_, Time} = lists:keyfind(<<"time">>, 1, L),
+        {_, ClosePrice} = lists:keyfind(<<"closePrice">>, 1, L),
+
+        {{Y, M, D}, _} = go_lib:timestamp_to_datetime(Time),
+        Date = go_lib:to_str(Y)++"-"++go_lib:to_str(M)++"-"++go_lib:to_str(D),
+
+        {[{Time, ClosePrice}|ReplyList],
+            [[{<<"time">>, Date}, {<<"closePrice">>, ClosePrice}]|ShowList]
+        }
+
+        % {_, OpenPrice} = lists:keyfind(<<"openPrice">>, 1, L),
+        % {_, HighPrice} = lists:keyfind(<<"highPrice">>, 1, L),
+        % {_, LowerPrice} = lists:keyfind(<<"lowerPrice">>, 1, L),
+        % {_, StrTime} = lists:keyfind(<<"str_time">>, 1, L),
+        % SumPrice1 = SumPrice + ClosePrice,
+        % {SumPrice1, [{Time, StrTime, OpenPrice, ClosePrice, HighPrice, LowerPrice}|ReplyList]}
+    end, {[], []}, List).

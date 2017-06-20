@@ -114,7 +114,7 @@ handle_cast({doit, FromPid}, State) ->
     % end, lists:seq(1, 1000)),
 
 
-    Sql = "SELECT code,name FROM m_gp_list limit 3",
+    Sql = "SELECT code,name FROM m_gp_list",
     Rows = mysql:get_assoc(Sql),
     Years = link:years(),
     {TheYear, TheJiDu} = link:today(),

@@ -273,7 +273,9 @@ http_get(Url) ->
     end.
 
 years() ->
-    Years = lists:seq(2000,this_year()),
+    % Years = lists:seq(2000,this_year()),
+    Years = lists:seq(2016,this_year()),
+
     lists:foldl(fun(Y, Res) ->
         lists:merge(year(Y),Res)
     end, [], Years).
