@@ -9,7 +9,7 @@ function queryLog($params) {
 	// p($queryLog);
 	// return 'queryLog';
 	foreach ($queryLog as $log) {
-		echo $log['query']." -- bindings: ". json_encode($log['bindings']). " -- ". $log['time']." <br />";
+		echo $log['query']." -- bindings: ". json_encode($log['bindings'], JSON_UNESCAPED_UNICODE). " -- ". $log['time']." <br />";
 	}
 }
 
