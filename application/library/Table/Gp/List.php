@@ -6,9 +6,9 @@
 class Table_Gp_List extends EloquentModel {
     protected $table = 'm_gp_list';
 
-    public function __construct(array $attributes = array())
+    public function __construct()
     {
-        parent::__construct($attributes);
+        // parent::__construct($attributes);
 
         $this->setConnection('demo');
 
