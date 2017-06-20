@@ -131,7 +131,6 @@ class SystemController extends AbstractController {
 	public function roleAction() {
 		$params = [
 			'name' => $this->request->getQuery('name'),
-			// 'email' => $this->request->getQuery('email'),
 			'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
 			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
 
@@ -151,9 +150,6 @@ class SystemController extends AbstractController {
 			->limit($params['page_size'])
 			->get();
 
-
-		// var_dump($count);
-
 		$totalPage = ceil($count / $params['page_size']);
 
 		$data = [
@@ -163,6 +159,7 @@ class SystemController extends AbstractController {
 			'count' => $count, // 记录条数
 			'page' => $params['page'], // 当前页
 			'totalPage' => $totalPage, // 总页数
+			'params' => $params,
 		];
 
 		$this->smarty->getSmarty()->registerPlugin("function", "menu_name", "menu_name");

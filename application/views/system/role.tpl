@@ -20,14 +20,14 @@
                         <div id="sample_1_length" class="dataTables_length">
                             <label>每页显示:
                                 <select size="1" name="page_size" aria-controls="sample_1" class="m-wrap small">
-                                    <option value="2" selected="selected">2</option>
-                                    <option value="15">15</option>
-                                    <option value="20">20</option>
+                                    <option value="2" {{if $params['page_size'] == 2}}selected="selected"{{/if}}>2</option>
+                                    <option value="15" {{if $params['page_size'] == 15}}selected="selected"{{/if}}>15</option>
+                                    <option value="20" {{if $params['page_size'] == 20}}selected="selected"{{/if}}>20</option>
                                     <!-- <option value="-1">All</option> -->
                                 </select>
                                 &nbsp;&nbsp;
                             </label>
-                            <label>名称: <input name="name" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label>
+                            <label>名称: <input value="{{$params['name']}}" name="name" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label>
                             <!-- <label>邮箱: <input name="email" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label> -->
 
 
