@@ -15,6 +15,7 @@ function queryLog($params) {
 function page($params) {
 	$current_page = isset($params['current_page']) ? $params['current_page'] : 1;
 	$total_page = isset($params['total_page']) ? $params['total_page'] : 1;
+
 	$current_url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 	$pure_urls = explode('?', $current_url);

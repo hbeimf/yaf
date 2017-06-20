@@ -140,20 +140,19 @@ class SystemController extends AbstractController {
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
 		$select = 'id, role_name as name, menu_ids, status, created_at';
-
-		$table_user = Table_System_Role::selectRaw($select)
-			->skip($skip)
-			->limit($params['page_size']);
-
+		$table_user = Table_System_Role::selectRaw($select);
 		if (trim($params['name']) != '') {
 			$name = urldecode($params['name']);
 			$table_user->where('role_name', 'like', "%{$name}%");
-
-
 		}
-
-		$users = $table_user->get();
 		$count = $table_user->count();
+		$users = $table_user
+			->skip($skip)
+			->limit($params['page_size'])
+			->get();
+
+
+		// var_dump($count);
 
 		$totalPage = ceil($count / $params['page_size']);
 
