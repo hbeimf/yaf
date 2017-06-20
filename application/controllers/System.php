@@ -170,7 +170,7 @@ class SystemController extends AbstractController {
 	public function delRoleAction(){
 		$id = $this->request->getParam('id');
 
-		$this->ajax_success('删除成功'.$id);
+		$this->ajax_success('目前未提供删除功能'.$id);
 	}
 
 	public function addRoleAction() {
