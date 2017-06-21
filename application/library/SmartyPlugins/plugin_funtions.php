@@ -26,6 +26,7 @@ function print_query($queryLog){
 
 // 分页函数
 function page($params) {
+	// p($params);
 	$current_page = isset($params['current_page']) ? $params['current_page'] : 1;
 	$total_page = isset($params['total_page']) ? $params['total_page'] : 1;
 
@@ -58,13 +59,15 @@ function page($params) {
 	$show_size = 10;
 
 	$for_num = ($total_page <= $show_size) ? $total_page : 10;
-	$start_add = 0;
+	// $start_add = 0;
 
 	$start = 1;
 	if ($current_page <= ($show_size / 2)) {
 		$start = 1;
 	} elseif ($current_page >= ($total_page - ($show_size / 2))) {
 		$start = $total_page - $show_size + 1;
+	} else {
+		$start = $current_page - ($show_size / 2);
 	}
 
 	if ($start <= 0) {

@@ -58,12 +58,12 @@
                         {{foreach from=$users item=r}}
                         <tr class="odd gradeX">
                             <!-- <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td> -->
-                            <td>{{$r['code']}}</td>
-                            <td>{{$r['code']}}</td>
-                            <td>{{$r['code']}}</td>
-                            <td>{{$r['code']}}</td>
-                            <td>{{$r['code']}}</td>
-                            <td>{{$r['code']}}</td>
+                            <td>{{$r['id']}}</td>
+                            <td>{{$r['id']}}</td>
+                            <td>{{$r['id']}}</td>
+                            <td>{{$r['id']}}</td>
+                            <td>{{$r['id']}}</td>
+                            <td>{{$r['id']}}</td>
 
 
                         </tr>
