@@ -16,7 +16,7 @@ class SystemController extends AbstractController {
 	public function accountAction() {
 		$params = [
 			'name' => $this->request->getQuery('name'),
-			'email' => $this->request->getQuery('email'),
+			// 'email' => $this->request->getQuery('email'),
 			'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
 			'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
 
@@ -25,12 +25,27 @@ class SystemController extends AbstractController {
 		$skip = ($params['page'] - 1) * $params['page_size'];
 
 		$select = 'id, account_name as name, role_id, status, created_at';
-		$users = Table_System_Account::selectRaw($select)
-			->skip($skip)
-			->limit($params['page_size'])
-			->get();
+		// $users = Table_System_Account::selectRaw($select)
+		// 	->skip($skip)
+		// 	->limit($params['page_size'])
+		// 	->get();
 
-		$count = Table_System_Account::count();
+		$account_obj = Table_System_Account::selectRaw($select);
+
+		if (trim($params['name']) != '') {
+			$account_obj->where('account_name', 'like', "%{$params['name']}%");
+		}
+
+		$count = $account_obj->count();
+
+
+
+
+		$users = $account_obj->skip($skip)
+							->limit($params['page_size'])
+							->get();
+
+
 		$totalPage = ceil($count / $params['page_size']);
 
 		$data = [
@@ -40,6 +55,7 @@ class SystemController extends AbstractController {
 			'count' => $count, // 记录条数
 			'page' => $params['page'], // 当前页
 			'totalPage' => $totalPage, // 总页数
+			'params' => $params,
 		];
 
 		$data['roles'] = Table_System_Role::all()->toArray();
