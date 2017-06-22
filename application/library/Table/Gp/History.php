@@ -6,8 +6,10 @@
 class Table_Gp_History extends EloquentModel {
     protected $table = 'gp_history';
 
-    public function __construct()
-    {
-        $this->setConnection('demo');
-    }
+    protected $connection = 'demo';
+
+    // public function __construct()
+    // {
+    //     $this->setConnection('demo');
+    // }
 }
