@@ -5,6 +5,11 @@
 demo
 '''
 
+
+def ppstr(o, i):
+    if o > 0 and i > 0:
+        stdout('>' if o % 100 else ' [%d - %d]\n' % (o - 100, o))
+
 # python 包机制doc
 # http://www.cnblogs.com/phinecos/archive/2010/05/07/1730027.html
 
@@ -15,14 +20,22 @@ class Demo:
     def start(self):
         print 'start run ...'
 
-        db = MySQL()
-        db.test()
+        self.db = MySQL()
+        self.db.test()
 
         sql = '''SELECT * from time_lists limit 1
         '''
-        reply = db.fetch_all(sql)
+        reply = self.db.fetch_all(sql)
         print reply
 
+        self.test()
+
+
+    def test(self):
+        # print 'ok'
+        sql = '''SELECT * FROM time_lists where id < 1000'''
+        for row in self.db.iterator(sql):
+            print row
 
 
 

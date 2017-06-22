@@ -199,8 +199,8 @@ class MySQL:
             print row
     '''
     def iterator(self, sql, max=0, limit=100, callback=None):
-        if not re.match(r'^SELECT.+FROM\s+[0-9a-zA-Z,_ ()\'"`]+', sql, re.I | re.S):
-            raise ValueError('Invalid query sql "%s"' % sql)
+        # if not re.match(r'^SELECT.+FROM\s+[0-9a-zA-Z,_ ()\'"`]+', sql, re.I | re.S):
+        #     raise ValueError('Invalid query sql "%s"' % sql)
 
         offset = 0
         index = 0
