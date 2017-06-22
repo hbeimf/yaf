@@ -42,14 +42,15 @@
                     <thead>
                         <tr>
                             <!-- <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th> -->
-                            <th class="hidden-480">账号名称</th>
-                            <th class="hidden-480">角色</th>
-                            <th class="hidden-480">状态</th>
-                            <th class="hidden-480">导航</th>
+                            <th class="hidden-480">id</th>
+                            <th class="hidden-480">code</th>
+                            <th class="hidden-480">名称</th>
 
-                            <th class="hidden-480">创建时间</th>
-
-                            <th class="hidden-480">编辑</th>
+                            <th class="hidden-480">开盘价</th>
+                            <th class="hidden-480">收盘价</th>
+                            <th class="hidden-480">最高价</th>
+                            <th class="hidden-480">最低价</th>
+                            <th class="hidden-480">日期</th>
 
 
                         </tr>
@@ -59,13 +60,14 @@
                         <tr class="odd gradeX">
                             <!-- <td><input type="checkbox" class="checkboxes" value="{{$r['id']}}" /></td> -->
                             <td>{{$r['id']}}</td>
-                            <td>{{$r['id']}}</td>
-                            <td>{{$r['id']}}</td>
-                            <td>{{$r['id']}}</td>
-                            <td>{{$r['id']}}</td>
-                            <td>{{$r['id']}}</td>
+                            <td>{{$r['code']}}</td>
+                            <td>{{$r['name']}}</td>
 
-
+                            <td>{{$r['openPrice']}}</td>
+                            <td>{{$r['closePrice']}}</td>
+                            <td>{{$r['highPrice']}}</td>
+                            <td>{{$r['lowerPrice']}}</td>
+                            <td>{{$r['str_time']}}</td>
                         </tr>
                         {{/foreach}}
 

@@ -15,22 +15,16 @@ class SharesController extends AbstractController {
         $skip = ($params['page'] - 1) * $params['page_size'];
 
 
-  //         `openPrice` float(9,3) DEFAULT '0.000' COMMENT '开盘价',
-  // `closePrice` float(9,3) DEFAULT '0.000' COMMENT '收盘价',
-  // `highPrice` float(9,3) DEFAULT '0.000' COMMENT '当天最高价',
-  // `lowerPrice` float(9,3) DEFAULT '0.000' COMMENT '当天最低价',
-  // `time` int(11) DEFAULT '0' COMMENT '时间',
-  // `str_time` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'str_time',
-  // `code` var
-
-        $select = 'id, openPrice, closePrice, highPrice, lowerPrice, str_time, code';
+        $select = 'gp_history.id, openPrice, closePrice, highPrice, lowerPrice, str_time, b.code, b.name';
         $account_obj = Table_Gp_History::selectRaw($select);
         if (trim($params['name']) != '') {
             $account_obj->where('code', 'like', "%{$params['name']}%");
         }
 
         $count = $account_obj->count();
-        $users = $account_obj->skip($skip)
+        $users = $account_obj
+                            ->leftJoin('m_gp_list as b','b.code','=','gp_history.code')
+                            ->skip($skip)
                             ->limit($params['page_size'])
                             ->get();
 
