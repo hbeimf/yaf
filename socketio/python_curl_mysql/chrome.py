@@ -68,7 +68,7 @@ class FetchWeb :
         self.open_window(url)
         time.sleep(5)
         a = self.browser.find_element_by_id("SALES")
-        # 发送点击事件
+        # 发送点击事件,点击销量
         ActionChains(self.browser).click(a).perform()
         time.sleep(0.5)
         self.xyz_gogo("新一站", "销量")
