@@ -11,6 +11,10 @@ class Table_Gp_List extends EloquentModel {
 
     protected $connection = 'demo';
 
+
+
+    protected $primaryKey = 'id';
+
     // public function __construct()
     // {
     //     // parent::__construct($attributes);

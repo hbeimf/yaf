@@ -23,7 +23,7 @@ class SharesController extends AbstractController {
 
         $count = $account_obj->count();
         $users = $account_obj
-                            ->leftJoin('m_gp_list as b','b.code','=','gp_history.code')
+                            ->leftJoin('m_gp_list as b', 'b.code', '=', 'gp_history.code')
                             ->skip($skip)
                             ->limit($params['page_size'])
                             ->get();
