@@ -7,7 +7,7 @@ import time
 
 
 """
-新一站
+huize | 慧择网
 
 """
 
@@ -273,3 +273,5 @@ class FetchWeb :
 if __name__ == '__main__' :
     Instance = FetchWeb()
     Instance.run()
+
+
