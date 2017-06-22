@@ -46,24 +46,39 @@ class FetchWeb :
         self.go()
 
     def go(self):
-        url = "http://www.xyz.cn/mall/detail-ja3gh3mxka.html"
+        url = "http://www.xyz.cn/mall/jiankangxian/104-72-1.html"
         self.open_window_with_jquery(url)
-        self.goto_page_bottom()
+        # self.goto_page_bottom()
+        # self.goto_page_top()
+        self.find_data()
+
+        time.sleep(5)
 
 
-    def delete_title_tag(self):
-        js = """
-            $("h2").remove();
-        """
-        self.browser.execute_script(js)
+    def find_data(self):
+        print "find data"
+
+        dev_prodList = self.browser.find_element_by_id("dev_prodList")
+        divs = dev_prodList.find_elements_by_class_name("hazardC_pro_con_main")
+
+        # print len(divs)
+        for div in divs:
+            # 由于标签不规范， 有的h3里有一个a, 有的有2个，所以要加个判断
+            a = div.find_element_by_tag_name("h3").find_elements_by_tag_name("a")
+            if len(a) > 1 :
+                name = a[1].get_attribute("innerHTML")
+                link = a[1].get_attribute("href")
+
+            else:
+                name = a[0].get_attribute("innerHTML")
+                link = a[0].get_attribute("href")
 
 
-    def aid(self, str):
-        m2 = hashlib.md5()
-        m2.update(str)
-        md5 = m2.hexdigest()
-        aid = md5[  8: 24]
-        return aid
+            print name.strip()
+            print link
+
+
+
 
     """
     获取列表信息
@@ -99,6 +114,12 @@ class FetchWeb :
 
     # def save_img(self, imgDir) :
     #     self.browser.save_screenshot(imgDir)
+
+    def delete_title_tag(self):
+        js = """
+            $("h2").remove();
+        """
+        self.browser.execute_script(js)
 
 
     """
