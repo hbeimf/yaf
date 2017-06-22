@@ -39,8 +39,8 @@ class FetchWeb :
         print("close")
 
     def init_browser(self):
-        # self.browser = webdriver.Firefox()
-        self.browser = webdriver.PhantomJS()
+        self.browser = webdriver.Firefox()
+        # self.browser = webdriver.PhantomJS()
         # 保存主窗口句柄， id 号
         self.main_window_handle = self.browser.current_window_handle
 
