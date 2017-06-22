@@ -23,7 +23,7 @@ import time
 # sublime ctrl + H 替换字符串快捷键
 
 """
-新一站
+demo
 
 """
 
@@ -52,8 +52,8 @@ class FetchWeb :
 
     def run(self) :
         self.xyz_go()
-        # self.reboot_browser()
-        # self.xyz_go_v2()
+        self.reboot_browser()
+        self.xyz_go_v2()
 
 
     def save(self, name, category, row):
@@ -92,13 +92,13 @@ class FetchWeb :
             print row['comment_number']
             print row['minimum_premium']
 
-            # reply = self.xyz_find_data1(row['link'])
-            # time.sleep(2)
-            # row['underwriting_age'] = reply['underwriting_age']
-            # row['guarantee_period'] = reply['guarantee_period']
+            reply = self.xyz_find_data1(row['link'])
+            time.sleep(2)
+            row['underwriting_age'] = reply['underwriting_age']
+            row['guarantee_period'] = reply['guarantee_period']
 
-            # print row['underwriting_age']
-            # print row['guarantee_period']
+            print row['underwriting_age']
+            print row['guarantee_period']
 
             self.save(name, category, row)
         time.sleep(1)
