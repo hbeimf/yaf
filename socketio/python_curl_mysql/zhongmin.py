@@ -40,7 +40,7 @@ class FetchWeb :
     def run(self) :
         self.zhongmin_go()
         # self.reboot_browser()
-        # self.zhongmin_go_v2()
+        self.zhongmin_go_v2()
 
 
     def save(self, name, category, row):
@@ -49,24 +49,19 @@ class FetchWeb :
         print row
 
 
-    #新一站销量
-    # def zhongmin_go_v2(self):
-    #     url = "http://www.xyz.cn/mall/jiankangxian/104-72-1.html"
-    #     self.open_window(url)
-    #     time.sleep(5)
-    #     a = self.browser.find_element_by_id("SALES")
-    #     # 发送点击事件,点击销量
-    #     ActionChains(self.browser).click(a).perform()
-    #     time.sleep(0.5)
-    #     self.zhongmin_gogo("新一站", "销量")
-
-
 
     # 中民 销量
     def zhongmin_go(self):
         url = "http://www.zhongmin.cn/health/health-1g-1m-1o63s-1c-1e-1od1ot1bpg1.html"
         self.open_window(url)
         self.zhongmin_gogo("中民", "销量")
+
+
+    # 中民 人气
+    def zhongmin_go_v2(self):
+        url = "http://www.zhongmin.cn/health/health-1g-1m-1o63s-1c-1e-1od2ot1bpg1.html"
+        self.open_window(url)
+        self.zhongmin_gogo("中民", "人气")
 
 
     def zhongmin_gogo(self, name, category):
