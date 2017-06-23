@@ -2,12 +2,18 @@
 import sys
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.action_chains import ActionChains #引入ActionChains鼠标操作类
+# from selenium.webdriver.common.action_chains import ActionChains #引入ActionChains鼠标操作类
 import time
+import re
 
+import html2text
+
+import json
+
+from lib.MySQL import MySQL
 
 """
-huize | 慧择网
+huize |
 
 """
 
@@ -16,6 +22,7 @@ class FetchWeb :
         print("start...")
         reload(sys)                         # 2
         sys.setdefaultencoding('utf-8')
+        self.db = MySQL()
         self.init_browser()
 
     def __del__(self) :
@@ -23,8 +30,9 @@ class FetchWeb :
         print("close")
 
     def init_browser(self):
-        self.browser = webdriver.Firefox()
-        # self.browser = webdriver.PhantomJS()
+        # self.browser = webdriver.Firefox()
+        self.browser = webdriver.PhantomJS()
+        # self.browser = webdriver.Chrome()
         # 保存主窗口句柄， id 号
         self.main_window_handle = self.browser.current_window_handle
 
@@ -40,24 +48,6 @@ class FetchWeb :
         # self.huize_go_v2()
 
 
-    def save(self, name, category, row):
-        print name
-        print category
-        print row
-
-
-    #新一站销量
-    # def huize_go_v2(self):
-    #     url = "http://www.xyz.cn/mall/jiankangxian/104-72-1.html"
-    #     self.open_window(url)
-    #     time.sleep(5)
-    #     a = self.browser.find_element_by_id("SALES")
-    #     # 发送点击事件,点击销量
-    #     ActionChains(self.browser).click(a).perform()
-    #     time.sleep(0.5)
-    #     self.huize_gogo("新一站", "销量")
-
-
 
     # 慧择网 默认
     def huize_go(self):
@@ -66,162 +56,114 @@ class FetchWeb :
         self.huize_gogo("慧择网", "默认")
 
 
+    # 中民 人气
+    # def huize_go_v2(self):
+    #     url = "http://www.zhongmin.cn/health/health-1g-1m-1o63s-1c-1e-1od2ot1bpg1.html"
+    #     self.open_window(url)
+    #     self.huize_gogo("中民", "人气")
+
+
     def huize_gogo(self, name, category):
-        rows = self.huize_find_data()
-        # for row in rows:
-        #     print row['name']
-        #     print row['link']
-        #     print row['company']
-        #     print row['sales_volume']
-        #     print row['comment_number']
-        #     print row['minimum_premium']
+        rows = self.huize_find_data(name, category)
 
-        #     reply = self.huize_find_data1(row['link'])
-        #     time.sleep(2)
-        #     row['underwriting_age'] = reply['underwriting_age']
-        #     row['guarantee_period'] = reply['guarantee_period']
+        for row in rows:
+            print row['link']
+            self.open_window(row['link'])
+            time.sleep(1)
+            trialAreas = self.browser.find_element_by_id("trialAreas")
+            dls = trialAreas.find_elements_by_tag_name("dl")
 
-        #     print row['underwriting_age']
-        #     print row['guarantee_period']
+            print len(dls)
 
-        #     self.save(name, category, row)
+            uls = self.browser.find_element_by_id("protectArea") \
+                        .find_elements_by_tag_name("ul")
+
+            lis = uls[0].find_elements_by_tag_name("li")
+
+            print len(lis)
+
+
+
+
+            time.sleep(1)
+
         time.sleep(1)
 
-    # def huize_find_data1(self, url):
-    #     self.open_window(url)
-    #     items = self.browser.find_elements_by_class_name("hc-form-item")
-
-    #     data = {}
-    #     for item in items:
-    #         con = item.get_attribute("innerHTML")
-    #         if con.find("承保年龄") == -1:
-    #           pass
-    #         else:
-    #           underwriting_age = item.find_element_by_class_name("hc-form-item__content").get_attribute("innerHTML")
-    #           data['underwriting_age'] = underwriting_age
-    #         if con.find("保障期间") == -1:
-    #             pass
-    #         else:
-    #             guarantee_period = item.find_element_by_class_name("hc-form-item__content").get_attribute("innerHTML")
-    #             data['guarantee_period'] = guarantee_period
-
-    #     return data
-
-    def huize_find_data(self):
-        time.sleep(2)
-        print "find data"
+    def huize_find_data(self, website_name, order_type):
         rows = []
 
-        # data = {
-        #     'link':'', # 产品链接
-        #     'name': '', # 产品名称
-        #     'company': '', # 保险公司
-        #     # 'order_type': '', # 排序类型，
-        #     'sales_volume': '', # 销量，
-        #     'comment_number': '',# 评论数，
-        #     'minimum_premium': '', # 最低保费
-        #     'underwriting_age':'', # 承保年龄
-        #     'guarantee_period':'' , #保障期限
-        #     'list': [], #保障项列表
-        # }
+        lis = self.browser.find_element_by_class_name("hz-product-list") \
+                    .find_elements_by_class_name("hz-product-item")
 
-        dev_prodList = self.browser.find_element_by_class_name("hz-product-list")
-
-        print 'xx'
-        lis = dev_prodList.find_elements_by_class_name("hz-product-item")
-        print 'yy'
-
-        print len(lis)
+        # print len(lis)
         for li in lis:
-            data = {}
-
-        #     div = li.find_element_by_class_name("hazardC_pro_con_main")
+            data = {
+                'link':'', # 产品链接
+                'name': '', # 产品名称
+                'company': '', # 保险公司
+                'order_type': order_type, # 排序类型，
+                'sales_volume': '', # 销量，
+                'comment_number': '',# 评论数，
+                'minimum_premium': '', # 最低保费
+                'underwriting_age':'', # 承保年龄
+                'guarantee_period':'' , #保障期限
+                'list': [], #保障项列表
+                'website_name': website_name
+            }
 
             # 产品名称和链接
-            h2 = li.find_element_by_tag_name("h2").find_element_by_tag_name("a")
-            print h2.get_attribute("innerHTML")
-            print h2.get_attribute("href")
+            h2_a = li.find_element_by_tag_name("h2").find_element_by_tag_name("a")
 
-            # ActionChains(self.browser).click(h2).perform()
-            h2.click()
-            time.sleep(2)
-            self.close_window_except_main_window()
+            name = h2_a.get_attribute("innerHTML").strip()
+            link = h2_a.get_attribute("href")
+            data['link'] = link
+            data['name'] = name
 
-        #     # 由于标签不规范， 有的h3里有一个a, 有的有2个，所以要加个判断
-        #     a = div.find_element_by_tag_name("h3").find_elements_by_tag_name("a")
-        #     if len(a) > 1 :
-        #         name = a[1].get_attribute("innerHTML")
-        #         link = a[1].get_attribute("href")
+            print data['link']
+            print data['name']
 
-        #     else:
-        #         name = a[0].get_attribute("innerHTML")
-        #         link = a[0].get_attribute("href")
+            # 保险公司
+            data['company'] = li.find_element_by_class_name("company-logo").find_element_by_tag_name("img") \
+                .get_attribute("title")
 
+            print data['company']
 
-        #     # print name.strip()
-        #     # print link
-        #     data['link'] = link
-        #     data['name'] = name.strip()
+            # 销量 评论 最低保费
+            ps = li.find_elements_by_tag_name("p")
+            for p in ps:
+                sales_volume = p.get_attribute("innerHTML")
+                if sales_volume.find("销量") == -1:
+                    pass
+                else:
+                    data['sales_volume'] = sales_volume
+                    print data['sales_volume']
 
-        #     # 保险公司名称
-        #     a_tag = div.find_element_by_class_name('hazardC_pro_con_company') \
-        #             .find_element_by_tag_name("a").get_attribute("innerHTML")
-        #     # print a_tag.strip()
-        #     data['company'] = a_tag.strip()
+                if sales_volume.find("评论") == -1:
+                    pass
+                else:
+                    data['comment_number'] = sales_volume
+                    print data['comment_number']
 
-        #     #销量
-        #     sales = div.find_element_by_class_name("hazardC_pro_proDucts_sales") \
-        #             .get_attribute("innerHTML")
-        #     # print sales.strip()
-        #     data['sales_volume'] = sales.strip()
+                if sales_volume.find("¥") == -1:
+                    pass
+                else:
+                    data['minimum_premium'] = p.find_element_by_tag_name("span").get_attribute("innerHTML")
+                    print data['minimum_premium']
 
-        #     # 评价
-        #     all_a = div.find_elements_by_tag_name("a")
-        #     for a in all_a:
-        #         con = a.get_attribute("innerHTML")
-        #         if con.find("评价") == -1:
-        #           pass
-        #         else:
-        #           # print con.strip()
-        #           data['comment_number'] = con.strip()
-
-        #     # 钱数
-        #     footer_div = li.find_element_by_class_name("hazardC_pro_con_footer")
-        #     money = footer_div.find_element_by_class_name("money").find_element_by_class_name("num") \
-        #             .find_element_by_class_name("typo-size24").get_attribute("innerHTML")
-        #     # print money
-        #     data['minimum_premium'] = money
-
-        #     # 保障项列表
-        #     list1 = li.find_element_by_class_name("hazardC_pro_proDucts_main") \
-        #                 .find_elements_by_tag_name("li")
-
-        #     sub_list = []
-        #     for ll in list1:
-        #         name1 = ll.find_element_by_class_name("hazardC_pro_products_detail") \
-        #                 .get_attribute("innerHTML")
-        #         money1 = ll.find_element_by_class_name("hazradC_pro_products_money") \
-        #                 .get_attribute("innerHTML")
-
-        #         # print "--"
-        #         # print name1.strip()
-        #         # print money1.strip()
-        #         # print "=="
-        #         fields = {
-        #             'name':name1.strip(),
-        #             'money':money1.strip()
-        #         }
-        #         sub_list.append(fields)
-
-        #     data['list'] = sub_list
-
-        #     rows.append(data)
-
-
-
-            # print "------------------------"
+            rows.append(data)
 
         return rows
+
+
+
+
+    # 获取当前页面的链接
+    def current_url(self):
+        js = '''
+            var url = window.location.href;
+            return url;
+        '''
+        return self.browser.execute_script(js)
 
 
     def delete_title_tag(self):
@@ -256,6 +198,7 @@ class FetchWeb :
 
     def open_window(self, url):
         self.browser.get(url)
+        # self.browser.maximize_window()
 
     def open_new_window(self, url):
         pass
@@ -280,6 +223,10 @@ class FetchWeb :
         js = "var q=document.documentElement.scrollTop=0"
         self.browser.execute_script(js)
         print("go to top ...")
+
+    def strip_tags(self, string, allowed_tags=''):
+        return html2text.html2text(string).strip()
+        # return string
 
 
 if __name__ == '__main__' :
