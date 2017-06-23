@@ -15,7 +15,7 @@ class MySQL:
         self.connect()
 
     def connect(self):
-        self.conn = MySQLdb.connect(host="localhost",user="root",passwd="123456",db="demo",charset="utf8")
+        self.conn = MySQLdb.connect(host="localhost",user="root",passwd="123456",db="bx_data",charset="utf8")
         self.cursor = self.conn.cursor()
 
 

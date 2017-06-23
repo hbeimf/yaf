@@ -5,6 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains #引入ActionChains鼠标操作类
 import time
 
+import json
+
+from lib.MySQL import MySQL
 
 """
 新一站
@@ -16,6 +19,7 @@ class FetchWeb :
         print("start...")
         reload(sys)                         # 2
         sys.setdefaultencoding('utf-8')
+        self.db = MySQL()
         self.init_browser()
 
     def __del__(self) :
@@ -84,7 +88,13 @@ class FetchWeb :
             print row['underwriting_age']
             print row['guarantee_period']
 
-            self.save(name, category, row)
+            row['order_type'] = category # 排序类型，
+            row['website_name'] = name
+
+            self.db.insert("bx_list", row)
+            self.db.commit()
+
+            # self.save(name, category, row)
         time.sleep(1)
 
     def xyz_find_data1(self, url):
@@ -201,7 +211,8 @@ class FetchWeb :
                 }
                 sub_list.append(fields)
 
-            data['list'] = sub_list
+            # data['list'] = sub_list
+            data['list'] = json.dumps(sub_list)
 
             rows.append(data)
 

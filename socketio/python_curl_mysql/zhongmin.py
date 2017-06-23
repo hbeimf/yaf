@@ -8,6 +8,10 @@ import re
 
 import html2text
 
+import json
+
+from lib.MySQL import MySQL
+
 """
 huize | 中民
 
@@ -18,6 +22,7 @@ class FetchWeb :
         print("start...")
         reload(sys)                         # 2
         sys.setdefaultencoding('utf-8')
+        self.db = MySQL()
         self.init_browser()
 
     def __del__(self) :
@@ -65,28 +70,35 @@ class FetchWeb :
 
 
     def zhongmin_gogo(self, name, category):
-        rows = self.zhongmin_find_data()
+        rows = self.zhongmin_find_data(name, category)
 
-        print "++++++++++++++++++++++++++++++++++++++++++++++++"
-        for row in rows:
-            print row['name']
-            print row['link']
-            print row['company']
-            print row['sales_volume']
-            print row['comment_number']
-            print row['minimum_premium']
+        # print "++++++++++++++++++++++++++++++++++++++++++++++++"
 
-            # time.sleep(2)
-            # row['underwriting_age'] = reply['underwriting_age']
-            # row['guarantee_period'] = reply['guarantee_period']
 
-            print row['underwriting_age']
-            print row['guarantee_period']
 
-            self.save(name, category, row)
+        # for row in rows:
+        #     # print row['name']
+        #     # print row['link']
+        #     # print row['company']
+        #     # print row['sales_volume']
+        #     # print row['comment_number']
+        #     # print row['minimum_premium']
+
+        #     # # time.sleep(2)
+        #     # # row['underwriting_age'] = reply['underwriting_age']
+        #     # # row['guarantee_period'] = reply['guarantee_period']
+
+        #     # print row['underwriting_age']
+        #     # print row['guarantee_period']
+
+        #     row['website_name'] = name
+        #     row['order_type'] = category
+        #     self.db.insert('bx_list', row)
+
+            # self.save(name, category, row)
         time.sleep(1)
 
-    def zhongmin_find_data(self):
+    def zhongmin_find_data(self, website_name, order_type):
         rows = []
 
         lis = self.browser.find_elements_by_class_name("list_pro_frame")
@@ -97,13 +109,14 @@ class FetchWeb :
                 'link':'', # 产品链接
                 'name': '', # 产品名称
                 'company': '', # 保险公司
-                # 'order_type': '', # 排序类型，
+                'order_type': order_type, # 排序类型，
                 'sales_volume': '', # 销量，
                 'comment_number': '',# 评论数，
                 'minimum_premium': '', # 最低保费
                 'underwriting_age':'', # 承保年龄
                 'guarantee_period':'' , #保障期限
                 'list': [], #保障项列表
+                'website_name': website_name
             }
 
             # 产品名称和链接
@@ -163,7 +176,8 @@ class FetchWeb :
                                 'the_sum_insured': self.strip_tags(tds[1].get_attribute("innerHTML").strip()) #保额
                             }
                             lists.append(item)
-                    data['list'] = lists
+                    data['list'] = json.dumps(lists)
+
 
                     # 保障年龄
                     proChoose = self.browser.find_element_by_class_name("proChoose")
@@ -193,6 +207,8 @@ class FetchWeb :
             self.browser.switch_to_window(self.main_window_handle)
 
             rows.append(data)
+            self.db.insert("bx_list", data)
+            self.db.commit()
 
         return rows
 
