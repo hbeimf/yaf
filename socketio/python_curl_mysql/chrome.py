@@ -16,6 +16,7 @@ import time
 # import json
 
 # doc
+# http://blog.csdn.net/huilan_same/article/details/52305176
 # http://www.open-open.com/doc/view/8629346acd5d4d2eb0324ccf16374c9f
 # http://www.cnblogs.com/shizioo/p/3813929.html
 # http://my.oschina.net/yangyanxing/blog/280871?p=1
