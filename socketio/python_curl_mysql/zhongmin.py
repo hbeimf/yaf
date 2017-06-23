@@ -4,7 +4,9 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 # from selenium.webdriver.common.action_chains import ActionChains #引入ActionChains鼠标操作类
 import time
+import re
 
+import html2text
 
 """
 huize | 中民
@@ -106,6 +108,9 @@ class FetchWeb :
         #     'list': [], #保障项列表
         # }
 
+
+
+
         lis = self.browser.find_elements_by_class_name("list_pro_frame")
 
         # print len(lis)
@@ -120,13 +125,93 @@ class FetchWeb :
             print name.strip()
             print link
 
+            # 价格
+            price1 = li.find_element_by_class_name("price1").get_attribute("innerHTML")
+            print price1
+
+            # 销量
+            list_pro_price_total = li.find_elements_by_class_name("list_pro_price_total")
+            for p in list_pro_price_total:
+                con = p.get_attribute("innerHTML")
+                if con.find("销量") == -1:
+                    pass
+                else:
+                    print con
+
+
+            # 点击链接 ， 比 python 自带的稳定很多，
             self.browser.execute_script('$(arguments[0]).click()', a)
+            time.sleep(3)
+            # 切换窗口
+            # print len(self.browser.window_handles)
+            for handle in self.browser.window_handles:
+                if handle != self.main_window_handle:
+                    self.browser.switch_to_window(handle)
+                    # 从新打开的页面获取数据，然后关闭窗口
+                    link = self.current_url()
+                    print link
 
-            time.sleep(5)
+                    # 保障内容
+                    type_content = self.browser.find_element_by_class_name("type_content")
+                    tables = type_content.find_elements_by_tag_name("table")
+
+                    trs = tables[0].find_elements_by_tag_name("tr")
+                    for tr in trs:
+                        tds = tr.find_elements_by_tag_name("td")
+                        # print len(tds)
+                        if len(tds) == 3:
+                            print self.strip_tags(tds[0].get_attribute("innerHTML").strip())
+                            print self.strip_tags(tds[1].get_attribute("innerHTML").strip())
+                            print '----------'
 
 
 
-            self.close_window_except_main_window()
+                    # 保障年龄
+                    # proChoose = self.browser.find_element_by_class_name("proChoose")
+
+                    # print len(proChoose)
+                    # clearfix = proChoose.find_elements_by_class_name("clearfix")
+                    # divs = proChoose.find_elements_by_tag_name("div")
+
+                    # print len(divs)
+                    # for cc in clearfix:
+                    #     html = cc.get_attribute("innerHTML")
+                        # print html
+                        # title = cc.find_element_by_class_name("tit").get_attribute("innerHTML")
+                        # if title.find("保障年龄") == -1:
+                        #     pass
+                        # else:
+                        #     xx = cc.find_element_by_class_name("cur").get_attribute("innerHTML")
+                        #     print xx
+
+                        # <span class="tit show">保障年龄：</span>  <ul class="proItems">
+                        # <li class="cur"> 出生满30天至60周岁</li>
+                        # </ul>
+
+                        # <span class="tit show">保障期限：</span>
+                        # <div id="DivLitPayMethod" class="proItems">
+                        # <ul class="clearfix mb10">
+                        # <li class="cur">1年</li>
+                        # </ul>
+                        # <p>本计划提供一年期的保障，可续保至80周岁，最早生效日期为购买后次日零时。</p>
+                        # </div>
+
+                        # pattern = re.compile(r'<span class="tit show">(.*)</span>(.*)<ul class="proItems">(.*)<li class="cur">(.*)</li>(.*)</ul>')
+                        # match = pattern.match(html)
+                        # if match:
+                        #     print match.group()
+
+
+
+
+                    self.browser.close()
+            # 切回主窗口
+            self.browser.switch_to_window(self.main_window_handle)
+
+
+
+
+            # self.close_window_except_main_window()
 
 
 
@@ -134,6 +219,14 @@ class FetchWeb :
             # print "------------------------"
 
         return rows
+
+    # 获取当前页面的链接
+    def current_url(self):
+        js = '''
+            var url = window.location.href;
+            return url;
+        '''
+        return self.browser.execute_script(js)
 
 
     def delete_title_tag(self):
@@ -193,6 +286,10 @@ class FetchWeb :
         js = "var q=document.documentElement.scrollTop=0"
         self.browser.execute_script(js)
         print("go to top ...")
+
+    def strip_tags(self, string, allowed_tags=''):
+        return html2text.html2text(string).strip()
+        # return string
 
 
 if __name__ == '__main__' :
