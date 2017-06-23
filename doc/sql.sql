@@ -54,7 +54,7 @@ mysqldump -uroot -p gp > /web/yaf/doc/gp.sql
 
 
 
-
+mysqldump -uroot -p bx_data > /web/yaf/doc/bx_data.sql
 
 
 
