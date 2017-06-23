@@ -71,63 +71,59 @@ class FetchWeb :
 
     def zhongmin_gogo(self, name, category):
         rows = self.zhongmin_find_data()
-        # for row in rows:
-        #     print row['name']
-        #     print row['link']
-        #     print row['company']
-        #     print row['sales_volume']
-        #     print row['comment_number']
-        #     print row['minimum_premium']
 
-        #     reply = self.zhongmin_find_data1(row['link'])
-        #     time.sleep(2)
-        #     row['underwriting_age'] = reply['underwriting_age']
-        #     row['guarantee_period'] = reply['guarantee_period']
+        print "++++++++++++++++++++++++++++++++++++++++++++++++"
+        for row in rows:
+            print row['name']
+            print row['link']
+            print row['company']
+            print row['sales_volume']
+            print row['comment_number']
+            print row['minimum_premium']
 
-        #     print row['underwriting_age']
-        #     print row['guarantee_period']
+            # time.sleep(2)
+            # row['underwriting_age'] = reply['underwriting_age']
+            # row['guarantee_period'] = reply['guarantee_period']
 
-        #     self.save(name, category, row)
+            print row['underwriting_age']
+            print row['guarantee_period']
+
+            self.save(name, category, row)
         time.sleep(1)
 
     def zhongmin_find_data(self):
-        # time.sleep(2)
-        print "find data"
         rows = []
-
-        # data = {
-        #     'link':'', # 产品链接
-        #     'name': '', # 产品名称
-        #     'company': '', # 保险公司
-        #     # 'order_type': '', # 排序类型，
-        #     'sales_volume': '', # 销量，
-        #     'comment_number': '',# 评论数，
-        #     'minimum_premium': '', # 最低保费
-        #     'underwriting_age':'', # 承保年龄
-        #     'guarantee_period':'' , #保障期限
-        #     'list': [], #保障项列表
-        # }
-
-
-
 
         lis = self.browser.find_elements_by_class_name("list_pro_frame")
 
         # print len(lis)
         for li in lis:
-            data = {}
+            data = {
+                'link':'', # 产品链接
+                'name': '', # 产品名称
+                'company': '', # 保险公司
+                # 'order_type': '', # 排序类型，
+                'sales_volume': '', # 销量，
+                'comment_number': '',# 评论数，
+                'minimum_premium': '', # 最低保费
+                'underwriting_age':'', # 承保年龄
+                'guarantee_period':'' , #保障期限
+                'list': [], #保障项列表
+            }
 
             # 产品名称和链接
             a = li.find_element_by_class_name("list_pro_tit").find_element_by_tag_name("a")
             name = a.get_attribute("innerHTML")
-            link = a.get_attribute("href")
+            # link = a.get_attribute("href")
 
             print name.strip()
-            print link
+            data['name'] = name.strip()
+            # print link
 
             # 价格
             price1 = li.find_element_by_class_name("price1").get_attribute("innerHTML")
             print price1
+            data['minimum_premium'] = price1
 
             # 销量
             list_pro_price_total = li.find_elements_by_class_name("list_pro_price_total")
@@ -137,6 +133,8 @@ class FetchWeb :
                     pass
                 else:
                     print con
+                    data['sales_volume'] = con
+                    data['comment_number'] = con
 
 
             # 点击链接 ， 比 python 自带的稳定很多，
@@ -150,12 +148,14 @@ class FetchWeb :
                     # 从新打开的页面获取数据，然后关闭窗口
                     link = self.current_url()
                     print link
+                    data['link'] = link
 
                     # 保障内容
                     type_content = self.browser.find_element_by_class_name("type_content")
                     tables = type_content.find_elements_by_tag_name("table")
-
                     trs = tables[0].find_elements_by_tag_name("tr")
+
+                    lists = []
                     for tr in trs:
                         tds = tr.find_elements_by_tag_name("td")
                         # print len(tds)
@@ -163,60 +163,41 @@ class FetchWeb :
                             print self.strip_tags(tds[0].get_attribute("innerHTML").strip())
                             print self.strip_tags(tds[1].get_attribute("innerHTML").strip())
                             print '----------'
-
-
+                            item = {
+                                'safeguard_term': self.strip_tags(tds[0].get_attribute("innerHTML").strip()),  #保障项
+                                'the_sum_insured': self.strip_tags(tds[1].get_attribute("innerHTML").strip()) #保额
+                            }
+                            lists.append(item)
+                    data['list'] = lists
 
                     # 保障年龄
-                    # proChoose = self.browser.find_element_by_class_name("proChoose")
+                    proChoose = self.browser.find_element_by_class_name("proChoose")
 
                     # print len(proChoose)
                     # clearfix = proChoose.find_elements_by_class_name("clearfix")
-                    # divs = proChoose.find_elements_by_tag_name("div")
+                    divs = proChoose.find_elements_by_tag_name("div")
 
-                    # print len(divs)
-                    # for cc in clearfix:
-                    #     html = cc.get_attribute("innerHTML")
-                        # print html
-                        # title = cc.find_element_by_class_name("tit").get_attribute("innerHTML")
-                        # if title.find("保障年龄") == -1:
-                        #     pass
-                        # else:
-                        #     xx = cc.find_element_by_class_name("cur").get_attribute("innerHTML")
-                        #     print xx
+                    for div in divs:
+                        if div.get_attribute("class") == "clearfix":
+                            title = div.find_element_by_class_name("tit").get_attribute("innerHTML")
+                            # print title
 
-                        # <span class="tit show">保障年龄：</span>  <ul class="proItems">
-                        # <li class="cur"> 出生满30天至60周岁</li>
-                        # </ul>
+                            if title.find("保障年龄") == -1:
+                                pass
+                            else:
+                                data['underwriting_age'] = self.strip_tags(div.find_element_by_class_name("cur").get_attribute("innerHTML"))
 
-                        # <span class="tit show">保障期限：</span>
-                        # <div id="DivLitPayMethod" class="proItems">
-                        # <ul class="clearfix mb10">
-                        # <li class="cur">1年</li>
-                        # </ul>
-                        # <p>本计划提供一年期的保障，可续保至80周岁，最早生效日期为购买后次日零时。</p>
-                        # </div>
-
-                        # pattern = re.compile(r'<span class="tit show">(.*)</span>(.*)<ul class="proItems">(.*)<li class="cur">(.*)</li>(.*)</ul>')
-                        # match = pattern.match(html)
-                        # if match:
-                        #     print match.group()
-
-
-
+                            # ：
+                            if title.find("保障期限") == -1:
+                                pass
+                            else:
+                                data['guarantee_period'] =self.strip_tags(div.find_element_by_class_name("cur").get_attribute("innerHTML"))
 
                     self.browser.close()
             # 切回主窗口
             self.browser.switch_to_window(self.main_window_handle)
 
-
-
-
-            # self.close_window_except_main_window()
-
-
-
-
-            # print "------------------------"
+            rows.append(data)
 
         return rows
 
