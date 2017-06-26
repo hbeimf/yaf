@@ -208,6 +208,7 @@ return array(
     'RedisArray' => $baseDir . '/application/library/Cache/Redis.php',
     'RedisException' => $baseDir . '/application/library/Cache/Redis.php',
     'SMTP' => $baseDir . '/application/library/Mail/class.smtp.php',
+    'SearchController' => $baseDir . '/application/controllers/Search.php',
     'SharesController' => $baseDir . '/application/controllers/Shares.php',
     'SingularValueDecomposition' => $baseDir . '/application/library/Phpexcel/PHPExcel/Shared/JAMA/SingularValueDecomposition.php',
     'Smarty' => $baseDir . '/application/library/Smarty/libs/Smarty.class.php',

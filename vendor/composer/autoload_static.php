@@ -10,6 +10,7 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         '65fec9ebcfbb3cbb4fd0d519687aea01' => __DIR__ . '/..' . '/danielstjules/stringy/src/Create.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '9f7f3f9b1f82484e76bcd07b985a2d2f' => __DIR__ . '/..' . '/symfony/var-dumper/Symfony/Component/VarDumper/Resources/functions/dump.php',
     );
 
@@ -18,16 +19,15 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
-            'Symfony\\Component\\EventDispatcher\\' => 34,
             'Stringy\\' => 8,
+        ),
+        'R' => 
+        array (
+            'React\\Promise\\' => 14,
         ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-        ),
-        'M' => 
-        array (
-            'Monolog\\' => 8,
         ),
         'I' => 
         array (
@@ -36,6 +36,11 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
             'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Stream\\' => 18,
+            'GuzzleHttp\\Ring\\' => 16,
         ),
         'E' => 
         array (
@@ -56,21 +61,17 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'Symfony\\Component\\EventDispatcher\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
-        ),
         'Stringy\\' => 
         array (
             0 => __DIR__ . '/..' . '/danielstjules/stringy/src',
         ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Monolog\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -92,6 +93,14 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
         ),
+        'GuzzleHttp\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/streams/src',
+        ),
+        'GuzzleHttp\\Ring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/ringphp/src',
+        ),
         'Elasticsearch\\' => 
         array (
             0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/Elasticsearch',
@@ -112,24 +121,6 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
             'Symfony\\Component\\Debug\\' => 
             array (
                 0 => __DIR__ . '/..' . '/symfony/debug',
-            ),
-        ),
-        'P' => 
-        array (
-            'Pimple' => 
-            array (
-                0 => __DIR__ . '/..' . '/pimple/pimple/src',
-            ),
-        ),
-        'G' => 
-        array (
-            'Guzzle\\Tests' => 
-            array (
-                0 => __DIR__ . '/..' . '/guzzle/guzzle/tests',
-            ),
-            'Guzzle' => 
-            array (
-                0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
             ),
         ),
         'D' => 
@@ -344,6 +335,7 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         'RedisArray' => __DIR__ . '/../..' . '/application/library/Cache/Redis.php',
         'RedisException' => __DIR__ . '/../..' . '/application/library/Cache/Redis.php',
         'SMTP' => __DIR__ . '/../..' . '/application/library/Mail/class.smtp.php',
+        'SearchController' => __DIR__ . '/../..' . '/application/controllers/Search.php',
         'SharesController' => __DIR__ . '/../..' . '/application/controllers/Shares.php',
         'SingularValueDecomposition' => __DIR__ . '/../..' . '/application/library/Phpexcel/PHPExcel/Shared/JAMA/SingularValueDecomposition.php',
         'Smarty' => __DIR__ . '/../..' . '/application/library/Smarty/libs/Smarty.class.php',

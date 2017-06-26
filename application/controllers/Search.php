@@ -34,7 +34,8 @@ class SearchController extends AbstractController {
 
 
     private function update() {
-        $client = new Elasticsearch\Client();
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
 
 
         $params = [
@@ -55,7 +56,8 @@ class SearchController extends AbstractController {
 
 
     private function delete() {
-        $client = new Elasticsearch\Client();
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
 
         // http://www.cnblogs.com/amuge/p/6076232.html
         // http://www.cnblogs.com/life_lt/p/6122767.html
@@ -71,7 +73,8 @@ class SearchController extends AbstractController {
 
 
     private function create() {
-        $client = new Elasticsearch\Client();
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
 
         // http://www.cnblogs.com/amuge/p/6076232.html
         // http://www.cnblogs.com/life_lt/p/6122767.html
@@ -93,7 +96,10 @@ class SearchController extends AbstractController {
 
 
     private function search2() {
-        $client = new Elasticsearch\Client();
+        // $client = new Elasticsearch\Client();
+
+        // $hosts = ;
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
          $params = array(
             'index' => 'website',
             'type' => 'blog',
@@ -117,7 +123,8 @@ class SearchController extends AbstractController {
 
 
     private function search1() {
-        $client = new Elasticsearch\Client();
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
          $params = array(
             'index' => 'website',
             'type' => 'blog',
@@ -140,7 +147,8 @@ class SearchController extends AbstractController {
 
 
     private function search() {
-        $client = new Elasticsearch\Client();
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
          $params = array(
             'index' => 'website',
             'type' => 'blog',

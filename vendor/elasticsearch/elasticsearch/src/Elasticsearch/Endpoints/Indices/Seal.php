@@ -2,19 +2,18 @@
 
 namespace Elasticsearch\Endpoints\Indices;
 
-use Elasticsearch\Endpoints\AbstractEndpoint;
 use Elasticsearch\Common\Exceptions;
+use Elasticsearch\Endpoints\AbstractEndpoint;
 
 /**
  * Class Seal
  *
  * @category Elasticsearch
- * @package Elasticsearch\Endpoints\Indices
+ * @package  Elasticsearch\Endpoints\Indices
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
-
 class Seal extends AbstractEndpoint
 {
     /**
@@ -24,7 +23,7 @@ class Seal extends AbstractEndpoint
     protected function getURI()
     {
         $index = $this->index;
-        $uri   = "/_seal";
+        $uri = "/_seal";
 
         if (isset($index) === true) {
             $uri = "/$index/_seal";
@@ -33,15 +32,13 @@ class Seal extends AbstractEndpoint
         return $uri;
     }
 
-
     /**
      * @return string[]
      */
     protected function getParamWhitelist()
     {
-        return array();
+        return [];
     }
-
 
     /**
      * @return string

@@ -2,22 +2,19 @@
 
 namespace Elasticsearch\Endpoints;
 
-use Elasticsearch\Endpoints\AbstractEndpoint;
 use Elasticsearch\Common\Exceptions;
 
 /**
- * Class SearchExists
+ * Class Search
  *
  * @category Elasticsearch
- * @package Elasticsearch\Endpoints\Indices
+ * @package  Elasticsearch\Endpoints
  * @author   Zachary Tong <zachary.tong@elasticsearch.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0 Apache2
  * @link     http://elasticsearch.org
  */
-
 class SearchExists extends AbstractEndpoint
 {
-
     /**
      * @param array $body
      *
@@ -31,21 +28,18 @@ class SearchExists extends AbstractEndpoint
         }
 
         $this->body = $body;
+
         return $this;
     }
 
-
     /**
-     * @throws \Elasticsearch\Common\Exceptions\RuntimeException
      * @return string
      */
     protected function getURI()
     {
-
         $index = $this->index;
         $type = $this->type;
-
-        $uri   = "/_search/exists";
+        $uri = "/_search/exists";
 
         if (isset($index) === true && isset($type) === true) {
             $uri = "/$index/$type/_search/exists";
@@ -58,13 +52,19 @@ class SearchExists extends AbstractEndpoint
         return $uri;
     }
 
-
     /**
      * @return string[]
      */
     protected function getParamWhitelist()
     {
-        return array(
+        return [
+            'ignore_unavailable',
+            'allow_no_indices',
+            'expand_wildcards',
+            'min_score',
+            'preference',
+            'routing',
+            'q',
             'analyzer',
             'analyze_wildcard',
             'default_operator',
@@ -72,15 +72,10 @@ class SearchExists extends AbstractEndpoint
             'explain',
             'fields',
             'from',
-            'ignore_unavailable',
             'allow_no_indices',
-            'expand_wildcards',
             'indices_boost',
             'lenient',
             'lowercase_expanded_terms',
-            'preference',
-            'q',
-            'routing',
             'scroll',
             'search_type',
             'size',
@@ -96,9 +91,8 @@ class SearchExists extends AbstractEndpoint
             'suggest_text',
             'timeout',
             'version',
-        );
+        ];
     }
-
 
     /**
      * @return string
