@@ -6,6 +6,7 @@ use Illuminate\Database\Capsule\Manager as DB;
 
 // https://docs.golaravel.com/docs/5.0/eloquent/
 // orm online doc
+// http://localhost:9200/_plugin/head/
 class SearchController extends AbstractController {
 
     // 默认Action
@@ -13,7 +14,7 @@ class SearchController extends AbstractController {
     public function indexAction() {
 
 
-
+        // $this->create();
         $this->search();
 
 
@@ -24,16 +25,16 @@ class SearchController extends AbstractController {
         $client = new Elasticsearch\Client();
 
         // http://www.cnblogs.com/amuge/p/6076232.html
-        // $host = '127.0.0.1';
+        // http://www.cnblogs.com/life_lt/p/6122767.html
         $params = array(
                     'index' => 'website',
                     'type' => 'blog',
-                    'id' => 7,
+                    // 'id' => 7,
                     'body' => array(
                         'title' => 'ElasticSearch-PHP之使用二',
                         'content' => '有关于ElasticSearch在PHP下的扩展使用方法之谈',
                         'create_time' => '2016-11-18 08:00:00',
-                    ),
+                    )
                 );
         $resp = $client->index($params);
 
@@ -50,10 +51,12 @@ class SearchController extends AbstractController {
             'body' => array(
                 'query' => array(
                     'match' => array(
-                        'title' => 'elasticsearch php extends'
+                        'title' => 'elasticsearch php extends',
                     ),
                 ),
             ),
+            'from' => 3,
+            'size'=> 2,
         );
 
         $resp = $client->search($params);
