@@ -14,9 +14,15 @@ class SearchController extends AbstractController {
     public function indexAction() {
 
 
-        // $this->create();
-        $this->search();
+        $this->demo1();
+    }
 
+
+
+    private function demo1(){
+
+        $this->create();
+        $this->search();
 
     }
 
@@ -39,6 +45,12 @@ class SearchController extends AbstractController {
         $resp = $client->index($params);
 
         p($resp);
+    }
+
+
+
+    private function search1() {
+
     }
 
 
