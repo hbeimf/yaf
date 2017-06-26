@@ -22,12 +22,12 @@ class SearchController extends AbstractController {
     private function demo1(){
 
         // $this->create();
-        $this->search2();
-        $this->update1();
-        $this->search2();
+        // $this->search2();
+        // $this->update1();
+        // $this->search2();
 
         // $this->delete();
-        // $this->search2();
+        $this->search0();
 
 
     }
@@ -188,6 +188,29 @@ class SearchController extends AbstractController {
             ),
             'from' => 3,
             'size'=> 2,
+        );
+
+        $resp = $client->search($params);
+
+        p($resp);
+    }
+
+
+     private function search0() {
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
+         $params = array(
+            'index' => 'website',
+            'type' => 'blog',
+            'body' => array(
+                'query' => array(
+                    'term' => array(
+                        'content' => 'XX',
+                    ),
+                ),
+            ),
+            // 'from' => 3,
+            // 'size'=> 2,
         );
 
         $resp = $client->search($params);
