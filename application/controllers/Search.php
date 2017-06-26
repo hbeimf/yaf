@@ -21,8 +21,9 @@ class SearchController extends AbstractController {
 
     private function demo1(){
 
-        $this->create();
-        $this->search();
+        // $this->create();
+        $this->search1();
+
 
     }
 
@@ -37,6 +38,7 @@ class SearchController extends AbstractController {
                     'type' => 'blog',
                     // 'id' => 7,
                     'body' => array(
+                        'the_id' => 100,
                         'title' => 'ElasticSearch-PHP之使用二',
                         'content' => '有关于ElasticSearch在PHP下的扩展使用方法之谈',
                         'create_time' => '2016-11-18 08:00:00',
@@ -48,9 +50,49 @@ class SearchController extends AbstractController {
     }
 
 
+    private function search2() {
+        $client = new Elasticsearch\Client();
+         $params = array(
+            'index' => 'website',
+            'type' => 'blog',
+            'body' => array(
+                'query' => array(
+                    'match' => array(
+                        '_id' => "AVzjFwSFyEaANjW4vehU",
+                    ),
+                ),
+            ),
+            // 'from' => 3,
+            // 'size'=> 2,
+        );
+
+        $resp = $client->search($params);
+
+        p($resp);
+    }
+
+
+
 
     private function search1() {
+        $client = new Elasticsearch\Client();
+         $params = array(
+            'index' => 'website',
+            'type' => 'blog',
+            'body' => array(
+                'query' => array(
+                    'match' => array(
+                        'the_id' => 100,
+                    ),
+                ),
+            ),
+            // 'from' => 3,
+            // 'size'=> 2,
+        );
 
+        $resp = $client->search($params);
+
+        p($resp);
     }
 
 
