@@ -204,8 +204,9 @@ class SearchController extends AbstractController {
             'type' => 'blog',
             'body' => array(
                 'query' => array(
-                    'term' => array(
-                        'content' => 'XX',
+                    'match' => array(
+                        'title' => 'ElasticSearch-PHP之使用二',
+                         // "analyzer" => "standard"
                     ),
                 ),
             ),
