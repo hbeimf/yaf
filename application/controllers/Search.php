@@ -22,9 +22,51 @@ class SearchController extends AbstractController {
     private function demo1(){
 
         // $this->create();
-        $this->search1();
+        $this->search2();
+        $this->update();
+        $this->search2();
+
+        // $this->delete();
+        // $this->search2();
 
 
+    }
+
+
+    private function update() {
+        $client = new Elasticsearch\Client();
+
+
+        $params = [
+            'index' => 'website',
+            'type' => 'blog',
+            'id' => '7',
+            'refresh' => true,
+            'body' => [
+                'doc' => [
+                    'content' => 'abcabcabcabc'
+                ]
+            ]
+        ];
+
+        // Update doc at /my_index/my_type/my_id
+        $response = $client->update($params);
+    }
+
+
+    private function delete() {
+        $client = new Elasticsearch\Client();
+
+        // http://www.cnblogs.com/amuge/p/6076232.html
+        // http://www.cnblogs.com/life_lt/p/6122767.html
+        $params = array(
+                    'index' => 'website',
+                    'type' => 'blog',
+                    'id'=>'AVzjFvqryEaANjW4vehL',
+                );
+        $resp = $client->delete($params);
+
+        p($resp);
     }
 
 
@@ -58,7 +100,7 @@ class SearchController extends AbstractController {
             'body' => array(
                 'query' => array(
                     'match' => array(
-                        '_id' => "AVzjFwSFyEaANjW4vehU",
+                        '_id' => "7",
                     ),
                 ),
             ),
