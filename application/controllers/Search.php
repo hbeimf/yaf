@@ -23,7 +23,7 @@ class SearchController extends AbstractController {
 
         // $this->create();
         $this->search2();
-        $this->update();
+        $this->update1();
         $this->search2();
 
         // $this->delete();
@@ -31,6 +31,33 @@ class SearchController extends AbstractController {
 
 
     }
+
+    private function update1() {
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
+
+
+        $params = [
+            'index' => 'website',
+            'type' => 'blog',
+            // 'id' => '7',
+            // 'refresh' => true,
+            'body' => [
+                'query' => array(
+                    'match' => array(
+                        '_id' => "7",
+                    ),
+                ),
+                'script' => [
+                    'inline' => "ctx._source.content = 'XXX'",
+                ],
+            ]
+        ];
+
+        // Update doc at /my_index/my_type/my_id
+        $response = $client->updateByQuery($params);
+    }
+
 
 
     private function update() {
