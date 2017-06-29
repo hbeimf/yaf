@@ -60,3 +60,143 @@ open http://localhost:9100/
 
 
 
+
+
+
+-- =====================================================================
+
+
+http://localhost:9200/{index 库名}/_analyze?analyzer=standard&pretty=true&text=我是中国人
+
+http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=我是中国人
+
+
+
+
+{
+  "tokens" : [ {
+    "token" : "我",
+    "start_offset" : 0,
+    "end_offset" : 1,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 0
+  }, {
+    "token" : "是",
+    "start_offset" : 1,
+    "end_offset" : 2,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 1
+  }, {
+    "token" : "中",
+    "start_offset" : 2,
+    "end_offset" : 3,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 2
+  }, {
+    "token" : "国",
+    "start_offset" : 3,
+    "end_offset" : 4,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 3
+  }, {
+    "token" : "人",
+    "start_offset" : 4,
+    "end_offset" : 5,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 4
+  } ]
+}
+
+
+
+http://localhost:9200/_analyze?analyzer=standard&pretty=true&text=sojson在线工具
+
+{
+  "tokens" : [ {
+    "token" : "sojson",
+    "start_offset" : 0,
+    "end_offset" : 6,
+    "type" : "<ALPHANUM>",
+    "position" : 0
+  }, {
+    "token" : "在",
+    "start_offset" : 6,
+    "end_offset" : 7,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 1
+  }, {
+    "token" : "线",
+    "start_offset" : 7,
+    "end_offset" : 8,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 2
+  }, {
+    "token" : "工",
+    "start_offset" : 8,
+    "end_offset" : 9,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 3
+  }, {
+    "token" : "具",
+    "start_offset" : 9,
+    "end_offset" : 10,
+    "type" : "<IDEOGRAPHIC>",
+    "position" : 4
+  } ]
+}
+
+
+
+
+http://www.sojson.com/blog/82.html
+
+
+
+
+
+
+
+cp /web/elasticsearch/elasticsearch-analysis-ik-master/target/elasticsearch-analysis-ik-1.8.0.jar ./
+
+jar xf elasticsearch-analysis-ik-1.8.0.jar
+
+
+index.analysis.analyzer.ik.type : "ik"
+
+
+-- =======================================
+
+http://blog.csdn.net/guo_jia_liang/article/details/52980716?locationNum=2&fps=1
+
+https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v1.10.1/elasticsearch-analysis-ik-1.10.1.zip
+
+
+
+
+
+cp /web/elasticsearch/elasticsearch-analysis-ik-1.10.1/elasticsearch-analysis-ik-1.10.1.jar ./
+
+
+-- ==========================================================
+http://blog.csdn.net/fenglailea/article/details/52471254
+
+http://www.cnblogs.com/xing901022/p/5910139.html
+
+
+
+
+
+https://github.com/medcl/elasticsearch-analysis-ik/tree/v1.10.1
+
+
+git clone https://github.com/medcl/elasticsearch-analysis-ik.git
+
+
+
+script.inline: true
+script.indexed: true
+script.file: true
+
+index.analysis.analyzer.ik.type: "ik"
+
+
