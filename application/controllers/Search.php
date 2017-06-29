@@ -21,7 +21,7 @@ class SearchController extends AbstractController {
 
     private function demo1(){
 
-        // $this->create();
+        // $this->create1();
         // $this->search2();
         // $this->update1();
         // $this->search2();
@@ -121,6 +121,28 @@ class SearchController extends AbstractController {
         p($resp);
     }
 
+    private function create1() {
+        // $client = new Elasticsearch\Client();
+        $client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
+
+        // http://www.cnblogs.com/amuge/p/6076232.html
+        // http://www.cnblogs.com/life_lt/p/6122767.html
+        $params = array(
+                    'index' => 'website',
+                    'type' => 'blog',
+                    // 'id' => 7,
+                    'body' => array(
+                        'the_id' => 100,
+                        'title' => '它提供了一个分布式多用户能力的全文搜索引擎',
+                        'content' => 'ElasticSearch是一个基于Lucene的搜索服务器。它提供了一个分布式多用户能力的全文搜索引擎，基于RESTful web接口。Elasticsearch是用Java开发的',
+                        'create_time' => '2016-11-18 08:00:00',
+                    )
+                );
+        $resp = $client->index($params);
+
+        p($resp);
+    }
+
 
     private function search2() {
         // $client = new Elasticsearch\Client();
@@ -204,14 +226,16 @@ class SearchController extends AbstractController {
             'type' => 'blog',
             'body' => array(
                 'query' => array(
-                    'match' => array(
-                        'title' => 'ElasticSearch-PHP之使用二',
-                         // "analyzer" => "standard"
-                    ),
+                    // 'bool'=> [
+                        'match' => array(
+                            'title' => '用户',
+                             // "analyzer" => "ik"
+                        ),
+                    // ],
                 ),
             ),
-            // 'from' => 3,
-            // 'size'=> 2,
+            'from' => 1,
+            'size'=> 200,
         );
 
         $resp = $client->search($params);
@@ -242,6 +266,8 @@ class SearchController extends AbstractController {
     //     $this->smarty->display('socket/ws.tpl', $data);
     // }
 
+    // curl -XPOST '127.0.0.1:9200/website/_analyze?analyzer=ik'
 
+    // curl -XPOST '127.0.0.1:9200/website/_analyze?analyzer=standard' -d '{text:"分布式"}'
 
 }
