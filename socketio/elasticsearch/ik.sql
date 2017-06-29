@@ -68,10 +68,9 @@ open http://localhost:9100/
 
 http://localhost:9200/{index 库名}/_analyze?analyzer=standard&pretty=true&text=我是中国人
 
-http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=我是中国人
+http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=该请求只需满足以下两点即可完成分词热更&analyzer=ik
 
-
-
+http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=我是中国人&analyzer=ik_smart
 
 {
   "tokens" : [ {
@@ -197,6 +196,6 @@ script.inline: true
 script.indexed: true
 script.file: true
 
-index.analysis.analyzer.ik.type: "ik"
+#index.analysis.analyzer.ik.type: "ik"
 
 

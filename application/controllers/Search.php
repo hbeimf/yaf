@@ -228,7 +228,7 @@ class SearchController extends AbstractController {
                 'query' => array(
                     // 'bool'=> [
                         'match' => array(
-                            'title' => '用户',
+                            'title' => '搜索引擎',
                              // "analyzer" => "ik"
                         ),
                     // ],
