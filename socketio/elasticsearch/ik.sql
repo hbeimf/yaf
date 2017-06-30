@@ -72,6 +72,8 @@ http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=该请
 
 http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=我是中国人&analyzer=ik_smart
 
+http://localhost:9200/website/_analyze?analyzer=standard&pretty=true&text=我是中国人&analyzer=ik_max_word
+
 {
   "tokens" : [ {
     "token" : "我",

@@ -13,9 +13,17 @@ class SearchController extends AbstractController {
     // http://yaf.demo.com/search/index
     public function indexAction() {
 
-
-        $this->demo1();
+        $this->test();
+        // $this->demo1();
     }
+
+
+    private function test() {
+        $es = new Elastic_Search();
+        $es->demo();
+    }
+
+
 
 
 
