@@ -1,6 +1,6 @@
 <?php
 
-class Elastic_Search{
+class Elastic_Mapping{
 
     public function demo() {
         $this->create_mapping_tpl();
@@ -189,7 +189,8 @@ class Elastic_Search{
 
     public function __construct() {
         //连接elasticsearch 实例
-        $this->_client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
+        // $this->_client =  Elasticsearch\ClientBuilder::create()->setHosts(['127.0.0.1'])->build();
+        $this->_client = Elastic_Conn::getInstance()->get_es();
     }
 
     private $_client = null;
