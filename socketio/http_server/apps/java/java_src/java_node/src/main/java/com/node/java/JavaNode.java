@@ -1,21 +1,21 @@
 
 import com.ericsson.otp.erlang.*;
 
-public class JInterfaceExample {
+public class JavaNode {
   public static void main(String[] args) throws Exception {
     if (args.length != 3) {
       System.out.println("wrong number of arguments");
       System.out.println("expected: nodeName mailboxName cookie");
       return;
     }
-    JInterfaceExample ex = new JInterfaceExample(args[0],args[1],args[2]);
+    JavaNode ex = new JavaNode(args[0],args[1],args[2]);
     ex.process();
   }
 
   private OtpNode node;
   private OtpMbox mbox;
 
-  public JInterfaceExample(String nodeName, String mboxName, String cookie)
+  public JavaNode(String nodeName, String mboxName, String cookie)
   throws Exception {
     super();
     node = new OtpNode(nodeName, cookie);
