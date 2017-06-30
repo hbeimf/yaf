@@ -9,18 +9,24 @@ javac -cp /web/yaf/socketio/http_server/apps/java/java_src/erlang-jinterface-1.7
 
 maven使用本地jar包
 http://www.cnblogs.com/rongfengliang/p/5959456.html
+http://www.cnblogs.com/hujunzheng/p/5659410.html
+
+
+安装本地jar本：
+
+mvn install:install-file -DgroupId=com.jinterface -DartifactId=jinterface -Dversion=18.3 -Dfile=/web/yaf/socketio/http_server/apps/java/java_src/OtpErlang.jar -Dpackaging=jar -DgeneratePom=true
+
+
+<dependency>
+        <groupId>com.jinterface</groupId>
+        <artifactId>jinterface</artifactId>
+        <version>18.3</version>
+    </dependency>
 
 
 
 
-/web/tar/otp_src_18.3/lib/jinterface/java_src/com/ericsson/otp/erlang'
 
-
-
-
-
-
-cp /web/tar/otp_src_18.3/lib/jinterface/priv/OtpErlang.jar ./
 
 
 

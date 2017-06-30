@@ -11,11 +11,12 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.erlang.otp/jinterface -->
-<dependency>
-    <groupId>org.erlang.otp</groupId>
-    <artifactId>jinterface</artifactId>
-    <version>1.5.5</version>
-</dependency>
+
+        <dependency>
+            <groupId>com.jinterface</groupId>
+            <artifactId>jinterface</artifactId>
+            <version>18.3</version>
+        </dependency>
 
 
     </dependencies>
