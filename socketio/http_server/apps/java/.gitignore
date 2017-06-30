@@ -16,3 +16,4 @@ _build
 .idea
 rebar3.crashdump
 *.class
+java_src/java_node/target/*
