@@ -1,15 +1,3 @@
-// package com.node.java;
-
-// public class JavaNode{
-//     public String sayHello(){
-//         return "Hello World!";
-//     }
-// }
-
-
-
-
-
 import com.ericsson.otp.erlang.*;
 
 public class JavaNode {
