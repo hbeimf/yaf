@@ -19,7 +19,8 @@ class SearchController extends AbstractController {
 
 
     private function test() {
-        $es = new Elastic_Search();
+        // $es = new Elastic_Search();
+        $es = new Elastic_Mapping();
         $es->demo();
     }
 
