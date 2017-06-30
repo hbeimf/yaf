@@ -7,20 +7,20 @@ javac -cp /web/yaf/socketio/http_server/apps/java/java_src/erlang-jinterface-1.7
 
 
 
+maven使用本地jar包
+http://www.cnblogs.com/rongfengliang/p/5959456.html
+
+
+
+
+/web/tar/otp_src_18.3/lib/jinterface/java_src/com/ericsson/otp/erlang'
 
 
 
 
 
 
-
-
-
-
-
-
-
-
+cp /web/tar/otp_src_18.3/lib/jinterface/priv/OtpErlang.jar ./
 
 
 
@@ -83,7 +83,8 @@ Java代码  收藏代码
 配置configure
 Java代码  收藏代码
 
-    # ./configure --prefix=/usr/local/erlang --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --with-opengl --enable-debug --enable-unicode
+    # ./configure --prefix=/usr/local/erlang --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --with-opengl --enable-debug --enable-unicode --with-javac
+
 
     make
 
