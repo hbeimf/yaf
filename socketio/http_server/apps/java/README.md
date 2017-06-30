@@ -83,7 +83,7 @@ Java代码  收藏代码
 配置configure
 Java代码  收藏代码
 
-    # ./configure --prefix=/usr/local/erlang --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --with-opengl --enable-debug --enable-unicode --with-javac
+    # ./configure --prefix=/usr/local/erlang_18.3 --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --with-opengl --enable-debug --enable-unicode --with-javac
 
 
     make
