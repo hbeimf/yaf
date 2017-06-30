@@ -27,7 +27,7 @@ mvn install:install-file -DgroupId=com.jinterface -DartifactId=jinterface -Dvers
 
 
 
-
+java -jar java-node-0.0.1-jar-with-dependencies.jar com.node.java.JavaNode 
 
 
 
