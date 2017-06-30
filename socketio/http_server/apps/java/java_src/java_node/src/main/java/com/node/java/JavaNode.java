@@ -1,4 +1,4 @@
-
+package com.node.java;
 import com.ericsson.otp.erlang.*;
 
 public class JavaNode {

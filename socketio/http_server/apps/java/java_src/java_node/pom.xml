@@ -28,7 +28,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.allen.capturewebdata.Main</mainClass>
+                            <mainClass>com.node.java.JavaNode</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
