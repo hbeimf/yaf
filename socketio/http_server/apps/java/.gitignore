@@ -16,6 +16,6 @@ _build
 .idea
 rebar3.crashdump
 *.class
-java_src/java_node/target/*
+java_src/target/*
 
 java-node-0.0.1-jar-with-dependencies.jar
