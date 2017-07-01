@@ -8,6 +8,14 @@
     stdlib
    ]},
   {env,[]},
+    {env, [
+    {java_cmd,       "xgn.node"},
+    {java_mailbox,   {java_srv, 'java_node@127.0.0.1'}}
+    %{java_log_file,  "go.log"},
+    %{java_pid_file,  "go.pid"},
+    %{java_epmd_port, 5588}
+  ]},
+
   {modules, []},
 
   {maintainers, []},

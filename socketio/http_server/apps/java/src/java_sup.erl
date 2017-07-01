@@ -28,7 +28,11 @@ start_link() ->
 
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
-    {ok, { {one_for_all, 0, 1}, []} }.
+    Java = {java_server, {java_server, start_link, []},
+               permanent, 5000, worker, [java_server]},
+
+    Children = [Java],
+    {ok, { {one_for_all, 10, 10}, Children} }.
 
 %%====================================================================
 %% Internal functions
