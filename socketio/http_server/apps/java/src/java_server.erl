@@ -274,9 +274,13 @@ start_java_node() ->
 	% Cmd = "java -jar java-node-0.0.1-jar-with-dependencies.jar java_node@localhost mailbox cookies",
 	Dir = code:lib_dir(java, priv),
 	Cookie = atom_to_list(erlang:get_cookie()),
-	Cmd = "java -jar "++Dir++"/java-node-0.0.1-jar-with-dependencies.jar java_node@127.0.0.1 JavaMBox "++Cookie++" &",
+	Cmd = "java -jar "++Dir++"/java-node-0.0.1-jar-with-dependencies.jar java_node@127.0.0.1 JavaMBox "++Cookie,
 
-	os:cmd(Cmd).
+	% R = os:cmd(Cmd),
+
+	open_port({spawn, Cmd},[exit_status]).
+	% io:format("Cmd:~p~n", [R]),
+	% ok.
 
 % start_java_node() ->
 %     {ok, GoCmd}         = application:get_env(go, go_cmd),
