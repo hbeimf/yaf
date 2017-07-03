@@ -9,7 +9,9 @@
 <!-- BEGIN FORM-->
 
 
-
+<div id="main" style="width: 600px;height:400px;">
+    main
+</div>
 
 <!-- END FORM-->
 
@@ -17,6 +19,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button id="btn_add" type="button" class="btn btn-primary blue">保存</button>
+        <!-- <button id="btn_add" type="button" class="btn btn-primary blue">保存</button> -->
     </div>
 </form>

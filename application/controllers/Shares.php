@@ -80,6 +80,7 @@ class SharesController extends AbstractController {
 
         $data = [
             // 'js' => 'system_role',
+            'js' => 'shares_detail',
             'rand' => time(),
             'users' => $users->toArray(), // 当前页记录
             'count' => $count, // 记录条数
@@ -99,7 +100,9 @@ class SharesController extends AbstractController {
         $code = trim($this->request->getQuery('code'));
 
 
-        $data = [];
+        $data = [
+
+        ];
         $this->smarty->display('shares/detail.tpl', $data);
     }
 

@@ -29,7 +29,9 @@ require.config({
         'long':'/js/long',
         'base64':'/js/base64',
         'socket.io':'/js/socket.io',
-        'echarts':'/js/echarts.min'
+        // 'echarts':'/js/echarts.min'
+        'echarts':'/js/echarts'
+
     },
     shim: {
         // jQuery
