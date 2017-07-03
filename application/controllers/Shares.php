@@ -54,9 +54,9 @@ class SharesController extends AbstractController {
     //列表
     public function listAction() {
         $params = [
-            'name' => $this->request->getQuery('name'),
+            'name' => trim($this->request->getQuery('name')),
             'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
-            'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 3,
+            'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 10,
         ];
 
         $skip = ($params['page'] - 1) * $params['page_size'];
@@ -66,7 +66,7 @@ class SharesController extends AbstractController {
 
         $account_obj = Table_Gp_List::selectRaw($select);
         if (trim($params['name']) != '') {
-            $account_obj->where('code', 'like', "%{$params['name']}%");
+            $account_obj->where('name', 'like', "%{$params['name']}%");
         }
 
         $count = $account_obj->count();
@@ -87,11 +87,6 @@ class SharesController extends AbstractController {
             'totalPage' => $totalPage, // 总页数
             'params' => $params,
         ];
-
-        // $data['roles'] = Table_System_Role::all()->toArray();
-
-        // $this->smarty->getSmarty()->registerPlugin("function", "role_name", "role_name");
-        // $this->smarty->getSmarty()->registerPlugin("function", "acount_menu", "acount_menu");
 
         $this->smarty->display('shares/list.tpl', $data);
 
