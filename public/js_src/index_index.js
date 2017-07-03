@@ -9,8 +9,8 @@ require([
     require(['echarts'], function(ec) {
         // console.log(ec);
 
-        // $div = $('#main');
-        // var $myChart = ec.init($div);
+        // 为什么 不能 用jquery 选取器？？
+        // var $myChart = ec.init($('#main'));
 
         var $myChart = ec.init(document.getElementById('main'));
 
