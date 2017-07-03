@@ -39,7 +39,7 @@ action(20000, _BinString, Status) ->
     % ReplyBin = protocol_pb:encode_msg(#'Base'{id=10001, data=BinString}),
 
     % 启动任务
-    % doit_fetch_web:doit(self()),
+    doit_fetch_web:doit(self()),
 
     {reply_binary, Status, ReplyBin};
 
