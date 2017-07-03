@@ -103,38 +103,6 @@
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-    <script src="/js/jquery.vmap.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.russia.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.world.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.europe.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.germany.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.usa.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.flot.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.flot.resize.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.pulsate.min.js" type="text/javascript"></script>
-
-    <script src="/js/date.js" type="text/javascript"></script>
-
-    <script src="/js/daterangepicker.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.gritter.js" type="text/javascript"></script>
-
-    <script src="/js/fullcalendar.min.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.sparkline.min.js" type="text/javascript"></script>
-
     <!-- END PAGE LEVEL PLUGINS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -151,21 +119,6 @@
 
            App.init(); // initlayout and core plugins
 
-           // Index.init();
-
-           // Index.initJQVMAP(); // init index page's custom scripts
-
-           // Index.initCalendar(); // init index page's custom scripts
-
-           // Index.initCharts(); // init index page's custom scripts
-
-           // Index.initChat();
-
-           // Index.initMiniCharts();
-
-           // Index.initDashboardDaterange();
-
-           // Index.initIntro();
 
         });
 

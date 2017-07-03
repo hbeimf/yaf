@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.8, created on 2017-07-03 15:15:50
+<?php /* Smarty version Smarty-3.1.8, created on 2017-07-03 15:19:00
          compiled from "/web/yaf/application/views/index/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1537775633593137f72c55a1-57778128%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0f2fa21ba47e3fb128ca86da055914572e14cde0' => 
     array (
       0 => '/web/yaf/application/views/index/index.tpl',
-      1 => 1499066146,
+      1 => 1499066331,
       2 => 'file',
     ),
   ),
@@ -125,38 +125,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-    <script src="/js/jquery.vmap.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.russia.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.world.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.europe.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.germany.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.usa.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.flot.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.flot.resize.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.pulsate.min.js" type="text/javascript"></script>
-
-    <script src="/js/date.js" type="text/javascript"></script>
-
-    <script src="/js/daterangepicker.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.gritter.js" type="text/javascript"></script>
-
-    <script src="/js/fullcalendar.min.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.easy-pie-chart.js" type="text/javascript"></script>
-
-    <script src="/js/jquery.sparkline.min.js" type="text/javascript"></script>
-
     <!-- END PAGE LEVEL PLUGINS -->
 
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
@@ -173,21 +141,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
            App.init(); // initlayout and core plugins
 
-           // Index.init();
-
-           // Index.initJQVMAP(); // init index page's custom scripts
-
-           // Index.initCalendar(); // init index page's custom scripts
-
-           // Index.initCharts(); // init index page's custom scripts
-
-           // Index.initChat();
-
-           // Index.initMiniCharts();
-
-           // Index.initDashboardDaterange();
-
-           // Index.initIntro();
 
         });
 
