@@ -7,13 +7,13 @@
 
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet-body">
-                <div class="clearfix">
+                <!-- <div class="clearfix">
                     <div class="btn-group pull-right">
                         <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/" class="btn green" >
                         新增 <i class="icon-plus"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
                 <!-- 搜索开始 -->
                 <div class="row-fluid">
                     <form>
@@ -30,9 +30,6 @@
                                 &nbsp;&nbsp;
                             </label>
                             <label>名称: <input value="{{$params['name']}}" name="name" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label>
-                            <!-- <label>邮箱: <input name="email" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label> -->
-
-
                             <label><button id="btn_search" class="btn blue">查找 <!-- <i class="icon-plus"> --></i></button></label>
                         </div>
                     </form>
@@ -47,7 +44,7 @@
                             <th class="hidden-480">id</th>
                             <th class="hidden-480">code</th>
                             <th class="hidden-480">名称</th>
-
+                            <th class="hidden-480">明细</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +54,13 @@
                             <td>{{$r['id']}}</td>
                             <td>{{$r['code']}}</td>
                             <td>{{$r['name']}}</td>
+                            <td>
+
+                            <a data-toggle="modal" data-target="#mod_1200" href="/shares/detail/?code={{$r['code']}}" class="btn default" >
+                                详情
+                                </a>
+
+                            </td>
 
 
                         </tr>

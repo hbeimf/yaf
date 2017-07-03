@@ -1,7 +1,9 @@
 <?php
 
-session_id(SID);
+// session_id(SID);
 session_start();
+// echo session_id();
+
 try {
 	error_reporting(E_ALL | E_STRICT);
 

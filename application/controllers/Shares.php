@@ -95,5 +95,13 @@ class SharesController extends AbstractController {
 
     }
 
+    public function detailAction() {
+        $code = trim($this->request->getQuery('code'));
+
+
+        $data = [];
+        $this->smarty->display('shares/detail.tpl', $data);
+    }
+
 
 }
