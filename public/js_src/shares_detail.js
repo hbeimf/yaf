@@ -14,47 +14,6 @@ require([
                 var $myChart = ec.init($div[0]);
                 // start
 
-
-                // function randomData() {
-                //     now = new Date(+now + oneDay);
-                //     value = value + Math.random() * 21 - 10;
-                //     return {
-                //         name: now.toString(),
-                //         value: [
-                //             [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-                //             Math.round(value)
-                //         ]
-                //     }
-                // }
-
-                // var data = [];
-                // var now = +new Date(1997, 9, 3);
-                // var oneDay = 24 * 3600 * 1000;
-                // var value = Math.random() * 1000;
-
-
-                // for (var i = 0; i < 100; i++) {
-                //     data.push(randomData());
-                // }
-
-                // console.log(randomData());
-
-                // var data = [];
-                // for (var i=0; i<100; i++){
-                //     // var str_time = i;
-                //     now = new Date(+now + oneDay);
-
-                //     var obj = {
-                //         // name: now.toString(),
-                //         name:i,
-                //         value: [
-                //             [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-                //             i
-                //         ]
-                //     };
-                //     data.push(obj);
-                // }
-
                 var data = [
                     {name:'名称', value:['2017/01/01', 1]},
                     {name:'名称', value:['2017/01/02', 2]},
@@ -101,11 +60,6 @@ require([
                         data: data
                     }]
                 };
-
-
-
-
-
 
                 // 使用刚指定的配置项和数据显示图表。
                 $myChart.setOption(option);
