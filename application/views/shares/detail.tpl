@@ -9,8 +9,8 @@
 <!-- BEGIN FORM-->
 
 
-<div id="main" style="width: 600px;height:400px;">
-    main
+<div id="main" style="width: 90%;height:400px;">
+
 </div>
 
 <!-- END FORM-->
