@@ -9,7 +9,7 @@
 <!-- BEGIN FORM-->
 
 
-<div id="main" style="width: 90%;height:400px;">
+<div id="main" style="width: 95%;height:400px;">
 
 </div>
 
