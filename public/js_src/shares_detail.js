@@ -31,6 +31,8 @@ require([
                 var now = +new Date(1997, 9, 3);
                 var oneDay = 24 * 3600 * 1000;
                 var value = Math.random() * 1000;
+
+
                 for (var i = 0; i < 100; i++) {
                     // console.log(randomData());
                     data.push(randomData());
