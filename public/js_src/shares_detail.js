@@ -28,8 +28,8 @@ require([
                 // }
 
                 // var data = [];
-                var now = +new Date(1997, 9, 3);
-                var oneDay = 24 * 3600 * 1000;
+                // var now = +new Date(1997, 9, 3);
+                // var oneDay = 24 * 3600 * 1000;
                 // var value = Math.random() * 1000;
 
 
@@ -39,21 +39,29 @@ require([
 
                 // console.log(randomData());
 
-                var data = [];
-                for (var i=0; i<100; i++){
-                    // var str_time = i;
-                    now = new Date(+now + oneDay);
+                // var data = [];
+                // for (var i=0; i<100; i++){
+                //     // var str_time = i;
+                //     now = new Date(+now + oneDay);
 
-                    var obj = {
-                        // name: now.toString(),
-                        name:i,
-                        value: [
-                            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-                            i
-                        ]
-                    };
-                    data.push(obj);
-                }
+                //     var obj = {
+                //         // name: now.toString(),
+                //         name:i,
+                //         value: [
+                //             [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+                //             i
+                //         ]
+                //     };
+                //     data.push(obj);
+                // }
+
+                var data = [
+                    {name:'名称', value:['2017/01/01', 1]},
+                    {name:'名称', value:['2017/01/02', 2]},
+                    {name:'名称', value:['2017/01/03', 3]},
+                    {name:'名称', value:['2017/01/04', 4]},
+                    {name:'名称', value:['2017/01/05', 5]}
+                ];
 
                 option = {
                     title: {
@@ -66,7 +74,7 @@ require([
                             // var date = new Date(params.name);
                             // return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
 
-                            return params.name + ':' + params.value[1];
+                            return params.name + ':' + params.value[0] + ':' + params.value[1];
                         },
                         axisPointer: {
                             animation: false
