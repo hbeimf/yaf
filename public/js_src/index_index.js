@@ -9,10 +9,13 @@ require([
     require(['echarts'], function(ec) {
         // console.log(ec);
 
-        // 为什么 不能 用jquery 选取器？？
-        // var $myChart = ec.init($('#main'));
+        // console.log($('#main')[0]);
+        // console.log(document.getElementById('main'));
 
-        var $myChart = ec.init(document.getElementById('main'));
+        // 为什么 不能 用jquery 选取器？？
+        var $myChart = ec.init($('#main')[0]);
+
+        // var $myChart = ec.init(document.getElementById('main'));
 
         var option = {
             title: {
