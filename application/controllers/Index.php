@@ -5,7 +5,8 @@ use Illuminate\Database\Capsule\Manager as DB;
 class IndexController extends AbstractController {
 
 	public function indexAction() {
-		$this->smarty->display('index/index.tpl');
+		$data = ['js' => 'index_index'];
+		$this->smarty->display('index/index.tpl', $data);
 	}
 
 	public function loginAction() {

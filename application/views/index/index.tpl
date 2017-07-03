@@ -17,7 +17,7 @@
 
                         <div class="span6">
 
-                            <div id="main"></div>
+                            <div id="main" style="width: 600px;height:400px;"></div>
                         </div>
 
                         <div class="span6">
