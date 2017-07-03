@@ -51,8 +51,8 @@ require.config({
         'functions':['app', 'jquery'],
         'form-samples':['jquery', 'bootstrap'],
         'protobuf':['jquery', 'long'],
-        'socket.io':['jquery'],
-        'echarts':['jquery']
+        'socket.io':['jquery']
+        // 'echarts':['jquery']
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
 });
