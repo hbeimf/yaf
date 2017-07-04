@@ -99,12 +99,44 @@ class SharesController extends AbstractController {
     public function detailAction() {
         $code = trim($this->request->getQuery('code'));
 
-
         $data = [
-
+            'code' => $code,
         ];
         $this->smarty->display('shares/detail.tpl', $data);
     }
+
+
+    public function jsonAction() {
+        $code = trim($this->request->getQuery('code'));
+
+        $select = 'closePrice, time';
+        $obj = Table_Gp_History::selectRaw($select);
+        $obj->where('code', '=', $code);
+
+
+        // $count = $account_obj->count();
+        $history = $obj->orderBy('time', 'desc')->get();
+
+        $data = [];
+
+        foreach($history as $h) {
+            $data[] = [
+                'name'=> '',
+                'value' => [
+                    date("Y/m/d", $h['time']),
+                    $h['closePrice']
+                ],
+            ];
+        }
+
+        echo json_encode($data);
+
+        exit;
+
+    }
+
+
+
 
 
 }
