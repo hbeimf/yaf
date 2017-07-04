@@ -20,6 +20,8 @@ func setCallRouter() {
     // gen_server:call(GoMBox, {str, str_replace, StrRes, FindStr, ReplaceTo}).
     addRouterCall("str", &StrController{})
     addRouterCall("time", &TimeController{})
+    addRouterCall("db", &DbController{})
+
 
 
     addRouterCall("default", &DefaultController{})
