@@ -18,7 +18,7 @@ type Redis struct {
 func NewRedisPool(server string, num int) *Redis {
 
     pool := &redis.Pool{
-        MaxIdle:     10,
+        MaxIdle:     10, //最大连接数
         IdleTimeout: time.Minute,
         Dial: func() (redis.Conn, error) {
             c, err := redis.Dial("tcp", server)
