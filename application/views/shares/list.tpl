@@ -7,13 +7,13 @@
 
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet-body">
-                <!-- <div class="clearfix">
+                <div class="clearfix">
                     <div class="btn-group pull-right">
                         <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/" class="btn green" >
                         新增 <i class="icon-plus"></i>
                         </a>
                     </div>
-                </div> -->
+                </div>
                 <!-- 搜索开始 -->
                 <div class="row-fluid">
                     <form>
