@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Database\Capsule\Manager as DB;
+// use Illuminate\Database\Capsule\Manager as DB;
 
 // https://docs.golaravel.com/docs/5.0/eloquent/
 class SharesController extends AbstractController {
