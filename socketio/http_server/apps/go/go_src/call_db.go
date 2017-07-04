@@ -14,10 +14,13 @@ type DbController struct  {
 }
 
 
-var redis = DbSet.NewRedisPool("127.0.0.1:6379", 0)
+// var redis = DbSet.NewRedisPool("127.0.0.1:6379", 0)
 
 func (this *DbController) Excute(message etf.Tuple) (*etf.Term) {
     log.Printf("message default: %#v", message)
+
+    // 仅作测试用，如果上线， 要初始化成全局变量，
+    redis := DbSet.NewRedisPool("127.0.0.1:6379", 0)
 
     redis.Set("key1122", "val1")
     val, err := redis.Get("key1")
