@@ -4,3 +4,6 @@ doc/*.html
 *tpl.php
 *.pyc
 cookie_file_name
+
+HttpServer
+HttpClient
