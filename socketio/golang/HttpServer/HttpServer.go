@@ -7,6 +7,14 @@ package main
 //
 // http://studygolang.com/articles/2680
 
+// go version go1.8.3 linux/amd64
+
+// redis
+// elasticsearch
+// ssdb
+// rabbitmq
+
+
 import (
     "fmt"
     "flag"

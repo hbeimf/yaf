@@ -7,6 +7,8 @@ test: Test
 Test:
 	@GOPATH=$(GOPATH) go get -d
 	@GOPATH=$(GOPATH) go test -v ../DbSet/Redis_test.go ../DbSet/Redis.go
+	@GOPATH=$(GOPATH) go test -v ../DbSet/ElasticSearch_test.go ../DbSet/ElasticSearch.go
+
 
 HttpServer:
 	@GOPATH=$(GOPATH) go get -d

@@ -5,7 +5,7 @@ import (
     // "fmt"
 )
 
-var obj = NewElasticSearch("127.0.0.1", 9200)
+var obj = NewElasticSearch("127.0.0.1", "9200")
 
 func TestAll(t *testing.T) {
 
@@ -15,7 +15,7 @@ func TestAll(t *testing.T) {
 
     fields := map[string]interface{}{"name": "xiaomin", "age": "10", "email":"123456@qq.com"}
 
-    var r map[string]interface{}
+    // var r map[string]interface{}
     obj.Insert(index, table, id, 30, fields)
 
 
