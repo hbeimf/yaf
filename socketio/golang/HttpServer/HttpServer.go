@@ -22,6 +22,23 @@ type Controller struct {
 }
 
 
+
+func main() {
+    redis := DbSet.NewRedisPool(*globalRedisHost, 0)
+    ctrl := &Controller{redis}
+
+    // 注册控制器函数
+    http.HandleFunc("/get", ctrl.get_handler)
+    http.HandleFunc("/post", ctrl.post_handler)
+
+    err := http.ListenAndServe(*globalHttpHost, nil)
+    if err != nil {
+        fmt.Println("err")
+    }
+}
+
+
+
 // curl http://127.0.0.1:8080/get?key=val1
 // curl http://127.0.0.1:8080/get?key=val123
 // get请求
@@ -62,18 +79,5 @@ func (this *Controller) post_handler(w http.ResponseWriter, req *http.Request) {
     w.Write([]byte("post_handler"))
 }
 
-
-func main() {
-    redis := DbSet.NewRedisPool(*globalRedisHost, 0)
-    ctrl := &Controller{redis}
-
-    http.HandleFunc("/get", ctrl.get_handler)
-    http.HandleFunc("/post", ctrl.post_handler)
-
-    err := http.ListenAndServe(*globalHttpHost, nil)
-    if err != nil {
-        fmt.Println("err")
-    }
-}
 
 
