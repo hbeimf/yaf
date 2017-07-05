@@ -4,9 +4,15 @@ package main
 
 import (
     "fmt"
+    "flag"
     // "io/ioutil"
     "net/http"
     // "encoding/json"
+)
+
+// 设置全局配置变量，并带默认值
+var (
+    globalHost = flag.String("host", "127.0.0.1:8080", "监听主机端口")
 )
 
 
@@ -52,7 +58,7 @@ func main() {
     http.HandleFunc("/get", ctrl.get_handler)
     http.HandleFunc("/post", ctrl.post_handler)
 
-    err := http.ListenAndServe("127.0.0.1:8080", nil)
+    err := http.ListenAndServe(*globalHost, nil)
     if err != nil {
         fmt.Println("err")
     }
