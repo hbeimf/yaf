@@ -5,19 +5,20 @@ package main
 import (
     "fmt"
     "flag"
-    // "io/ioutil"
     "net/http"
-    // "encoding/json"
+    "../DbSet"
 )
 
 // 设置全局配置变量，并带默认值
 var (
-    globalHost = flag.String("host", "127.0.0.1:8080", "监听主机端口")
+    globalHttpHost = flag.String("globalHttpHost", "127.0.0.1:8080", "http服务监听主机端口")
+    globalRedisHost = flag.String("globalRedisHost", "127.0.0.1:6379", "redis服务监听主机端口")
+
 )
 
 
 type Controller struct {
-
+    redis *DbSet.Redis
 }
 
 
@@ -53,12 +54,13 @@ func (this *Controller) post_handler(w http.ResponseWriter, req *http.Request) {
 
 
 func main() {
-    ctrl := &Controller{}
+    redis := DbSet.NewRedisPool(*globalRedisHost, 0)
+    ctrl := &Controller{redis}
 
     http.HandleFunc("/get", ctrl.get_handler)
     http.HandleFunc("/post", ctrl.post_handler)
 
-    err := http.ListenAndServe(*globalHost, nil)
+    err := http.ListenAndServe(*globalHttpHost, nil)
     if err != nil {
         fmt.Println("err")
     }
