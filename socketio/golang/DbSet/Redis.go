@@ -5,7 +5,7 @@ package DbSet
 import (
     "github.com/garyburd/redigo/redis"
     "time"
-    "log"
+    // "log"
 )
 
 type Redis struct {
@@ -44,7 +44,7 @@ func (this *Redis) Get(key string) (string, error) {
 
     res, err := conn.Do("GET", key)
 
-    log.Printf("getxx: %#v %#v %#v", key, res, err)
+    // log.Printf("getxx: %#v %#v %#v", key, res, err)
 
     if err != nil {
         return "", err

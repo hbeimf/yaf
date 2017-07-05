@@ -34,6 +34,16 @@ func (this *Controller) get_handler(w http.ResponseWriter, req *http.Request) {
     fmt.Println(val)
 
 
+    this.redis.Set("key1122", "val1XXXXX")
+    val1, err := this.redis.Get("key1122")
+    if err == nil {
+        fmt.Println(val1)
+    }
+
+    // fmt.Println(val1)
+
+
+
     fmt.Println("ok")
     // w.Write([]byte("get_handler"))
     w.Write([]byte(val))
@@ -67,28 +77,3 @@ func main() {
 }
 
 
-
-
-
-
-
-// func hand(w http.ResponseWriter, r *http.Request) {
-//     defer r.Body.Close()
-
-//     fmt.Println("ok")
-//     w.Write([]byte("connect ok"))
-
-
-//     // body, err := ioutil.ReadAll(r.Body)
-//     // if err != nil {
-//     //     fmt.Println("read err")
-//     // }
-//     // fmt.Println(body)
-//     // tmp := person{}
-//     // err = json.Unmarshal(body, &tmp)  //JSON还原
-
-//     // if err != nil {
-//     //     fmt.Println("unmarshal err")
-//     // }
-//     // fmt.Println(tmp)
-// }
