@@ -1,6 +1,11 @@
 package main
 
+// doc
 // http://blog.csdn.net/su_sai/article/details/51176753
+// http 状态码
+// http://blog.csdn.net/liangguangchuan/article/details/54575001
+//
+// http://studygolang.com/articles/2680
 
 import (
     "fmt"
