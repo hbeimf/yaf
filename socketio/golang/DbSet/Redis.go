@@ -44,8 +44,6 @@ func (this *Redis) Get(key string) (string, error) {
 
     res, err := conn.Do("GET", key)
 
-    // log.Printf("getxx: %#v %#v %#v", key, res, err)
-
     if err != nil {
         return "", err
     }
@@ -62,6 +60,30 @@ func (this *Redis) Set(key string, val string) {
     defer conn.Close()
 
     conn.Do("SET", key, val)
+}
+
+
+func (this *Redis) LPush(listName string, val string) {
+    conn := this.pool.Get()
+    defer conn.Close()
+
+    conn.Do("LPUSH", listName, val)
+}
+
+
+func (this *Redis) RPop(listName string) (string, error) {
+    conn := this.pool.Get()
+    defer conn.Close()
+    res, err := conn.Do("RPOP", listName)
+
+    if err != nil {
+        return "", err
+    }
+    if res == nil {
+        return "", nil
+    }
+
+    return redis.String(res, err)
 }
 
 
