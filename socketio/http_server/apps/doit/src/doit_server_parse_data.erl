@@ -114,7 +114,9 @@ handle_cast(doit, State) ->
         List = get_list_by_code(Code),
         % timer:sleep(100),
 
-        Reply = go:parse_list(List),
+        % Reply = go:parse_list(List),
+        Reply = parse:parse_list(List, 0.05),
+
         io:format("list==================~n~p~p~n", [Code, Reply])
 
 
