@@ -99,18 +99,23 @@ handle_call(_Request, _From, State) ->
 %     % io:format("message ~p!! ============== ~n~n", [GoMBox]),
 %     gen_server:cast(GoMBox, {Msg, self()}),
 %     {noreply, State};
+% doit_server_parse_data:doit().
+% sh600011
 handle_cast(doit, State) ->
     io:format("doit  !! ============== ~n~n"),
 
     %% 此处将结果json缓存到数据库中，
-    Sql = "SELECT code,name FROM m_gp_list limit 1",
+    % Sql = "SELECT code,name FROM m_gp_list where code = 'sh600011'",
+    Sql = "SELECT code,name FROM m_gp_list",
+
     Rows = mysql:get_assoc(Sql),
     lists:foreach(fun(Row) ->
         {_, Code} = lists:keyfind(<<"code">>, 1, Row),
         List = get_list_by_code(Code),
+        % timer:sleep(100),
 
         Reply = go:parse_list(List),
-        io:format("list==================~n~p~n", [Reply])
+        io:format("list==================~n~p~p~n", [Code, Reply])
 
 
     end, Rows),
