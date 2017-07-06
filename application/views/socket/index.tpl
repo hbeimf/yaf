@@ -20,12 +20,11 @@
 
 <div class="row-fluid">
     <div class="span12">
-        <button type="button" id="request"  class="btn">Request</button>
+        <button type="button" id="request"  class="btn">采集</button>
 
-        <!-- <button type="button"  class="btn">分析数据</button>
+        <button type="button" id="parse"  class="btn">分析1</button>
 
-        <button type="button"  class="btn">查看结果</button>
- -->
+        <!-- <button type="button"  class="btn">查看结果</button> -->
         <button type="button" id="clearConsole" class="btn">Clear Console</button>
 
     </div>
