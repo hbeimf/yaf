@@ -123,9 +123,7 @@ class SharesController extends AbstractController {
 
         }
 
-        $data = [
-            // 'roles' => $roles,
-        ];
+        $data = [];
 
         $this->smarty->display('shares/add.tpl', $data);
     }
