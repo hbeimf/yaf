@@ -8,23 +8,59 @@
 
 
 
-parse_list([]) ->
+parse_list([], _) ->
     {error, "empty list"};
-parse_list(List) ->
+parse_list(List, Add) ->
     L1 = lists:keysort(2, List),
 
-    [FirstTuple|_] = L1,
-    LastTuple = lists:last(L1),
+    [{_, First}|_] = L1,
+    {_, Last} = lists:last(L1),
+
+    Cut = cut(First, Last, Add),
+
+    cut_list(Cut, List).
+
+    % io:format("list==================~n~p~n", [{First, Last}]),
+
+    % io:format("cut==================~n~p~n", [{Cut, cut_list(Cut, List)}]),
+
+
+    % ok.
+
+
+cut_list(Cut, List) ->
+    lists:foldl(fun({N, Start, End}, Res) ->
+        [{N, Start, End, get_num(Start, End, List)}|Res]
+    end, [], Cut).
+
+get_num(Start, End, List) ->
+    lists:foldl(fun({_, P}, N) ->
+        case P >= Start andalso P < End of
+            true ->
+                N + 1;
+            _ ->
+                N
+        end
+    end, 0, List).
 
 
 
-    io:format("list==================~n~p~n", [{L1, FirstTuple, LastTuple}]),
 
+cut(Start, End, Add) ->
+    cut(Start, End, 1, [], Add).
 
-    ok.
+cut(Start, End, N, Reply, Add) ->
+    case Start < End of
+        true ->
+            Start1 = Start + Start * Add,
+            cut(Start1, End, N+1, [{N, three(Start), three(Start1)}|Reply], Add);
+        _ ->
+            Reply
+    end.
 
-
-
+% 精确到小数点后3位
+three(Num) ->
+    list_to_float(hd(io_lib:format("~.3f",[Num]))).
 
 
 %  ==============================================================================
@@ -37,7 +73,7 @@ go() ->
         % timer:sleep(100),
 
         % Reply = go:parse_list(List),
-        _Reply = parse_list(List),
+        _Reply = parse_list(List, 0.02),
         ok
 
         % io:format("list==================~n~p~p~n", [Code, Reply])
