@@ -3,7 +3,7 @@ package main
 import (
     "github.com/goerlang/etf"
     // "github.com/tidwall/gjson"
-    "log"
+    // "log"
     "sort"
     "time"
     "strconv"
@@ -25,8 +25,8 @@ func (this *ListController) Excute(message etf.Tuple) (*etf.Term) {
 
     keys, listMap, vals := filter_data(listTuple)
 
-    log.Printf("keys: %#v, vals: %#v", keys, vals)
-    log.Printf("length: %#v, listMap: %#v", len(listMap), listMap)
+    // log.Printf("keys: %#v, vals: %#v", keys, vals)
+    // log.Printf("length: %#v, listMap: %#v", len(listMap), listMap)
 
     //
     min := vals[0]
