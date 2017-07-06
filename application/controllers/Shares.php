@@ -115,8 +115,8 @@ class SharesController extends AbstractController {
             }
 
             // DB::table('m_gp_list')->insert([$data]);
-
             // Table_Gp_List::create($data);
+            Table_Gp_List::forceCreate($data);
 
             // p($data);exit;
             return $this->ajax_success('添加成功！');
