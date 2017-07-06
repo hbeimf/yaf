@@ -9,7 +9,9 @@
             <div class="portlet-body">
                 <div class="clearfix">
                     <div class="btn-group pull-right">
-                        <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/" class="btn green" >
+                        <!-- <a data-toggle="modal" data-target="#mod_1200" href="/system/addAccount/" class="btn green" > -->
+                        <a data-toggle="modal" data-target="#mod_1200" href="/shares/add/" class="btn green" >
+
                         新增 <i class="icon-plus"></i>
                         </a>
                     </div>

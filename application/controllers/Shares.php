@@ -96,6 +96,40 @@ class SharesController extends AbstractController {
 
     }
 
+
+    public function addAction() {
+
+        if ($this->request->isPost()) {
+
+            $data = [
+                'code' => trim($this->request->getPost('code')),
+                'name' => trim($this->request->getPost('name')),
+            ];
+
+            if ($data['code'] == '') {
+                return $this->ajax_error('code不能为空');
+            }
+
+            if ($data['name'] == '') {
+                return $this->ajax_error('名称不能为空');
+            }
+
+            // DB::table('m_gp_list')->insert([$data]);
+
+            // Table_Gp_List::create($data);
+
+            // p($data);exit;
+            return $this->ajax_success('添加成功！');
+
+        }
+
+        $data = [
+            // 'roles' => $roles,
+        ];
+
+        $this->smarty->display('shares/add.tpl', $data);
+    }
+
     public function detailAction() {
         $code = trim($this->request->getQuery('code'));
 
