@@ -11,6 +11,15 @@
 parse_list([]) ->
     {error, "empty list"};
 parse_list(List) ->
+    L1 = lists:keysort(2, List),
+
+    [FirstTuple|_] = L1,
+    LastTuple = lists:last(L1),
+
+
+
+    io:format("list==================~n~p~n", [{L1, FirstTuple, LastTuple}]),
+
 
     ok.
 
@@ -28,9 +37,10 @@ go() ->
         % timer:sleep(100),
 
         % Reply = go:parse_list(List),
-        Reply = parse_list(List),
+        _Reply = parse_list(List),
+        ok
 
-        io:format("list==================~n~p~p~n", [Code, Reply])
+        % io:format("list==================~n~p~p~n", [Code, Reply])
 
 
     end, Rows),
