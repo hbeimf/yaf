@@ -116,15 +116,17 @@ handle_cast(doit, State) ->
 
         case List of
             [] ->
-                Reply = [],
+                % Reply = [],
                 ok;
             _ ->
-                Reply = go:parse_list(List)
-        end,
+                % Reply = jsx:encode([go:parse_list(List)])
+                to_json(go:parse_list(List), Code)
+
+        end
 
         % Reply1 = parse:parse_list(List, 0.05),
 
-        io:format("list==================~n~p~p~n", [Code, Reply])
+        % io:format("list==================~n~p~p~n", [Code, Reply])
 
 
     end, Rows),
@@ -167,6 +169,58 @@ code_change(_OldVsn, State, _Extra) ->
 
 
 % private functions
+
+% doit_server_parse_data:doit().
+to_json(Tuple, Code) ->
+    {{Time, Price, Yid},
+        L1, L2} = Tuple,
+
+
+    % L11 = lists:foldl(fun({Y, Start, End, Num}, ReplyList) ->
+    %     TupleList = [
+    %         {<<"yid">>, Y},
+    %         {<<"start">>, Start},
+    %         {<<"end">>, End},
+    %         {<<"num">>, Num}
+    %     ],
+    %     [TupleList|ReplyList]
+    % end, [], L1),
+
+    L22 = lists:foldl(fun({Y, L}, ReplyList) ->
+        TL = [
+            {<<"year">>, Y},
+            {<<"child">>, to_kv_list(L)}
+        ],
+        [TL|ReplyList]
+        % io:format("~p~n", [L])
+    end, [], L2),
+
+
+    L = [
+        {<<"time">>, Time},
+        {<<"price">>, Price},
+        {<<"yid">>, Yid},
+        {<<"all">>, to_kv_list(L1)},
+        {<<"detail">>, L22}
+    ],
+
+    Json = jsx:encode(L),
+    io:format("list==================~n~p~n", [{Code, Json}]),
+
+    ok.
+
+to_kv_list(List) ->
+    lists:foldl(fun({Y, Start, End, Num}, ReplyList) ->
+        TupleList = [
+            {<<"yid">>, Y},
+            {<<"start">>, Start},
+            {<<"end">>, End},
+            {<<"num">>, Num}
+        ],
+        [TupleList|ReplyList]
+    end, [], List).
+
+
 
 get_list_by_code(Code) ->
     Sql = "select time, closePrice from gp_history where code = '" ++ go_lib:to_str(Code) ++ "'",
