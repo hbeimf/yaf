@@ -25,6 +25,15 @@
     </div>
 </div>
 
+<div class="control-group">
+    <label class="control-label">分类</label>
+    <div class="controls">
+        <select name="category[]" class="span6 select2" multiple placeholder="请选择分类...">
+            <option value="normal" selected>默认分类</option>
+            <option value="c300">沪深300</option>
+        </select>
+    </div>
+</div>
 <!-- END FORM-->
 
 

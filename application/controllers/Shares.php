@@ -100,10 +100,10 @@ class SharesController extends AbstractController {
     public function addAction() {
 
         if ($this->request->isPost()) {
-
             $data = [
                 'code' => trim($this->request->getPost('code')),
                 'name' => trim($this->request->getPost('name')),
+                'category' => $this->request->getPost('category'),
             ];
 
             if ($data['code'] == '') {
@@ -114,6 +114,11 @@ class SharesController extends AbstractController {
                 return $this->ajax_error('名称不能为空');
             }
 
+            if (empty($data['category'])) {
+                return $this->ajax_error('分类不能为空');
+            } else {
+                $data['category'] = implode(",", $data['category']);
+            }
             // DB::table('m_gp_list')->insert([$data]);
             // Table_Gp_List::create($data);
             Table_Gp_List::forceCreate($data);
