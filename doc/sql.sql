@@ -49,7 +49,7 @@ CREATE TABLE `parse_json` (
 
 
 
-
+alter table m_gp_list add `category` set('normal', 'c300') NOT NULL DEFAULT 'normal' COMMENT 'normal:普通，c300:沪深300';
 
 
 mysqldump -uroot -p test > /web/yaf/doc/test.sql
