@@ -175,17 +175,6 @@ to_json(Tuple, Code) ->
     {{Time, Price, Yid},
         L1, L2} = Tuple,
 
-
-    % L11 = lists:foldl(fun({Y, Start, End, Num}, ReplyList) ->
-    %     TupleList = [
-    %         {<<"yid">>, Y},
-    %         {<<"start">>, Start},
-    %         {<<"end">>, End},
-    %         {<<"num">>, Num}
-    %     ],
-    %     [TupleList|ReplyList]
-    % end, [], L1),
-
     L22 = lists:foldl(fun({Y, L}, ReplyList) ->
         TL = [
             {<<"year">>, Y},
