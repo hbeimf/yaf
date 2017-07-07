@@ -1,6 +1,6 @@
 <?php
 
-// session_id(SID);
+session_id(SID);
 session_start();
 // echo session_id();
 

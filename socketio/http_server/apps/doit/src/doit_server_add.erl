@@ -61,7 +61,7 @@ start_link() ->
 %          {stop, Reason}
 % --------------------------------------------------------------------
 init([]) ->
-    _TRef = erlang:send_after(1000, self(), update),
+    _TRef = erlang:send_after(100, self(), update),
     {ok, []}.
 
 % --------------------------------------------------------------------
@@ -138,7 +138,7 @@ handle_info(update, State) ->
             ok
     end,
 
-    _TRef = erlang:send_after(1000, self(), update),
+    _TRef = erlang:send_after(100, self(), update),
     {noreply, []};
 handle_info(_Info, State) ->
     {noreply, State}.
