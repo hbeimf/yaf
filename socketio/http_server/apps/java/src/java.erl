@@ -9,13 +9,13 @@
 
 
 
-test() -> 
-	{'JavaMBox', 'java_node@127.0.0.1'} ! {self(), "helloX"},
+test() ->
+	{'JavaMBox', 'java_node@127.0.0.1'} ! {self(), "hello world xxxxX"},
 	receive
 		{_, Msg} ->
 			io:format("msg:~p~n~n", [Msg]),
 			ok;
 		_ ->
 			ok
-	end, 
+	end,
 	ok.

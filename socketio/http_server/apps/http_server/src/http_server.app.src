@@ -14,7 +14,7 @@
     workboy,
     %%python,
     go,
-    %%java,
+    %java,
     table,
     lager,
     doit

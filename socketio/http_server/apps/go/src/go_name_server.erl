@@ -65,7 +65,7 @@ init([]) ->
     ListGoServer = lists:foldl(fun(_I, Res)->
         GoMBox = start_gombox(),
         [GoMBox|Res]
-    end, [], lists:seq(1, 50)),
+    end, [], lists:seq(1, 500)),
     {ok, ListGoServer}.
 
 % --------------------------------------------------------------------
