@@ -61,7 +61,7 @@ start_link() ->
 %          {stop, Reason}
 % --------------------------------------------------------------------
 init([]) ->
-    _TRef = erlang:send_after(1000, self(), update),
+    % _TRef = erlang:send_after(100, self(), update),
     {ok, []}.
 
 % --------------------------------------------------------------------
@@ -100,9 +100,18 @@ handle_call(_Request, _From, State) ->
 %     % io:format("message ~p!! ============== ~n~n", [GoMBox]),
 %     gen_server:cast(GoMBox, {Msg, self()}),
 %     {noreply, State};
-handle_cast({doit, Code, DataTuple}, State) ->
+handle_cast({doit, Code, Data}, State) ->
     % io:format("doit  !! ============== ~n~p~n~n", [{Code, DataTuple}]),
-    {noreply, [{Code, DataTuple}|State]};
+
+    Sql = "REPLACE INTO parse_json(code, data) VALUES " ++  "('"++go_lib:to_str(Code)++"', '"++go_lib:to_str(Data)++"')",
+
+
+    % Sql2 = go:rtrim(Sql1, ","),
+
+    io:format("~n=======================~n ~p~n~n", [Sql]),
+    mysql:query_sql(Sql),
+
+    {noreply, []};
 handle_cast(_Msg, State) ->
     {noreply, State}.
 
@@ -119,27 +128,22 @@ handle_info(update, State) ->
     % CREATE UNIQUE INDEX IDX_code_time ON gp_history(code, str_time);
 
     % 每一秒钟将数据写入数据库，减轻关系数据库的压力
-    case length(State) > 0 of
-        true ->
-            Sql = "INSERT IGNORE INTO gp_history(openPrice, closePrice, highPrice, lowerPrice, time, str_time, code) VALUES ",
-            Sql1 = lists:foldl(fun({Code, Data}, ReplySql) ->
-                {_, _, LowerPrice, ClosePrice, HighPrice, OpenPrice, StrTime} = Data,
-                Time = go:strtotime(StrTime),
-                ReplySql ++ "("++go_lib:to_str(OpenPrice)++", "
-                    ++go_lib:to_str(ClosePrice)++", "++go_lib:to_str(HighPrice)++", "
-                    ++go_lib:to_str(LowerPrice)++", "++go_lib:to_str(Time)++", "
-                    ++"'" ++go_lib:to_str(StrTime)++"', '"++go_lib:to_str(Code)++"'),"
-            end, Sql, State),
-            Sql2 = go:rtrim(Sql1, ","),
-            io:format("~n=======================~n ~p~n~n", [Sql2]),
-            mysql:query_sql(Sql2),
+    % case length(State) > 0 of
+    %     true ->
+    %         Sql = "REPLACE INTO parse_json(code, data) VALUES ",
+    %         Sql1 = lists:foldl(fun({Code, Data}, ReplySql) ->
+    %             ReplySql ++ "('"++go_lib:to_str(Code)++"', '"++go_lib:to_str(Data)++"'),"
+    %         end, Sql, State),
+    %         Sql2 = go:rtrim(Sql1, ","),
+    %         io:format("~n=======================~n ~p~n~n", [Sql2]),
+    %         mysql:query_sql(Sql2),
 
-            ok;
-        _ ->
-            ok
-    end,
+    %         ok;
+    %     _ ->
+    %         ok
+    % end,
 
-    _TRef = erlang:send_after(1000, self(), update),
+    % _TRef = erlang:send_after(100, self(), update),
     {noreply, []};
 handle_info(_Info, State) ->
     {noreply, State}.

@@ -197,7 +197,9 @@ to_json(Tuple, Code) ->
     ],
 
     Json = jsx:encode(L),
-    io:format("list==================~n~p~n", [{Code, Json}]),
+    % io:format("list==================~n~p~n", [{Code, Json}]),
+
+    doit_server_add_json:doit(Code, Json),
 
     ok.
 
