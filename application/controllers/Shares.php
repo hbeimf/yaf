@@ -128,6 +128,16 @@ class SharesController extends AbstractController {
         $this->smarty->display('shares/add.tpl', $data);
     }
 
+
+    public function heapAction() {
+        $code = trim($this->request->getQuery('code'));
+
+        $data = [
+            'code' => $code,
+        ];
+        $this->smarty->display('shares/heap.tpl', $data);
+    }
+
     public function detailAction() {
         $code = trim($this->request->getQuery('code'));
 
@@ -136,6 +146,20 @@ class SharesController extends AbstractController {
         ];
         $this->smarty->display('shares/detail.tpl', $data);
     }
+
+
+    public function hjAction() {
+        $code = trim($this->request->getQuery('code'));
+        $row = Table_Gp_Json::selectRaw('*')->where('code', '=', $code)->get()->toArray();
+        // print_r($row);exit;
+
+        // $d = json_decode($row[0]['data'], true);
+
+        // print_r($d);exit;
+
+        echo $row[0]['data'];exit;
+    }
+
 
 
     public function jsonAction() {

@@ -62,8 +62,11 @@
                                 详情
                                 </a>
 
-                            </td>
+                            <a data-toggle="modal" data-target="#mod_900" href="/shares/heap/?code={{$r['code']}}" class="btn default" >
+                                堆积图
+                                </a>
 
+                            </td>
 
                         </tr>
                         {{/foreach}}
