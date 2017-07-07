@@ -51,7 +51,11 @@ init([]) ->
     ParseData = {doit_server_parse_data, {doit_server_parse_data, start_link, []},
                permanent, 5000, worker, [doit_server_parse_data]},
 
-    Children = [Doit, FetchWeb, Add, Timer, ParseData],
+    % 保存 json
+    AddJson = {doit_server_add_json, {doit_server_add_json, start_link, []},
+               permanent, 5000, worker, [doit_server_add_json]},
+
+    Children = [Doit, FetchWeb, Add, Timer, ParseData, AddJson],
 
     {ok, { {one_for_all, 10, 10}, Children} }.
 

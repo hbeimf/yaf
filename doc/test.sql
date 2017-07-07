@@ -107,7 +107,7 @@ CREATE TABLE `system_role` (
 
 LOCK TABLES `system_role` WRITE;
 /*!40000 ALTER TABLE `system_role` DISABLE KEYS */;
-INSERT INTO `system_role` VALUES (1,'管理员','3,4',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4,6,7,14,15,16,17,18,11,13',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017),(4,'test','2,3,4',1,'tet',0,0);
+INSERT INTO `system_role` VALUES (1,'管理员','3,4,6,8',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4,6,7,14,15,16,17,18,11,13',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017),(4,'test','2,3,4',1,'tet',0,0);
 /*!40000 ALTER TABLE `system_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,4 +148,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-04 17:50:09
+-- Dump completed on 2017-07-07 13:50:04

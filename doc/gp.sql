@@ -33,7 +33,7 @@ CREATE TABLE `gp_history` (
   `code` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'code',
   PRIMARY KEY (`id`),
   UNIQUE KEY `IDX_code_time` (`code`,`str_time`)
-) ENGINE=InnoDB AUTO_INCREMENT=1269724 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='历年股票数据';
+) ENGINE=InnoDB AUTO_INCREMENT=1290687 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='历年股票数据';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,22 @@ CREATE TABLE `m_gp_list` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '名称',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2855 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='股票列表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `parse_json`
+--
+
+DROP TABLE IF EXISTS `parse_json`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `parse_json` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'code',
+  `data` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `IDX_code` (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='分析结果';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,4 +97,4 @@ CREATE TABLE `sina_web_page` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-04 17:55:15
+-- Dump completed on 2017-07-07 13:51:59

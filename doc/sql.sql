@@ -39,6 +39,17 @@ CREATE TABLE `system_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+CREATE TABLE `parse_json` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'code',
+  `data` text COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `IDX_code` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='分析结果';
+
+
+
+
 
 
 mysqldump -uroot -p test > /web/yaf/doc/test.sql
