@@ -58,6 +58,10 @@
                             <td>{{$r['name']}}</td>
                             <td>
 
+                            <a data-toggle="modal" data-target="#mod_1200" href="/shares/add/?code={{$r['code']}}" class="btn green" >
+                                修改
+                                </a>
+
                             <a data-toggle="modal" data-target="#mod_1200" href="/shares/detail/?code={{$r['code']}}" class="btn default" >
                                 详情
                                 </a>

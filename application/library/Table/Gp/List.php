@@ -20,4 +20,11 @@ class Table_Gp_List extends EloquentModel {
     // 如果您不希望 Eloquent 维护这些字段，在模型中添加以下属性：public $timestamps = false;
     public $timestamps = false;
 
+
+    // http://www.cnblogs.com/52fhy/p/5277657.html
+    // 请参照这个链接上的demo
+    public function findByCode($code = '') {
+        return $this->where('code', '=', $code)->first()->toArray();
+    }
+
 }

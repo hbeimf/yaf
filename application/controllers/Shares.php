@@ -98,8 +98,11 @@ class SharesController extends AbstractController {
 
 
     public function addAction() {
+        $code = trim($this->request->getQuery('code'));
 
         if ($this->request->isPost()) {
+            $id =  trim($this->request->getPost('id'));
+
             $data = [
                 'code' => trim($this->request->getPost('code')),
                 'name' => trim($this->request->getPost('name')),
@@ -119,16 +122,25 @@ class SharesController extends AbstractController {
             } else {
                 $data['category'] = implode(",", $data['category']);
             }
-            // DB::table('m_gp_list')->insert([$data]);
-            // Table_Gp_List::create($data);
-            Table_Gp_List::forceCreate($data);
 
-            // p($data);exit;
-            return $this->ajax_success('添加成功！');
+            if ($id != '') {
+                Table_Gp_List::where('id', '=', $id)->update($data);
+                return $this->ajax_success('更新成功！');
+            } else {
+                Table_Gp_List::forceCreate($data);
+                return $this->ajax_success('添加成功！');
+            }
+
 
         }
 
         $data = [];
+        if ($code != '') {
+            $gp = new Table_Gp_List();
+            $row = $gp->findByCode($code);
+            $row['category'] = explode(",", $row['category']);
+            $data['row'] = $row;
+        }
 
         $this->smarty->display('shares/add.tpl', $data);
     }
