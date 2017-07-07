@@ -278,7 +278,10 @@ start_java_node() ->
 
 	% R = os:cmd(Cmd),
 
-	open_port({spawn, Cmd},[exit_status]).
+	_Port = open_port({spawn, Cmd},[exit_status]).
+
+    % erlang:port_close(Port)
+
 	% io:format("Cmd:~p~n", [R]),
 	% ok.
 
