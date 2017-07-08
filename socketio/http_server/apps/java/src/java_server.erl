@@ -87,6 +87,8 @@ init(_Options) ->
     process_flag(trap_exit, true),
     PortRef = start_java_node(),
     erlang:send_after(75, self(), {'$gen_cast', ping_pong_with_java}),
+    % port_close(PortRef),
+
     {ok, #state{ port_ref = PortRef }}.
 
 %%--------------------------------------------------------------------
@@ -103,60 +105,6 @@ init(_Options) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-
-
-% handle_call({call, ServerName}, _From, State) ->
-%     % io:format("handle call demo !! ============== ~n~n"),
-%     {ok, {_, Host} } = application:get_env(go, go_mailbox),
-%     Utf8Name = unicode:characters_to_binary("xiaomin小明"),
-%     Json = jsx:encode(#{name=>Utf8Name, email=><<"123456@gmail.com">>, age=> 1}),
-%     % io:format("send :~p !! ============== ~n~n", [Json]),
-
-%     GoMBox = {ServerName, Host},
-%     Reply = gen_server:call(GoMBox, {10001, Json}),
-%     {reply, Reply, State};
-
-% handle_call(call, _From, State) ->
-%     {ok, GoMBox} = application:get_env(go, go_mailbox),
-
-%     Utf8Name = unicode:characters_to_binary("xiaomin小明"),
-%     Json = jsx:encode(#{name=>Utf8Name, email=><<"123456@gmail.com">>, age=> 1}),
-
-%     Call = {10000, Json},
-%     Reply = gen_server:call(GoMBox, Call),
-
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-
-%     {reply, Reply, State};
-%% 启动一个新的　go 进程，　并返回　进程号 {Pid}　
-% handle_call(start_goroutine, _From, State) ->
-%     {ok, {GoSrv, Host} } = application:get_env(go, go_mailbox),
-%     % {_, _, ReplyPid} = gen_server:call({GoSrv, Host}, {new, self()}),
-%     {_, ServerName} = gen_server:call({GoSrv, Host}, start_goroutine),
-%     % io:format("reply :~p !! ============== ~n~n", [ServerName]),
-%     {reply, {ServerName, Host}, State};
-% handle_call({stop_goroutine, GoMBox}, _From, State) ->
-%     {ok, {GoSrv, _Host} } = application:get_env(go, go_mailbox),
-%     {ServerName, _} = GoMBox,
-%     case ServerName of
-%         GoSrv ->
-%             ok;
-%         _ ->
-%             gen_server:cast(GoMBox, stop)
-%     end,
-%     {reply, GoMBox, State};
-% handle_call(info, _From, State) ->
-%     {ok, GoMBox} = application:get_env(go, go_mailbox),
-%     Reply = gen_server:call(GoMBox, info),
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-%     {reply, Reply, State};
-% handle_call({info, ServerName}, _From, State) ->
-%     {ok, {_GoSrv, Host} } = application:get_env(go, go_mailbox),
-%     % {ok, GoMBox} = application:get_env(go, go_mailbox),
-%     GoMBox = {ServerName, Host},
-%     Reply = gen_server:call(GoMBox, info),
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-%     {reply, Reply, State};
 handle_call(_Msg, _From, State) ->
     % ?ERR("unhandled call message: ~p", [Msg]),
     {reply, unimplemented, State}.
@@ -252,7 +200,8 @@ terminate(_, #state{remote_pid = Pid}) when is_pid(Pid) ->
     % gen_server:cast(GoMBox, stop),
     % force_kill_process(),
     ok;
-terminate(_Reason, _State) ->
+terminate(_Reason, #state{port_ref = Port} = State) ->
+    port_close(Port),
     ok.
 
 %%--------------------------------------------------------------------
@@ -278,37 +227,11 @@ start_java_node() ->
 
 	% R = os:cmd(Cmd),
 
-	_Port = open_port({spawn, Cmd},[exit_status]).
+	open_port({spawn, Cmd},[exit_status]).
 
     % erlang:port_close(Port)
 
 	% io:format("Cmd:~p~n", [R]),
 	% ok.
 
-% start_java_node() ->
-%     {ok, GoCmd}         = application:get_env(go, go_cmd),
-%     {ok, GoEpmdPort}    = application:get_env(go, go_epmd_port),
-%     {ok, GoMBox}        = application:get_env(go, go_mailbox),
-%     {GenName, NodeName} = GoMBox,
-%     {ok, GoLogFile}     = application:get_env(go, go_log_file),
-%     {ok, GoPidFile}     = application:get_env(go, go_pid_file),
-%     CmdPath             = code:lib_dir(go, priv),
-%     Cmd = lists:flatten([
-%                 CmdPath, "/", GoCmd,
-%                 " -epmd_port "  , integer_to_list(GoEpmdPort),
-%                 " -log "        , CmdPath, "/", GoLogFile,
-%                 " -gen_server " , atom_to_list(GenName),
-%                 " -name "       , atom_to_list(NodeName),
-%                 " -cookie "     , atom_to_list(erlang:get_cookie()),
-%                 " -pid_file "   , CmdPath, "/", GoPidFile ]),
-%     % ?LOG("Start Go node with command: ~p", [Cmd]),
-%     force_kill_process(),
-%     open_port({spawn, Cmd},[exit_status]).
 
-% force_kill_process() ->
-%     {ok, GoPidFile} = application:get_env(go, go_pid_file),
-%     CmdPath         = code:lib_dir(go, priv),
-%     Cmd             = lists:flatten(["kill -9 $(cat ", CmdPath, "/", GoPidFile, ")"]),
-%     os:cmd(Cmd),
-%     os:cmd("pkill xgn."),
-%     ok.
