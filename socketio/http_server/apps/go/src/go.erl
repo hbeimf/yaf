@@ -28,7 +28,7 @@ info() ->
     call(Call).
 
 parse_list(List) ->
-    parse_list(List, 0.02).
+    parse_list(List, 0.1).
 
 parse_list(List, Add) ->
     Call = {list, List, Add},
