@@ -18,7 +18,7 @@ require([
                 var $myChart = ec.init($div[0]);
                 // start
                 var data = $.parseJSON(res);
-                // console.log(data);
+                console.log(data);
 
                 var index = new Array();
                 var val = new Array();
