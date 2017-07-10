@@ -46,6 +46,11 @@
                             <th class="hidden-480">id</th>
                             <th class="hidden-480">code</th>
                             <th class="hidden-480">名称</th>
+                            <th class="hidden-480">更新时间</th>
+                            <th class="hidden-480">价格</th>
+                            <th class="hidden-480">YID</th>
+                            <th class="hidden-480">年数</th>
+
                             <th class="hidden-480">明细</th>
                         </tr>
                     </thead>
@@ -56,6 +61,10 @@
                             <td>{{$r['id']}}</td>
                             <td>{{$r['code']}}</td>
                             <td>{{$r['name']}}</td>
+                            <td>{{$r['last_time']}}</td>
+                            <td>{{$r['last_price']}}</td>
+                            <td>{{$r['last_yid']}}</td>
+                            <td>{{$r['all_years']}}</td>
                             <td>
 
                             <a data-toggle="modal" data-target="#mod_1200" href="/shares/add/?code={{$r['code']}}" class="btn green" >
