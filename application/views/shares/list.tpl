@@ -61,7 +61,7 @@
                             <td>{{$r['id']}}</td>
                             <td>{{$r['code']}}</td>
                             <td>{{$r['name']}}</td>
-                            <td>{{$r['last_time']}}</td>
+                            <td>{{date("Y-m-d", $r['last_time'])}}</td>
                             <td>{{$r['last_price']}}</td>
                             <td>{{$r['last_yid']}}</td>
                             <td>{{$r['all_years']}}</td>
