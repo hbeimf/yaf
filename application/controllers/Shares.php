@@ -77,6 +77,8 @@ class SharesController extends AbstractController {
                             ->skip($skip)
                             ->limit($params['page_size'])
                             ->orderBy('b.last_yid', 'asc')
+                            ->orderBy('b.last_price', 'asc')
+
                             ->get();
 
         $totalPage = ceil($count / $params['page_size']);
