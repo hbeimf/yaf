@@ -67,7 +67,7 @@ class SharesController extends AbstractController {
 
         $account_obj = Table_Gp_List::selectRaw($select);
         if (trim($params['name']) != '') {
-            $account_obj->where('name', 'like', "%{$params['name']}%");
+            $account_obj->where('m_gp_list.name', 'like', "%{$params['name']}%");
         }
 
         $count = $account_obj->count();
@@ -76,6 +76,7 @@ class SharesController extends AbstractController {
                             ->leftJoin('parse_status as b', 'b.code', '=', 'm_gp_list.code')
                             ->skip($skip)
                             ->limit($params['page_size'])
+                            ->orderBy('b.last_yid', 'asc')
                             ->get();
 
         $totalPage = ceil($count / $params['page_size']);
