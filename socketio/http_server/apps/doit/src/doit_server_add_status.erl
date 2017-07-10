@@ -1,6 +1,6 @@
 %% gen_server代码模板
 
--module(doit_server_add_json).
+-module(doit_server_add_status).
 
 -behaviour(gen_server).
 % --------------------------------------------------------------------
@@ -23,8 +23,8 @@
 % --------------------------------------------------------------------
 -export([doit/2]).
 
-doit(Code, DataTuple) ->
-    gen_server:cast(?MODULE, {doit, Code, DataTuple}).
+doit(Code, Data) ->
+    gen_server:cast(?MODULE, {doit, Code, Data}).
 
 
 
@@ -102,13 +102,27 @@ handle_call(_Request, _From, State) ->
 %     {noreply, State};
 handle_cast({doit, Code, Data}, _State) ->
     % io:format("doit  !! ============== ~n~p~n~n", [{Code, DataTuple}]),
+    % Status = #{
+    %     code => Code,
+    %     last_time => Time,
+    %     last_price => Price,
+    %     last_yid => Yid,
+    %     all_years => length(L2)
+    % },
+    Code = maps:get(code, Data),
+    LastTime = maps:get(last_time, Data),
+    LastPrice = three(maps:get(last_price, Data)),
+    LastYid = maps:get(last_yid, Data),
+    AllYears = maps:get(all_years, Data),
 
-    Sql = "REPLACE INTO parse_json(code, data) VALUES " ++  "('"++go_lib:to_str(Code)++"', '"++go_lib:to_str(Data)++"')",
+    Sql = "REPLACE INTO parse_status(code, last_time, last_price, last_yid, all_years) VALUES "
+             ++  "('"++go_lib:to_str(Code)++"', "++go_lib:to_str(LastTime)++", "++go_lib:to_str(LastPrice)++", "
+                ++go_lib:to_str(LastYid)++", "++go_lib:to_str(AllYears)++")",
 
 
     % Sql2 = go:rtrim(Sql1, ","),
 
-    % io:format("~n=======================~n ~p~n~n", [Sql]),
+    io:format("~n=======================~n ~p~n~n", [{LastPrice, Sql}]),
     mysql:query_sql(Sql),
 
     {noreply, []};
@@ -172,3 +186,5 @@ code_change(_OldVsn, State, _Extra) ->
 
 % private functions
 
+three(Num) ->
+    hd(io_lib:format("~.3f",[Num])).

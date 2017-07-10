@@ -55,7 +55,12 @@ init([]) ->
     AddJson = {doit_server_add_json, {doit_server_add_json, start_link, []},
                permanent, 5000, worker, [doit_server_add_json]},
 
-    Children = [Doit, FetchWeb, Add, Timer, ParseData, AddJson],
+    % 保存 status
+    AddStatus = {doit_server_add_status, {doit_server_add_status, start_link, []},
+               permanent, 5000, worker, [doit_server_add_status]},
+
+
+    Children = [Doit, FetchWeb, Add, Timer, ParseData, AddJson, AddStatus],
 
     {ok, { {one_for_all, 10, 10}, Children} }.
 

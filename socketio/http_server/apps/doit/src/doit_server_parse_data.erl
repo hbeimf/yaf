@@ -172,11 +172,16 @@ code_change(_OldVsn, State, _Extra) ->
 
 
 % private functions
+% 精确到小数点后3位
+% three(Num) ->
+%     list_to_float(hd(io_lib:format("~.3f",[Num]))).
 
 % doit_server_parse_data:doit().
 to_json(Tuple, Code) ->
     {{Time, Price, Yid},
         L1, L2} = Tuple,
+
+    % Price = three(Price0),
 
     L22 = lists:foldl(fun({Y, L}, ReplyList) ->
         TL = [
@@ -201,6 +206,16 @@ to_json(Tuple, Code) ->
 
     doit_server_add_json:doit(Code, Json),
 
+    % 整理状态并添加入数据库
+    Status = #{
+        code => Code,
+        last_time => Time,
+        last_price => Price,
+        last_yid => Yid,
+        all_years => length(L2)
+    },
+
+    doit_server_add_status:doit(Code, Status),
     ok.
 
 to_kv_list(List) ->

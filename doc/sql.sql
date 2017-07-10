@@ -49,6 +49,29 @@ CREATE TABLE `parse_json` (
 
 
 
+-- Status = #{
+--         code => Code,
+--         last_time => Time,
+--         last_price => Price,
+--         last_yid => Yid,
+--         all_years => length(L2)
+--     },
+
+CREATE TABLE `parse_status` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `code` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT 'code',
+  `last_time` int(11) NOT NULL DEFAULT '0' COMMENT '',
+  `last_price` double(14,4) unsigned NOT NULL DEFAULT '0.0000' COMMENT '',
+  `last_yid` int(11) NOT NULL DEFAULT '0' COMMENT '',
+  `all_years` int(11) NOT NULL DEFAULT '0' COMMENT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `IDX_code` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='分析结果';
+
+
+
+
+
 alter table m_gp_list add `category` set('normal', 'c300') NOT NULL DEFAULT 'normal' COMMENT 'normal:普通，c300:沪深300';
 
 
