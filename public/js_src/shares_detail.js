@@ -85,10 +85,11 @@ require([
             $.get("/shares/json/?code="+code, function(res){
                 var $myChart = ec.init($div[0]);
                 // start
-                var data = $.parseJSON(res);
+                var reply = $.parseJSON(res);
+                // console.log(reply);
                 option = {
                     title: {
-                        text: '动态数据 + 时间坐标轴'
+                        text: reply.name + ' + '+reply.code
                     },
                     tooltip: {
                         trigger: 'axis',
@@ -118,7 +119,7 @@ require([
                         type: 'line',
                         showSymbol: false,
                         hoverAnimation: false,
-                        data: data
+                        data: reply.data
                     }]
                 };
 

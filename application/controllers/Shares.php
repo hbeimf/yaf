@@ -202,7 +202,17 @@ class SharesController extends AbstractController {
             ];
         }
 
-        echo json_encode($data);
+        $table = new Table_Gp_List();
+        $row = $table->findByCode($code);
+
+
+        $reply = [
+            'name' => $row['name'],
+            'code' => $code,
+            'data' => $data,
+        ];
+
+        echo json_encode($reply);
 
         exit;
 
