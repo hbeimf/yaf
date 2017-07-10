@@ -95,7 +95,8 @@ require([
                         trigger: 'axis',
                         formatter: function (params) {
                             params = params[0];
-                            return params.name + ':' + params.value[0] + ':' + params.value[1];
+                            // return params.name + ':' + params.value[0] + ':' + params.value[1];
+                            return params.value[0] + ': [ ￥' + params.value[1] + ' ]';
                         },
                         axisPointer: {
                             animation: false
