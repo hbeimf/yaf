@@ -45,14 +45,16 @@ action(20000, _BinString, Status) ->
 
 action(20001, _BinString, Status) ->
     io:format("file: ~p =========== \nline:~p =========== ~n~n ~p ~n~n", [?FILE, ?LINE, "BinString"]),
-    Msg = protocol_pb:encode_msg(#'Msg'{msg="查看分析结果"}),
+    Msg = protocol_pb:encode_msg(#'Msg'{msg="分析数据"}),
     ReplyBin = protocol_pb:encode_msg(#'Base'{id=20000, data=Msg}),
 
     io:format("file: ~p =========== \nline:~p =========== ~n~n ~p ~n~n", [?FILE, ?LINE, ReplyBin]),
     % ReplyBin = protocol_pb:encode_msg(#'Base'{id=10001, data=BinString}),
 
-    Work = {show_result, self()},
-    workboy:start(Work),
+    % Work = {show_result, self()},
+    % workboy:start(Work),
+
+    doit_server_parse_data:doit(),
 
     {reply_binary, Status, ReplyBin};
 

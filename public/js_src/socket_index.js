@@ -179,6 +179,10 @@ require([
             SendWork(20000);
         });
 
+        $('#parse').click(function(){
+            SendWork(20001);
+        });
+
         $('#clearConsole').click(function (){
             $('#console').html('');
         });
