@@ -23,7 +23,7 @@ func mysql_get() {
     defer engine.Close()
     // test(engine)
 
-    results, err := engine.Query("select * from users")
+    results, err := engine.Query("select * from users limit 3")
 
     fmt.Println("users2:", results)
 
