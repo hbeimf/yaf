@@ -7,7 +7,26 @@ import (
     _ "github.com/go-sql-driver/mysql"
     "github.com/go-xorm/xorm"
     "fmt"
+    // "time"
 )
+
+// CREATE TABLE `users` (
+//   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+//   `username` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+//   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+//   PRIMARY KEY (`id`),
+//   UNIQUE KEY `users_email_unique` (`email`)
+// ) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+
+// 针对users表写个增，删， 改， 查 的demo
+
+
+type Users struct {
+    Id   int `xorm:"int(10) notnull 'id'"`
+    Username string `xorm:"varchar(40) notnull 'username'"`
+    Email string `xorm:"varchar(255) notnull 'email'"`
+}
+
 
 var engine *xorm.Engine
 
@@ -15,18 +34,43 @@ func mysqlEngine() (*xorm.Engine, error) {
     return xorm.NewEngine("mysql", "root:123456@/test?charset=utf8")
 }
 
+
 func mysql_get() {
+    Sql := "select * from users limit 3"
+    rows := mysql_select(Sql)
+    for k, v := range rows {
+        fmt.Printf("k=%v, v=%v\n", k, v)
+
+        fmt.Printf("k=%v, id=%v\n", k, v["id"])
+        fmt.Printf("k=%v, username=%v\n", k, v["username"])
+        fmt.Printf("k=%v, email=%v\n", k, v["email"])
+    }
+}
+
+
+
+func mysql_select(SelectSql string) ([]map[string]string) {
+    reply := []map[string]string{}
+
     engine, err := mysqlEngine()
     if err != nil {
         fmt.Println(err)
-        return
+        return reply
     }
-    defer engine.Close()
-    // test(engine)
 
-    results, err := engine.Query("select * from users limit 3")
+    if err := engine.Sync2(new(Users)); err != nil {
+        fmt.Println("Fail to sync struct to  table schema :", err)
+        return reply
+    }
 
-    fmt.Println("users2:", results)
+    results, err := engine.QueryString(SelectSql)
+
+    if err != nil {
+        fmt.Println("err:", err)
+        return reply
+    }
+
+    return results
 
 }
 

@@ -7,8 +7,7 @@ import (
 
 // var obj = NewElasticSearch("127.0.0.1", "9200")
 
-func TestGet(t *testing.T) {
-
+func TestMysqlGet(t *testing.T) {
 
     mysql_get()
 
