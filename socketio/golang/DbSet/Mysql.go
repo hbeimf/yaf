@@ -101,3 +101,13 @@ func mysql_insert() {
 }
 
 
+func mysql_delete() {
+
+}
+
+
+func mysql_update() {
+
+}
+
+
