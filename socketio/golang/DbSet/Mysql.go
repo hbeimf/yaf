@@ -23,7 +23,7 @@ import (
 
 type Users struct {
     Id   int `xorm:"int(10) notnull 'id'"`
-    Username string `xorm:"varchar(40) notnull 'username'"`
+    UserName string `xorm:"varchar(40) notnull 'username'"`
     Email string `xorm:"varchar(255) notnull 'email'"`
 }
 
@@ -63,12 +63,14 @@ func mysql_select(SelectSql string) ([]map[string]string) {
     return results
 }
 
-
 // =================================
+// 验证查询函数， 输出查询结果
 func mysql_get() {
     init_engine()
 
-    Sql := "select * from users limit 3"
+    // mysql_insert()
+
+    Sql := "select * from users limit 10"
     rows := mysql_select(Sql)
     for k, v := range rows {
         fmt.Printf("k=%v, v=%v\n", k, v)
@@ -77,6 +79,25 @@ func mysql_get() {
         fmt.Printf("k=%v, username=%v\n", k, v["username"])
         fmt.Printf("k=%v, email=%v\n", k, v["email"])
     }
+
+
+}
+
+
+
+// 插入测试数据
+func mysql_insert() {
+    users := []Users{Users{UserName: "lucy", Email:"123456@qq.com"}, Users{UserName: "lily", Email:"78910@qq.com"}}
+
+    var (
+        num int64
+        err error
+    )
+    if num, err = engine.Insert(users); err != nil {
+        fmt.Printf("Fail to Insert Persons :", err)
+
+    }
+    fmt.Printf("Succ to insert person number : %d\n", num)
 }
 
 
