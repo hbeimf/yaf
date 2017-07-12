@@ -2,6 +2,7 @@ package DbSet
 
 // https://github.com/go-xorm/xorm
 // https://www.kancloud.cn/kancloud/xorm-manual-zh-cn/56013
+// http://blog.csdn.net/aminic/article/details/42029653
 import (
     _ "github.com/go-sql-driver/mysql"
     "github.com/go-xorm/xorm"
