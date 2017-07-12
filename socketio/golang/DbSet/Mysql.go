@@ -34,8 +34,40 @@ func mysqlEngine() (*xorm.Engine, error) {
     return xorm.NewEngine("mysql", "root:123456@/test?charset=utf8")
 }
 
+// 初始化包全局连接引擎 engine
+// 关联表结构
+func init_engine() {
+    var err error
+    engine, err = mysqlEngine()
+    if err != nil {
+        fmt.Println(err)
+    }
 
+    if err := engine.Sync2(new(Users)); err != nil {
+        fmt.Println("Fail to sync struct to  table schema :", err)
+    }
+}
+
+
+// 查询一条sql
+func mysql_select(SelectSql string) ([]map[string]string) {
+    reply := []map[string]string{}
+
+    results, err := engine.QueryString(SelectSql)
+
+    if err != nil {
+        fmt.Println("err:", err)
+        return reply
+    }
+
+    return results
+}
+
+
+// =================================
 func mysql_get() {
+    init_engine()
+
     Sql := "select * from users limit 3"
     rows := mysql_select(Sql)
     for k, v := range rows {
@@ -46,35 +78,5 @@ func mysql_get() {
         fmt.Printf("k=%v, email=%v\n", k, v["email"])
     }
 }
-
-
-
-func mysql_select(SelectSql string) ([]map[string]string) {
-    reply := []map[string]string{}
-
-    engine, err := mysqlEngine()
-    if err != nil {
-        fmt.Println(err)
-        return reply
-    }
-
-    if err := engine.Sync2(new(Users)); err != nil {
-        fmt.Println("Fail to sync struct to  table schema :", err)
-        return reply
-    }
-
-    results, err := engine.QueryString(SelectSql)
-
-    if err != nil {
-        fmt.Println("err:", err)
-        return reply
-    }
-
-    return results
-
-}
-
-
-
 
 
