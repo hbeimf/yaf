@@ -69,6 +69,9 @@ func mysql_get() {
     init_engine()
 
     // mysql_insert()
+    // mysql_update()
+
+    mysql_delete()
 
     Sql := "select * from users limit 10"
     rows := mysql_select(Sql)
@@ -102,12 +105,30 @@ func mysql_insert() {
 
 
 func mysql_delete() {
+    var user Users
+
+    username := "lucyxx"
+    affected, err := engine.Where("users.username = ?", username).Delete(&user)
+
+    if err != nil {
+        fmt.Printf("Error to delete user err: ", err)
+    }
+
+    fmt.Printf("Succ to delete user number : %d\n", affected)
 
 }
 
 
 func mysql_update() {
+    username := "lucyxx"
+    email := "123456@qq.com"
+    affected, err := engine.Exec("update users set username = ? where email = ?", username, email)
 
+    if err != nil {
+        fmt.Printf("Succ to update user err: ", err)
+    }
+
+    fmt.Printf("Succ to update user number : %d\n", affected)
 }
 
 
