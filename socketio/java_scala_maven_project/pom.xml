@@ -52,7 +52,7 @@
                 </executions>
             </plugin>
 
-
+            <!-- 打胖jar插件 -->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
