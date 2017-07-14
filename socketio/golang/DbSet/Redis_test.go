@@ -29,3 +29,9 @@ func TestLPush(t *testing.T) {
 
 
 
+func TestSetNX(t *testing.T) {
+    obj.SetNX("key1000", "value_1000")
+}
+
+
+

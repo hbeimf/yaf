@@ -6,6 +6,7 @@ import (
     "github.com/garyburd/redigo/redis"
     "time"
     // "log"
+    // "fmt"
 )
 
 type Redis struct {
@@ -34,6 +35,8 @@ func NewRedisPool(server string, num int) *Redis {
     return &Redis{pool}
 }
 
+
+// 字符串api
 func (this *Redis) Get(key string) (string, error) {
     if len(key) == 0 {
         return "", nil
@@ -62,6 +65,21 @@ func (this *Redis) Set(key string, val string) {
     conn.Do("SET", key, val)
 }
 
+
+// 如果返回1设置成功
+// 返回0设置失败
+func (this *Redis) SetNX(key string, val string) int {
+    conn := this.pool.Get()
+    defer conn.Close()
+
+    r, err := conn.Do("SETNX", key, val)
+
+    if err != nil {
+        return 0
+    }
+
+    return r
+}
 
 func (this *Redis) LPush(listName string, val string) {
     conn := this.pool.Get()
