@@ -128,7 +128,7 @@ try {
 
 https://github.com/molaifeng/yaf_eloquent
 
-
+各种开发环境的版本
 
 http://yaf.demo.com/info.php
 
@@ -138,6 +138,12 @@ yaf-2.3.4
 swoole 1.8.5
 
 golang, erlang 版本都是 1.8.3
+
+maomao@maomao-ThinkCentre-E73:/web/yaf$ java -version
+java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+
 
 
 
