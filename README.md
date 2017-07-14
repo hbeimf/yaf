@@ -137,7 +137,7 @@ yaf-2.3.4
 
 swoole 1.8.5
 
-go version go1.4 linux/amd64
+golang, erlang 版本都是 1.8.3
 
 
 
