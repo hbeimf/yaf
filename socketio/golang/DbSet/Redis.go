@@ -6,7 +6,7 @@ import (
     "github.com/garyburd/redigo/redis"
     "time"
     // "log"
-    // "fmt"
+    "fmt"
 )
 
 type Redis struct {
@@ -36,7 +36,7 @@ func NewRedisPool(server string, num int) *Redis {
 }
 
 
-// 字符串api
+// 字符串api start  ==================================================
 func (this *Redis) Get(key string) (string, error) {
     if len(key) == 0 {
         return "", nil
@@ -78,8 +78,32 @@ func (this *Redis) SetNX(key string, val string) int {
         return 0
     }
 
-    return r
+    return int(r.(int64))
 }
+
+// 设置秒级过期时间
+func (this *Redis) EXPIRE(key string, timeout int) {
+    conn := this.pool.Get()
+    defer conn.Close()
+
+    r, err := conn.Do("EXPIRE", key, timeout)
+
+    fmt.Println(err)
+    fmt.Println(r)
+}
+
+// 设置毫秒级过期时间
+func (this *Redis) PEXPIRE(key string, timeout int) {
+    conn := this.pool.Get()
+    defer conn.Close()
+
+    r, err := conn.Do("PEXPIRE", key, timeout)
+
+    fmt.Println(err)
+    fmt.Println(r)
+}
+
+// 字符串api end ==================================================
 
 func (this *Redis) LPush(listName string, val string) {
     conn := this.pool.Get()
