@@ -26,9 +26,6 @@
 
 -export([start_goroutine/0, stop_goroutine/1, stop_by_name/1, send_cast/2]).
 
-% info() ->
-%     gen_server:call(?MODULE, info).
-
 start_goroutine() ->
     gen_server:call(?MODULE, start_goroutine).
 
@@ -45,9 +42,6 @@ send_cast(GoMBox, Msg) ->
 
 get_gombox() ->
     gen_server:call(?MODULE, get_gombox).
-
-% start_link() ->
-%     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
 
 start_link() ->
     gen_server:start_link({local, ?MODULE}, ?MODULE, [], []).
@@ -99,14 +93,7 @@ handle_call({stop_goroutine, GoMBox}, _From, State) ->
             gen_server:cast(GoMBox, stop),
             lists:delete(GoMBox, State)
     end,
-
     {reply, GoMBox, NewState};
-% handle_call(info, _From, State) ->
-%     {ok, GoMBox} = application:get_env(go, go_mailbox),
-%     Reply = gen_server:call(GoMBox, info),
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-%     {reply, Reply, State};
-
 handle_call(_Request, _From, State) ->
     Reply = ok,
     {reply, Reply, State}.
@@ -120,8 +107,6 @@ handle_call(_Request, _From, State) ->
 % --------------------------------------------------------------------
 handle_cast({send_cast, GoMBox, Msg}, State) ->
     io:format("send cast !! ============== ~n~n"),
-    % {ok, GoMBox} = application:get_env(go, go_mailbox),
-    % io:format("message ~p!! ============== ~n~n", [GoMBox]),
     gen_server:cast(GoMBox, {Msg, self()}),
     {noreply, State};
 handle_cast(_Msg, State) ->
@@ -134,9 +119,6 @@ handle_cast(_Msg, State) ->
 %          {noreply, State, Timeout} |
 %          {stop, Reason, State}            (terminate/2 is called)
 % --------------------------------------------------------------------
-% handle_info(_Info, State) ->
-%     {noreply, State}.
-
 handle_info(Info, State) ->
     % 接收来自go 发过来的异步消息
     io:format("~nhandle info BBB!!============== ~n~p~n", [Info]),

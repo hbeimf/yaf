@@ -32,33 +32,6 @@
 %%%===================================================================
 %%% API
 %%%===================================================================
-% call() ->
-%     gen_server:call(?MODULE, call).
-
-% call(ServerName) ->
-%     gen_server:call(?MODULE, {call, ServerName}).
-
-
-% start_goroutine() ->
-%     gen_server:call(?MODULE, start_goroutine).
-
-
-% info() ->
-%     gen_server:call(?MODULE, info).
-
-% info(ServerName) ->
-%     gen_server:call(?MODULE, {info, ServerName}).
-
-
-% stop_goroutine(GoMBox) ->
-%     gen_server:call(?MODULE, {stop_goroutine, GoMBox}).
-
-
-
-% send_cast(GoMBox, Msg) ->
-%     gen_server:cast(?MODULE, {send_cast, GoMBox, Msg}).
-
-
 
 %%--------------------------------------------------------------------
 %% @doc
@@ -105,60 +78,6 @@ init(_Options) ->
 %%                                   {stop, Reason, State}
 %% @end
 %%--------------------------------------------------------------------
-
-
-% handle_call({call, ServerName}, _From, State) ->
-%     % io:format("handle call demo !! ============== ~n~n"),
-%     {ok, {_, Host} } = application:get_env(go, go_mailbox),
-%     Utf8Name = unicode:characters_to_binary("xiaomin小明"),
-%     Json = jsx:encode(#{name=>Utf8Name, email=><<"123456@gmail.com">>, age=> 1}),
-%     % io:format("send :~p !! ============== ~n~n", [Json]),
-
-%     GoMBox = {ServerName, Host},
-%     Reply = gen_server:call(GoMBox, {10001, Json}),
-%     {reply, Reply, State};
-
-% handle_call(call, _From, State) ->
-%     {ok, GoMBox} = application:get_env(go, go_mailbox),
-
-%     Utf8Name = unicode:characters_to_binary("xiaomin小明"),
-%     Json = jsx:encode(#{name=>Utf8Name, email=><<"123456@gmail.com">>, age=> 1}),
-
-%     Call = {10000, Json},
-%     Reply = gen_server:call(GoMBox, Call),
-
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-
-%     {reply, Reply, State};
-%% 启动一个新的　go 进程，　并返回　进程号 {Pid}　
-% handle_call(start_goroutine, _From, State) ->
-%     {ok, {GoSrv, Host} } = application:get_env(go, go_mailbox),
-%     % {_, _, ReplyPid} = gen_server:call({GoSrv, Host}, {new, self()}),
-%     {_, ServerName} = gen_server:call({GoSrv, Host}, start_goroutine),
-%     % io:format("reply :~p !! ============== ~n~n", [ServerName]),
-%     {reply, {ServerName, Host}, State};
-% handle_call({stop_goroutine, GoMBox}, _From, State) ->
-%     {ok, {GoSrv, _Host} } = application:get_env(go, go_mailbox),
-%     {ServerName, _} = GoMBox,
-%     case ServerName of
-%         GoSrv ->
-%             ok;
-%         _ ->
-%             gen_server:cast(GoMBox, stop)
-%     end,
-%     {reply, GoMBox, State};
-% handle_call(info, _From, State) ->
-%     {ok, GoMBox} = application:get_env(go, go_mailbox),
-%     Reply = gen_server:call(GoMBox, info),
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-%     {reply, Reply, State};
-% handle_call({info, ServerName}, _From, State) ->
-%     {ok, {_GoSrv, Host} } = application:get_env(go, go_mailbox),
-%     % {ok, GoMBox} = application:get_env(go, go_mailbox),
-%     GoMBox = {ServerName, Host},
-%     Reply = gen_server:call(GoMBox, info),
-%     % io:format("reply :~p !! ============== ~n~n", [Reply]),
-%     {reply, Reply, State};
 handle_call(_Msg, _From, State) ->
     % ?ERR("unhandled call message: ~p", [Msg]),
     {reply, unimplemented, State}.
@@ -182,17 +101,6 @@ handle_cast(ping_pong_with_go, State) ->
 
     gen_server:cast(GoMBox, {ping, self()}),
     {noreply, State};
-
-
-% handle_cast({send_cast, GoMBox, Msg}, State) ->
-%     io:format("send cast !! ============== ~n~n"),
-%     % {ok, GoMBox} = application:get_env(go, go_mailbox),
-%     % io:format("message ~p!! ============== ~n~n", [GoMBox]),
-
-%     gen_server:cast(GoMBox, {Msg, self()}),
-%     {noreply, State};
-
-
 handle_cast(_Msg, State) ->
     % ?ERR("unhandled cast message: ~p", [Msg]),
     {noreply, State}.
