@@ -51,22 +51,13 @@ func init() {
 // 我想把 这个集群改造成全双工的集群，所以我开始写详细的注释
 // 方便自己分析
 func main() {
-    Start()
-    return
-}
-
-func Start() {
-    // 设置路由　
-    setCallRouter()
-    setCastRouter()
-
-    // 自己写的代码 就不用分析 了，
     // 主要是学习大牛写的，阅读入口就是这里的两个函数
     // 启动节点
     startNode()
     // 启动第一个命名的协程
     startGenServer(SrvName)
 
+    return
 }
 
 func startNode() {

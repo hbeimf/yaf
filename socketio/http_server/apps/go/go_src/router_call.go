@@ -14,6 +14,7 @@ var callRouters map[string]interface{}
 func init() {
     // 定义一个key/value list , 用来存放同步调用的控制器
     callRouters = make(map[string]interface{})
+    setCallRouter()
 }
 
 func setCallRouter() {
