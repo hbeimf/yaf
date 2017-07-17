@@ -69,7 +69,7 @@ CREATE TABLE `system_menu` (
   `controller` varchar(100) NOT NULL DEFAULT '' COMMENT '控制器',
   `action` varchar(100) NOT NULL DEFAULT '' COMMENT '方法',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `system_menu` (
 
 LOCK TABLES `system_menu` WRITE;
 /*!40000 ALTER TABLE `system_menu` DISABLE KEYS */;
-INSERT INTO `system_menu` VALUES (1,0,'系统管理','','icon-plus',1,'xxxx',0,2017,2,'',''),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017,1,'system','index'),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,2017,1,'system','account'),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017,1,'system','role'),(5,0,'任务分析','','icon-plus',1,'xx',0,0,2,'',''),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,2017,1,'socket','index'),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017,1,'socket','socketIO'),(8,5,'测试','','icon-plus',1,'',0,2017,2,'test','index'),(9,0,'test222','','icon-plus',1,'',0,2017,2,'',''),(10,0,'test333','','icon-plus',1,'',0,2017,2,'',''),(11,10,'bbb','/test/test','icon-plus',1,'',0,0,2,'',''),(12,0,'test123','','icon-plus',1,'',0,0,2,'',''),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017,2,'',''),(14,5,'ws','','',1,'swoole websocket',0,0,1,'socket','ws'),(15,5,'历史数据','','',1,'gp',0,2017,1,'shares','index'),(16,5,'elasticsearch','','',1,'',0,0,1,'search','index'),(17,5,'列表','','',1,'',0,2017,1,'shares','list'),(18,5,'详情','','',1,'',0,0,2,'shares','detail');
+INSERT INTO `system_menu` VALUES (1,0,'系统管理','','icon-plus',1,'xxxx',0,2017,2,'',''),(2,1,'导航管理','/system/index/','icon-plus',1,'123',0,2017,1,'system','index'),(3,1,'账号管理','/system/account/','icon-plus',1,'',0,2017,1,'system','account'),(4,1,'角色管理','/system/role/','icon-plus',1,'',0,2017,1,'system','role'),(5,0,'任务分析','','icon-plus',1,'xx',0,0,2,'',''),(6,5,'分析示例','/socket/index','icon-plus',1,'',0,2017,1,'socket','index'),(7,5,'socketIO','/socket/socketIO','icon-plus',1,'',0,2017,1,'socket','socketIO'),(8,5,'测试','','icon-plus',1,'',0,2017,2,'test','index'),(9,0,'test222','','icon-plus',1,'',0,2017,2,'',''),(10,0,'各种示例','','icon-plus',1,'',0,2017,1,'',''),(11,10,'bbb','/test/test','icon-plus',1,'',0,0,2,'',''),(12,0,'test123','','icon-plus',1,'',0,0,2,'',''),(13,12,'xxxxssssgg','xxx','icon-plus',1,'xxxx',0,2017,2,'',''),(14,5,'ws','','',1,'swoole websocket',0,0,1,'socket','ws'),(15,5,'历史数据','','',1,'gp',0,2017,1,'shares','index'),(16,5,'elasticsearch','','',1,'',0,0,1,'search','index'),(17,5,'列表','','',1,'',0,2017,1,'shares','list'),(18,5,'详情','','',1,'',0,0,2,'shares','detail'),(19,10,'ztree','','',1,'',0,0,1,'ztree','index');
 /*!40000 ALTER TABLE `system_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,7 +107,7 @@ CREATE TABLE `system_role` (
 
 LOCK TABLES `system_role` WRITE;
 /*!40000 ALTER TABLE `system_role` DISABLE KEYS */;
-INSERT INTO `system_role` VALUES (1,'管理员','3,4,6,8',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4,6,7,14,15,16,17,18,11,13',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017),(4,'test','2,3,4',1,'tet',0,0);
+INSERT INTO `system_role` VALUES (1,'管理员','3,4,6,8',1,'nnnnnnnnnnn',0,2017),(2,'超级管理员','2,3,4,6,7,14,15,16,17,18,11,19,13',1,'xxx123',0,2017),(3,'一般管理员','4',1,'ss',0,2017),(4,'test','2,3,4',1,'tet',0,0);
 /*!40000 ALTER TABLE `system_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,11 +122,8 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +132,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (5,'xiaomin1496374477','xiaomin@foxmail.com1496374477','0000-00-00 00:00:00','0000-00-00 00:00:00'),(6,'xiaomin1496374478','john@foo.com','0000-00-00 00:00:00','2017-06-02 05:25:33'),(7,'xiaomin1496374574','xiaomin@foxmail.com1496374574','0000-00-00 00:00:00','0000-00-00 00:00:00'),(8,'xiaomin1496374615','xiaomin@foxmail.com1496374615','0000-00-00 00:00:00','0000-00-00 00:00:00'),(9,'xiaomin1496374644','xiaomin@foxmail.com1496374644','0000-00-00 00:00:00','0000-00-00 00:00:00'),(10,'xiaomin1496374656','xiaomin@foxmail.com1496374656','0000-00-00 00:00:00','0000-00-00 00:00:00'),(11,'xiaomin1496374686','xiaomin@foxmail.com1496374686','0000-00-00 00:00:00','0000-00-00 00:00:00'),(12,'xiaomin1496374698','xiaomin@foxmail.com1496374698','0000-00-00 00:00:00','0000-00-00 00:00:00'),(13,'xiaomin1496374738','xiaomin@foxmail.com1496374738','0000-00-00 00:00:00','0000-00-00 00:00:00'),(14,'xiaomin1496378347','xiaomin@foxmail.com1496378347','2017-06-02 04:39:07','0000-00-00 00:00:00'),(15,'xiaomin1496378442','xiaomin@foxmail.com1496378442','2017-06-02 04:40:42','2017-06-02 04:40:42'),(16,'xiaomin1496378443','xiaomin@foxmail.com1496378443','2017-06-02 04:40:43','2017-06-02 04:40:43'),(17,'xiaomin1496378587','xiaomin@foxmail.com1496378587','2017-06-02 04:43:07','2017-06-02 04:43:07'),(18,'xiaomin1496378699','xiaomin@foxmail.com1496378699','2017-06-02 04:44:59','2017-06-02 04:44:59'),(19,'xiaomin1496378770','xiaomin@foxmail.com1496378770','2017-06-02 04:46:10','2017-06-02 04:46:10'),(20,'xiaomin1496378818','xiaomin@foxmail.com1496378818','2017-06-02 04:46:58','2017-06-02 04:46:58');
+INSERT INTO `users` VALUES (21,'xx','yy'),(22,'xx','yy'),(24,'lily','78910@qq.com'),(26,'lily','78910@qq.com'),(28,'lily','78910@qq.com'),(30,'lily','78910@qq.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -148,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-07 13:50:04
+-- Dump completed on 2017-07-17 17:43:18
