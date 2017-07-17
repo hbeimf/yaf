@@ -20,6 +20,8 @@ import (
     "flag"
     "net/http"
     "../DbSet"
+    "github.com/gorilla/websocket"
+    "log"
 )
 
 // 设置全局配置变量，并带默认值
@@ -36,6 +38,32 @@ type Controller struct {
 
 
 
+var upgrader = websocket.Upgrader{} // use default options
+
+func echo(w http.ResponseWriter, r *http.Request) {
+    c, err := upgrader.Upgrade(w, r, nil)
+    if err != nil {
+        log.Print("upgrade:", err)
+        return
+    }
+    defer c.Close()
+    for {
+        mt, message, err := c.ReadMessage()
+        if err != nil {
+            log.Println("read:", err)
+            break
+        }
+        log.Printf("recv: %s", message)
+        err = c.WriteMessage(mt, message)
+        if err != nil {
+            log.Println("write:", err)
+            break
+        }
+    }
+}
+
+
+
 func main() {
     redis := DbSet.NewRedisPool(*globalRedisHost, 0)
     ctrl := &Controller{redis}
@@ -43,6 +71,9 @@ func main() {
     // 注册控制器函数
     http.HandleFunc("/get", ctrl.get_handler)
     http.HandleFunc("/post", ctrl.post_handler)
+
+    // websocket echo demo
+    http.HandleFunc("/echo", echo)
 
     err := http.ListenAndServe(*globalHttpHost, nil)
     if err != nil {
