@@ -2,11 +2,11 @@
 // //全局配置
 require.config({
     // baseUrl:'/js_src',
-    // map: {
-    //     '*': {
-    //         'css': '/js/css'
-    //     }
-    // },
+    map: {
+        '*': {
+            'css': '/js/css'
+        }
+    },
     paths:{
         'jquery':'/js/jquery-1.10.1.min',
         'jquery-migrate':'/js/jquery-migrate-1.2.1.min',
