@@ -7,6 +7,29 @@
 -compile(export_all).
 
 %%====================================================================
+%% Cast Api functions
+%% 异步消息发送
+%%====================================================================
+
+go() ->
+    Cast = {list, self()},
+    cast(Cast),
+    loop().
+
+
+
+loop() ->
+    receive
+        done ->
+            ok;
+        Msg ->
+            io:format("msg:~p~n~n", [Msg]),
+            loop()
+    end.
+
+
+
+%%====================================================================
 %% Call Api functions
 %% 同步消息发送
 %%====================================================================
@@ -127,14 +150,11 @@ parse_html(Html) ->
     Call = {str, parse_html, Html},
     call(Call).
 
-% str(Str) ->
-%     Call = {str, Str},
-%     call(Call).
-
+%% ==============================================================
 call(Call) ->
     GoMBox = go_name_server:get_gombox(),
     gen_server:call(GoMBox, Call).
 
-
-
-
+cast(Cast) ->
+    GoMBox = go_name_server:get_gombox(),
+    gen_server:cast(GoMBox, {Cast, self()}).

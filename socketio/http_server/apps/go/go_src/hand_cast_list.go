@@ -28,6 +28,9 @@ func (this *listControllerCast) Excute(from etf.Pid, n *node.Node, message etf.T
         n.Send(from, reply_msg)
     }
 
+    done := etf.Term(etf.Atom("done"))
+    n.Send(from, done)
+
     // runtime.Goexit()
 }
 

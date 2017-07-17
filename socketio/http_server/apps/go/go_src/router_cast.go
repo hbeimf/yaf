@@ -20,17 +20,9 @@ func init() {
 }
 
 func setCastRouter() {
-    setCastList()
-    setCastDefaultRouter()
-}
-
-func setCastList() {
     var ctrl listControllerCast
     addCast("list", &ctrl)
-}
 
-
-func setCastDefaultRouter() {
     var ctrl_default defaultControllerCast
     addCast("default", &ctrl_default)
 }
@@ -45,5 +37,3 @@ func getCast(key string) (ctrl ControllerCast) {
     }
     return castRouters["default"].(ControllerCast)
 }
-
-
