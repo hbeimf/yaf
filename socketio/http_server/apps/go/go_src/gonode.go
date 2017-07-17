@@ -45,12 +45,6 @@ func init() {
     // 初始化三个变量
     // 要对新产生的协程进行命名 gs_10000, gs_10001, gs_10002 依次累加， serverId 就是个全局计数器
     flag.IntVar(&serverId, "server_id", 10000, "新进程编号")
-
-    // 定义一个key/value list , 用来存放同步调用的控制器
-    callRouters = make(map[string]interface{})
-    // 还是一个key/value list, 用来存放异步调用的控制器
-    // 根据key 先选出控制器，再处理返回，就是这么简单
-    castRouters = make(map[string]interface{})
 }
 
 // 运行入口
