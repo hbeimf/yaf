@@ -36,11 +36,27 @@ type Controller struct {
     redis *DbSet.Redis
 }
 
-
-
 var upgrader = websocket.Upgrader{} // use default options
 
-func echo(w http.ResponseWriter, r *http.Request) {
+func main() {
+    redis := DbSet.NewRedisPool(*globalRedisHost, 0)
+    ctrl := &Controller{redis}
+
+    // 注册控制器函数
+    http.HandleFunc("/get", ctrl.get_handler)
+    http.HandleFunc("/post", ctrl.post_handler)
+
+    // websocket echo demo
+    http.HandleFunc("/websocket", ctrl.websocket_handler)
+
+    err := http.ListenAndServe(*globalHttpHost, nil)
+    if err != nil {
+        fmt.Println("err")
+    }
+}
+
+
+func (this *Controller) websocket_handler(w http.ResponseWriter, r *http.Request) {
     c, err := upgrader.Upgrade(w, r, nil)
     if err != nil {
         log.Print("upgrade:", err)
@@ -59,25 +75,6 @@ func echo(w http.ResponseWriter, r *http.Request) {
             log.Println("write:", err)
             break
         }
-    }
-}
-
-
-
-func main() {
-    redis := DbSet.NewRedisPool(*globalRedisHost, 0)
-    ctrl := &Controller{redis}
-
-    // 注册控制器函数
-    http.HandleFunc("/get", ctrl.get_handler)
-    http.HandleFunc("/post", ctrl.post_handler)
-
-    // websocket echo demo
-    http.HandleFunc("/echo", echo)
-
-    err := http.ListenAndServe(*globalHttpHost, nil)
-    if err != nil {
-        fmt.Println("err")
     }
 }
 
