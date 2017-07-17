@@ -4,7 +4,7 @@ require.config({
     // baseUrl:'/js_src',
     // map: {
     //     '*': {
-    //         'css': '/js/css' // or whatever the path to require-css is
+    //         'css': '/js/css'
     //     }
     // },
     paths:{
