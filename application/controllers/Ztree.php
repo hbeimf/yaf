@@ -21,9 +21,6 @@ class ZtreeController extends AbstractController {
             'isParent' => true, // 控制图标是文件夹
         ];
 
-
-
-
         $tree[] = [
             'id' => 3,
             'name' => '<small class="zz">zzzz</small>',
@@ -31,26 +28,26 @@ class ZtreeController extends AbstractController {
             'open' => false,
         ];
 
-        // $tree[] = [
-        //     'id' => 4,
-        //     'name' => '<small class="zz">zzzz</small>',
-        //     'leader' => 1,
-        //     'open' => 0,
-        // ];
+        $tree[] = [
+            'id' => 4,
+            'name' => '<small class="zz">zzzz</small>',
+            'pId' => 1,
+            'open' => 0,
+        ];
 
-        // $tree[] = [
-        //     'id' => 5,
-        //     'name' => '<small class="zz">zzzz</small>',
-        //     'leader' => 2,
-        //     'open' => 0,
-        // ];
+        $tree[] = [
+            'id' => 5,
+            'name' => '<small class="zz">zzzz</small>',
+            'pId' => 2,
+            'open' => 0,
+        ];
 
-        // $tree[] = [
-        //     'id' => 6,
-        //     'name' => '<small class="zz">zzzz</small>',
-        //     'leader' => 3,
-        //     'open' => 0,
-        // ];
+        $tree[] = [
+            'id' => 6,
+            'name' => '<small class="zz">zzzz</small>',
+            'pId' => 3,
+            'open' => 0,
+        ];
 
         echo json_encode($tree);exit;
 
