@@ -2,6 +2,11 @@
 // //全局配置
 require.config({
     // baseUrl:'/js_src',
+    // map: {
+    //     '*': {
+    //         'css': '/js/css' // or whatever the path to require-css is
+    //     }
+    // },
     paths:{
         'jquery':'/js/jquery-1.10.1.min',
         'jquery-migrate':'/js/jquery-migrate-1.2.1.min',
@@ -30,7 +35,8 @@ require.config({
         'base64':'/js/base64',
         'socket.io':'/js/socket.io',
         // 'echarts':'/js/echarts.min'
-        'echarts':'/js/echarts'
+        'echarts':'/js/echarts',
+        'ztree': '/js/ztree/js/jquery.ztree.all'
 
     },
     shim: {
@@ -52,7 +58,11 @@ require.config({
         'form-samples':['jquery', 'bootstrap'],
         'protobuf':['jquery', 'long'],
         'socket.io':['jquery'],
-        'echarts':['jquery']
+        'echarts':['jquery'],
+        'ztree': [
+            'jquery',
+            // 'css!/js/ztree/css/zTreeStyle/zTreeStyle.css'
+        ]
     },
     waitSeconds: 100 // ie load modules timeout bug fixed
 });
