@@ -1,36 +1,50 @@
-# 集成了Laravel的Eloquent ORM的Yaf框架, socketio目录是我研究别的技术放的一个子目录，可直接删除
+# 集成了Laravel的Eloquent ORM的Yaf框架， view为bootstrap的metronic模板
+
 ![Supported PHP versions: >=5.4](https://img.shields.io/badge/PHP-%3E%3D5.4-blue.svg)
 ![Supported Yaf versions: >=1.8.0](https://img.shields.io/badge/Yaf-%3E%3D2.3.2-orange.svg)
 ![Supported Eloquent versions: 5.0](https://img.shields.io/badge/Eloquent-%205.0-green.svg)
 ![License](https://img.shields.io/badge/license-Apache%202-yellow.svg)
 
-# Session由默认的文件改为Redis存储
+# 初始化数据库demo
 
 ```
-public function _initSession()
-{
-    try {
-        $redis = redisConnect();
-        $redis->ping();
-        $session = new Util_Session();
-        session_set_save_handler($session, true);
-    } catch (Exception $e) {
-        Log_Log::info('[Bootstrap] session init error:' . $e->getMessage(), true, true);
-    }
-}
+
+create database system;
+source {pathto}/yaf/doc/system.sql;
+
+create database gp;
+source {pathto}/yaf/doc/gp.sql;
+source {pathto}/yaf/doc/m_gp_list.sql;
+
+
 ```
 
 # 多个数据库链接操作如下
 
 ```
-
-// 默认的
-DB::table('tb_name')->get()
-
-// dt
-DB::connection('dt')->get();
+直接看控制器里写的demo
 
 ```
+
+# 模板文件目录
+
+```
+原始模板
+
+doc/ftpm_112_bwx 下面
+或直接查看view里的demo
+
+```
+
+# Nginx
+
+```
+参照
+doc/yaf.demo.com.conf
+
+
+```
+
 
 # 文件上传
 
