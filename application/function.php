@@ -147,6 +147,24 @@ function acount_menu($param){
 
 
 
+ // 视图函数开始 =====================================================
+function category_name($param) {
+	$categorys = explode(',', $param['category']);
+
+	$reply = '';
+
+	$c = [
+		'normal' => '默认类型',
+		'c300' => '沪深300',
+		'c50' => '上证50',
+	];
+	foreach ($categorys as $category) {
+		$reply .= $c[$category].'<br />';
+	}
+
+	return $reply;
+}
+
 // 返回角色名称
 function role_name($param) {
 	if (trim($param['the_role']) != '') {

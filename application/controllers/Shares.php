@@ -100,11 +100,8 @@ class SharesController extends AbstractController {
             'params' => $params,
         ];
 
+        $this->smarty->getSmarty()->registerPlugin("function", "category_name", "category_name");
         $this->smarty->display('shares/list.tpl', $data);
-
-
-
-
     }
 
 

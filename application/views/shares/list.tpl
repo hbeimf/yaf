@@ -77,7 +77,7 @@
                             <td>{{$r['last_price']}}</td>
                             <td>{{$r['last_yid']}}</td>
                             <td>{{$r['all_years']}}</td>
-                            <td>{{$r['category']}}</td>
+                            <td>{{category_name category=$r['category']}}</td>
 
                             <td>
 
