@@ -10,9 +10,10 @@ require([
     $mod_900.on('shown.bs.modal', function (e) {
 
         var $div = $(this).find('#main');
+        var code = $(this).find('#code').val();
 
         require(['echarts'], function(ec) {
-            var code = $('#code').val();
+            // var code = $('#code').val();
             $.get("/shares/hj/?code="+code, function(res){
                 // console.log(res);
                 var $myChart = ec.init($div[0]);
@@ -80,8 +81,11 @@ require([
 
         var $div = $(this).find('#main');
 
+        var code = $(this).find('#code').val();
+        // console.log(code);
+
         require(['echarts'], function(ec) {
-            var code = $('#code').val();
+            // var code = $('#code').val();
             $.get("/shares/json/?code="+code, function(res){
                 var $myChart = ec.init($div[0]);
                 // start
