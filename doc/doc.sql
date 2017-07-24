@@ -1,7 +1,0 @@
-code
-
-page
-
-history
-
-
