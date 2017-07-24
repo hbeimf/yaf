@@ -94,4 +94,9 @@ mysqldump -uroot -p bx_data > /web/yaf/doc/bx_data.sql
 
 
 
+-- =====================================================================
 
+create database system;
+source /web/yaf/doc/system.sql;
+
+mysqldump -uroot -p system > /web/yaf/doc/system.sql
