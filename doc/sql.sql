@@ -100,3 +100,5 @@ create database system;
 source /web/yaf/doc/system.sql;
 
 mysqldump -uroot -p system > /web/yaf/doc/system.sql
+
+
