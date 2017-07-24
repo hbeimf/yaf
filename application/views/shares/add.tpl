@@ -31,6 +31,8 @@
         <select name="category[]" class="span6 select2" multiple placeholder="请选择分类...">
             <option value="normal" {{if isset($row['category']) and in_array('normal', $row['category'])}}selected{{/if}}>默认分类</option>
             <option value="c300" {{if isset($row['category']) and in_array('c300', $row['category'])}}selected{{/if}}>沪深300</option>
+            <option value="c50" {{if isset($row['category']) and in_array('c50', $row['category'])}}selected{{/if}}>上证50</option>
+
         </select>
     </div>
 </div>

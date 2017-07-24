@@ -57,17 +57,23 @@ class SharesController extends AbstractController {
             'name' => trim($this->request->getQuery('name')),
             'page' => (!is_null($this->request->getQuery('page'))) ? $this->request->getQuery('page') : 1,
             'page_size' => (!is_null($this->request->getQuery('page_size'))) ? $this->request->getQuery('page_size') : 10,
+            'category' => (!is_null($this->request->getQuery('category'))) ? $this->request->getQuery('category') : '',
         ];
 
         $skip = ($params['page'] - 1) * $params['page_size'];
 
 
-        $select = 'm_gp_list.id, m_gp_list.code, m_gp_list.name,
+        $select = 'm_gp_list.id, m_gp_list.code, m_gp_list.name,m_gp_list.category,
                     b.last_time, b.last_price, b.last_yid, b.all_years';
 
         $account_obj = Table_Gp_List::selectRaw($select);
         if (trim($params['name']) != '') {
             $account_obj->where('m_gp_list.name', 'like', "%{$params['name']}%");
+        }
+
+        if (trim($params['category']) != '') {
+            // $account_obj->where("FIND_IN_SET('{$params['category']}', m_gp_list.category)");
+            $account_obj->where("m_gp_list.category", 'like', "%{$params['category']}%");
         }
 
         $count = $account_obj->count();

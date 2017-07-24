@@ -32,6 +32,16 @@
                                 &nbsp;&nbsp;
                             </label>
                             <label>名称: <input value="{{$params['name']}}" name="name" type="text" aria-controls="sample_1" class="m-wrap medium"> &nbsp;&nbsp;</label>
+                            <label>类别:
+                                <select size="1" name="category" aria-controls="sample_1" class="m-wrap small">
+                                    <option value="">请选择...</option>
+                                    <option value="c300" {{if $params['category'] == 'c300'}}selected="selected"{{/if}}>沪深300</option>
+                                    <option value="c50" {{if $params['category'] == 'c50'}}selected="selected"{{/if}}>上证50</option>
+                                </select>
+                                &nbsp;&nbsp;
+                            </label>
+
+
                             <label><button id="btn_search" class="btn blue">查找 <!-- <i class="icon-plus"> --></i></button></label>
                         </div>
                     </form>
@@ -50,6 +60,8 @@
                             <th class="hidden-480">价格</th>
                             <th class="hidden-480">YID</th>
                             <th class="hidden-480">年数</th>
+                            <th class="hidden-480">类别</th>
+
 
                             <th class="hidden-480">明细</th>
                         </tr>
@@ -65,6 +77,8 @@
                             <td>{{$r['last_price']}}</td>
                             <td>{{$r['last_yid']}}</td>
                             <td>{{$r['all_years']}}</td>
+                            <td>{{$r['category']}}</td>
+
                             <td>
 
                             <a data-toggle="modal" data-target="#mod_1200" href="/shares/add/?code={{$r['code']}}" class="btn green" >
