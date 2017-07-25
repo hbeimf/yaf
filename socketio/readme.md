@@ -3,6 +3,8 @@ https://github.com/websockets/ws
 
 npm install --save ws
 npm install socket.io --save
+npm install --save ejs
+npm install --save express-ws
 
 
 https://github.com/HenningM/express-ws
