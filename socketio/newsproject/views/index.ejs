@@ -1,1 +1,30 @@
-index ejs
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+
+  </title>
+</head>
+<body>
+<script>
+  var ws = new WebSocket('ws://localhost:3000/ws');
+  ws.onmessage=function(e){
+    console.log('_message');
+    console.log(e.data);
+  };
+  ws.onerror=function(err){
+    console.log('_error');
+    console.log(err);
+  };
+  ws.onopen=function(){
+    console.log('_connect')
+  };
+  ws.onclose=function(){
+    console.log('_close');
+  };
+
+  // ws.send('data');
+
+</script>
+</body>
+</html>
