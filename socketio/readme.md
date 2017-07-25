@@ -3,7 +3,7 @@ https://github.com/websockets/ws
 
 npm install --save ws
 
-
+http://www.jianshu.com/p/db4df1938eca
 http://blog.csdn.net/dreamzml/article/details/8902591
 http://www.cnblogs.com/Darren_code/p/node_express.html
 
@@ -21,14 +21,21 @@ http://www.cnblogs.com/Darren_code/p/node_express.html
 
 //进入项目目录
         cd newsproject
+
 //输入命令安装
         npm install
 
 //项目目录下运行命令
-         node app.js
-
+        -- node app.js
 
 npm start
+
+
+http://localhost:3000/
+http://localhost:3000/users
+
+
+
 
 
 
