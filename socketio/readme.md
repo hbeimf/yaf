@@ -60,7 +60,29 @@ npm install -g supervisor
 
 
 
+node.js 升级版本
+
+http://www.jb51.net/article/52409.htm
+
+npm install -g n
+
+n stable
 
 
+================================
+
+pomelo doc
+
+http://nodejs.netease.com/topic/515279a0b5a2705b5a000983
+
+
+npm install -g pomelo
+
+pomelo --help
+
+
+<!-- 开发时用 ==================================================== -->
+
+supervisor ./bin/www
 
 

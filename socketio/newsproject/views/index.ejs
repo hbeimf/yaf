@@ -7,24 +7,104 @@
 </head>
 <body>
 <script>
-  var ws = new WebSocket('ws://localhost:3000/ws');
-  ws.onmessage=function(e){
-    console.log('_message');
-    console.log(e.data);
-  };
-  ws.onerror=function(err){
-    console.log('_error');
-    console.log(err);
-  };
-  ws.onopen=function(){
-    console.log('_connect')
-  };
-  ws.onclose=function(){
-    console.log('_close');
-  };
+  // var ws = new WebSocket('ws://localhost:3000/ws');
+  // ws.onmessage=function(e){
+  //   console.log('_message');
+  //   console.log(e.data);
+  // };
+  // ws.onerror=function(err){
+  //   console.log('_error');
+  //   console.log(err);
+  // };
+  // ws.onopen=function(){
+  //   console.log('_connect')
+  // };
+  // ws.onclose=function(){
+  //   console.log('_close');
+  // };
 
   // ws.send('data');
 
+
+var websocket;
+
+
+function init() {
+    if(!("WebSocket" in window)){
+        console.log('<span style="color: red;">Ws websockets are not supported </span>');
+
+    } else {
+        console.log('<span style="color: green;">WS websockets are supported </span>');
+        connect();
+    };
+};
+
+function connect()
+{
+    // var wsHost = "ws://" + window.location.host + "/ws";
+    websocket = new WebSocket('ws://localhost:3000/ws');
+
+    websocket.onopen = function(evt) { onOpen(evt) };
+    websocket.onclose = function(evt) { onClose(evt) };
+    websocket.onmessage = function(evt) { onMessage(evt) };
+    websocket.onerror = function(evt) { onError(evt) };
+};
+
+function disconnect() {
+    websocket.close();
+};
+
+function onOpen(evt) {
+    console.log('<span style="color: green;">CONNECTED </span>');
+};
+
+function onClose(evt) {
+    console.log('<span style="color: red;">DISCONNECTED </span>');
+};
+
+function onError(evt) {
+    console.log('<span style="color: red;">ERROR: ' + evt.data+ '</span>');
+};
+
+
+// function output(message) {
+//     var currentTime = "<span class='time'>" +  moment().format('HH:mm:ss.SSS') + "</span>";
+//     var element = $("<div>" + currentTime + "<font style=\"color:red;\">=></font>  " + message + "</div>");
+//     $('#console').prepend(element);
+// };
+
+function onMessage(evt) {
+    console.log(evt.data);
+    // if( !(typeof(evt.data)=="string") ){
+    //     // 接收二进制数据, protobuff 数据格式返回 demo
+    //     var reader = new FileReader();
+    //     reader.onload = function(evt){
+    //         if(evt.target.readyState == FileReader.DONE){
+    //             var data = new Uint8Array(evt.target.result);
+    //             handler(data);
+    //         }
+    //     }
+    //     reader.readAsArrayBuffer(evt.data);
+    // } else {
+    //     // 接收字符串返回
+    //     if (!evt.data.match("^\{(.+:.+,*){1,}\}$")){
+    //         //普通字符串
+    //         output('<span style="color: blue;">' + evt.data+ '</span>');
+    //     } else {
+    //         // json
+    //         // console.log(typeof evt.data);
+    //         var json = jQuery.parseJSON(evt.data);
+    //         console.log(json);
+
+    //         var str = '<a target="_blank" href="'+json.url+'">查看</a>';
+    //         output('<span style="color: blue;">' + evt.data+ ' ' +str+ '</span>');
+    //     }
+
+    // }
+};
+
+
+init();
 </script>
 </body>
 </html>
