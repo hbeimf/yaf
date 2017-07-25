@@ -10,6 +10,8 @@ var users = require('./routes/users');
 
 var app = express();
 
+var expressWs = require('express-ws')(app);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -24,6 +26,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+app.ws('/ws', function(ws, req) {
+  ws.on('message', function(msg) {
+    // console.log(msg);
+    ws.send(msg);
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,6 +2,13 @@ https://github.com/websockets/ws
 
 
 npm install --save ws
+npm install socket.io --save
+
+
+https://github.com/HenningM/express-ws
+npm install --save express-ws
+ws:
+http://blog.csdn.net/shidaping/article/details/52276442
 
 http://www.jianshu.com/p/db4df1938eca
 http://blog.csdn.net/dreamzml/article/details/8902591
