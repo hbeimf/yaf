@@ -10,6 +10,18 @@ var path = require('path');
 
 var app = express();
 
+var expressWs = require('express-ws')(app);
+
+
+app.ws('/', function(ws, req) {
+  // util.inspect(ws);
+  ws.on('message', function(msg) {
+    console.log('_message');
+    console.log(msg);
+    ws.send('echo:' + msg);
+  });
+})
+
 var index = require('./routes/index');
 var users = require('./routes/users')(app);
 
