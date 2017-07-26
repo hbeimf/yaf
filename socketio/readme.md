@@ -83,8 +83,10 @@ pomelo --help
 
 <!-- 开发时用 ==================================================== -->
 
-supervisor ./bin/www
+<!-- supervisor ./bin/www -->
 
+
+supervisor ./app.js
 
 http://localhost:3000/users
 
