@@ -14,14 +14,15 @@ var router = express.Router();
 
 
 var returnUserRouter = function(app) {
-    var expressWs = require('express-ws')(app);
+    // var expressWs = require('express-ws')(app);
 
     router.get('/', function(req, res, next) {
       res.render('users', { title: 'Express' });
     });
 
-    router.ws('/websocket', function(ws, req) {
+    router.ws('/ws', function(ws, req) {
       ws.on('message', function(msg) {
+        console.log(msg);
         ws.send(msg);
       });
     });

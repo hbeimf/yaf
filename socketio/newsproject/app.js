@@ -2,9 +2,9 @@ var express = require('express');
 var path = require('path');
 
 // var express = require('express');
-var expressWs = require('express-ws');
+var expressWs = require('express-ws')(express());
 
-var expressWs = expressWs(express());
+// var expressWs = expressWs(express());
 var app = expressWs.app;
 
 // app.use(function (req, res, next) {
@@ -18,13 +18,13 @@ var app = expressWs.app;
 //   res.end();
 // });
 
-app.ws('/', function(ws, req) {
-  ws.on('message', function(msg) {
-    console.log(msg);
-    ws.send(msg);
-  });
-  // console.log('socket', req.testing);
-});
+// app.ws('/', function(ws, req) {
+//   ws.on('message', function(msg) {
+//     console.log(msg);
+//     ws.send(msg);
+//   });
+//   // console.log('socket', req.testing);
+// });
 
 // app.listen(3000)
 

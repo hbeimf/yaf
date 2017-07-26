@@ -61,6 +61,7 @@ function disconnect() {
 
 function onOpen(evt) {
     console.log('<span style="color: green;">CONNECTED </span>');
+    websocket.send('open success!!');
 };
 
 function onClose(evt) {

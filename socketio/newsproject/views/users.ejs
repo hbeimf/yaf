@@ -8,7 +8,7 @@
 <body>
 users
 <script>
-  var ws = new WebSocket('ws://127.0.0.1:3000');
+  var ws = new WebSocket('ws://127.0.0.1:3000/users/ws');
   ws.onmessage=function(e){
     console.log('_message');
     console.log(e.data);
@@ -18,7 +18,8 @@ users
     console.log(err);
   };
   ws.onopen=function(){
-    console.log('_connect')
+    console.log('_connect');
+    ws.send('open success!!');
   };
   ws.onclose=function(){
     console.log('_close');
