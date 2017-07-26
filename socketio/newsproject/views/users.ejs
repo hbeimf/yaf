@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+
+  </title>
+</head>
+<body>
+users
+<script>
+  var ws = new WebSocket('ws://127.0.0.1:3000/users/websocket');
+  ws.onmessage=function(e){
+    console.log('_message');
+    console.log(e.data);
+  };
+  ws.onerror=function(err){
+    console.log('_error');
+    console.log(err);
+  };
+  ws.onopen=function(){
+    console.log('_connect')
+  };
+  ws.onclose=function(){
+    console.log('_close');
+  };
+
+  // ws.send('data');
+
+</script>
+</body>
+</html>

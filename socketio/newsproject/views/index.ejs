@@ -6,6 +6,9 @@
   </title>
 </head>
 <body>
+
+demo
+
 <script>
   // var ws = new WebSocket('ws://localhost:3000/ws');
   // ws.onmessage=function(e){
@@ -41,8 +44,10 @@ function init() {
 
 function connect()
 {
-    // var wsHost = "ws://" + window.location.host + "/ws";
-    websocket = new WebSocket('ws://localhost:3000/ws');
+    var wsHost = "ws://" + window.location.host + "/ws";
+    // websocket = new WebSocket('ws://localhost:3000/ws');
+
+    websocket = new WebSocket(wsHost);
 
     websocket.onopen = function(evt) { onOpen(evt) };
     websocket.onclose = function(evt) { onClose(evt) };
