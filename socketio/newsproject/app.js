@@ -1,35 +1,11 @@
 var express = require('express');
 var path = require('path');
-
-var expressWs = require('express-ws')(express());
-var app = expressWs.app;
-
-
-
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-// var index = require('./routes/index');
-// var users = require('./routes/users');
-
-// var app = express();
-//
-//
-
-// var expressWs = require('express-ws');
-
-// var expressWs = expressWs(express());
-// var app = expressWs.app;
-
-
-// var expressWs = require('express-ws')(express());
-
-// var app = expressWs.app;
-
-
-
+var expressWs = require('express-ws')(express());
+var app = expressWs.app;
 
 var index = require('./routes/index');
 var users = require('./routes/users');
