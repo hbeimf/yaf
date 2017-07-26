@@ -1,5 +1,34 @@
 var express = require('express');
 var path = require('path');
+
+// var express = require('express');
+var expressWs = require('express-ws');
+
+var expressWs = expressWs(express());
+var app = expressWs.app;
+
+// app.use(function (req, res, next) {
+//   console.log('middleware');
+//   req.testing = 'testing';
+//   return next();
+// });
+
+// app.get('/', function(req, res, next){
+//   console.log('get route', req.testing);
+//   res.end();
+// });
+
+app.ws('/', function(ws, req) {
+  ws.on('message', function(msg) {
+    console.log(msg);
+    ws.send(msg);
+  });
+  // console.log('socket', req.testing);
+});
+
+// app.listen(3000)
+
+
 // var favicon = require('serve-favicon');
 // var logger = require('morgan');
 // var cookieParser = require('cookie-parser');
@@ -8,21 +37,24 @@ var path = require('path');
 // var index = require('./routes/index');
 // var users = require('./routes/users');
 
-var app = express();
+// var app = express();
+//
+//
 
-var expressWs = require('express-ws')(app);
+// var expressWs = require('express-ws');
+
+// var expressWs = expressWs(express());
+// var app = expressWs.app;
 
 
-app.ws('/', function(ws, req) {
-  // util.inspect(ws);
-  ws.on('message', function(msg) {
-    console.log('_message');
-    console.log(msg);
-    ws.send('echo:' + msg);
-  });
-})
+// var expressWs = require('express-ws')(express());
 
-var index = require('./routes/index');
+// var app = expressWs.app;
+
+
+
+
+// var index = require('./routes/index');
 var users = require('./routes/users')(app);
 
 
@@ -45,6 +77,16 @@ app.set('view engine', 'ejs');
 
 // app.use('/', index);
 app.use('/users', users);
+
+// app.ws('/', function(ws, req) {
+//   // util.inspect(ws);
+//   ws.on('message', function(msg) {
+//     console.log('_message');
+//     console.log(msg);
+//     ws.send('echo:' + msg);
+
+//   });
+// })
 
 
 // app.get('/', function(req, res, next){
@@ -77,4 +119,7 @@ app.use('/users', users);
 //   res.render('error');
 // });
 
-module.exports = app;
+// module.exports = app;
+
+
+app.listen(3000);
