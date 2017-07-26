@@ -55,7 +55,9 @@ var app = expressWs.app;
 
 
 // var index = require('./routes/index');
-var users = require('./routes/users')(app);
+// var users = require('./routes/users')(app);
+var users = require('./routes/users');
+
 
 
 // var expressWs = require('express-ws')(app);
