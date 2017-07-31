@@ -1,9 +1,8 @@
 <?php
 
 // session_id(SID);
-session_id();
 session_start();
-// echo session_id();
+// $sid = session_id();
 
 try {
 	error_reporting(E_ALL | E_STRICT);

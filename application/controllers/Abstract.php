@@ -9,8 +9,9 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 	 * 登录、权限判断、初始化
 	 */
 	public function init() {
-		// header("Content-Type:text/html;charset=utf-8");
-		// session_start();
+		// 获取当前会话id
+		$sid = session_id();
+
 		$this->request = Yaf_Dispatcher::getInstance()->getRequest();
 		$this->smarty = View::getInstance();
 		$this->_controller = strtolower($this->request->getControllerName());
