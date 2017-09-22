@@ -39,6 +39,11 @@ doc/ftpm_112_bwx 下面
 # Nginx
 
 ```
+nginx.conf 
+add 
+
+include ./vhost/*.conf;
+
 参照
 doc/yaf.demo.com.conf
 
