@@ -1,0 +1,25 @@
+http://blog.csdn.net/xiexievv/article/details/47396725
+
+
+http://blog.csdn.net/whoamiyang/article/details/52947225
+
+wget https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
+
+https://github.com/google/protobuf/releases
+
+
+tar -zxvf protobuf-2.6.1.tar.gz
+sudo apt-get install build-essential
+cd protobuf-2.6.1/
+./configure
+make
+make check
+sudo make install 
+
+
+
+protoc ¨Cversion 
+
+
+http://www.cnblogs.com/zhangqingping/archive/2012/10/28/2743274.html
+

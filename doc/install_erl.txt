@@ -1,0 +1,99 @@
+openssl 问题解决方法
+来源
+http://www.sjsjw.com/kf_code/article/032953ABA020336.asp
+详见openssl.txt
+
+
+http://www.sjsjw.com/kf_code/article/032953ABA020336.asp
+
+http://www.erlang.org/doc/installation_guide/INSTALL.html#id62915
+
+
+http://amornio.iteye.com/blog/1551502
+
+
+Java代码  收藏代码
+
+    # tar -zxvf otp_src_R15B01.tar.gz
+    # cd otp_src_R15B01
+
+
+
+安装依赖：
+Java代码  收藏代码
+
+    # yum install build-essential m4 openssl openssl-devel unixODBC unixODBC-devel make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel
+
+	
+	
+yum -y install java-1.7.0-openjdk*
+	
+	
+openssl install 
+http://blog.csdn.net/yangxuan0261/article/details/52065158
+	
+cd openssl-1.0.1t/
+./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl
+
+**************************************************
+
+jinterface     : No Java compiler found
+
+*********************************************************************
+*********************************************************************
+**********************  APPLICATIONS INFORMATION  *******************
+*********************************************************************
+
+wx             : wxWidgets not found, wx will NOT be usable
+
+*********************************************************************
+*********************************************************************
+**********************  DOCUMENTATION INFORMATION  ******************
+*********************************************************************
+
+documentation  : 
+                 fop is missing.
+                 Using fakefop to generate placeholder PDF files.
+
+*********************************************************************
+
+
+	
+
+配置configure
+Java代码  收藏代码
+
+    # ./configure --prefix=/usr/local/erlang_18.3 --with-ssl=/usr/local/ssl --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --with-opengl --enable-debug --enable-unicode
+
+	./configure --prefix=/usr/local/erlang_19.3 --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll --with-opengl --enable-debug --enable-unicode 
+
+	
+    make
+
+    make install
+
+
+
+完成之后，设置环境变量
+
+Java代码  收藏代码
+
+    vim /etc/profile
+
+    ERL_HOME=/usr/local/erlang
+    PATH=$ERL_HOME/bin:$PATH
+    export ERL_HOME PATH
+
+
+
+完成后保存
+
+Java代码  收藏代码
+
+    source /etc/profile
+
+	
+export PATH=$PATH:/usr/local/go/bin
+	
+	
+	

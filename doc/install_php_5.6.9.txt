@@ -1,0 +1,143 @@
+http://www.demoss.com/info.php
+
+
+
+[root@localhost ~]# wget http://cn2.php.net/distributions/php-5.6.9.tar.bz2
+[root@localhost ~]# tar xf php-5.6.9.tar.bz2
+
+
+
+安装 php
+
+
+./configure --prefix=/usr/local/php5.6.9 \
+--with-config-file-path=/usr/local/php/etc \
+--with-config-file-scan-dir=/usr/local/php/etc/php.d \
+--enable-fpm --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd \
+--with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir \
+--with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath \
+--enable-bcmath --enable-shmop \
+--enable-sysvsem --enable-inline-optimization --with-curl \
+--enable-mbregex --enable-mbstring --with-mcrypt \
+--enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash \
+--enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap \
+--without-pear --with-gettext --disable-fileinfo --enable-opcache=no \
+--enable-sysvsem --enable-sysvshm --enable-sysvmsg \
+--with-mcrypt=/usr/local/libmcrypt
+
+去掉zip 模块
+
+./configure --prefix=/usr/local/php5.6.9 \
+--with-config-file-path=/usr/local/php/etc \
+--with-config-file-scan-dir=/usr/local/php/etc/php.d \
+--enable-fpm --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd \
+--with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir \
+--with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath \
+--enable-bcmath --enable-shmop \
+--enable-sysvsem --enable-inline-optimization --with-curl \
+--enable-mbregex --enable-mbstring --with-mcrypt \
+--enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash \
+--enable-pcntl --enable-sockets --with-xmlrpc --enable-soap \
+--without-pear --with-gettext --disable-fileinfo --enable-opcache=no \
+--enable-sysvsem --enable-sysvshm --enable-sysvmsg \
+--with-mcrypt=/usr/local/libmcrypt
+
+
+
+        http://www.pc811.com/6/1/26292.html
+        第1步：在终端执行“vi Makefile”。
+
+第2步：找到大概106行代码EXTRA_LIBS，以下是作者这里以前默认的完整代码。
+
+    EXTRA_LIBS = -lcrypt -lz -lcrypt -lrt -lmysqlclient -lmcrypt -lltdl -lpng -lz -ljpeg -lcurl -lz -lrt -lm -ldl -lnsl -lrt -lxml2 -lz -lm -lssl -lcrypto -ldl -lz -lcurl -lxml2 -lz -lm -lssl -lcrypto -ldl -lz -lfreetype -lmysqlclient -lz -lm -lrt -ldl -lxml2 -lz -lm -lxml2 -lz -lm -lcrypt -lxml2 -lz -lm -lxml2 -lz -lm -lxml2 -lz -lm -lxml2 -lz -lm -lcrypt
+
+第3步：在后面添加“ -liconv”，添加完以下如下所示。
+
+    EXTRA_LIBS = -lcrypt -lz -lcrypt -lrt -lmysqlclient -lmcrypt -lltdl -lpng -lz -ljpeg -lcurl -lz -lrt -lm -ldl -lnsl -lrt -lxml2 -lz -lm -lssl -lcrypto -ldl -lz -lcurl -lxml2 -lz -lm -lssl -lcrypto -ldl -lz -lfreetype -lmysqlclient -lz -lm -lrt -ldl -lxml2 -lz -lm -lxml2 -lz -lm -lcrypt -lxml2 -lz -lm -lxml2 -lz -lm -lxml2 -lz -lm -lxml2 -lz -lm -lcrypt -liconv
+
+
+______________________________________________________________________________________________________________________
+
+    make
+    make install
+
+
+4   安装后的配置
+
+    ****************************************************************
+    cp php.ini-production /usr/local/php5.6.9/etc/php.ini
+    cp /usr/local/php5.6.9/etc/php-fpm.conf.default /usr/local/php5.6.9/etc/php-fpm.conf
+    mkdir /usr/local/php5.6.9/etc/php.d
+    cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm
+    chmod u+x /etc/init.d/php-fpm
+    service php-fpm start
+    chkconfig php-fpm on
+
+    sudo
+
+    /etc/init.d/php-fpm restart
+
+    注意：
+    1， 修改php.ini 文件中的 session save_path
+    2， 修改php.ini。打开php5.ini查找date.timezone 去掉前面的分号修改成为：date.timezone =PRC
+    ___________________________________________________________________________
+
+    ln -s /usr/local/php/bin/php /usr/bin/php
+
+netstat -lnp | grep 9000
+netstat -tnlup | grep 9000
+
+
+装扩展
+
+/usr/local/php/bin/phpize  (phpize 命令是用来准备 PHP 外挂模块的编译环境的)
+./configure --with-php-config=/usr/local/php/bin/php-config
+make && make install
+
+
+
+/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/solr.so
+
+/usr/local/php/etc/php.ini
+
+
+=======================
+
+phpize  
+  
+./configure --with-php-config=/usr/local/php5/bin/php-config \  
+  
+--with-libmcrypt=/usr/lib/libmcrypt  
+  
+make  
+  
+make test  
+  
+make install  
+  
+vim /etc/php.ini    
+  
+#加入extension=mcrypt.so 
+
+
+
+加入系统路径
+
+/usr/local/php5.6.9/bin
+
+ln -s /usr/local/php5.6.9 /usr/local/php
+
+
+PATH=$PATH:/usr/local/php/bin
+export PATH
+
+
+
+
+
+
+
+
+
+
+
