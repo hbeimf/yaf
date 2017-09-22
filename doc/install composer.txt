@@ -1,0 +1,21 @@
+install composer.txt
+http://blog.csdn.net/will5451/article/details/51586990
+
+
+
+curl -sS https://getcomposer.org/installer | php
+
+
+wget https://getcomposer.org/download/1.2.0/composer.phar
+
+mv composer.phar /usr/local/bin/composer
+
+
+
+https://pkg.phpcomposer.com/
+
+
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+
+

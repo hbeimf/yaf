@@ -223,6 +223,13 @@ http://yaf.demo.com/
 
 
 
+======================
+
+php thrift 
+
+https://github.com/leric/php-thrift-package
+
+
 
 
 
