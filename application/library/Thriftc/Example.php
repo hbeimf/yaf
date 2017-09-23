@@ -5,8 +5,10 @@ use Thrift\Transport\TSocket;
 use Thrift\Transport\THttpClient;
 use Thrift\Transport\TBufferedTransport;
 use Thrift\Exception\TException;
-use com\penngo\RegisterServiceClient;
-use com\penngo\LoginServiceClient;
+
+// use com\penngo\RegisterServiceClient;
+// use com\penngo\LoginServiceClient;
+use example\ExampleServiceClient;
 
 class Thriftc_Example {
 
@@ -19,7 +21,7 @@ class Thriftc_Example {
 		    //     $socket = new TSocket('localhost', 7911);
 		    // }
 
-		    $socket = new TSocket('localhost', 7911);
+		    $socket = new TSocket('localhost', 9009);
 		    // $transport = new TBufferedTransport($socket, 1024, 1024);
 		    // $protocol = new TBinaryProtocol($transport);
 		    // $loginProtocol = new TMultiplexedProtocol($protocol, "LoginService");
@@ -32,7 +34,7 @@ class Thriftc_Example {
 		    
 		    // $user = $registerClient->createUser('test', '123456');
 		    // print "user===={$user->id} {$user->name} \n";
-		    
+
 		    $transport->close();
 		} catch (TException $tx) {
 		    print 'TException: '.$tx->getMessage()."\n";
