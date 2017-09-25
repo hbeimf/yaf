@@ -28,33 +28,13 @@ class Thriftc_Example {
 
 			  $transport->open();
 
-			  $client->ping();
-			  print "ping()\n";
 
-			  // $sum = $client->add(1,1);
-			  // print "1+1=$sum\n";
 
-			  // $work = new \tutorial\Work();
-
-			  // $work->op = \tutorial\Operation::DIVIDE;
-			  // $work->num1 = 1;
-			  // $work->num2 = 0;
-
-			  // try {
-			  //   $client->calculate(1, $work);
-			  //   print "Whoa! We can divide by zero?\n";
-			  // } catch (\tutorial\InvalidOperation $io) {
-			  //   print "InvalidOperation: $io->why\n";
-			  // }
-
-			  // $work->op = \tutorial\Operation::SUBTRACT;
-			  // $work->num1 = 15;
-			  // $work->num2 = 10;
-			  // $diff = $client->calculate(1, $work);
-			  // print "15-10=$diff\n";
-
-			  // $log = $client->getStruct(1);
-			  // print "Log: $log->value\n";
+			  // $client->ping();
+			  $msg = new \example\Message(['id'=> 1, 'text'=>"mike"]);
+			  $reply = $client->hello($msg);
+			  print_r($reply);
+			
 
 			  $transport->close();
 
