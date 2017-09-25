@@ -231,7 +231,8 @@ https://github.com/leric/php-thrift-package
 
 
 
-
+php version 7.0.23 
+yaf version 3.0.4 
 
 
 
