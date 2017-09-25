@@ -12,40 +12,27 @@ use example\ExampleServiceClient;
 // http://thrift.apache.org/tutorial/php
 
 class Thriftc_Example {
-
-
 	function demo() {
-		try {
-			  // if (array_search('--http', $argv)) {
-			  //   $socket = new THttpClient('localhost', 8080, '/php/PhpServer.php');
-			  // } else {
-			    $socket = new TSocket('localhost', 9009);
-			  // }
-			  $transport = new TBufferedTransport($socket, 1024, 1024);
-			  $protocol = new TBinaryProtocol($transport);
-			  // $client = new \tutorial\CalculatorClient($protocol);
-			  $client = new \example\ExampleServiceClient($protocol);
-
-			  $transport->open();
-
-
-
-			  // $client->ping();
 			  $msg = new \example\Message(['id'=> 1, 'text'=>"mike"]);
-			  $reply = $client->hello($msg);
+			  $reply = $this->client->hello($msg);
 			  print_r($reply);
-			
-
-			  $transport->close();
-
-			} catch (TException $tx) {
-			  print 'TException: '.$tx->getMessage()."\n";
-			}
 	}
 
+	function __construct() {
+		$socket = new TSocket('localhost', 9009);
+		$this->transport = new TBufferedTransport($socket, 1024, 1024);
+		$protocol = new TBinaryProtocol($this->transport);
+		$this->client = new \example\ExampleServiceClient($protocol);
 
+		$this->transport->open();
+	}
 
+	function __destruct() {
+		$this->transport->close();
+	}
 
+	public $transport = null;
+	public $client = null;
 }
 
 ?>
