@@ -46,6 +46,10 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         array (
             'Elasticsearch\\' => 14,
         ),
+        'D' => 
+        array (
+            'Doctrine\\Common\\Inflector\\' => 26,
+        ),
         'C' => 
         array (
             'Carbon\\' => 7,
@@ -105,6 +109,10 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         array (
             0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/Elasticsearch',
         ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -112,6 +120,13 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
     );
 
     public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Thrift' => 
+            array (
+                0 => __DIR__ . '/..' . '/leric/php-thrift/lib',
+            ),
+        ),
         'S' => 
         array (
             'Symfony\\Component\\VarDumper\\' => 
@@ -123,13 +138,6 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
                 0 => __DIR__ . '/..' . '/symfony/debug',
             ),
         ),
-        'D' => 
-        array (
-            'Doctrine\\Common\\Inflector\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
-            ),
-        ),
     );
 
     public static $classMap = array (
@@ -139,6 +147,9 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         'CholeskyDecomposition' => __DIR__ . '/../..' . '/application/library/Phpexcel/PHPExcel/Shared/JAMA/CholeskyDecomposition.php',
         'DemoController' => __DIR__ . '/../..' . '/application/controllers/Demo.php',
         'EigenvalueDecomposition' => __DIR__ . '/../..' . '/application/library/Phpexcel/PHPExcel/Shared/JAMA/EigenvalueDecomposition.php',
+        'Elastic_Conn' => __DIR__ . '/../..' . '/application/library/Elastic/Conn.php',
+        'Elastic_Mapping' => __DIR__ . '/../..' . '/application/library/Elastic/Mapping.php',
+        'Elastic_Search' => __DIR__ . '/../..' . '/application/library/Elastic/Search.php',
         'EloquentModel' => __DIR__ . '/../..' . '/application/models/Eloquent.php',
         'ErrorController' => __DIR__ . '/../..' . '/application/controllers/Error.php',
         'Http\\CaseInsensitiveArray' => __DIR__ . '/../..' . '/application/library/Http/CaseInsensitiveArray.php',
@@ -348,7 +359,7 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         'Smarty_Config_Source' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_config_source.php',
         'Smarty_Data' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_data.php',
         'Smarty_Internal_CacheResource_File' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_cacheresource_file.php',
-        'Smarty_Internal_CompileBase' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_compilebase.php',
+        'Smarty_Internal_CompileBase' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/CompileBase.php',
         'Smarty_Internal_Compile_Append' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_compile_append.php',
         'Smarty_Internal_Compile_Assign' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_compile_assign.php',
         'Smarty_Internal_Compile_Block' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_compile_block.php',
@@ -417,11 +428,11 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         'Smarty_Internal_SmartyTemplateCompiler' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_smartytemplatecompiler.php',
         'Smarty_Internal_Template' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_template.php',
         'Smarty_Internal_TemplateBase' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_templatebase.php',
-        'Smarty_Internal_TemplateCompilerBase' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_templatecompilerbase.php',
-        'Smarty_Internal_Templatelexer' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_templatelexer.php',
-        'Smarty_Internal_Templateparser' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_templateparser.php',
+        'Smarty_Internal_TemplateCompilerBase' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/TemplateCompilerBase.php',
+        'Smarty_Internal_Templatelexer' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/Templatelexer.php',
+        'Smarty_Internal_Templateparser' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/Templateparser.php',
         'Smarty_Internal_Utility' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_utility.php',
-        'Smarty_Internal_Write_File' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_write_file.php',
+        'Smarty_Internal_Write_File' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/Write/File.php',
         'Smarty_Resource' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_resource.php',
         'Smarty_Resource_Custom' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_resource_custom.php',
         'Smarty_Resource_Recompiled' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_resource_recompiled.php',
@@ -435,14 +446,57 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         'SystemController' => __DIR__ . '/../..' . '/application/controllers/System.php',
         'TPC_yyStackEntry' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_configfileparser.php',
         'TPC_yyToken' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_configfileparser.php',
-        'TP_yyStackEntry' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_templateparser.php',
-        'TP_yyToken' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_templateparser.php',
+        'TP_yyStackEntry' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/Templateparser.php',
+        'TP_yyToken' => __DIR__ . '/../..' . '/application/library/Smarty/Internal/Templateparser.php',
         'Table_Gp_History' => __DIR__ . '/../..' . '/application/library/Table/Gp/History.php',
+        'Table_Gp_Json' => __DIR__ . '/../..' . '/application/library/Table/Gp/Json.php',
         'Table_Gp_List' => __DIR__ . '/../..' . '/application/library/Table/Gp/List.php',
         'Table_System_Account' => __DIR__ . '/../..' . '/application/library/Table/System/Account.php',
         'Table_System_Menu' => __DIR__ . '/../..' . '/application/library/Table/System/Menu.php',
         'Table_System_Role' => __DIR__ . '/../..' . '/application/library/Table/System/Role.php',
         'Table_User' => __DIR__ . '/../..' . '/application/library/Table/User.php',
+        'Thrift\\Base\\TBase' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Base/TBase.php',
+        'Thrift\\ClassLoader\\ThriftClassLoader' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/ClassLoader/ThriftClassLoader.php',
+        'Thrift\\Exception\\TApplicationException' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Exception/TApplicationException.php',
+        'Thrift\\Exception\\TException' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Exception/TException.php',
+        'Thrift\\Exception\\TProtocolException' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Exception/TProtocolException.php',
+        'Thrift\\Exception\\TTransportException' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Exception/TTransportException.php',
+        'Thrift\\Factory\\TBinaryProtocolFactory' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Factory/TBinaryProtocolFactory.php',
+        'Thrift\\Factory\\TCompactProtocolFactory' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Factory/TCompactProtocolFactory.php',
+        'Thrift\\Factory\\TJSONProtocolFactory' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Factory/TJSONProtocolFactory.php',
+        'Thrift\\Factory\\TProtocolFactory' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Factory/TProtocolFactory.php',
+        'Thrift\\Factory\\TStringFuncFactory' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Factory/TStringFuncFactory.php',
+        'Thrift\\Factory\\TTransportFactory' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Factory/TTransportFactory.php',
+        'Thrift\\Protocol\\JSON\\BaseContext' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/JSON/BaseContext.php',
+        'Thrift\\Protocol\\JSON\\ListContext' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/JSON/ListContext.php',
+        'Thrift\\Protocol\\JSON\\LookaheadReader' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/JSON/LookaheadReader.php',
+        'Thrift\\Protocol\\JSON\\PairContext' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/JSON/PairContext.php',
+        'Thrift\\Protocol\\TBinaryProtocol' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/TBinaryProtocol.php',
+        'Thrift\\Protocol\\TBinaryProtocolAccelerated' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/TBinaryProtocolAccelerated.php',
+        'Thrift\\Protocol\\TCompactProtocol' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/TCompactProtocol.php',
+        'Thrift\\Protocol\\TJSONProtocol' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/TJSONProtocol.php',
+        'Thrift\\Protocol\\TProtocol' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Protocol/TProtocol.php',
+        'Thrift\\Serializer\\TBinarySerializer' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Serializer/TBinarySerializer.php',
+        'Thrift\\Server\\TForkingServer' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Server/TForkingServer.php',
+        'Thrift\\Server\\TServer' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Server/TServer.php',
+        'Thrift\\Server\\TServerSocket' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Server/TServerSocket.php',
+        'Thrift\\Server\\TServerTransport' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Server/TServerTransport.php',
+        'Thrift\\Server\\TSimpleServer' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Server/TSimpleServer.php',
+        'Thrift\\StringFunc\\Core' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/StringFunc/Core.php',
+        'Thrift\\StringFunc\\Mbstring' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/StringFunc/Mbstring.php',
+        'Thrift\\StringFunc\\TStringFunc' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/StringFunc/TStringFunc.php',
+        'Thrift\\Transport\\TBufferedTransport' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TBufferedTransport.php',
+        'Thrift\\Transport\\TFramedTransport' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TFramedTransport.php',
+        'Thrift\\Transport\\THttpClient' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/THttpClient.php',
+        'Thrift\\Transport\\TMemoryBuffer' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TMemoryBuffer.php',
+        'Thrift\\Transport\\TNullTransport' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TNullTransport.php',
+        'Thrift\\Transport\\TPhpStream' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TPhpStream.php',
+        'Thrift\\Transport\\TSocket' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TSocket.php',
+        'Thrift\\Transport\\TSocketPool' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TSocketPool.php',
+        'Thrift\\Transport\\TTransport' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Transport/TTransport.php',
+        'Thrift\\Type\\TMessageType' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Type/TMessageType.php',
+        'Thrift\\Type\\TType' => __DIR__ . '/..' . '/leric/php-thrift/lib/Thrift/Type/TType.php',
+        'Thriftc_Example' => __DIR__ . '/../..' . '/application/library/Thriftc/Example.php',
         'Undefined_Smarty_Variable' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_data.php',
         'Upload_Image' => __DIR__ . '/../..' . '/application/library/Upload/Image.php',
         'Upload_Upload' => __DIR__ . '/../..' . '/application/library/Upload/Upload.php',
@@ -451,6 +505,7 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         'Util_Page' => __DIR__ . '/../..' . '/application/library/Util/Page.php',
         'Util_Session' => __DIR__ . '/../..' . '/application/library/Util/Session.php',
         'View' => __DIR__ . '/../..' . '/application/library/View.php',
+        'ZtreeController' => __DIR__ . '/../..' . '/application/controllers/Ztree.php',
         '_smarty_code' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_parsetree.php',
         '_smarty_doublequoted' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_parsetree.php',
         '_smarty_dq_content' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_parsetree.php',
@@ -459,6 +514,11 @@ class ComposerStaticInit1723a5612553d592c4f1914bb10efca9
         '_smarty_tag' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_parsetree.php',
         '_smarty_template_buffer' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_parsetree.php',
         '_smarty_text' => __DIR__ . '/../..' . '/application/library/Smarty/libs/sysplugins/smarty_internal_parsetree.php',
+        'example\\ExampleServiceClient' => __DIR__ . '/../..' . '/application/library/Thriftc/example/ExampleService.php',
+        'example\\ExampleServiceIf' => __DIR__ . '/../..' . '/application/library/Thriftc/example/ExampleService.php',
+        'example\\ExampleService_hello_args' => __DIR__ . '/../..' . '/application/library/Thriftc/example/ExampleService.php',
+        'example\\ExampleService_hello_result' => __DIR__ . '/../..' . '/application/library/Thriftc/example/ExampleService.php',
+        'example\\Message' => __DIR__ . '/../..' . '/application/library/Thriftc/example/Types.php',
         'phpmailerException' => __DIR__ . '/../..' . '/application/library/Mail/class.phpmailer.php',
         'trendClass' => __DIR__ . '/../..' . '/application/library/Phpexcel/PHPExcel/Shared/trend/trendClass.php',
     );

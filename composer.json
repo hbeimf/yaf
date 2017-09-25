@@ -16,7 +16,8 @@
             "application/controllers",
             "application/views",
             "application/plugins",
-            "application/modules"
+            "application/modules",
+            "vendor/leric/php-thrift/lib"
         ]
     }
 
