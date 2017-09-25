@@ -12,6 +12,8 @@ use example\ExampleServiceClient;
 // http://thrift.apache.org/tutorial/php
 
 class Thriftc_Example {
+
+	// http://yaf.demo.com/demo/index
 	function demo() {
 			  $msg = new \example\Message(['id'=> 1, 'text'=>"mike"]);
 			  $reply = $this->client->hello($msg);
