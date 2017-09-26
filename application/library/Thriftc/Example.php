@@ -10,6 +10,7 @@ use Thrift\Exception\TException;
 use example\ExampleServiceClient;
 
 // http://thrift.apache.org/tutorial/php
+// http://thrift.apache.org/tutorial/go
 
 class Thriftc_Example {
 
