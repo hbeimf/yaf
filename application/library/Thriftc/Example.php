@@ -7,7 +7,7 @@ use Thrift\Transport\TBufferedTransport;
 use Thrift\Exception\TException;
 
 
-use example\ExampleServiceClient;
+// use example\ExampleServiceClient;
 
 // http://thrift.apache.org/tutorial/php
 // http://thrift.apache.org/tutorial/go
