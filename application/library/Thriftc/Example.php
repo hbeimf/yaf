@@ -22,7 +22,7 @@ class Thriftc_Example {
 	}
 
 	function __construct() {
-		$socket = new TSocket('localhost', 9009);
+		$socket = new TSocket($this->_host, $this->_port);
 		$this->transport = new TBufferedTransport($socket, 1024, 1024);
 		$protocol = new TBinaryProtocol($this->transport);
 		$this->client = new \example\ExampleServiceClient($protocol);
@@ -36,6 +36,9 @@ class Thriftc_Example {
 
 	public $transport = null;
 	public $client = null;
+
+	private $_host = "localhost";
+	private $_port = 9009;
 }
 
 ?>
