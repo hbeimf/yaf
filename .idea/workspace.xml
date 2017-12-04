@@ -2,7 +2,583 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c02afa83-297f-4315-bb6d-d14ede18f7b5" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/composer.phar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/Thriftc/Example.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/Thriftc/example.thrift" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/Thriftc/example/ExampleService.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/Thriftc/example/Types.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/Thriftc/readme.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/centos_share_dir_vm.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/git_server.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/install composer.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/install_erl.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/install_libiconv.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/install_protoc.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/install_wxWidgets.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/mysql_doc/install-mysql.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/mysql_doc/install_tidb.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/nginx_doc/install_nginx.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/php_doc/install_php7.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/php_doc/install_php_5.6.9.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/redis_doc/install_redis.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/ConnectionPool/StaticConnectionPoolIntegrationTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/Makefile.am" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/Makefile.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/README.apache" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Base/TBase.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/ClassLoader/ThriftClassLoader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Exception/TApplicationException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Exception/TException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Exception/TProtocolException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Exception/TTransportException.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Factory/TBinaryProtocolFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Factory/TCompactProtocolFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Factory/TJSONProtocolFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Factory/TProtocolFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Factory/TStringFuncFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Factory/TTransportFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/JSON/BaseContext.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/JSON/ListContext.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/JSON/LookaheadReader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/JSON/PairContext.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/TBinaryProtocol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/TBinaryProtocolAccelerated.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/TCompactProtocol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/TJSONProtocol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Protocol/TProtocol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Serializer/TBinarySerializer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Server/TForkingServer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Server/TServer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Server/TServerSocket.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Server/TServerTransport.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Server/TSimpleServer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/StringFunc/Core.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/StringFunc/Mbstring.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/StringFunc/TStringFunc.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TBufferedTransport.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TFramedTransport.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/THttpClient.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TMemoryBuffer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TNullTransport.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TPhpStream.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TSocket.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TSocketPool.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Transport/TTransport.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Type/TMessageType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/lib/Thrift/Type/TType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/src/TStringUtils.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/src/Thrift.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/src/autoload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/src/ext/thrift_protocol/config.w32" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/src/ext/thrift_protocol/php_thrift_protocol.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/src/ext/thrift_protocol/php_thrift_protocol.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/test/Makefile.am" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/test/Makefile.in" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/test/Test/Thrift/Fixtures.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/test/Test/Thrift/Protocol/TestTJSONProtocol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/leric/php-thrift/thrift_protocol.ini" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/charts.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/email1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/email2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/email3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/email4.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/email5.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/email6.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_404_option1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_404_option2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_404_option3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_500_option1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_500_option2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_faq.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_image_manager.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_invoice.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_lock.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_pricing_table.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_profile.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/extra_search.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_component.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_dropzone.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_fileupload.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_layout.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_samples.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_validation.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/form_wizard.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/inbox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/inbox_inbox.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_ajax.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_ajax_content_2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_ajax_content_3.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_blank_page.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_boxed_not_responsive.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_boxed_page.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_email.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_horizontal_menu1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_horizontal_menu2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_horizontal_sidebar_menu.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_promo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/layout_sidebar_closed.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/login_soft.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/maps_google.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/maps_vector.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/DT_bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/about-us.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/animate.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/blog.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/blue.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-fileupload.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-modal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-responsive.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-responsive1.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-tag.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-toggle-buttons.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-tree.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap-wysihtml5.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/brown.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/chosen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/clockface.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/colorpicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/coming-soon.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/datepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/daterangepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/datetimepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/default.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/dropzone.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/email.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/error.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/font-awesome.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/fullcalendar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/glyphicons.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/grey.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/halflings.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/inbox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/invoice.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery-ui-1.10.1.custom.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.easy-pie-chart.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.fancybox.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.fileupload-ui.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.gritter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.nestable.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.tagsinput.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jquery.ui.slider.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/jqvmap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/lock.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/login-soft.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/login.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/multi-select-metro.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/news.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/pricing-tables.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/print.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/profile.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/promo.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/purple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/search.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/select2_metro.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/style-metro.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/style-non-responsive.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/style-responsive.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/timeline.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/timepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/css/uniform.default.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/10.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/11.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/KwPYo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ajax-loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/alpha.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/amazon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/animated-overlay.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/avatar1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/avatar1_small.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/avatar2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/avatar3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/behance.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg-input-focus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg-input.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg-opacity.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg-white-lock.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bg/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/blank.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/blogger.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/bstree-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/chosen-sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/datatable-row-openclose.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/deviantart.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/dribbble.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/dropbox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/earth.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/evernote.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/facebook.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fancybox_loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fancybox_overlay.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fancybox_sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/forrst.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/github.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons-white.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons_halflings-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons_halflings-white.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons_halflings.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphicons_halflings.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphiconshalflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphiconshalflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphiconshalflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/glyphiconshalflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/googleplus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/gritter-brown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/gritter-light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/gritter-purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/gritter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/hor-menu-search-close-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/hor-menu-search-close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/hor-menu-search.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/hue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/icon-color-close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/icon-color.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/icon-img-down.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/icon-img-up.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ie-spacer.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/image1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/image2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/image3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/image4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/image5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/img1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/img1_2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/img2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/img3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/img4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/inbox-nav-arrow-blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/instagram.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/item_img.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/item_img1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/jolicloud.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/last-fm.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/linkedin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/logo-big.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/logo_azteca.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/logo_conquer.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/logo_metronic.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/menu-toggler.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/overlay-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/photo1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/photo2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/photo3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/photo4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/photo5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/photo6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/picasa.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/pintrest.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-collapse-icon-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-collapse-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-config-icon-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-config-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-expand-icon-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-expand-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-reload-icon-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-reload-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-remove-icon-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/portlet-remove-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_05.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_06.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_07.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_08.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_09.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_11.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_12.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_13.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_14.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_15.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_16.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/preview_17.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/profile-img.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/profile.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/progressbar.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/remove-icon-small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/rss.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/saturation.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/search-icon-blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/search-icon-brown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/search-icon-purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/search-icon-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/search-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/select2-spinner.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/select2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/select2x2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-menu-arrow-green.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-menu-arrow.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-search-close-blue.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-search-close-brown.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-search-close-light.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-search-close-purple.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-search-close.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-toggler-blue.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-toggler-brown.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-toggler-light.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-toggler-purple.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sidebar-toggler.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/skype.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/social_facebook.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/social_googleplus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/social_linkedin.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/social_rss.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/social_twitter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sort_asc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sort_asc_disabled.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sort_both.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sort_desc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sort_desc_disabled.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/spotify.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/spritemap.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/spritemap@2x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/stumbleupon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/switch.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/syncfusion-icons-white.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/syncfusion-icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/tumblr.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/twitter.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_diagonals-thick_18_b81900_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_diagonals-thick_20_666666_40x40.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_flat_10_000000_40x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_glass_100_f6f6f6_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_glass_100_fdf5ce_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_glass_65_ffffff_1x400.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_gloss-wave_35_f6a828_500x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_highlight-soft_100_eeeeee_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-bg_highlight-soft_75_ffe45c_1x100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-icons_222222_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-icons_228ef1_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-icons_888888_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-icons_ef8c08_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-icons_ffd27a_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/ui-icons_ffffff_256x240.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/vimeo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/vk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/walmart.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/wordpress.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/xing.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/yahoo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/image/youtube.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/DT_bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/additional-methods.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-colorpicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-datepicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-datetimepicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-fileupload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-modal.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-modalmanager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-rtl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-tag.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-timepicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-tree.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap-wysihtml5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/breakpoints.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/breakpoints.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/calendar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/canvas-to-blob.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/charts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/chosen.jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ckeditor.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/clockface.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/coming-soon.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/contact-us.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/date.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/daterangepicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/dropzone.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/excanvas.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/excanvas.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/form-components.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/form-fileupload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/form-samples.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/form-validation.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/form-wizard.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/fullcalendar.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/gallery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/gmaps.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/inbox.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery-1.10.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery-1.8.3.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery-migrate-1.2.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery-ui-1.10.1.custom.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.backstretch.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.blockui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.bootpag.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.bootstrap.wizard.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.cookie.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.countdown.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.dataTables.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.dataTables.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.easy-pie-chart.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.fancybox.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.fileupload-fp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.fileupload-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.fileupload.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.flot.crosshair.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.flot.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.flot.pie.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.flot.resize.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.flot.stack.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.gritter.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.iframe-transport.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.input-ip-address-control-1.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.inputmask.bundle.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.knob.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.multi-select.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.nestable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.pulsate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.slimscroll.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.sparkline.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.tagsinput.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.toggle.buttons.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.ui.widget.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.uniform.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.validate.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.europe.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.germany.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.russia.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.sampledata.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.usa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.vmap.world.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/jquery.xdr-transport.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/load-image.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/lock.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/login-soft.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/login.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/maps-google.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/maps-vector.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/portlet-draggable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/respond.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/respond.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/search.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/select2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/table-advanced.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/table-editable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/table-managed.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/tmpl.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ui-general.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ui-jqueryui.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ui-modals.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ui-nestable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ui-sliders.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/ui-tree.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/media/js/wysihtml5-0.3.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_about.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_blog.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_blog_item.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_calendar.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_coming_soon.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_contact.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_news.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_news_item.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/page_timeline.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/portlet_draggable.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/portlet_general.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/table_advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/table_basic.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/table_editable.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/table_managed.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/table_responsive.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_buttons.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_general.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_jqueryui.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_modals.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_nestable.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_sliders.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_tabs_accordions.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_tiles.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_tree.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/doc/ftpm_112_bwx/ui_typography.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/tests/Doctrine/Tests/Common/Inflector/InflectorTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/tests/Doctrine/Tests/DoctrineTestCase.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/tests/Doctrine/Tests/TestInit.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/yaf.iml" afterPath="$PROJECT_DIR$/.idea/yaf.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Bootstrap.php" afterPath="$PROJECT_DIR$/application/Bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Abstract.php" afterPath="$PROJECT_DIR$/application/controllers/Abstract.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Demo.php" afterPath="$PROJECT_DIR$/application/controllers/Demo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cache/compile_dir/0f2fa21ba47e3fb128ca86da055914572e14cde0.file.index.tpl.php" afterPath="$PROJECT_DIR$/cache/compile_dir/0f2fa21ba47e3fb128ca86da055914572e14cde0.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/application_development.ini" afterPath="$PROJECT_DIR$/conf/application_development.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/composer.json" afterPath="$PROJECT_DIR$/vendor/doctrine/inflector/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php" afterPath="$PROJECT_DIR$/vendor/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.travis.yml" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/CHANGELOG.md" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/configuration.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/configuration.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/connection-pool.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/connection-pool.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/crud.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/crud.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/futures.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/futures.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/namespaces.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/namespaces.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/per-request-configuration.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/per-request-configuration.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/php_json_objects.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/php_json_objects.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/quickstart.asciidoc" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/docs/quickstart.asciidoc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Connections/Connection.php" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Connections/Connection.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Transport.php" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/src/Elasticsearch/Transport.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/YamlRunnerTest.php" afterPath="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch/tests/Elasticsearch/Tests/YamlRunnerTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation/DataCollectorTranslator.php" afterPath="$PROJECT_DIR$/vendor/symfony/translation/DataCollectorTranslator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation/Dumper/IcuResFileDumper.php" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Dumper/IcuResFileDumper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation/Loader/FileLoader.php" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Loader/FileLoader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation/LoggingTranslator.php" afterPath="$PROJECT_DIR$/vendor/symfony/translation/LoggingTranslator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/translation/composer.json" afterPath="$PROJECT_DIR$/vendor/symfony/translation/composer.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +592,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <state relative-caret-position="60">
+              <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -27,6 +603,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/public/index.php" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -103,12 +686,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512377919263</updated>
       <workItem from="1512377922029" duration="13000" />
-      <workItem from="1512377938648" duration="21000" />
+      <workItem from="1512377938648" duration="174000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34000" />
+    <option name="totallyTimeSpent" value="187000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="22" y="43" width="1400" height="837" extended-state="0" />
@@ -133,6 +716,9 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -143,8 +729,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        <state relative-caret-position="60">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding />
         </state>
       </provider>

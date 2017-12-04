@@ -4,7 +4,8 @@
         "illuminate/events": "5.0.*",
         "symfony/debug": "2.6.*",
         "symfony/var-dumper": "2.6.*",
-        "elasticsearch/elasticsearch": "~2.0"
+        "elasticsearch/elasticsearch": "~2.0",
+        "leric/php-thrift": "0.9.*" 
     },
 
     "autoload" : {
@@ -15,7 +16,11 @@
             "application/controllers",
             "application/views",
             "application/plugins",
-            "application/modules"
+            "application/modules",
+            "vendor/leric/php-thrift/lib"
         ]
     }
+
+
+
 }

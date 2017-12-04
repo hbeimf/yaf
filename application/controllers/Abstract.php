@@ -9,8 +9,6 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 	 * 登录、权限判断、初始化
 	 */
 	public function init() {
-		// header("Content-Type:text/html;charset=utf-8");
-		// session_start();
 		$this->request = Yaf_Dispatcher::getInstance()->getRequest();
 		$this->smarty = View::getInstance();
 		$this->_controller = strtolower($this->request->getControllerName());
@@ -80,7 +78,11 @@ abstract class AbstractController extends Yaf_Controller_Abstract {
 		return $menu;
 	}
 
+	// 检查是否登录　
 	protected function is_login() {
+		// 获取当前会话id
+		$sid = session_id();
+
 		// p($_SESSION);exit;
 		if (isset($_SESSION["username"]) && isset($_SESSION['passwd'])) {
 			return true;

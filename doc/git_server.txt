@@ -1,0 +1,100 @@
+http://blog.csdn.net/wave_1102/article/details/47779401
+
+http://blog.csdn.net/hu8hong9/article/details/52851570
+
+git init --bare learngit.git
+
+git clone git@127.0.0.1:/web/git/learngit.git
+
+
+
+git init --bare test.git
+git clone git@127.0.0.1:/git/test.git
+
+
+
+cd /
+mkdir git
+cd git
+git init --bare test.git
+chown -R git:git test.git
+
+=====================================
+创建用户
+
+useradd git
+passwd git
+m**m**
+
+
+useradd user100
+passwd user100
+123456
+
+git clone user100@192.168.5.128:/git/hall_new.git
+
+=======================================
+
+git init --bare hall_new.git
+chown -R git:git hall_new.git
+
+git clone git@127.0.0.1:/git/hall_new.git
+git clone git@192.168.5.128:/git/hall_new.git
+
+
+
+
+
+git push origin master
+
+=====================================
+
+
+git init --bare proxy_new.git
+chown -R git:git proxy_new.git
+
+git clone git@127.0.0.1:/git/proxy_new.git
+
+
+
+git push origin master
+=======================================
+
+git init --bare hall.git
+chown -R git:git hall.git
+git init --bare proxy.git
+chown -R git:git proxy.git
+
+git clone git@127.0.0.1:/git/hall.git
+git clone git@192.168.5.128:/git/proxy.git
+
+
+
+git push origin master
+
+=============================
+
+git init --bare user_center.git
+chown -R git:git user_center.git
+
+git clone git@127.0.0.1:/git/user_center.git
+
+=============================
+
+git init --bare db_proxy.git
+chown -R git:git db_proxy.git
+
+git clone git@127.0.0.1:/git/db_proxy.git
+=========
+
+git init --bare test123.git
+chown -R git:git test123.git
+
+git clone git@127.0.0.1:/git/test123.git
+
+
+
+
+
+
+

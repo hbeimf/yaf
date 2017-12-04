@@ -1,0 +1,33 @@
+http://www.mamicode.com/info-detail-1368777.html
+
+
+
+
+
+
+
+
+    wget http://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.14.tar.gz
+
+    tar xfz libiconv-1.14.tar.gz
+
+    cd libiconv-1.14
+
+    ./configure --prefix=/usr/local/libiconv
+
+    make
+
+    make install
+	
+	
+	
+----------------------------------------------------
+加入系统路径：
+	
+ln -s /usr/local/libiconv/lib/libcharset.so.1 /usr/lib/libcharset.so
+ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so
+
+
+
+ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
+	

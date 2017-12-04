@@ -11,6 +11,9 @@ class DemoController extends AbstractController {
 	// 默认Action
 	// http://yaf.demo.com/demo/index
 	public function indexAction() {
+		$obj = new Thriftc_Example();
+		$obj->demo();
+		exit;
 		// $this->getView()->assign("content", "Hello World");
 		$this->getView()->display('demo/index.html');
 	}
