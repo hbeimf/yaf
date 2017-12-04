@@ -1,7 +1,7 @@
 <?php
 
-// session_id(SID);
-session_id();
+session_id(SID);
+// session_id();
 session_start();
 // echo session_id();
 
