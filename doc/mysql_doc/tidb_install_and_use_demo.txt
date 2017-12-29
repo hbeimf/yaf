@@ -30,6 +30,13 @@ https://pingcap.com/docs-cn/overview/#tidb-%e7%ae%80%e4%bb%8b
 
 https://pingcap.com/blog-cn/tidb-internal-1/
 
+
+
+http://www.jdon.com/artichect/raft.html
+
+http://blog.csdn.net/erlib/article/details/53671783
+
+
 ==================================================
 ubuntu 修改进程 打开文件句柄数 
 ulimit -a 
