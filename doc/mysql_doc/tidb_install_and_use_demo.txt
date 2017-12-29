@@ -26,8 +26,9 @@ tidb文档
 
 https://pingcap.com/docs-cn/sql/user-account-management/
 
+https://pingcap.com/docs-cn/overview/#tidb-%e7%ae%80%e4%bb%8b
 
-
+https://pingcap.com/blog-cn/tidb-internal-1/
 
 ==================================================
 ubuntu 修改进程 打开文件句柄数 
