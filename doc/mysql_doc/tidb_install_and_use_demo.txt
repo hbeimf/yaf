@@ -48,3 +48,10 @@ sudo vim /etc/security/limits.conf
 root soft nofile 65535
 root hard nofile 65535
 
+
+* soft nofile 82920
+* hard nofile 82920
+root soft nofile 82920
+root hard nofile 82920
+
+
