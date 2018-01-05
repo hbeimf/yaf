@@ -31,3 +31,6 @@ ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so
 
 ln -s /usr/local/libiconv/lib/libiconv.so.2 /usr/lib/libiconv.so.2
 	
+centos7找不到库文件时：
+echo '/usr/local/lib' >> /etc/ld.so.conf && /sbin/ldconfig
+

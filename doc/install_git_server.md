@@ -17,6 +17,10 @@ sudo chown -R git:git test123.git
 git clone git@127.0.0.1:/git/test123.git
 
 
+sudo git init --bare doc.git
+sudo chown -R git:git doc.git
+git clone git@127.0.0.1:/git/doc.git
+
 
 sudo git init --bare m.demo.com.git
 sudo chown -R git:git m.demo.com.git
