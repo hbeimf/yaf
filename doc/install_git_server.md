@@ -25,14 +25,19 @@ git clone git@127.0.0.1:/git/doc.git
 sudo git init --bare m.demo.com.git
 sudo chown -R git:git m.demo.com.git
 git clone git@127.0.0.1:/git/m.demo.com.git
+git clone git@192.168.1.97:/git/m.demo.com.git
+
 
 sudo git init --bare hub_server.git
 sudo chown -R git:git hub_server.git
 git clone git@127.0.0.1:/git/hub_server.git
+git clone git@192.168.1.97:/git/hub_server.git
 
 sudo git init --bare proxy_server.git
 sudo chown -R git:git proxy_server.git
 git clone git@127.0.0.1:/git/proxy_server.git
+git clone git@192.168.1.97:/git/proxy_server.git
+
 
 
 
