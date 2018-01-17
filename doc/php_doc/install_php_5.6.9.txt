@@ -96,6 +96,8 @@ make && make install
 
 
 
+
+
 /usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/solr.so
 
 /usr/local/php/etc/php.ini

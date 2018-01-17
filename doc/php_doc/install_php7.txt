@@ -71,13 +71,20 @@ yum install libxml2-devel curl-devel openjpeg openjpeg-devel openjpeg-libs libjp
 
 
 
+装扩展
+
+/usr/local/php/bin/phpize  (phpize 命令是用来准备 PHP 外挂模块的编译环境的)
+./configure --with-php-config=/usr/local/php/bin/php-config
+make && make install
 
 
 
+redis 扩展， php7  要装 较新的，不然会报
+Starting php-fpm [17-Jan-2018 10:15:20] NOTICE: PHP message: PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/php7/lib/php/extensions/no-debug-zts-20151012/redis.so' - /usr/local/php7/lib/php/extensions/no-debug-zts-20151012/redis.so: undefined symbol: compiler_globals in Unknown on line 0
 
+http://pecl.php.net/package/redis
 
-
-
+正在保存至: “redis-3.1.6.tgz”
 
 
 
