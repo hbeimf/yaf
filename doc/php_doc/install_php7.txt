@@ -22,6 +22,12 @@ yum install libxml2-devel curl-devel openjpeg openjpeg-devel openjpeg-libs libjp
 
 ./configure --prefix=/usr/local/php7 --exec-prefix=/usr/local/php7 --bindir=/usr/local/php7/bin --sbindir=/usr/local/php7/sbin --includedir=/usr/local/php7/include --libdir=/usr/local/php7/lib/php --mandir=/usr/local/php7/php/man --with-config-file-path=/usr/local/php7/etc --with-mysql-sock=/var/run/mysql/mysql.sock  --with-mcrypt=/usr/include --with-mhash --with-openssl --with-zlib --enable-zip --enable-mysqlnd --with-mysqli=shared,mysqlnd --with-pdo-mysql=shared,mysqlnd --with-gd --with-iconv --with-zlib --enable-zip --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-mbregex --enable-mbstring --enable-ftp --enable-gd-native-ttf --enable-pcntl --enable-sockets --with-xmlrpc --enable-soap --without-pear --with-gettext --enable-session --with-curl --with-jpeg-dir --with-freetype-dir --enable-opcache --enable-fpm  --with-fpm-user=apache --with-fpm-group=apache --without-gdbm --disable-fileinfo --with-bz2 --enable-maintainer-zts
 
+
+将 --with-fpm-user=apache --with-fpm-group=apache  改成  --with-fpm-user=www-data --with-fpm-group=www-data
+
+./configure --prefix=/usr/local/php7 --exec-prefix=/usr/local/php7 --bindir=/usr/local/php7/bin --sbindir=/usr/local/php7/sbin --includedir=/usr/local/php7/include --libdir=/usr/local/php7/lib/php --mandir=/usr/local/php7/php/man --with-config-file-path=/usr/local/php7/etc --with-mysql-sock=/var/run/mysql/mysql.sock  --with-mcrypt=/usr/include --with-mhash --with-openssl --with-zlib --enable-zip --enable-mysqlnd --with-mysqli=shared,mysqlnd --with-pdo-mysql=shared,mysqlnd --with-gd --with-iconv --with-zlib --enable-zip --enable-inline-optimization --disable-debug --disable-rpath --enable-shared --enable-xml --enable-bcmath --enable-shmop --enable-sysvsem --enable-mbregex --enable-mbstring --enable-ftp --enable-gd-native-ttf --enable-pcntl --enable-sockets --with-xmlrpc --enable-soap --without-pear --with-gettext --enable-session --with-curl --with-jpeg-dir --with-freetype-dir --enable-opcache --enable-fpm  --with-fpm-user=www-data --with-fpm-group=www-data --without-gdbm --disable-fileinfo --with-bz2 --enable-maintainer-zts
+
+
 ============================================
 
     cp php.ini-production /usr/local/php7/etc/php.ini
