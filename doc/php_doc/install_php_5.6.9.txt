@@ -138,8 +138,12 @@ export PATH
 
 
 
+php.ini
 
+upload_max_filesize = 62M
+post_max_size = 68M
 
+sudo /etc/init.d/php-fpm restart
 
 
 
