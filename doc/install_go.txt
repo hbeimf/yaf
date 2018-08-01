@@ -17,5 +17,12 @@ https://www.cnblogs.com/bysir/p/6001443.html
 
 godep help
 
+https://studygolang.com/articles/2147
 
+godep save
+
+godep go run main.go
+godep go build
+godep go install
+godep go test
 
