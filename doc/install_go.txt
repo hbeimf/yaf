@@ -4,8 +4,7 @@ https://www.golangtc.com/download
 
 wget https://www.golangtc.com/static/go/1.9.2/go1.9.2.linux-amd64.tar.gz
 
-export GOPATH=/usr/local/go
-export GOBIN=$GOPATH/bin
+export GOPATH=/erlang
+export GOBIN=/usr/local/go/bin
 export PATH=$PATH:$GOBIN
-
 
