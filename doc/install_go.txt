@@ -1,7 +1,8 @@
 install_go.txt
 https://www.golangtc.com/download
 
-wget https://www.golangtc.com/static/go/1.9.2/go1.9.2.darwin-amd64.tar.gz
+
+wget https://www.golangtc.com/static/go/1.9.2/go1.9.2.linux-amd64.tar.gz
 
 export GOPATH=/usr/local/go
 export GOBIN=$GOPATH/bin
