@@ -8,3 +8,14 @@ export GOPATH=/erlang
 export GOBIN=/usr/local/go/bin
 export PATH=$PATH:$GOBIN
 
+
+
+
+========== godep ======================================
+https://www.cnblogs.com/bysir/p/6001443.html
+
+
+godep help
+
+
+
