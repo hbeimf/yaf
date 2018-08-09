@@ -83,7 +83,12 @@ yum install libxml2-devel curl-devel openjpeg openjpeg-devel openjpeg-libs libjp
 ./configure --with-php-config=/usr/local/php/bin/php-config
 make && make install
 
+./configure --with-php-config=/usr/local/php/bin/php-config --with-pdo-mysql=/usr/local/mysql/
 
+/usr/local/php7/lib/php/extensions/no-debug-zts-20170718/
+/usr/local/php7/lib/php/extensions/no-debug-zts-20170718/
+
+extension=pdo_mysql.so
 
 redis 扩展， php7  要装 较新的，不然会报
 Starting php-fpm [17-Jan-2018 10:15:20] NOTICE: PHP message: PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/php7/lib/php/extensions/no-debug-zts-20151012/redis.so' - /usr/local/php7/lib/php/extensions/no-debug-zts-20151012/redis.so: undefined symbol: compiler_globals in Unknown on line 0
