@@ -1,0 +1,65 @@
+https://blog.csdn.net/xiaohuozi_2016/article/details/54743992
+https://www.cnblogs.com/vincedotnet/p/4013099.html
+=========================================================
+https://www.linuxidc.com/Linux/2016-09/134963.htm
+
+1、VirtualBox安装完Ubuntu后，默认应该是开启一块网卡，连接方式根据宿主电脑的连接方式来（如果物理机是通过有线上网，那么需要使用NAT网络连接方式，如果是无线网络，那么需要使用桥接方式上网），该网卡负责虚拟机的上网。
+
+2、添加一块网卡，连接方式选择仅主机（Host-Only）适配器。
+
+3、进入ubuntu系统，执行ifconfig -a，查看当前网卡信息，根据HWaddr字段查看是否和VirtualBox里面看到的两个网卡对应
+
+ifconfig -a
+enp0s3    Link encap:Ethernet  HWaddr 08:00:25:59:f2:aa
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe59:f2aa/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:17 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:2619 (2.6 KB)  TX bytes:2625 (2.6 KB)
+
+enp0s8    Link encap:Ethernet  HWaddr 08:00:25:45:a1:25
+          inet addr:192.168.10.11  Bcast:192.168.10.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe45:a125/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:765 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:533 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:74156 (74.1 KB)  TX bytes:86182 (86.1 KB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:77 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:77 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:34601 (34.6 KB)  TX bytes:34601 (34.6 KB)
+
+4、可以看到enp0s8是我们添加的Host-Only网卡信息，上面已经是配置好后的信息，已经有了静态ip了。如果没有配置的情况下，是看不到相应的ip信息。
+
+5、开始配置静态ip
+
+sudo vim /etc/network/interfaces
+
+auto enp0s8
+iface enp0s8 inet static
+address 192.168.10.11
+netmask 255.255.255.0
+
+sudo /etc/init.d/networking restart
+
+这里已经配置好了静态ip
+
+6、配置dns服务
+
+sudo vim /etc/resolv.conf
+
+添加
+nameserver 223.5.5.5（这里填写一个公共dns解析ip地址）
+sudo /etc/init.d/networking restart
+
+到这里差不多是可以了，如果还是不行，可以重启（万能操作）试一下。
+
+
