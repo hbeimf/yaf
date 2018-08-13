@@ -52,6 +52,14 @@ sudo /etc/init.d/networking restart
 
 这里已经配置好了静态ip
 
+
+sudo vim /etc/network/interfaces
+auto eth1
+iface eth1 inet static
+address 192.168.1.157
+netmask 255.255.255.0
+
+
 6、配置dns服务
 
 sudo vim /etc/resolv.conf
