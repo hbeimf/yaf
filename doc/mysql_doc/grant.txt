@@ -1,0 +1,47 @@
+grant.txt
+
+
+grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;
+
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'youpassword' WITH GRANT OPTION;
+grant all privileges on *.* to 'root'@'%' identified by 'youpassword' with grant option;
+
+grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;
+grant all privileges on *.* to root@'%' identified by '123456';
+
+
+flush privileges;
+
+
+mysql -uroot -p123456 -h192.168.1.145 
+
+telnet 192.168.1.145 3306
+
+
+sudo netstat -nplt | grep mysql
+
+ERROR 2003 (HY000): Can't connect to MySQL server on '192.168.1.111' (111)
+show variables like 'bind_address';
+修改
+/etc/mysql/my.cnf
+注释掉 bind-address = 127.0.0.1
+
+
+
+https://blog.csdn.net/zjiang1994/article/details/52585710
+
+
+=============================================================
+https://blog.csdn.net/coolhty/article/details/8946317
+Mysql 5.6 Can't find messagefile '/usr/share/mysql/errmsg.sys'解决方法
+
+将源码包里面的sql/share/english/errmsg.sys复制到/usr/share/mysql/errmsg.sys
+
+sudo cp ./sql/share/english/errmsg.sys /usr/share/mysql/errmsg.sys
+
+
+
+
+

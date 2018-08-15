@@ -11,7 +11,9 @@ F:\work
 /mnt/hgfs/work
 
 
+ubuntu 
 
 
+sudo mount -t vboxsf shared  /mnt/shared
 
 
