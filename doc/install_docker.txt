@@ -6,9 +6,6 @@ runoob@runoob:~$ wget -qO- https://get.docker.com/ | sh
 runoob@runoob:~$ sudo service docker start
 
 
-
-
-
 install mysql  =========================================
 http://www.runoob.com/docker/docker-install-mysql.html
 https://www.cnblogs.com/baolong/p/5763412.html
@@ -19,52 +16,6 @@ $ cd ~/mysql
 $ docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
 
 $ docker exec -it mymysql bash
-
-
-
-install nginx ============================================
-http://www.runoob.com/docker/docker-install-nginx.html
-
-https://blog.csdn.net/wangfei0904306/article/details/77623400
-
-
-$ docker pull nginx
-$ mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf
-$ docker images nginx
-$ cd ~/nginx
-$ docker run -p 80:80 --name mynginx1 -v $PWD/www:/www -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf -v $PWD/logs:/wwwlogs  -d nginx
-
-$ docker run -p 80:80 --name mynginx123 -v $PWD/www:/www -v $PWD/conf/:/etc/nginx/ -v $PWD/logs:/wwwlogs  -d nginx
-
-命令说明：
--p 80:80：将容器的80端口映射到主机的80端口
---name mynginx：将容器命名为mynginx
--v $PWD/www:/www：将主机中当前目录下的www挂载到容器的/www
--v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf：将主机中当前目录下的nginx.conf挂载到容器的/etc/nginx/nginx.conf
--v $PWD/logs:/wwwlogs：将主机中当前目录下的logs挂载到容器的/wwwlogs
-
-
-docker run   --name myNginx001   -d -p 80:80   -v $PWD/www:/usr/share/nginx/html   nginx
-$ docker exec -it myNginx001 bash
-
-docker run \
- -p 81:80 \
- --name mynginx003 \
- -v $PWD/www:/www \
- -v $PWD/conf/:/etc/nginx/ \
- -v $PWD/logs:/wwwlogs  \
- -d nginx
-
-
-
-docker run \
-  --name myNginx \
-  -d -p 80:80 \
-  -v /usr/docker/myNginx/html:/usr/share/nginx/html \
-  -v /etc/docker/myNginx/nginx.conf:/etc/nginx/nginx.conf:ro \
-  -v /etc/docker/myNginx/conf.d:/etc/nginx/conf.d \
-  nginx
-
 
 
 install php ===========================
@@ -79,10 +30,7 @@ mkdir -p ~/docker/nginx/conf.d
 
 1、启动php镜像
 
-docker run -p 9000:9000 --name myphp \
--v ~/docker/www/:/var/www/html/ \
---privileged=true \
--d php:7.2.8-fpm
+docker run -p 9000:9000 --name myphp -v ~/docker/www/:/var/www/html/ --privileged=true -d php:7.2.8-fpm
  
 #查看php镜像的ip地址
 docker inspect --format='{{.NetworkSettings.IPAddress}}' myphp
@@ -92,7 +40,7 @@ docker inspect --format='{{.NetworkSettings.IPAddress}}' myphp
  
 #修改default.conf配置文件，使fastcgi_pass的值为 172.17.0.2:9000
  
-vim /docker/nginx/conf.d/default.conf
+vim ~/docker/nginx/conf.d/default.conf
 
 server {
   listen  80 default_server;
@@ -119,11 +67,7 @@ fastcgi_pass 172.17.0.2:9000;
 
 2、启动nginx镜像
 
-docker run -p 80:80 --name mynginx \
--v ~/docker/www:/usr/share/nginx/html \
--v ~/docker/nginx/conf.d:/etc/nginx/conf.d \
---privileged=true \
--d nginx
+docker run -p 80:80 --name mynginx -v ~/docker/www:/usr/share/nginx/html -v ~/docker/nginx/conf.d:/etc/nginx/conf.d --privileged=true -d nginx
 
 
 echo "<?php phpinfo();" > ~/docker/www/info.php
