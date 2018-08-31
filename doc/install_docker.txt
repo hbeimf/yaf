@@ -75,3 +75,8 @@ echo "<?php phpinfo();" > ~/docker/www/info.php
 
 http://localhost/info.php
 
+
+
+
+docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+
