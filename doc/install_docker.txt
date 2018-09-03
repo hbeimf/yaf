@@ -93,3 +93,50 @@ docker commit 6b535a08795a php-gd
  docker run -p 9001:9000 --name myphp -v ~/docker/www/:/var/www/html/ --privileged=true -d php-gd
 
 
+
+
+
+
+
+install gitlab ===========================
+https://www.cnblogs.com/gdlinux/p/6760919.html
+
+docker pull gitlab/gitlab-ce
+
+mkdir -p ~/gitlab/config
+mkdir -p ~/gitlab/logs
+mkdir -p ~/gitlab/data
+
+
+docker run -d -h gitlab -p 443:443 -p 8081:80  -p 2222:22 --name gitlab --restart always  \
+-v ~/gitlab/config:/etc/gitlab \
+-v ~/gitlab/logs:/var/log/gitlab \
+-v  ~/gitlab/data:/var/opt/gitlab  \
+gitlab/gitlab-ce
+
+
+（4）修改gitlab容器的配置文件
+docker exec -it gitlab vi /etc/gitlab/gitlab.rb
+ 
+修改为服务器的ip地址：
+13 external_url 'http://115.159.84.173'
+ 
+然后重启容器gitlab
+docker restart  gitlab
+ 
+（5）访问gitab  http://115.159.84.173
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
