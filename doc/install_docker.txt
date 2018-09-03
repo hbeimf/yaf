@@ -100,6 +100,7 @@ docker commit 6b535a08795a php-gd
 
 install gitlab ===========================
 https://www.cnblogs.com/gdlinux/p/6760919.html
+https://www.cnblogs.com/xishuai/p/ubuntu-install-gitlab-with-docker.html
 
 docker pull gitlab/gitlab-ce
 
@@ -115,11 +116,20 @@ docker run -d -h gitlab -p 443:443 -p 8081:80  -p 2222:22 --name gitlab --restar
 gitlab/gitlab-ce
 
 
+docker run -d -h gitlab -p 443:443 -p 80:80  -p 2222:22 --name gitlab  \
+-v ~/gitlab/config:/etc/gitlab \
+-v ~/gitlab/logs:/var/log/gitlab \
+-v  ~/gitlab/data:/var/opt/gitlab  \
+gitlab/gitlab-ce
+
+
 （4）修改gitlab容器的配置文件
 docker exec -it gitlab vi /etc/gitlab/gitlab.rb
  
 修改为服务器的ip地址：
 13 external_url 'http://115.159.84.173'
+external_url 'http://192.168.1.157:8081'
+
  
 然后重启容器gitlab
 docker restart  gitlab
@@ -129,8 +139,8 @@ docker restart  gitlab
 
 
 
-
-
+vim /srv/gitlab/config/gitlab.rb
+gitlab_rails['gitlab_shell_ssh_port'] = 2222
 
 
 
