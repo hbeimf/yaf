@@ -85,3 +85,11 @@ http://localhost/info.php
 
 docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 docker-php-ext-install gd 
+
+docker commit 481d36eb8101 php-source-list
+docker commit 6b535a08795a php-gd
+
+
+ docker run -p 9001:9000 --name myphp -v ~/docker/www/:/var/www/html/ --privileged=true -d php-gd
+
+
