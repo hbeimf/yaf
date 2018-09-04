@@ -116,7 +116,7 @@ docker run -d -h gitlab -p 443:443 -p 8081:80  -p 2222:22 --name gitlab --restar
 gitlab/gitlab-ce
 
 
-docker run -d -h gitlab -p 443:443 -p 80:80  -p 2222:22 --name gitlab  \
+docker run -d -h gitlab -p 443:443 -p 8081:80  -p 2222:22 --name gitlab  \
 -v ~/gitlab/config:/etc/gitlab \
 -v ~/gitlab/logs:/var/log/gitlab \
 -v  ~/gitlab/data:/var/opt/gitlab  \
@@ -125,23 +125,28 @@ gitlab/gitlab-ce
 
 （4）修改gitlab容器的配置文件
 docker exec -it gitlab vi /etc/gitlab/gitlab.rb
- 
+
+gitlab_rails['gitlab_shell_ssh_port'] = 2222
+
+
+http://192.168.1.157:8081
+
 修改为服务器的ip地址：
-13 external_url 'http://115.159.84.173'
-external_url 'http://192.168.1.157:8081'
+external_url 'http://127.0.0.1:8081'
+
 
  
 然后重启容器gitlab
 docker restart  gitlab
  
-（5）访问gitab  http://115.159.84.173
+（5）访问gitab  http://127.0.0.1:8081
+首次访问是设置root的密码
 
 
 
+https://blog.csdn.net/u013377887/article/details/73717729
 
-vim /srv/gitlab/config/gitlab.rb
-gitlab_rails['gitlab_shell_ssh_port'] = 2222
-
+cd /opt/gitlab/embedded/service/gitlab-rails/config 
 
 
 
