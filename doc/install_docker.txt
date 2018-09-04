@@ -150,7 +150,11 @@ cd /opt/gitlab/embedded/service/gitlab-rails/config
 
 
 
-
+docker run -d -h gitlab -p 443:443 -p 8081:80  -p 2222:22 --name gitlab  \
+-v ~/gitlab/config:/etc/gitlab \
+-v ~/gitlab/logs:/var/log/gitlab \
+-v  ~/gitlab/data:/var/opt/gitlab  \
+gitlab_v1
 
 
 
