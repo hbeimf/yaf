@@ -1,0 +1,25 @@
+https://blog.csdn.net/u010064206/article/details/76714208
+
+
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+
+
+nvm ls-remote
+
+
+nvm install v10.10.0
+
+
+
+npm install 
+
+# clone the project
+git clone https://github.com/PanJiaChen/vue-element-admin.git
+
+# install dependency
+npm install
+
+# develop
+npm run dev
+
