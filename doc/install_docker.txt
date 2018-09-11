@@ -169,6 +169,8 @@ $ docker pull hbeimf/mysql:5.6
 $ mkdir -p ~/docker/mysql/data ~/docker/mysql/logs ~/docker/mysql/conf  ~/docker/www ~/docker/nginx/conf.d
 
 $ docker run -p 9001:9000 --name myphp -v ~/docker/www/:/var/www/html/ --privileged=true -d hbeimf/php:7.2.0-fpm
+$ docker run -p 9001:9000 --name myphp -v ~/docker/www/:/var/www/html/ --privileged=true -d hbeimf/php:7.2.0-fpm-pdo
+
 $ docker run -p 8088:80 --name mynginx -v ~/docker/www:/usr/share/nginx/html -v ~/docker/nginx/conf.d:/etc/nginx/conf.d --privileged=true -d nginx
 $ docker run -p 3307:3306 --name mymysql -v ~/docker/mysql/conf:/etc/mysql/conf.d -v ~/docker/mysql/logs:/logs -v ~/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
 
@@ -185,26 +187,37 @@ docker inspect --format='{{.NetworkSettings.IPAddress}}' myphp
 vim ~/docker/nginx/conf.d/default.conf
 
 server {
-  listen  80 default_server;
-  server_name _;
-  root   /usr/share/nginx/html;
- 
-  location / {
-   index index.html index.htm index.php;
-   autoindex off;
-  }
-  location ~ \.php(.*)$ {
-   root   /var/www/html/;
-   #fastcgi_pass 172.17.0.2:9000;
-   fastcgi_pass {$IP}:9000;
-   fastcgi_index index.php;
-   fastcgi_split_path_info ^((?U).+\.php)(/?.+)$;
-   fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-   fastcgi_param PATH_INFO $fastcgi_path_info;
-   fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
-   include  fastcgi_params;
-  }
+    listen           80;
+    server_name      code.demo.com;
+    root   "/usr/share/nginx/html/code/public";
+    index            index.php index.html index.htm;
+    try_files        $uri $uri/ @rewrite;
+
+    location @rewrite {
+        rewrite ^/(.*)$ /index.php?_url=/$1;
+    }
+
+    location ~ \.php {
+        root   /var/www/html/code/public;
+        fastcgi_pass                  172.17.0.2:9000;
+        fastcgi_index                 /index.php;
+        fastcgi_split_path_info       ^(.+\.php)(/.+)$;
+        fastcgi_param PATH_INFO       $fastcgi_path_info;
+        fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include                       fastcgi_params;
+    }
+
+    location ~* ^/(css|img|js|flv|swf|download)/(.+)$ {
+    }
+
+    location ~ /\.ht {
+         deny all;
+    }
+        # error_log /usr/local/nginx/logs/code_demo_com_error.log;
+        error_log /usr/share/nginx/html/code_demo_com_error.log;
 }
+
  
 echo "<?php phpinfo();" > ~/docker/www/info.php
 
@@ -212,5 +225,9 @@ echo "<?php phpinfo();" > ~/docker/www/info.php
 http://localhost/info.php
 
 
+http://code.demo.com:8088/api/test
 
 
+docker-php-ext-install bcmath bz2 calendar iconv intl mbstring mysqli opcache pdo_mysql pdo_pgsql pgsql soap zip
+
+docker-php-ext-install   pdo_mysql 
