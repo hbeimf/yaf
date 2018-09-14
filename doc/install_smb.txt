@@ -1,0 +1,72 @@
+https://blog.csdn.net/u012478275/article/details/78876181
+
+1、安装和卸载samba命令：
+
+sudo apt-get install samba samba-common
+
+sudo apt-get autoremove samba
+
+
+
+2、建立samba访问目录,并且增加目录的权限
+
+mkdir /home/myshare  
+
+chmod 777 /home/myshare
+
+
+
+3、samba服务添加用户（假设我的ubuntu用户名为：test）
+
+sudo smbpasswd  -a   test  （输入访问Samba的密码）
+
+
+
+4、配置smb.conf
+
+sudo vi /etc/samba/smb.conf
+
+在文件最后添加
+
+[myshare ]
+comment=This is samba dir
+path=/home/myshare  
+create mask=0755
+directory mask=0755
+writeable=yes
+valid users=test
+browseable=yes
+
+
+
+path为你上面建立的共享目录/home/myshare  ，
+
+valid users为你访问Samba的用户test
+
+其他条件写读和创建文件及文件夹的权限
+
+
+
+5、启动、停止、重启Samba服务：
+
+启动Samba服务器只需执行如下命令：
+sudo /etc/init.d/samba start
+
+关闭Samba服务器：
+sudo /etc/init.d/samba stop
+
+
+
+重启Samba服务
+
+sudo /etc/init.d/smbd restart   或者  sudo service smbd restart 
+
+注：修改了smb.conf配置文件，需要重启Samba服务才生效
+
+
+
+6、windows下访问共享目录：
+
+Win+R或者点击运行，输入\\192.168.0.10\myshare  
+
+输入你ubuntu的用户名和访问Samba的密码，就能访问共享目录myshare了。
