@@ -70,3 +70,7 @@ sudo /etc/init.d/smbd restart   或者  sudo service smbd restart
 Win+R或者点击运行，输入\\192.168.0.10\myshare  
 
 输入你ubuntu的用户名和访问Samba的密码，就能访问共享目录myshare了。
+
+
+\\192.168.1.186\myshare
+
