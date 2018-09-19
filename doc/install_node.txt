@@ -23,3 +23,10 @@ npm install
 # develop
 npm run dev
 
+
+
+nvm -help 
+nvm ls-remote
+nvm use v10.10.0
+npm run dev
+
