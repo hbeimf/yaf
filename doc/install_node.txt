@@ -30,3 +30,4 @@ nvm ls-remote
 nvm use v10.10.0
 npm run dev
 
+https://panjiachen.github.io/vue-element-admin-site/zh/guide/
