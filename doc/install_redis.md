@@ -31,3 +31,20 @@ OK
 redis> get foo
 "bar"
 
+
+
+======================================================================
+
+http://www.runoob.com/docker/docker-install-redis.html
+
+
+$ docker pull  redis:3.2
+
+$ mkdir -p /redis /redis/data
+
+$ docker run -p 6379:6379 -v /redis/data:/data  -d redis:3.2 redis-server --appendonly yes
+
+
+# docker exec -it 8f94ca4b0631 redis-cli
+
+
