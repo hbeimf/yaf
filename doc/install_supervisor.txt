@@ -1,0 +1,86 @@
+https://blog.csdn.net/u012374229/article/details/47158435/
+
+
+sudo apt-get install supervisor
+
+
+
+/etc/supervisor/conf.d/
+
+vim /etc/supervisor/conf.d/kuaisan.conf
+
+[program:kuaisan]
+command=/usr/local/php/bin/php /cpsite/code/artisan kuaisan:trend
+autostart=true                ; 随着supervisord的启动而启动
+autorestart=true              ; 自动重启。。当然要选上了
+
+
+supervisorctl reload
+supervisorctl start kuaisan
+
+======================================================
+
+[program:meta.txn.recover.on.error]
+command=/cas/bin/meta.txn.recover.on.error ; 被监控的进程路径
+numprocs=1                    ; 启动几个进程
+directory=/cas/bin                ; 执行前要不要先cd到目录去，一般不用
+autostart=true                ; 随着supervisord的启动而启动
+autorestart=true              ; 自动重启。。当然要选上了
+startretries=10               ; 启动失败时的最多重试次数
+exitcodes=0                 ; 正常退出代码（是说退出代码是这个时就不再重启了吗？待确定）
+stopsignal=KILL               ; 用来杀死进程的信号
+stopwaitsecs=10               ; 发送SIGKILL前的等待时间
+redirect_stderr=true          ; 重定向stderr到stdout
+stdout_logfile=logfile        ; 指定日志文件
+--------------------- 
+
+
+常用命令: 
+supervisorctl start programxxx，启动某个进程
+
+supervisorctl restart programxxx，重启某个进程
+
+supervisorctl stop groupworker: ，重启所有属于名为groupworker这个分组的进程(start,restart同理)
+
+supervisorctl stop all，停止全部进程，注：start、restart、stop都不会载入最新的配置文件。
+
+supervisorctl reload，载入最新的配置文件，停止原有进程并按新的配置启动、管理所有进程。
+
+supervisorctl update，根据最新的配置文件，启动新配置或有改动的进程，配置没有改动的进程不会受影响而重启。
+
+supervisor启动和停止的日志文件存放在/var/log/supervisor/supervisord.log
+--------------------- 
+
+==================================================================================================
+https://www.cnblogs.com/redirect/p/6599489.html
+
+3.1. 启动supervisord
+$supervisord -c /etc/supervisor/supervisord.conf
+3.2. 关闭supervisord
+$supervisorctl shutdown
+3.3. 重新载入配置
+$supervisorctl reload
+3.4.更新新的配置到supervisord    
+$supervisorctl update  
+3.5.启动某个进程(program_name=你配置中写的程序名称)
+$supervisorctl start program_name  
+3.6.查看正在守候的进程
+$supervisorctl  
+3.7.停止某一进程 (program_name=你配置中写的程序名称)
+$supervisorctl stop program_name  
+3.8.重启某一进程 (program_name=你配置中写的程序名称)
+$supervisorctl restart program_name  
+3.9.停止全部进程
+$supervisorctl stop all  
+注意：显示用stop停止掉的进程，用reload或者update都不会自动重启。
+ 
+
+
+
+
+
+
+
+
+
+
