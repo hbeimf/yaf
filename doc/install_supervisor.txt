@@ -14,6 +14,13 @@ command=/usr/local/php/bin/php /cpsite/code/artisan kuaisan:trend
 autostart=true                ; 随着supervisord的启动而启动
 autorestart=true              ; 自动重启。。当然要选上了
 
+[program:kuaisan-trend]
+command=/usr/local/php/bin/php /cpsite/code/artisan kuaisan:trend
+autostart=true                ; 随着supervisord的启动而启动
+autorestart=true              ; 自动重启。。当然要选上了
+process_name=快三趋势计算
+
+
 
 supervisorctl reload
 supervisorctl start kuaisan
