@@ -1,0 +1,20 @@
+https://blog.csdn.net/diligent_lee/article/details/79098302
+
+
+4.安装docker-compose
+(1).运行以下命令下载最新版本的docker-compose：
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose  
+
+(2).更改二进制文件的权限，使其能够运行：
+sudo chmod +x /usr/local/bin/docker-compose
+
+(3).测试安装：
+docker-compose --version
+
+
+安装rap2: 
+https://github.com/Rynxiao/rap2-docker.git
+
+
+
+
