@@ -71,3 +71,5 @@ sudo /etc/init.d/networking restart
 到这里差不多是可以了，如果还是不行，可以重启（万能操作）试一下。
 
 
+ssh-keygen -t rsa -C "5622876@qq.com"
+cat ~/.ssh/id_rsa.pub

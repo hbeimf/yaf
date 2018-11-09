@@ -1,0 +1,46 @@
+https://www.kancloud.cn/tmtbe/sd/403343
+
+
+git clone https://github.com/tmtbe/swoole-docker.git
+
+
+$ cd swoole-docker/SD
+
+
+下载模板
+git clone https://github.com/tmtbe/swoole-docker.git
+找到SD文件夹，将你的composer.json拷贝进去覆盖。
+
+制作镜像
+进入SD文件目录，执行下面代码。
+docker build -t mysd .
+注意最后的一个‘.’，不要忽略。
+
+运行镜像
+docker run mysd
+挂载代码目录
+将你的代码拷贝到/apps目录下，或者相应的做些调整，我们只需要挂载src目录。
+docker run -v /apps/src:/apps/src mysd
+
+
+
+$ mkdir -p /web/sd/apps/src
+
+$ docker run -v /web/sd/apps/src:/apps/src mysd
+
+
+
+docker tag IMAGEID(镜像id) REPOSITORY:TAG（仓库：标签）
+
+#例子
+docker tag ca1b6b825289 registry.cn-hangzhou.aliyuncs.com/xxxxxxx:v1.0
+
+
+
+docker run  -ti -p 9501:9501 -v `pwd`:/root/ -d cmptech/auto_cmp_php_docker_server php7 /root/test_swoole_server.php
+
+
+
+
+
+
